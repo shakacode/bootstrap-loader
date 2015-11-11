@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-loader",
+  "version": "0.0.1",
+  "description": "Boostrap for Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakacode/bootstrap-loader.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "twitter"
+  ],
+  "author": "justin808",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shakacode/bootstrap-loader/issues"
+  },
+  "homepage": "https://github.com/shakacode/bootstrap-loader#readme"
+}
