@@ -1,21 +1,53 @@
-import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml';
-import stripComments from 'strip-json-comments';
 
 import fileExists from './utils/fileExists';
+import parseConfig from './utils/parseConfig';
+import selectModules from './utils/selectModules';
+import selectUserModules from './utils/selectUserModules';
+import getEnvProp from './utils/getEnvProp';
 
+/* ======= Fetching config */
 
 const CONFIG_FILE = '.bootstraprc';
 
-const configDefaultPath = path.resolve(__dirname, `../${CONFIG_FILE}`);
-const configUserPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
+const defaultConfigPath = path.resolve(__dirname, `../${CONFIG_FILE}`);
+const userConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 
-const configPath = (
-  fileExists(configUserPath) ? configUserPath : configDefaultPath
-);
+const isUserConfig = fileExists(userConfigPath);
 
-const configContent = stripComments(fs.readFileSync(configPath, 'utf8'));
-const config = yaml.safeLoad(configContent);
+const defaultConfig = parseConfig(defaultConfigPath);
+const rawConfig = isUserConfig ? parseConfig(userConfigPath) : defaultConfig;
 
-export default config;
+
+/* ======= Exports */
+
+export const bootstrapVersion = parseInt(rawConfig.bootstrapVersion, 10);
+export const loglevel = rawConfig.loglevel;
+
+export function createConfig({ bootstrapPath, extractStyles }) {
+  if (isUserConfig) {
+    return {
+      bootstrapPath,
+      bootstrapVersion,
+      loglevel,
+      useFlexbox: rawConfig.useFlexbox,
+      preBootstrapCustomizations: rawConfig.preBootstrapCustomizations,
+      bootstrapCustomizations: rawConfig.bootstrapCustomizations,
+      extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
+      styleLoaders: rawConfig.styleLoaders,
+      styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
+      scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+    };
+  }
+
+  return {
+    bootstrapPath,
+    bootstrapVersion,
+    loglevel,
+    useFlexbox: defaultConfig.useFlexbox,
+    extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
+    styleLoaders: defaultConfig.styleLoaders,
+    styles: selectModules(defaultConfig.styles),
+    scripts: selectModules(defaultConfig.scripts),
+  };
+}

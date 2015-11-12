@@ -1,27 +1,38 @@
 ---
-verbose: false
+# Output debugging info
+loglevel: 'debug'
 
+# Major version of Bootstrap: 3 or 4
+bootstrapVersion: 4
+
+# If Bootstrap version 4 is used - turn on/off flexbox model
 useFlexbox: true
 
+# Webpack loaders, order matters
 styleLoaders:
   - style
   - css
   - sass
 
+# Extract styles to stand-alone css file
+# Different settings for different environments can be used,
+# It depends on value of NODE_ENV environment variable
+# This param can also be set in webpack config:
+#   entry: 'bootstrap?extractStyles!./app'
 extractStyles: false
 # env:
 #   development:
-#     extractText: false
+#     extractStyles: false
 #   production:
-#     extractText: true
+#     extractStyles: true
 
+# preBootstrapCustomizations: ./path/to/preBootstrapCustomizations.scss
 # bootstrapCustomizations: ./path/to/bootstrapCustomizations.scss
 
 ### Bootstrap styles
 styles:
 
-  # Core variables and mixins
-  variables: true
+  # Mixins
   mixins: true
 
   # Reset and dependencies

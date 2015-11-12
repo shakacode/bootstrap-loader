@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-loader",
   "version": "0.0.1",
-  "description": "Boostrap 4 for Webpack",
+  "description": "Boostrap for Webpack",
   "main": "lib/bootstrap.loader.js",
   "scripts": {
     "start": "npm run lint && npm run clean && npm run dev",
@@ -29,9 +29,11 @@
   },
   "homepage": "https://github.com/shakacode/bootstrap-loader#readme",
   "dependencies": {
+    "chalk": "^1.1.1",
     "js-yaml": "^3.4.3",
     "loader-utils": "^0.2.11",
     "resolve": "^1.1.6",
+    "semver": "^5.0.3",
     "strip-json-comments": "^1.0.4"
   },
   "devDependencies": {

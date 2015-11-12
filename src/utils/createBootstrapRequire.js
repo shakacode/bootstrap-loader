@@ -1,6 +1,11 @@
 import path from 'path';
 
-export default (module, bootstrapPath) => {
-  const bootstrapModule = path.join(bootstrapPath, 'dist', 'js', 'umd', module);
+export default (module, bootstrapVersion, bootstrapPath) => {
+  const scriptsPath = (
+    parseInt(bootstrapVersion, 10) === 3 ?
+    ['assets', 'javascripts', 'bootstrap'] :
+    ['dist', 'js', 'umd']
+  );
+  const bootstrapModule = path.join(bootstrapPath, ...scriptsPath, module);
   return `require (${JSON.stringify(bootstrapModule)});`;
 };
