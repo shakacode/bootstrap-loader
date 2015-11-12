@@ -1,14 +1,22 @@
 {
   "name": "bootstrap-loader",
   "version": "0.0.1",
-  "description": "Boostrap for Webpack",
-  "main": "index.js",
+  "description": "Boostrap 4 for Webpack",
+  "main": "lib/bootstrap.loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run lint && npm run clean && npm run dev",
+    "dev": "scripts/dev",
+    "build": "scripts/build",
+    "lint": "scripts/lint",
+    "clean": "scripts/clean",
+    "prerelease": "npm run lint && npm run clean && npm run build",
+    "release:patch": "scripts/release patch",
+    "release:minor": "scripts/release minor",
+    "release:major": "scripts/release major"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shakacode/bootstrap-loader.git"
+    "url": "https://github.com/shakacode/bootstrap-loader.git"
   },
   "keywords": [
     "bootstrap",
@@ -19,5 +27,18 @@
   "bugs": {
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
-  "homepage": "https://github.com/shakacode/bootstrap-loader#readme"
+  "homepage": "https://github.com/shakacode/bootstrap-loader#readme",
+  "dependencies": {
+    "js-yaml": "^3.4.3",
+    "loader-utils": "^0.2.11",
+    "resolve": "^1.1.6",
+    "strip-json-comments": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel": "^6.0.15",
+    "babel-cli": "^6.1.4",
+    "babel-preset-es2015": "^6.1.4",
+    "eslint": "^1.9.0",
+    "eslint-config-airbnb": "^1.0.0"
+  }
 }
