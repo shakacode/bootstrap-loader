@@ -8,7 +8,7 @@ import getEnvProp from './utils/getEnvProp';
 
 /* ======= Fetching config */
 
-const DEFAULT_VERSION = 4;
+const DEFAULT_VERSION = 3;
 const CONFIG_FILE = '.bootstraprc';
 
 const userConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
