@@ -1,6 +1,6 @@
 /* eslint func-names: 0 */
 
-import loaderUtils from 'loader-utils';
+import path from 'path';
 
 import processModules from './utils/processModules';
 import getFontsPath from './utils/getFontsPath';
@@ -10,15 +10,17 @@ import createBootstrapImport from './utils/createBootstrapImport';
 module.exports = function() {
   if (this.cacheable) this.cacheable();
 
-  const query = loaderUtils.parseQuery(this.query);
-  const bootstrapVersion = parseInt(query.bootstrapVersion, 10);
+  const config = global.__BOOTSTRAP_CONFIG__;
+  const bootstrapVersion = parseInt(config.bootstrapVersion, 10);
   const {
     styles,
     bootstrapPath,
     useFlexbox,
     preBootstrapCustomizations,
     bootstrapCustomizations,
-  } = query;
+  } = config;
+
+  const bootstrapRelPath = path.relative(this.context, bootstrapPath);
 
   const processedStyles = [];
 
@@ -33,12 +35,12 @@ module.exports = function() {
   }
 
   processedStyles.push(
-    createBootstrapImport('variables', bootstrapVersion, bootstrapPath)
+    createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath)
   );
 
   if (bootstrapVersion === 3) {
     processedStyles.push(
-      `$icon-font-path: "${getFontsPath(bootstrapPath, this)}";`
+      `$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`
     );
   }
 
@@ -52,7 +54,7 @@ module.exports = function() {
     processedStyles
       .join('\n')
       .concat(
-        processModules(styles, bootstrapVersion, bootstrapPath)
+        processModules(styles, bootstrapVersion, bootstrapRelPath)
       )
   );
 };

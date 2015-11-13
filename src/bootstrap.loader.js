@@ -6,7 +6,6 @@ import resolveModule from './utils/resolveModule';
 import checkBootstrapVersion from './utils/checkBootstrapVersion';
 import joinLoaders from './utils/joinLoaders';
 import extractStylesLoader from './utils/extractStylesLoader';
-import createLoader from './utils/createLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
 import { bootstrapVersion, loglevel, createConfig } from './bootstrap.config';
@@ -14,14 +13,6 @@ import { bootstrapVersion, loglevel, createConfig } from './bootstrap.config';
 module.exports = function() {};
 
 module.exports.pitch = function(source) {
-  if (!bootstrapVersion) {
-    throw new Error(`
-      I can't find Bootstrap version in your '.bootstraprc'.
-      Make sure it's set to 3 or 4. Like this:
-        bootstrapVersion: 4
-    `);
-  }
-
   if (this.cacheable) this.cacheable();
 
   global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG === '*';
@@ -65,6 +56,8 @@ module.exports.pitch = function(source) {
   const config = createConfig({ bootstrapPath, extractStyles });
   logger.debug('Normalized params:', '\n', config);
 
+  global.__BOOTSTRAP_CONFIG__ = config;
+
   const result = [ createRequire(source) ];
 
   // Handle styles
@@ -81,18 +74,22 @@ module.exports.pitch = function(source) {
       extractStylesLoader(config.styleLoaders) :
       joinLoaders(config.styleLoaders)
     );
-    const bootstrapLoader = createLoader('bootstrap.styles.loader', config);
-    const styles = `${styleLoaders}${bootstrapLoader}${source}`;
+    const bootstrapStylesLoader = (
+      `${require.resolve('./bootstrap.styles.loader')}!`
+    );
+    const styles = `${styleLoaders}${bootstrapStylesLoader}${source}`;
 
-    result.push(createRequire(styles));
+    result.push(createRequire(styles, true));
   }
 
   // Handle scripts
   if (config.scripts) {
-    const bootstrapLoader = createLoader('bootstrap.scripts.loader', config);
-    const scripts = `${bootstrapLoader}${source}`;
+    const bootstrapScriptsLoader = (
+      `${require.resolve('./bootstrap.scripts.loader')}!`
+    );
+    const scripts = `${bootstrapScriptsLoader}${source}`;
 
-    result.push(createRequire(scripts));
+    result.push(createRequire(scripts, true));
   }
 
   logger.debug('Requiring:', result);

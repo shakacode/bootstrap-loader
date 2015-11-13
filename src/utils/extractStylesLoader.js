@@ -8,7 +8,7 @@ export default loaders => {
 
   try {
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
-    const args = loaders.slice(1).join('!');
+    const args = loaders.slice(1).map(loader => loader + '!').join('');
     return ExtractTextPlugin.extract('style', args);
   } catch (error) {
     throw new Error(`

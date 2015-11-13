@@ -8,15 +8,38 @@ import getEnvProp from './utils/getEnvProp';
 
 /* ======= Fetching config */
 
+const DEFAULT_VERSION = 4;
 const CONFIG_FILE = '.bootstraprc';
 
-const defaultConfigPath = path.resolve(__dirname, `../${CONFIG_FILE}`);
 const userConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
-
 const isUserConfig = fileExists(userConfigPath);
 
-const defaultConfig = parseConfig(defaultConfigPath);
-const rawConfig = isUserConfig ? parseConfig(userConfigPath) : defaultConfig;
+let rawConfig;
+let defaultConfig;
+
+if (isUserConfig) {
+  rawConfig = parseConfig(userConfigPath);
+
+  const { bootstrapVersion } = rawConfig;
+
+  if (!bootstrapVersion) {
+    throw new Error(`
+      I can't find Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  const defaultConfigPath = (
+    path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`)
+  );
+  defaultConfig = parseConfig(defaultConfigPath);
+} else {
+  const defaultConfigPath = (
+    path.resolve(__dirname, `../${CONFIG_FILE}-${DEFAULT_VERSION}-default`)
+  );
+  rawConfig = defaultConfig = parseConfig(defaultConfigPath);
+}
 
 
 /* ======= Exports */
