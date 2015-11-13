@@ -9,6 +9,7 @@ import getEnvProp from './utils/getEnvProp';
 /* ======= Fetching config */
 
 const DEFAULT_VERSION = 3;
+const SUPPORTED_VERSIONS = [3, 4];
 const CONFIG_FILE = '.bootstraprc';
 
 const userConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
@@ -25,6 +26,14 @@ if (isUserConfig) {
   if (!bootstrapVersion) {
     throw new Error(`
       I can't find Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
+    throw new Error(`
+      Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
       Make sure it's set to 3 or 4. Like this:
         bootstrapVersion: 4
     `);
