@@ -66,6 +66,7 @@ export function createConfig({ bootstrapPath, extractStyles }) {
       useFlexbox: rawConfig.useFlexbox,
       preBootstrapCustomizations: rawConfig.preBootstrapCustomizations,
       bootstrapCustomizations: rawConfig.bootstrapCustomizations,
+      appStyles: rawConfig.appStyles,
       extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
       styleLoaders: rawConfig.styleLoaders,
       styles: selectUserModules(rawConfig.styles, defaultConfig.styles),

@@ -25,6 +25,7 @@ extractStyles: false
 
 # preBootstrapCustomizations: ./path/to/bootstrap/pre-customizations.scss
 # bootstrapCustomizations: ./path/to/bootstrap/customizations.scss
+# appStyles: ./path/to/your/app/styles/endpoint.scss
 
 ### Bootstrap styles
 styles:

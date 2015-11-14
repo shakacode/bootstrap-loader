@@ -18,6 +18,7 @@ module.exports = function() {
     useFlexbox,
     preBootstrapCustomizations,
     bootstrapCustomizations,
+    appStyles,
   } = config;
 
   const bootstrapRelPath = path.relative(this.context, bootstrapPath);
@@ -50,11 +51,16 @@ module.exports = function() {
     );
   }
 
+  const bootstrapStyles = (
+    processModules(styles, bootstrapVersion, bootstrapRelPath)
+  );
+  const userStyles = (
+    appStyles ? createUserImport(appStyles, this) + '\n' : ''
+  );
+
   return (
     processedStyles
       .join('\n')
-      .concat(
-        processModules(styles, bootstrapVersion, bootstrapRelPath)
-      )
+      .concat(bootstrapStyles, userStyles)
   );
 };
