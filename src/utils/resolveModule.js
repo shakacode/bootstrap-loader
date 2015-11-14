@@ -1,6 +1,6 @@
 import resolve from 'resolve';
 
-export default module => {
+export default function(module) {
   try {
     let resolvedPath;
     resolve.sync(module, {
@@ -13,4 +13,4 @@ export default module => {
   } catch (error) {
     return false;
   }
-};
+}

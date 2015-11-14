@@ -1,6 +1,6 @@
 import selectModules from './selectModules';
 
-export default (userModules, defaultModules) => {
+export default function(userModules, defaultModules) {
   if (!userModules) return false;
 
   if (userModules && typeof userModules === 'boolean') {
@@ -8,4 +8,4 @@ export default (userModules, defaultModules) => {
   }
 
   return selectModules(userModules);
-};
+}

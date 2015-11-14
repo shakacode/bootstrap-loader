@@ -1,4 +1,4 @@
-export default (prop, config) => {
+export default function(prop, config) {
   if (config.hasOwnProperty(prop)) {
     return config[prop];
   }
@@ -9,4 +9,4 @@ export default (prop, config) => {
   if (configEnvSection && configEnvSection.hasOwnProperty(prop)) {
     return configEnvSection[prop];
   }
-};
+}

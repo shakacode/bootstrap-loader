@@ -1,4 +1,11 @@
-export default loaders => {
+export default function(loaders) {
+  if (!Array.isArray(loaders)) {
+    throw new Error(`
+      Specify your loaders as an array.
+      Default is ['style', 'css', 'scss']
+    `);
+  }
+
   if (!loaders[0].startsWith('style')) {
     throw new Error(`
       If you want to use ExtractTextPlugin make sure
@@ -16,4 +23,4 @@ export default loaders => {
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-};
+}

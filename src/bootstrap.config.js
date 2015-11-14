@@ -1,6 +1,7 @@
 import path from 'path';
 
 import fileExists from './utils/fileExists';
+import resolveDefaultConfigPath from './utils/resolveDefaultConfigPath';
 import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
@@ -40,12 +41,12 @@ if (isUserConfig) {
   }
 
   const defaultConfigPath = (
-    path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`)
+    resolveDefaultConfigPath(CONFIG_FILE, bootstrapVersion)
   );
   defaultConfig = parseConfig(defaultConfigPath);
 } else {
   const defaultConfigPath = (
-    path.resolve(__dirname, `../${CONFIG_FILE}-${DEFAULT_VERSION}-default`)
+    resolveDefaultConfigPath(CONFIG_FILE, DEFAULT_VERSION)
   );
   rawConfig = defaultConfig = parseConfig(defaultConfigPath);
 }

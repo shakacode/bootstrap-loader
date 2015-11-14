@@ -1,9 +1,9 @@
 import fs from 'fs';
 
-export default file => {
+export default function(file) {
   try {
     return fs.statSync(file).isFile();
   } catch (error) {
     return false;
   }
-};
+}

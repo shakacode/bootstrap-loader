@@ -1,7 +1,7 @@
 import createBootstrapImport from './createBootstrapImport';
 import createBootstrapRequire from './createBootstrapRequire';
 
-export default (modules, bootstrapVersion, bootstrapPath, isScripts) => {
+export default function(modules, bootstrapVersion, bootstrapPath, isScripts) {
   const processModule = (
     isScripts ? createBootstrapRequire : createBootstrapImport
   );
@@ -11,4 +11,4 @@ export default (modules, bootstrapVersion, bootstrapPath, isScripts) => {
       .map(module => processModule(module, bootstrapVersion, bootstrapPath))
       .join('\n')
   );
-};
+}

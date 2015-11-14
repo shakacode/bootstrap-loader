@@ -19,13 +19,13 @@ module.exports.pitch = function(source) {
 
   logger.debug(`Hey, we're in DEBUG mode! Yabba dabba doo!`);
 
-  logger.debug('Usung Bootstrap version:', bootstrapVersion);
+  logger.debug('Using Bootstrap version:', bootstrapVersion);
 
   // Resolve `bootstrap` package
   const bootstrapNPMModule = (
     bootstrapVersion === 3 ? 'bootstrap-sass' : 'bootstrap'
   );
-  logger.debug('Usung Bootstrap module:', bootstrapNPMModule);
+  logger.debug('Using Bootstrap module:', bootstrapNPMModule);
 
   const bootstrapPath = resolveModule(bootstrapNPMModule);
 
