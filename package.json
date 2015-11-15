@@ -14,20 +14,23 @@
     "release:minor": "scripts/release minor",
     "release:major": "scripts/release major"
   },
+  "authors": [
+    "Justin Gordon <justin.gordon@gmail.com> (https://github.com/justin808)",
+    "Alex Fedoseev <alex.fedoseev@gmail.com> (https://github.com/alexfedoseev)"
+  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/shakacode/bootstrap-loader.git"
   },
-  "keywords": [
-    "bootstrap",
-    "twitter"
-  ],
-  "author": "justin808",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
   "homepage": "https://github.com/shakacode/bootstrap-loader#readme",
+  "keywords": [
+    "bootstrap",
+    "twitter"
+  ],
   "dependencies": {
     "chalk": "^1.1.1",
     "js-yaml": "^3.4.3",
