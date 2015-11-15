@@ -58,7 +58,7 @@ module.exports.pitch = function(source) {
 
   global.__BOOTSTRAP_CONFIG__ = config;
 
-  const result = [ createRequire(source) ];
+  const result = [];
 
   // Handle styles
   if (config.styles) {
@@ -79,7 +79,7 @@ module.exports.pitch = function(source) {
     );
     const styles = `${styleLoaders}${bootstrapStylesLoader}${source}`;
 
-    result.push(createRequire(styles, true));
+    result.push(createRequire(styles));
   }
 
   // Handle scripts
@@ -89,7 +89,7 @@ module.exports.pitch = function(source) {
     );
     const scripts = `${bootstrapScriptsLoader}${source}`;
 
-    result.push(createRequire(scripts, true));
+    result.push(createRequire(scripts));
   }
 
   logger.debug('Requiring:', result);

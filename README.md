@@ -2,14 +2,10 @@
 
 ## Usage
 
-Webpack — simply apply on entry point:
+Webpack — simply add `bootstrap-loader` as an entry point:
 
 ```js
-// No Bootstrap
-entry: './app'
-
-// Load Bootstrap
-entry: 'bootstrap!./app'
+entry: [ 'bootstrap-loader', './app' ]
 ```
 
 Config is optional. It can be placed in root dir with name `.bootstraprc`. `YAML` / `JSON` are ok:
@@ -50,4 +46,4 @@ scripts:
 }
 ```
 
-If there is no config provided, will be used default config for Bootstrap 3.
+If no config provided, default one for Bootstrap 3 will be used.

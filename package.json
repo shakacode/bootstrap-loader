@@ -2,7 +2,7 @@
   "name": "bootstrap-loader",
   "version": "0.0.3",
   "description": "Boostrap for Webpack",
-  "main": "lib/bootstrap.loader.js",
+  "main": "loader.js",
   "scripts": {
     "start": "npm run lint && npm run clean && npm run dev",
     "dev": "scripts/dev",
