@@ -1,5 +1,6 @@
 /* eslint func-names: 0 */
 
+import path from 'path';
 import loaderUtils from 'loader-utils';
 
 import resolveModule from './utils/resolveModule';
@@ -19,6 +20,7 @@ module.exports.pitch = function(source) {
 
   logger.debug(`Hey, we're in DEBUG mode! Yabba dabba doo!`);
 
+  logger.debug('Context:', this.context);
   logger.debug('Using Bootstrap version:', bootstrapVersion);
 
   // Resolve `bootstrap` package
@@ -35,7 +37,11 @@ module.exports.pitch = function(source) {
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-  logger.debug(`Bootstrap module location:`, bootstrapPath);
+
+  const bootstrapRelPath = path.relative(this.context, bootstrapPath);
+
+  logger.debug(`Bootstrap module location (abs):`, bootstrapPath);
+  logger.debug(`Bootstrap module location (rel):`, bootstrapRelPath);
 
   const bootstrapNPMVersion = (
     checkBootstrapVersion(bootstrapVersion, bootstrapPath)
@@ -53,12 +59,16 @@ module.exports.pitch = function(source) {
   const { extractStyles } = loaderUtils.parseQuery(this.query);
   logger.debug('Query from webpack config:', this.query || '*none*');
 
-  const config = createConfig({ bootstrapPath, extractStyles });
+  const config = (
+    createConfig({ bootstrapPath, bootstrapRelPath, extractStyles })
+  );
   logger.debug('Normalized params:', '\n', config);
 
   global.__BOOTSTRAP_CONFIG__ = config;
 
   const result = [];
+
+  const sourceRel = `./${path.relative(this.context, source)}`;
 
   // Handle styles
   if (config.styles) {
@@ -75,9 +85,9 @@ module.exports.pitch = function(source) {
       joinLoaders(config.styleLoaders)
     );
     const bootstrapStylesLoader = (
-      `${require.resolve('./bootstrap.styles.loader')}!`
+      path.relative(this.context, require.resolve('./bootstrap.styles.loader'))
     );
-    const styles = `${styleLoaders}${bootstrapStylesLoader}${source}`;
+    const styles = `${styleLoaders}./${bootstrapStylesLoader}!${sourceRel}`;
 
     result.push(createRequire(styles));
   }
@@ -85,14 +95,20 @@ module.exports.pitch = function(source) {
   // Handle scripts
   if (config.scripts) {
     const bootstrapScriptsLoader = (
-      `${require.resolve('./bootstrap.scripts.loader')}!`
+      path.relative(this.context, require.resolve('./bootstrap.scripts.loader'))
     );
-    const scripts = `${bootstrapScriptsLoader}${source}`;
+    const scripts = `./${bootstrapScriptsLoader}!${sourceRel}`;
 
     result.push(createRequire(scripts));
   }
 
-  logger.debug('Requiring:', result);
+  const resultOutput = (
+    result
+      .map(loader => loader + '\n')
+      .join('')
+  );
 
-  return result.join('\n');
+  logger.debug('Requiring:', '\n', resultOutput);
+
+  return resultOutput;
 };

@@ -57,10 +57,15 @@ if (isUserConfig) {
 export const bootstrapVersion = parseInt(rawConfig.bootstrapVersion, 10);
 export const loglevel = rawConfig.loglevel;
 
-export function createConfig({ bootstrapPath, extractStyles }) {
+export function createConfig({
+  bootstrapPath,
+  bootstrapRelPath,
+  extractStyles,
+}) {
   if (isUserConfig) {
     return {
       bootstrapPath,
+      bootstrapRelPath,
       bootstrapVersion,
       loglevel,
       useFlexbox: rawConfig.useFlexbox,
@@ -76,6 +81,7 @@ export function createConfig({ bootstrapPath, extractStyles }) {
 
   return {
     bootstrapPath,
+    bootstrapRelPath,
     bootstrapVersion,
     loglevel,
     useFlexbox: defaultConfig.useFlexbox,

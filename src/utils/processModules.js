@@ -8,7 +8,8 @@ export default function(modules, bootstrapVersion, bootstrapPath, isScripts) {
 
   return (
     modules
-      .map(module => processModule(module, bootstrapVersion, bootstrapPath))
-      .join('\n')
+      .map(module => (
+        processModule(module, bootstrapVersion, bootstrapPath)
+      ))
   );
 }

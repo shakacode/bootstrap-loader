@@ -1,11 +1,10 @@
 /* eslint func-names: 0 */
 
-import path from 'path';
-
 import processModules from './utils/processModules';
 import getFontsPath from './utils/getFontsPath';
 import createUserImport from './utils/createUserImport';
 import createBootstrapImport from './utils/createBootstrapImport';
+import logger from './utils/logger';
 
 module.exports = function() {
   if (this.cacheable) this.cacheable();
@@ -14,14 +13,12 @@ module.exports = function() {
   const bootstrapVersion = parseInt(config.bootstrapVersion, 10);
   const {
     styles,
-    bootstrapPath,
+    bootstrapRelPath,
     useFlexbox,
     preBootstrapCustomizations,
     bootstrapCustomizations,
     appStyles,
   } = config;
-
-  const bootstrapRelPath = path.relative(this.context, bootstrapPath);
 
   const processedStyles = [];
 
@@ -55,12 +52,17 @@ module.exports = function() {
     processModules(styles, bootstrapVersion, bootstrapRelPath)
   );
   const userStyles = (
-    appStyles ? createUserImport(appStyles, this) + '\n' : ''
+    appStyles ? createUserImport(appStyles, this) : ''
   );
 
-  return (
+  const stylesOutput = (
     processedStyles
-      .join('\n')
       .concat(bootstrapStyles, userStyles)
+      .map(style => style + '\n')
+      .join('')
   );
+
+  logger.debug('Styles output:', '\n', stylesOutput);
+
+  return stylesOutput;
 };
