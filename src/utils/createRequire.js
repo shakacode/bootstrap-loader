@@ -1,1 +1,1 @@
-export default module => `require ('${(module)}');`;
+export default module => `require (${JSON.stringify(module)});`;

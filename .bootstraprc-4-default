@@ -28,13 +28,15 @@ extractStyles: false
 
 
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.
-# Thus original Bootstrap variables can depend on values from here.
+# Thus, derived Bootstrap variables can depend on values from here.
+# See the Bootstrap _variables.scss file for examples of derived Bootstrap variables.
 #
 # preBootstrapCustomizations: ./path/to/bootstrap/pre-customizations.scss
 
 
 # This gets loaded after bootstrap/variables is loaded
-# So you can refer to bootstrap variables
+# Thus, you may customize Bootstrap variables
+# based on the values established in the Bootstrap _variables.scss file
 #
 # bootstrapCustomizations: ./path/to/bootstrap/customizations.scss
 
