@@ -1,3 +1,10 @@
+/**
+ * Gets environment dependent property from config
+ *
+ * @param {string} prop
+ * @param {Object} config
+ * @returns {*}
+ */
 export default function(prop, config) {
   if (config.hasOwnProperty(prop)) {
     return config[prop];

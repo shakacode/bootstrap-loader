@@ -5,14 +5,22 @@ import loaderUtils from 'loader-utils';
 
 import resolveModule from './utils/resolveModule';
 import checkBootstrapVersion from './utils/checkBootstrapVersion';
+import processStyleLoaders from './utils/processStyleLoaders';
 import joinLoaders from './utils/joinLoaders';
-import extractStylesLoader from './utils/extractStylesLoader';
+import buildExtractStylesLoader from './utils/buildExtractStylesLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
 import { bootstrapVersion, loglevel, createConfig } from './bootstrap.config';
 
 module.exports = function() {};
 
+/**
+ * Bootstrap loader entry point
+ *
+ * @param {string} source - Path to dummy file with empty object.
+ *                          Needed b/c we have to apply loader to some file.
+ * @returns {string}
+ */
 module.exports.pitch = function(source) {
   if (this.cacheable) this.cacheable();
 
@@ -68,7 +76,9 @@ module.exports.pitch = function(source) {
 
   const result = [];
 
-  const sourceRel = `./${path.relative(this.context, source)}`;
+  const dummySourceRel = (
+    loaderUtils.urlToRequest(path.relative(this.context, source))
+  );
 
   // Handle styles
   if (config.styles) {
@@ -76,18 +86,30 @@ module.exports.pitch = function(source) {
       throw new Error(`
         Could not find 'styleLoaders' in your config.
         You can use default ones:
-          styleLoaders: ['style', 'css', 'scss']
+          styleLoaders: ['style', 'css', 'sass']
       `);
     }
+
+    const styleLoadersWithSourceMapsAndResolveUrlLoader = (
+      processStyleLoaders(config.styleLoaders)
+    );
+
     const styleLoaders = (
       config.extractStyles ?
-      extractStylesLoader(config.styleLoaders) :
-      joinLoaders(config.styleLoaders)
+      buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
+      joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
     );
     const bootstrapStylesLoader = (
-      path.relative(this.context, require.resolve('./bootstrap.styles.loader'))
+      loaderUtils.urlToRequest(
+        path.relative(
+          this.context,
+          require.resolve(
+            loaderUtils.urlToRequest('bootstrap.styles.loader.js')
+          )
+        )
+      ) + '!'
     );
-    const styles = `${styleLoaders}./${bootstrapStylesLoader}!${sourceRel}`;
+    const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
     result.push(createRequire(styles));
   }
@@ -95,9 +117,16 @@ module.exports.pitch = function(source) {
   // Handle scripts
   if (config.scripts) {
     const bootstrapScriptsLoader = (
-      path.relative(this.context, require.resolve('./bootstrap.scripts.loader'))
+      loaderUtils.urlToRequest(
+        path.relative(
+          this.context,
+          require.resolve(
+            loaderUtils.urlToRequest('bootstrap.scripts.loader.js')
+          )
+        )
+      ) + '!'
     );
-    const scripts = `./${bootstrapScriptsLoader}!${sourceRel}`;
+    const scripts = bootstrapScriptsLoader + dummySourceRel;
 
     result.push(createRequire(scripts));
   }

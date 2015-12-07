@@ -1,5 +1,13 @@
 import path from 'path';
 
+/**
+ * Creates SASS @import string for bootstrap module
+ *
+ * @param {string} module
+ * @param {number} bootstrapVersion
+ * @param {string} bootstrapPath
+ * @returns {string}
+ */
 export default function(module, bootstrapVersion, bootstrapPath) {
   const stylesPath = (
     parseInt(bootstrapVersion, 10) === 3 ?

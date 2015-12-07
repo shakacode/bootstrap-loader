@@ -6,6 +6,11 @@ import createUserImport from './utils/createUserImport';
 import createBootstrapImport from './utils/createBootstrapImport';
 import logger from './utils/logger';
 
+/**
+ * Bootstrap SASS styles loader
+ *
+ * @returns {string}
+ */
 module.exports = function() {
   if (this.cacheable) this.cacheable();
 

@@ -31,8 +31,16 @@
     "bootstrap",
     "twitter"
   ],
+  "peerDependencies": {
+    "css-loader": "*",
+    "node-sass": "*",
+    "resolve-url-loader": "*",
+    "sass-loader": "*",
+    "webpack": "*"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
+    "escape-regexp": "0.0.1",
     "js-yaml": "^3.4.3",
     "loader-utils": "^0.2.11",
     "resolve": "^1.1.6",

@@ -3,6 +3,11 @@
 import processModules from './utils/processModules';
 import logger from './utils/logger';
 
+/**
+ * Bootstrap JS scripts loader
+ *
+ * @returns {string}
+ */
 module.exports = function() {
   if (this.cacheable) this.cacheable();
 

@@ -1,5 +1,11 @@
 import resolve from 'resolve';
 
+/**
+ * Resolves location of npm module
+ *
+ * @param {string} module
+ * @returns {(string|boolean)}
+ */
 export default function(module) {
   try {
     let resolvedPath;
