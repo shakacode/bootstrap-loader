@@ -1,0 +1,5 @@
+#!/bin/sh
+
+$(npm bin)/eslint \
+  --ext .js \
+  .

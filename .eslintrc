@@ -1,0 +1,8 @@
+---
+extends: eslint-config-airbnb/base
+
+globals:
+  __DEBUG__: true
+
+ecmaFeatures:
+  restParams: true
