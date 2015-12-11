@@ -1,7 +1,15 @@
 // Customize Bootstrap variables that get imported before the original Bootstrap variables.
 // Thus original Bootstrap variables can depend on values from here.
 
-$font-family-sans-serif: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: 'OpenSans-Light', Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// This path is relative to this file!
+$fonts-url-path: '../fonts';
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('#{$fonts-url-path}/OpenSans-Light.ttf') format('truetype');
+}
 
 // Other font size variables are based on this on, so this absolutely should go into the
 // pre-customizations.scss file.
