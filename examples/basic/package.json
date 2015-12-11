@@ -1,0 +1,65 @@
+{
+  "name": "bootstrap-loader-example",
+  "version": "1.0.0",
+  "description": "Example usage of bootstrap-loader",
+  "main": "server.prod.js",
+  "engines": {
+    "node": "5"
+  },
+  "scripts": {
+    "start": "nodemon --watch app/markup --ext html server.dev.js",
+    "clean": "rm -rf public/",
+    "build": "npm run clean && webpack --config webpack.prod.config.js",
+    "prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js",
+    "bs3": "rm .bootstraprc && cp .bootstraprc-3-example .bootstraprc",
+    "bs4": "rm .bootstraprc && cp .bootstraprc-4-example .bootstraprc",
+    "bs3:dev": "npm run bs3 && npm start",
+    "bs4:dev": "npm run bs4 && npm start",
+    "bs3:prod": "npm run bs3 && npm run prod",
+    "bs4:prod": "npm run bs4 && npm run prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justin808/bootstrap-sass-loader-example"
+  },
+  "keywords": [
+    "bootstrap",
+    "webpack"
+  ],
+  "authors": [
+    "Justin Gordon <justin.gordon@gmail.com> (https://github.com/justin808)",
+    "Alex Fedoseev <alex.fedoseev@gmail.com> (https://github.com/alexfedoseev)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "github:twbs/bootstrap#v4.0.0-alpha",
+    "bootstrap-sass": "^3.3.5",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "babel-cli": "^6.1.18",
+    "babel-core": "^6.1.20",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.1.18",
+    "body-parser": "^1.14.1",
+    "bootstrap-loader": "0.1.0-beta1",
+    "css-loader": "^0.22.0",
+    "eslint": "^1.9.0",
+    "eslint-config-airbnb": "^1.0.0",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.4",
+    "imports-loader": "^0.6.5",
+    "node-sass": "^3.4.2",
+    "nodemon": "^1.8.1",
+    "postcss-loader": "^0.8.0",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.4",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.5.0"
+  }
+}

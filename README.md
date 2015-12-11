@@ -37,7 +37,7 @@ Or add `bootstrap-loader` as an entry point in your webpack config:
 entry: [ 'bootstrap-loader', './app' ]
 ```
 
-Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats.
+Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstrap-3-default) and [Bootstrap 4](.bootstrap-4-default). Note, we don't recommend this as upgrades might make changes that will break your app.
 
 ```yaml
 ---
@@ -58,7 +58,7 @@ scripts:
   button: true
 ```
 
-```json
+```js
 {
   // And JSON comments also!
   "useFlexbox": true,
@@ -81,14 +81,14 @@ If no config provided, default one for Bootstrap 3 will be used.
 
 ## Examples
 
-Check out example apps:
+Check out example apps in [`examples/`](examples) folder:
 
-* Basic usage: https://github.com/shakacode/bootstrap-loader-example
-* With CSS Modules: https://github.com/shakacode/bootstrap-loader-css-modules-example
+* Basic usage: [examples/basic](examples/basic)
+* With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
 
-## Options
+## Common Options for Bootstrap 3 and 4
 
-Here are options for Bootstrap 3 & 4.
+Here are common options for Bootstrap 3 & 4.
 
 ### Bootstrap 3
 
@@ -96,7 +96,7 @@ Here are options for Bootstrap 3 & 4.
 
 Default: `disabled`
 
-Outputs debugging info. In case you have troubles with loader you can set this option to `debug` and send us output form console.
+Outputs debugging info. Set this option to `debug` to output debugging information. This is critical for debugging issues. The output will go to your webpack console.
 
 ```yaml
 loglevel: debug
@@ -116,7 +116,7 @@ bootstrapVersion: 3
 
 Default: `[ 'style', 'css', 'sass' ]`
 
-Array of webpack loaders. `sass-loader` is required, order matters.
+Array of webpack loaders. `sass-loader` is required, order matters. In most cases the style loader should definitely go first and the sass loader should be last.
 
 ```yaml
 styleLoaders:
@@ -132,7 +132,7 @@ styleLoaders:
 
 Default: `false`
 
-Extract styles to stand-alone css file using `extract-text-webpack-plugin`.
+Extract styles to stand-alone css file using `extract-text-webpack-plugin`. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
 
 ```yaml
 extractStyles: false
@@ -166,7 +166,11 @@ preBootstrapCustomizations: ./path/to/bootstrap/pre-customizations.scss
 
 Default: `disabled`
 
-This gets loaded after bootstrap variables is loaded. Thus, you may customize Bootstrap variables based on the values established in the Bootstrap [`_variables.scss`](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) file.
+This gets loaded after bootstrap variables is loaded. Thus, you may customize Bootstrap variables based on the values established in the Bootstrap [`_variables.scss`](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) file. Note, if `bootstrap` did not have derived values, it would not be necessary to have two config files for customizing bootstrap values.
+
+If you want your bootstrap override value to apply to derived variable values, then place your customizations in `preBootstrapCustomizations`. If you want to be sure your changes don't affect other derived values, place the changes in bootstrapCustomizations.
+
+If you are not sure, you can probably simply use `preBootstrapCustomizations` and, if you have issues, see [`_variables.scss`](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for derived values.
 
 ```yaml
 bootstrapCustomizations: ./path/to/bootstrap/customizations.scss

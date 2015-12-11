@@ -1,0 +1,13 @@
+// Customize Bootstrap variables that get imported before the original Bootstrap variables.
+// Thus original Bootstrap variables can depend on values from here.
+
+$font-family-sans-serif: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Other font size variables are based on this on, so this absolutely should go into the
+// pre-customizations.scss file.
+// $font-size-base: 16px;
+
+// Here is what is in the _variables.scss file of Bootstrap 3
+// $font-size-base:          14px !default;
+// $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+// $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
