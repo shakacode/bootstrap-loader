@@ -1,6 +1,7 @@
 src/
 test/
 scripts/
+examples/
 *.log
 .babelrc
 .editorconfig

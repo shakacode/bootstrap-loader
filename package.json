@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-loader",
-  "version": "0.1.0-beta1",
+  "version": "1.0.0-rc",
   "description": "Boostrap for Webpack",
   "main": "loader.js",
   "scripts": {
@@ -51,7 +51,7 @@
     "babel": "^6.0.15",
     "babel-cli": "^6.1.4",
     "babel-preset-es2015": "^6.1.4",
-    "eslint": "^1.9.0",
-    "eslint-config-airbnb": "^1.0.0"
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.0.0"
   }
 }

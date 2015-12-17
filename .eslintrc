@@ -6,3 +6,6 @@ globals:
 
 ecmaFeatures:
   restParams: true
+
+rules:
+  space-before-function-paren: [2, "never"]
