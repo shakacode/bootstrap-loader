@@ -37,7 +37,7 @@ Or add `bootstrap-loader` as an entry point in your webpack config:
 entry: [ 'bootstrap-loader', './app' ]
 ```
 
-Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstrap-3-default) and [Bootstrap 4](.bootstrap-4-default). Note, we don't recommend this as upgrades might make changes that will break your app.
+Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstrap-3-default) and [Bootstrap 4](.bootstrap-4-default). Note, we recommend using the a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default.
 
 ```yaml
 ---
