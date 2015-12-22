@@ -286,3 +286,10 @@ module: {
 ## License
 
 MIT.
+
+## Example and Related Libraries:
+
+* [react-webpack-rails-tutorial](https://github.com/shakacode/react-webpack-rails-tutorial/), live example at [www.reactrails.com](http://www.reactrails.com/).
+* [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
+* [Simple integration example](https://github.com/shakacode/bootstrap-sass-loader-example/tree/alex/bootstrap-loader)
+* [React + hot reloading example: bootstrap-loader-css-modules-example](https://github.com/shakacode/bootstrap-loader-css-modules-example)
