@@ -1,3 +1,7 @@
+[![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
+
+Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). We're very close to v1.0.0.
+
 # bootstrap-loader
 
 Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
@@ -17,7 +21,7 @@ Don't forget to install these dependencies:
 npm install bootstrap-sass
 
 # or Bootstrap 4
-npm install twbs/bootstrap#v4.0.0-alpha
+npm install twbs/bootstrap#v4.0.0-alpha.2
 
 # Node SASS & other loaders needed to handle styles
 npm install css-loader node-sass resolve-url-loader sass-loader style-loader
@@ -37,7 +41,7 @@ Or add `bootstrap-loader` as an entry point in your webpack config:
 entry: [ 'bootstrap-loader', './app' ]
 ```
 
-Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstrap-3-default) and [Bootstrap 4](.bootstrap-4-default). Note, we recommend using the a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default.
+Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using the a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default.
 
 ```yaml
 ---
