@@ -1,10 +1,8 @@
-[![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
-
-Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). We're very close to v1.0.0.
-
 # bootstrap-loader
 
-Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
+[![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
+
+Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
 ## Installation
 
