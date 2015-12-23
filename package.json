@@ -10,6 +10,8 @@
     "lint": "scripts/lint",
     "clean": "scripts/clean",
     "prerelease": "npm run lint && npm run clean && npm run build",
+    "preversion": "npm run prerelease",
+    "prepublish": "npm run prerelease",
     "release:patch": "scripts/release patch",
     "release:minor": "scripts/release minor",
     "release:major": "scripts/release major"
