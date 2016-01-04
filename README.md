@@ -297,3 +297,5 @@ MIT.
 * [Using CSS modules with Bootstrap](https://github.com/shakacode/bootstrap-loader/issues/9)
 * [How would you use bootstrap styles to build css module styles](https://github.com/shakacode/bootstrap-loader/issues/12)
 
+We'll identify issues that are [questions](https://github.com/shakacode/bootstrap-loader/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aquestion).
+
