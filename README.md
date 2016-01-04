@@ -291,3 +291,9 @@ MIT.
 * [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
 * [Simple integration example](./examples/basic)
 * [React + hot reloading example: bootstrap-loader-css-modules-example](./examples/css-modules)
+
+## Useful Q&A
+
+* [Using CSS modules with Bootstrap](https://github.com/shakacode/bootstrap-loader/issues/9)
+* [How would you use bootstrap styles to build css module styles](https://github.com/shakacode/bootstrap-loader/issues/12)
+
