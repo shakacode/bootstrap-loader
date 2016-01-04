@@ -38,6 +38,7 @@
     "node-sass": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
+    "url-loader": "*",
     "webpack": "*"
   },
   "dependencies": {
