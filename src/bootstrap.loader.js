@@ -1,5 +1,7 @@
 /* eslint func-names: 0 */
 
+import 'babel-polyfill';
+
 import path from 'path';
 import loaderUtils from 'loader-utils';
 

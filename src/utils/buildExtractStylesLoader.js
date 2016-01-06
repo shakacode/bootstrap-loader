@@ -22,6 +22,11 @@ export default function(loaders) {
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-  const restLoaders = loaders.slice(1).map(loader => loader + '!').join('');
+  const restLoaders = (
+    loaders
+      .slice(1)
+      .map(loader => loader + '!')
+      .join('')
+  );
   return ExtractTextPlugin.extract('style', restLoaders);
 }
