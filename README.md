@@ -5,7 +5,6 @@
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
 ## Installation
-
 Get it via npm:
 
 ```bash
@@ -26,7 +25,6 @@ npm install css-loader node-sass resolve-url-loader sass-loader style-loader url
 ```
 
 ## Usage
-
 Simply require it:
 
 ```js
@@ -82,14 +80,12 @@ scripts:
 If no config provided, default one for Bootstrap 3 will be used.
 
 ## Examples
-
 Check out example apps in [`examples/`](examples) folder:
 
 * Basic usage: [examples/basic](examples/basic)
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
 
 ## Common Options for Bootstrap 3 and 4
-
 Here are common options for Bootstrap 3 & 4.
 
 ### Bootstrap 3
@@ -221,7 +217,6 @@ scripts: true / false
 ```
 
 ### Bootstrap 4
-
 There is only one additional option for Bootstrap 4:
 
 #### `useFlexbox`
@@ -237,7 +232,6 @@ useFlexbox: true
 ## Additional configurations
 
 #### Paths to custom assets
-
 If you use `bootstrap-loader` to load your styles (via `preBootstrapCustomizations`, `bootstrapCustomizations` & `appStyles`) and you load custom assets (fonts, images etc.), then you can use relative paths inside `url` method (relative to SASS file, from which you load asset).
 
 This was made possible thanks to [resolve-url-loader](https://github.com/bholloway/resolve-url-loader). In common case you don't have to do anything special to apply it — we are doing it internally (just don't forget to install it). But if you want to use its custom settings, please provide it explicitly via `styleLoaders` option in `.bootstraprc`:
@@ -251,7 +245,6 @@ styleLoaders:
 ```
 
 #### jQuery
-
 If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`:
 
 ```js
@@ -269,7 +262,6 @@ module: {
 ```
 
 #### Icon fonts
-
 Bootstrap uses **icon fonts**. If you want to load them, don't forget to setup `url-loader` or `file-loader` in webpack config:
 
 ```js
@@ -281,21 +273,22 @@ module: {
 },
 ```
 
-## License
+## Contributing
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](CODE_OF_CONDUCT.md).
 
+See [Contributing](CONTRIBUTING.md) to get started.
+
+## License
 MIT.
 
-## Example and Related Libraries:
-
+## Example and Related Libraries
 * [react-webpack-rails-tutorial](https://github.com/shakacode/react-webpack-rails-tutorial/), live example at [www.reactrails.com](http://www.reactrails.com/).
 * [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
 * [Simple integration example](./examples/basic)
 * [React + hot reloading example: bootstrap-loader-css-modules-example](./examples/css-modules)
 
 ## Useful Q&A
-
 * [Using CSS modules with Bootstrap](https://github.com/shakacode/bootstrap-loader/issues/9)
 * [How would you use bootstrap styles to build css module styles](https://github.com/shakacode/bootstrap-loader/issues/12)
 
 We'll identify issues that are [questions](https://github.com/shakacode/bootstrap-loader/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aquestion).
-
