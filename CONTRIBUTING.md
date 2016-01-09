@@ -21,7 +21,7 @@ It will run linters, clear directory with previous build, create new build and r
 
 ```
 cd my-test-project
-npm install --save-dev ../path/to/local/bootstrap-lodaer
+npm install --save-dev ../path/to/local/bootstrap-loader
 ```
 
 It is a pity, but you have to re-install `bootstrap-lodaer` on every change.

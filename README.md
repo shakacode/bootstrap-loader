@@ -286,6 +286,7 @@ MIT.
 * [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
 * [Simple integration example](./examples/basic)
 * [React + hot reloading example: bootstrap-loader-css-modules-example](./examples/css-modules)
+* [react_on_rails gem](https://github.com/shakacode/react_on_rails)
 
 ## Useful Q&A
 * [Using CSS modules with Bootstrap](https://github.com/shakacode/bootstrap-loader/issues/9)
