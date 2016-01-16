@@ -1,6 +1,28 @@
 /* eslint func-names: 0 */
 
-import 'babel-polyfill';
+import semver from 'semver';
+
+// For Node <= v0.12.x Babel polyfill is required
+if (semver.lt(process.version, '4.0.0')) {
+  const babelLatest = 'babel-polyfill';
+  const babelPrev = 'babel/polyfill';
+
+  const isBabelLatest = require.resolve(babelLatest);
+  const isBabelPrev = require.resolve(babelPrev);
+
+  if (!isBabelLatest && !isBabelPrev) {
+    throw new Error(`
+      For Node <= v0.12.x Babel polyfill is required.
+      Make sure it's installed in your 'node_modules/' directory.
+    `);
+  }
+
+  if (isBabelLatest) {
+    require(babelLatest);
+  } else {
+    require(babelPrev);
+  }
+}
 
 import path from 'path';
 import loaderUtils from 'loader-utils';
