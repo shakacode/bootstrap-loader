@@ -42,7 +42,6 @@
     "webpack": "*"
   },
   "dependencies": {
-    "babel-polyfill": "^6.3.14",
     "chalk": "^1.1.1",
     "escape-regexp": "0.0.1",
     "js-yaml": "^3.4.3",
