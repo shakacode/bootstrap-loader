@@ -63,7 +63,7 @@ export function createConfig({
   extractStyles,
 }) {
   if (isUserConfig) {
-    var configDir = path.dirname(userConfigPath);
+    const configDir = path.dirname(userConfigPath);
     return {
       bootstrapPath,
       bootstrapRelPath,

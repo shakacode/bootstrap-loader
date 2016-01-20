@@ -1,15 +1,15 @@
 {
   "name": "bootstrap-loader",
-  "version": "1.0.5",
+  "version": "1.0.5-isqft.2",
   "description": "Boostrap for Webpack",
   "main": "loader.js",
   "scripts": {
-    "start": "npm run lint && npm run clean && npm run dev",
+    "start": "npm run clean && npm run dev",
     "dev": "scripts/dev",
-    "build": "scripts/build",
+    "build": "babel --out-dir lib src",
     "lint": "scripts/lint",
-    "clean": "scripts/clean",
-    "prerelease": "npm run lint && npm run clean && npm run build",
+    "clean": "rm -Rf lib",
+    "prerelease": "npm run clean && npm run build",
     "preversion": "npm run prerelease",
     "prepublish": "npm run prerelease",
     "release:patch": "scripts/release patch",
@@ -40,6 +40,9 @@
     "sass-loader": "*",
     "url-loader": "*",
     "webpack": "*"
+  },
+  "publishConfig": {
+    "registry": "http://testbox.isqft.com:4873"
   },
   "dependencies": {
     "chalk": "^1.1.1",
