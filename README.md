@@ -241,8 +241,26 @@ styleLoaders:
   - style
   - css?sourceMap
   - resolve-url?sourceMap
-  - sass?sourceMap
+  - sass?sourceMaph
 ```
+
+#### Incorporating Bootswatch themes
+The following steps are needed to successfully incorporate a theme from Bootswatch:
+
+1. Download the .scss files (_variables.scss and _bootswatch.scss) for the theme you have chosen.
+2. Put the files somewhere in your project structure (e.g. the ./styles directory).
+3. Add an additional SCSS file, like bs-theme.scss, that contains the following:
+   ```
+   @import('./_bootswatch.scss');
+   ```
+   
+4. Add the following to your .bootstraprc file:
+  ```
+  preBootstrapCustomizations: ./styles/_variables.scss
+  appStyles: ./styles/bs-theme.scss
+  ```
+The theme should now be applied as expected.
+Note that this section might be valid for other theme packs as well.
 
 #### jQuery
 If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`:
