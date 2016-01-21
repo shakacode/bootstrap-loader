@@ -241,7 +241,7 @@ styleLoaders:
   - style
   - css?sourceMap
   - resolve-url?sourceMap
-  - sass?sourceMaph
+  - sass?sourceMap
 ```
 
 #### Incorporating Bootswatch themes
