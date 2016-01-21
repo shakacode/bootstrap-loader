@@ -251,7 +251,7 @@ The following steps are needed to successfully incorporate a theme from Bootswat
 2. Put the files somewhere in your project structure (e.g. the ./styles directory).
 3. Add an additional SCSS file, like bs-theme.scss, that contains the following:
    ```
-   @import('./_bootswatch.scss');
+   @import './_bootswatch.scss';
    ```
    
 4. Add the following to your .bootstraprc file:
