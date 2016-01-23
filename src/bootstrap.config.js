@@ -63,15 +63,29 @@ export function createConfig({
   extractStyles,
 }) {
   if (isUserConfig) {
+    const configDir = path.dirname(userConfigPath);
+    const preBootstrapCustomizations = (
+      rawConfig.preBootstrapCustomizations &&
+      path.resolve(configDir, rawConfig.preBootstrapCustomizations)
+    );
+    const bootstrapCustomizations = (
+      rawConfig.bootstrapCustomizations &&
+      path.resolve(configDir, rawConfig.bootstrapCustomizations)
+    );
+    const appStyles = (
+      rawConfig.appStyles &&
+      path.resolve(configDir, rawConfig.appStyles)
+    );
+
     return {
       bootstrapPath,
       bootstrapRelPath,
       bootstrapVersion,
       loglevel,
+      preBootstrapCustomizations,
+      bootstrapCustomizations,
+      appStyles,
       useFlexbox: rawConfig.useFlexbox,
-      preBootstrapCustomizations: rawConfig.preBootstrapCustomizations,
-      bootstrapCustomizations: rawConfig.bootstrapCustomizations,
-      appStyles: rawConfig.appStyles,
       extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
       styleLoaders: rawConfig.styleLoaders,
       styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
