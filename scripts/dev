@@ -1,6 +1,0 @@
-#!/bin/sh
-
-$(npm bin)/babel \
-  --out-dir lib \
-  --watch \
-  src
