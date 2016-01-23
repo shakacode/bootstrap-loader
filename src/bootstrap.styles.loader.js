@@ -31,6 +31,12 @@ module.exports = function() {
     processedStyles.push('$enable-flex: true;');
   }
 
+  if (styles.indexOf('mixins') > -1) {
+    processedStyles.push(
+      createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath)
+    );
+  }
+
   if (preBootstrapCustomizations) {
     processedStyles.push(
       createUserImport(preBootstrapCustomizations, this)

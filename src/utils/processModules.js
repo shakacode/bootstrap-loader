@@ -17,6 +17,7 @@ export default function(modules, bootstrapVersion, bootstrapPath, isScripts) {
 
   return (
     modules
+      .filter(module => module !== 'mixins')
       .map(module => (
         processModule(module, bootstrapVersion, bootstrapPath)
       ))
