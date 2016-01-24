@@ -1,6 +1,8 @@
 # bootstrap-loader
 
-[![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
+[![npm version](https://img.shields.io/npm/v/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
+[![dependencies status](https://img.shields.io/gemnasium/shakacode/bootstrap-loader.svg?style=flat-square)](https://gemnasium.com/shakacode/bootstrap-loader)
+[![license](https://img.shields.io/npm/l/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
@@ -253,7 +255,7 @@ The following steps are needed to successfully incorporate a theme from Bootswat
    ```
    @import './_bootswatch.scss';
    ```
-   
+
 4. Add the following to your .bootstraprc file:
   ```
   preBootstrapCustomizations: ./styles/_variables.scss
