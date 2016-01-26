@@ -96,6 +96,7 @@ styles:
 
   # Utility classes
   utilities: true
+  utilities-background: true
   utilities-spacing: true
   utilities-responsive: true
 
