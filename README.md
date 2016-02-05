@@ -218,6 +218,22 @@ scripts:
 scripts: true / false
 ```
 
+#### `useCustomIconFontPath`
+
+Default: false
+
+If you're using a custom icon font and you need to specify its path (`$icon-font-path`) in your Sass files, set this option to true.
+
+```yaml
+useCustomIconFontPath: true / false
+```
+
+```
+$icon-font-path: ../fonts // relative to your Sass file
+$icon-font-name: 'glyphicons' // you'll typically want to change this too.
+```
+
+
 ### Bootstrap 4
 There is only one additional option for Bootstrap 4:
 

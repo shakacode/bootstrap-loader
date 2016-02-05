@@ -19,3 +19,8 @@ $fonts-url-path: '../fonts';
 // $font-size-base:          14px !default;
 // $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 // $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+// If you're using a custom icon font path, specify it as follows
+// $icon-font-path: ../fonts // This path is relative to this file
+// $icon-font-name: 'glyphicons' // The name of the font you want to use
+// And be sure to set useCustomIconFontPath to true in .bootstraprc.
