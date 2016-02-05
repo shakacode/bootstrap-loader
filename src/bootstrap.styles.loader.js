@@ -20,6 +20,7 @@ module.exports = function() {
     styles,
     bootstrapRelPath,
     useFlexbox,
+    useCustomIconFontPath,
     preBootstrapCustomizations,
     bootstrapCustomizations,
     appStyles,
@@ -47,7 +48,7 @@ module.exports = function() {
     createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath)
   );
 
-  if (bootstrapVersion === 3) {
+  if (bootstrapVersion === 3 && !useCustomIconFontPath) {
     processedStyles.push(
       `$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`
     );
