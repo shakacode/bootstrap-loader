@@ -16,11 +16,12 @@ if (semver.lt(process.version, '4.0.0')) {
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-
-  if (isBabelLatest) {
-    require(babelLatest);
-  } else {
-    require(babelPrev);
+  if (!global._babelPolyfill) {
+    if (isBabelLatest) {
+      require(babelLatest);
+    } else {
+      require(babelPrev);
+    }
   }
 }
 
