@@ -5,6 +5,9 @@
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 3
 
+# If Bootstrap version 3 is used - turn on/off custom icon font path
+useCustomIconFontPath: false
+
 # Webpack loaders, order matters
 styleLoaders:
   - style
