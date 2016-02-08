@@ -265,8 +265,8 @@ styleLoaders:
 #### Incorporating Bootswatch themes
 The following steps are needed to successfully incorporate a theme from Bootswatch:
 
-1. Download the .scss files (_variables.scss and _bootswatch.scss) for the theme you have chosen.
-2. Put the files somewhere in your project structure (e.g. the ./styles directory).
+1. Download the `.scss` files (`_variables.scss` and `_bootswatch.scss`) for the theme you have chosen.
+2. Put the files somewhere in your project structure (e.g. the `./styles` directory).
 3. Add an additional SCSS file, like bs-theme.scss, that contains the following:
    ```
    @import './_bootswatch.scss';
