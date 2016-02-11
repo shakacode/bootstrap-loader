@@ -20,7 +20,7 @@ Don't forget to install these dependencies (use `--save or --saveDev` option per
 npm install bootstrap-sass
 
 # or Bootstrap 4
-npm install twbs/bootstrap#v4.0.0-alpha.2
+npm install bootstrap@v4.0.0-alpha.2
 
 # Node SASS & other loaders needed to handle styles
 npm install css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
