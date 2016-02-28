@@ -32,9 +32,14 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "github:twbs/bootstrap#v4.0.0-alpha",
+    "bootstrap": "^4.0.0-alpha.2",
     "bootstrap-sass": "^3.3.5",
-    "jquery": "^2.1.4"
+    "font-awesome": "^4.5.0",
+    "font-awesome-loader": "^0.0.1",
+    "jquery": "^2.1.4",
+    "postcss": "^5.0.17",
+    "postcss-loader": "^0.8.1",
+    "tether": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.0",

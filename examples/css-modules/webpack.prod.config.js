@@ -1,3 +1,6 @@
+// Very similar to webpack.dev.config.js. Common parts could be extracted to a base config.
+// See example at:
+// https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
@@ -8,7 +11,9 @@ module.exports = {
   // For production build we want to extract CSS to stand-alone file
   // Provide `extractStyles` param and `bootstrap-loader` will handle it
   entry: [
+    'font-awesome-loader',
     'bootstrap-loader/extractStyles',
+    'tether',
     './app/startup/App',
   ],
 
@@ -25,6 +30,9 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
       },
+    }),
+    new webpack.ProvidePlugin({
+      "window.Tether": "tether"
     }),
   ],
 
@@ -52,9 +60,16 @@ module.exports = {
           '!sass'
         ),
       },
+
       {
-        test: /\.(woff2?|ttf|eot|svg)$/,
-        loaders: [ 'url?limit=10000' ],
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
+        // loader: "url?limit=10000"
+        loader: "url"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file'
       },
     ],
   },

@@ -36,10 +36,18 @@
     "webpack"
   ],
   "dependencies": {
-    "bootstrap": "github:twbs/bootstrap#v4.0.0-alpha",
+    "body-parser": "^1.15.0",
+    "bootstrap": "^4.0.0-alpha.2",
     "bootstrap-sass": "^3.3.5",
+    "express": "^4.13.4",
+    "font-awesome": "^4.5.0",
+    "font-awesome-loader": "^0.0.1",
+    "nodemon": "^1.9.1",
+    "postcss": "^5.0.17",
+    "postcss-loader": "^0.8.1",
     "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "tether": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.0",

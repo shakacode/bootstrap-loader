@@ -6,6 +6,19 @@
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
+**NOTE:** [Bootstrap 4](http://v4-alpha.getbootstrap.com/), (twbs/bootstrap)[https://github.com/twbs/bootstrap] is currently in alpha right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing to fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
+
+1. Community support to help us with Bootstrap 4 issues and pull requests.
+2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
+3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
+
+That being said, Bootstrap 4 probably works just fine!
+
+## NEWS
+
+2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
+
+
 ## Installation
 Get it via npm:
 
@@ -40,6 +53,8 @@ entry: [ 'bootstrap-loader', './app' ]
 ```
 
 Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default.
+
+Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default. Config options don't fall back on the defaults once a config file is present. Be sure not to delete config options. To start with a custom config, copy over a default config file as a starting point.
 
 ```yaml
 ---
@@ -246,6 +261,31 @@ Enable / disable flexbox model.
 ```yaml
 useFlexbox: true
 ```
+
+#### Tether
+Additionally, Bootstrap 4 requires Tether. You can add Tether per the examples in the `/examples` directory.
+
+1. Add tether to package.json: `npm i --save tether`
+2. Add tether as an entry point to your webpack config.
+3. Add this plugin to your webpack config:
+
+```
+  plugins: [
+    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new webpack.ProvidePlugin({
+      "window.Tether": "tether"
+    }),
+  ],
+```
+
+#### PostCSS
+Bootstrap 4 seems to require postcss:
+
+1. Add postcss and the the postcss-loader: `npm i --save postcss postcss-loader`
+2. Put `postcss` before `sass` in the order of loaders in your `.bootstraprc` file.
+
+#### Glyphicons
+Glyphicons have been removed from Bootstrap 4. The examples demonstrate how to use the font-awesome-loader
 
 ## Additional configurations
 
