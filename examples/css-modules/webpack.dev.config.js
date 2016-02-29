@@ -1,3 +1,6 @@
+// Very similar to webpack.prod.config.js. Common parts could be extracted to a base config.
+// See example at:
+// https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
@@ -6,6 +9,8 @@ module.exports = {
 
   entry: [
     'webpack-hot-middleware/client',
+    'tether',
+    'font-awesome-loader',
     'bootstrap-loader',
     './app/startup/App',
   ],
@@ -18,18 +23,21 @@ module.exports = {
 
   devtool: '#cheap-module-eval-source-map',
 
-  resolve: { extensions: [ '', '.js', '.jsx' ] },
+  resolve: { extensions: ['', '.js', '.jsx'] },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      "window.Tether": "tether"
+    }),
   ],
 
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel'],
         exclude: /node_modules/,
       },
       {
@@ -50,12 +58,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff2?|ttf|eot|svg)$/,
-        loaders: [ 'url?limit=10000' ],
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url?limit=10000"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file'
       },
     ],
   },
 
-  postcss: [ autoprefixer ],
+  postcss: [autoprefixer],
 
 };
