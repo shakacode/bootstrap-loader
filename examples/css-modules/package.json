@@ -25,10 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shakacode/bootstrap-loader-css-modules-example"
+    "url": "https://github.com/shakacode/bootstrap-loader"
   },
   "bugs": {
-    "url": "https://github.com/shakacode/bootstrap-loader-css-modules-example/issues"
+    "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
   "keywords": [
     "bootstrap",
@@ -41,10 +41,6 @@
     "bootstrap-sass": "^3.3.5",
     "express": "^4.13.4",
     "font-awesome": "^4.5.0",
-    "font-awesome-loader": "^0.0.1",
-    "nodemon": "^1.9.1",
-    "postcss": "^5.0.17",
-    "postcss-loader": "^0.8.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "tether": "^1.2.0"
@@ -58,7 +54,6 @@
     "babel-plugin-react-transform": "^2.0.0-beta1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "body-parser": "^1.14.1",
     "bootstrap-loader": "^1.0.9",
     "css-loader": "^0.23.0",
     "eslint": "^1.9.0",
@@ -68,8 +63,8 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "node-sass": "^3.4.2",
-    "nodemon": "^1.8.1",
-    "postcss-loader": "^0.8.0",
+    "nodemon": "^1.9.1",
+    "postcss-loader": "^0.8.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
@@ -77,6 +72,7 @@
     "sass-loader": "^3.1.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
+    "font-awesome-loader": "^0.0.1",
     "webpack": "^1.12.6",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.5.0"
