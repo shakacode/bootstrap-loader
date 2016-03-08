@@ -219,7 +219,7 @@ styles: true / false
 
 Default: all
 
-Bootstrap scripts.
+Bootstrap scripts. You can disable all scripts to avoid requiring jQuery.
 
 ```yaml
 scripts:
