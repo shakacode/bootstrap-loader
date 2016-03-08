@@ -319,7 +319,7 @@ The theme should now be applied as expected.
 Note that this section might be valid for other theme packs as well.
 
 #### jQuery
-If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`. To avoid having to include `jQuery` in your project you can set the `scripts` to `false` (see [scripts](#scripts)).
+If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`. To avoid having to include `jQuery` in your project you disable all scripts (see [scripts](#scripts)).
 
 ```js
 module: {
