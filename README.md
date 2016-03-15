@@ -39,6 +39,13 @@ npm install bootstrap@v4.0.0-alpha.2
 npm install css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
 ```
 
+If you're using Bootstrap 4, you probably need:
+
+```bash
+npm install postcss-loader
+```
+
+
 ## Usage
 Simply require it:
 
