@@ -342,6 +342,17 @@ module: {
 },
 ```
 
+Note: if you're not concerned about Windows, the lines look like this (simpler regexp pattern):
+
+```js
+// Boostrap 3
+{ test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery' },
+
+// Bootstrap 4
+{ test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' },
+```
+
+
 #### Icon fonts
 Bootstrap uses **icon fonts**. If you want to load them, don't forget to setup `url-loader` or `file-loader` in webpack config:
 
