@@ -9,7 +9,7 @@ if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   } catch(e) {
     try {
       require('babel-core/polyfill');
-    } catch (e2) {
+    } catch (e) {
       try{
         require('babel/polyfill');
       } catch (e) {
