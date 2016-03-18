@@ -6,16 +6,17 @@ import semver from 'semver';
 if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   try {
     require('babel-polyfill');
-  } catch(e) {
+  } catch (e) {
     try {
       require('babel-core/polyfill');
-    } catch (e) {
-      try{
+    } catch (ee) {
+      try {
         require('babel/polyfill');
-      } catch (e) {
+      } catch (eee) {
         throw new Error(`
           For Node <= v0.12.x Babel polyfill is required.
           Make sure it's installed in your 'node_modules/' directory.
+          ${eee}
         `);
       }
     }
