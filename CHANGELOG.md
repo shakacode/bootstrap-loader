@@ -14,6 +14,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.0.9...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.0.10...master
+[1.0.10]: https://github.com/shakacode/bootstrap-loader/compare/1.0.9...1.0.10
 [1.0.9]: https://github.com/shakacode/bootstrap-loader/compare/1.0.8...1.0.9
 [1.0.8]: https://github.com/shakacode/bootstrap-loader/compare/1.0.7...1.0.8
