@@ -1,8 +1,10 @@
-# bootstrap-loader
-
 [![npm version](https://img.shields.io/npm/v/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
 [![dependencies status](https://img.shields.io/gemnasium/shakacode/bootstrap-loader.svg?style=flat-square)](https://gemnasium.com/shakacode/bootstrap-loader)
 [![license](https://img.shields.io/npm/l/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
+
+Aloha from Justin Gordon and the [ShakaCode](http://www.shakacode.com) Team! We need your help. Venture capital funding has slowed and, for the first time, my ShakaCode team is actively looking for our next  project. If you like **React on Rails**, please consider contacting me if we could potentially help you in any way. I'm offering a free half hour project consultation, on anything from React on Rails to any aspect of web application development, including both consumer and enterprise products. You can read more about my background [here](http://www.railsonmaui.com/about). Whether you have a new project, or need help on an existing project, please email me directly at [justin@shakacode.com](mailto:justin@shakacode.com). And thanks in advance for any referrals! Your support keeps this project going.
+
+# bootstrap-loader
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
@@ -11,7 +13,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
 3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
-
+ 
 That being said, Bootstrap 4 probably works just fine!
 
 ## NEWS
@@ -326,7 +328,7 @@ The theme should now be applied as expected.
 Note that this section might be valid for other theme packs as well.
 
 #### jQuery
-If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`:
+If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`. To avoid having to include `jQuery` in your project you can disable all scripts (see [scripts](#scripts)).
 
 ```js
 module: {
