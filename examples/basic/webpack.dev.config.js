@@ -4,6 +4,13 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const BOOTSTRAPRC_LOCATION = process.argv.find(val => val.includes('--BOOTSTRAPRC_LOCATION')).split('=')[1];
+
+if (!BOOTSTRAPRC_LOCATION) {
+  // eslint-disable-next-line no-console
+  console.log('This script requires a \'BOOTSTRAPRC_LOCATION\' arg.');
+  throw new Error('This script requires a \'BOOTSTRAPRC_LOCATION\' arg.');
+}
 
 module.exports = {
 
@@ -11,7 +18,11 @@ module.exports = {
     'webpack-hot-middleware/client',
     'tether',
     'font-awesome-loader',
-    'bootstrap-loader',
+    [
+      'bootstrap-loader/lib/bootstrap.loader?',
+      `extractStyles&configFilePath=${__dirname}/${BOOTSTRAPRC_LOCATION}`,
+      '!bootstrap-loader/no-op.js'
+    ].join(''),
     './app/scripts/app',
   ],
 
