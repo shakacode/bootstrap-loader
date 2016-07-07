@@ -4,12 +4,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const BOOTSTRAPRC_LOCATION = process.argv.find(val => val.includes('--BOOTSTRAPRC_LOCATION')).split('=')[1];
+const bootstraprcLocation = process.argv.find(val => val.includes('--bootstraprc-location')).split('=')[1];
 
-if (!BOOTSTRAPRC_LOCATION) {
+if (!bootstraprcLocation) {
   // eslint-disable-next-line no-console
-  console.log('This script requires a \'BOOTSTRAPRC_LOCATION\' arg.');
-  throw new Error('This script requires a \'BOOTSTRAPRC_LOCATION\' arg.');
+  console.log('This script requires a \'bootstraprc-location\' arg.');
+  throw new Error('This script requires a \'bootstraprc-location\' arg.');
 }
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
     'font-awesome-loader',
     [
       'bootstrap-loader/lib/bootstrap.loader?',
-      `extractStyles&configFilePath=${__dirname}/${BOOTSTRAPRC_LOCATION}`,
+      `configFilePath=${__dirname}/${bootstraprcLocation}`,
       '!bootstrap-loader/no-op.js'
     ].join(''),
     './app/scripts/app',

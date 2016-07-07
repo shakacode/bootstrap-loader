@@ -9,12 +9,12 @@
   "scripts": {
     "clean": "rm -rf public/",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
-    "bs3": "nodemon --watch app/markup --ext html server.dev.js --BOOTSTRAPRC_LOCATION=.bootstraprc-3-example",
-    "bs4": "nodemon --watch app/markup --ext html server.dev.js --BOOTSTRAPRC_LOCATION=.bootstraprc-4-example",
+    "bs3": "nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-3-example",
+    "bs4": "nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-4-example",
     "bs3:dev": "npm run bs3",
     "bs4:dev": "npm run bs4",
-    "bs3:prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js --BOOTSTRAPRC_LOCATION=.bootstraprc-3-example",
-    "bs4:prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js --BOOTSTRAPRC_LOCATION=.bootstraprc-4-example"
+    "bs3:prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js --bootstraprc-location=.bootstraprc-3-example",
+    "bs4:prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js --bootstraprc-location=.bootstraprc-4-example"
   },
   "repository": {
     "type": "git",
