@@ -108,6 +108,7 @@ Check out example apps in [`examples/`](examples) folder:
 
 * Basic usage: [examples/basic](examples/basic)
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
+* With custom .bootstraprc location/name: [examples/custom-bootstraprc-location](examples/custom-bootstraprc-location)
 
 ## Common Options for Bootstrap 3 and 4
 Here are common options for Bootstrap 3 & 4.

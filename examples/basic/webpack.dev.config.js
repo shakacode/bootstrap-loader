@@ -4,13 +4,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const bootstraprcLocation = process.argv.find(val => val.includes('--bootstraprc-location')).split('=')[1];
-
-if (!bootstraprcLocation) {
-  // eslint-disable-next-line no-console
-  console.log('This script requires a \'bootstraprc-location\' arg.');
-  throw new Error('This script requires a \'bootstraprc-location\' arg.');
-}
 
 module.exports = {
 
@@ -18,11 +11,7 @@ module.exports = {
     'webpack-hot-middleware/client',
     'tether',
     'font-awesome-loader',
-    [
-      'bootstrap-loader/lib/bootstrap.loader?',
-      `configFilePath=${__dirname}/${bootstraprcLocation}`,
-      '!bootstrap-loader/no-op.js'
-    ].join(''),
+    'bootstrap-loader',
     './app/scripts/app',
   ],
 

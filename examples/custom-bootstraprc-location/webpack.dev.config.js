@@ -1,31 +1,44 @@
-// Very similar to webpack.dev.config.js. Common parts could be extracted to a base config.
+// Very similar to webpack.prod.config.js. Common parts could be extracted to a base config.
 // See example at:
 // https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const bootstraprcLocation = process.argv.find(val => val.includes('--bootstraprc-location')).split('=')[1];
+
+if (!bootstraprcLocation) {
+  // eslint-disable-next-line no-console
+  console.log('This script requires a \'bootstraprc-location\' arg.');
+  throw new Error('This script requires a \'bootstraprc-location\' arg.');
+}
 
 module.exports = {
 
-  // For production build we want to extract CSS to stand-alone file
-  // Provide `extractStyles` param and `bootstrap-loader` will handle it
   entry: [
-    'font-awesome-loader',
-    'bootstrap-loader/extractStyles',
+    'webpack-hot-middleware/client',
     'tether',
+    'font-awesome-loader',
+    [
+      'bootstrap-loader/lib/bootstrap.loader?',
+      `configFilePath=${__dirname}/${bootstraprcLocation}`,
+      '!bootstrap-loader/no-op.js'
+    ].join(''),
     './app/scripts/app',
   ],
 
   output: {
     path: path.join(__dirname, 'public', 'assets'),
     filename: 'app.js',
+    publicPath: '/assets/',
   },
+
+  devtool: '#cheap-module-eval-source-map',
 
   resolve: { extensions: [ '', '.js' ] },
 
   plugins: [
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
     }),
@@ -33,14 +46,11 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!postcss') },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') },
-
+      { test: /\.css$/, loaders: [ 'style', 'css', 'postcss' ] },
+      { test: /\.scss$/, loaders: [ 'style', 'css', 'postcss', 'sass' ] },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
-        // loader: "url?limit=10000"
-        loader: "url"
+        loader: "url?limit=10000"
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,

@@ -17,7 +17,8 @@ To start development simply run:
 npm start
 ```
 
-It will run linters, clear directory with previous build, create new build and run watchers to re-build on every change. We can use the `npm link` feature in our development process if we reference full paths to our loader in webpack's config: `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`. In order for this library to find the expected `bootstrap` version, you must also `npm link` the expected `bootstrap` and `extract-text-webpack-plugin` (assuming you are passing `extractStyles` to `boostrap.loader` e.g. `...bootstrap.loader?extractStyles&...`) versions from your project's `node_modules` directory to your clone of this library. 
+It will run linters, clear directory with previous build, create new build and run watchers to re-build on every change. We can use the `npm link` feature in our development process if we reference full paths to our loader in webpack's config: `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`. In order for this library to find the expected `bootstrap` version, you must also `npm link` the expected `bootstrap` and `extract-text-webpack-plugin` (assuming you are passing `extractStyles` to `boostrap.loader` e.g. `...
+  bootstrap.loader?extractStyles&...`) versions from your project's `node_modules` directory to your clone of this library. 
 
 If this doesn't work for you, just install `bootstrap-loader` locally:
 

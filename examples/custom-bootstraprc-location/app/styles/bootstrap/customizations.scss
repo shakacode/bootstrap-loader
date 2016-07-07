@@ -5,7 +5,7 @@
 // $btn-primary-bg: $brand-primary !default;
 
 // Here we're adjusting the hue of that default:
-$btn-primary-bg: adjust-hue($btn-primary-bg, +20deg);
+$btn-primary-bg: adjust-hue($btn-primary-bg, -80deg);
 
 // NOTE: $gray-dark is defined in _variables.scss
-$body-bg: $gray-light;
+$body-bg: $gray;
