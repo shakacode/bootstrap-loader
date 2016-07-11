@@ -63,6 +63,8 @@ Config is optional. If used, by default it should be placed in your project's ro
 
 If the default location doesn't work for you (e.g. you want to create multiple bootstrap configs for branding or you symlink your npm_modules directory), you may pass the absolute path of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
 
+Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) that Node sets for us. It is "the name of the directory that the currently executing script resides in."
+
 ```yaml
 ---
 # You can use comments here
