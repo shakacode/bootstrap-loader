@@ -156,9 +156,8 @@ module.exports.pitch = function(source) {
 
   const resultOutput = (
     Object.keys(result).map(key => {
-      'module.exports.' + key + ' = ' + loader + '\n'
+      return 'module.exports.' + key + ' = ' + result[key] + '\n';
     }).join('')
-      
   );
 
   logger.debug('Requiring:', '\n', resultOutput);

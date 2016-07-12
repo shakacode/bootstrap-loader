@@ -1,1 +1,1 @@
-require('./lib/bootstrap.loader!./no-op.js');
+module.exports = require('./lib/bootstrap.loader!./no-op.js');
