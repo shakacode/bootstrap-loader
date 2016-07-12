@@ -97,7 +97,7 @@ module.exports.pitch = function(source) {
 
   global.__BOOTSTRAP_CONFIG__ = config;
 
-  const result = [];
+  const result = {};
 
   const dummySourceRel = (
     loaderUtils.urlToRequest(path.relative(this.context, source))
@@ -134,7 +134,7 @@ module.exports.pitch = function(source) {
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
-    result.push(createRequire(styles));
+    result.css = createRequire(styles);
   }
 
   // Handle scripts
@@ -151,13 +151,14 @@ module.exports.pitch = function(source) {
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
 
-    result.push(createRequire(scripts));
+    result.js = createRequire(scripts);
   }
 
   const resultOutput = (
-    result
-      .map(loader => loader + '\n')
-      .join('')
+    Object.keys(result).map(key => {
+      'module.exports.' + key + ' = ' + loader + '\n'
+    }).join('')
+      
   );
 
   logger.debug('Requiring:', '\n', resultOutput);
