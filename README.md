@@ -55,7 +55,7 @@ Simply require it:
 require('bootstrap-loader');
 ```
 
-Or add `bootstrap-loader` as an entry point in your webpack config:
+Or add `bootstrap-loader` as [a module in an entry point](https://webpack.github.io/docs/configuration.html#entry) in your webpack config:
 
 ```js
 entry: [ 'bootstrap-loader', './app' ]
