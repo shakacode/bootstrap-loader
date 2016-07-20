@@ -28,5 +28,5 @@ export default function(loaders) {
       .map(loader => loader + '!')
       .join('')
   );
-  return ExtractTextPlugin.extract('style', restLoaders);
+  return ExtractTextPlugin.extract({ fallbackLoader: 'style',loader: restLoaders });
 }
