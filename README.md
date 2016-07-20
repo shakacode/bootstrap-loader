@@ -61,7 +61,7 @@ entry: [ 'bootstrap-loader', './app' ]
 
 Config is optional. If used, by default it should be placed in your project's root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default. Config options don't fall back on the defaults once a config file is present. Be sure not to delete config options. To start with a custom config, copy over a default config file as a starting point.
 
-If the default location doesn't work for you (e.g. you want to create multiple bootstrap configs for branding or you symlink your npm_modules directory), you may pass the absolute path of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
+If the default location doesn't work for you (e.g. you want to create multiple bootstrap configs for branding or you symlink your npm_modules directory), you may pass the **absolute path** of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
 
 Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) that Node sets for us. It is "the name of the directory that the currently executing script resides in."
 

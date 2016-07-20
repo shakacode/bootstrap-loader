@@ -218,4 +218,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # the npm run ... commands can create this file but we don't want it checked in
-.bootstraprc
+/.bootstraprc
