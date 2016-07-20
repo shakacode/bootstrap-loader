@@ -13,10 +13,14 @@
     "prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js",
     "bs3": "cp -f .bootstraprc-3-example .bootstraprc",
     "bs4": "cp -f .bootstraprc-4-example .bootstraprc",
+    "bs3:customlocation": "nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-3-example",
+    "bs4:customlocation": "nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-4-example",
     "bs3:dev": "npm run bs3 && npm start",
     "bs4:dev": "npm run bs4 && npm start",
     "bs3:prod": "npm run bs3 && npm run prod",
-    "bs4:prod": "npm run bs4 && npm run prod"
+    "bs4:prod": "npm run bs4 && npm run prod",
+    "bs3:customlocation:prod": "npm run build -- --bootstraprc-location=.bootstraprc-3-example && nodemon --watch app/markup --ext html server.prod.js",
+    "bs4:customlocation:prod": "npm run build -- --bootstraprc-location=.bootstraprc-4-example && nodemon --watch app/markup --ext html server.prod.js"
   },
   "repository": {
     "type": "git",
