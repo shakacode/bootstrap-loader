@@ -1,6 +1,4 @@
-[![npm version](https://img.shields.io/npm/v/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
-[![dependencies status](https://img.shields.io/gemnasium/shakacode/bootstrap-loader.svg?style=flat-square)](https://gemnasium.com/shakacode/bootstrap-loader)
-[![license](https://img.shields.io/npm/l/bootstrap-loader.svg?style=flat-square)](https://www.npmjs.com/package/bootstrap-loader)
+[![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
 
 Aloha from Justin Gordon and the [ShakaCode](http://www.shakacode.com) Team! We need your help. Venture capital funding has slowed and, for the first time, my ShakaCode team is actively looking for our next  project. If you like **React on Rails**, please consider contacting me if we could potentially help you in any way. I'm offering a free half hour project consultation, on anything from React on Rails to any aspect of web application development, including both consumer and enterprise products. You can read more about my background [here](http://www.railsonmaui.com/about). Whether you have a new project, or need help on an existing project, please email me directly at [justin@shakacode.com](mailto:justin@shakacode.com). And thanks in advance for any referrals! Your support keeps this project going.
 
@@ -173,6 +171,8 @@ This param can also be set to `true` in webpack config:
 ```js
 entry: [ 'bootstrap-loader/extractStyles', './app' ]
 ```
+
+See [shakacode/react-webpack-rails-tutorial/blob/master/client/webpack.client.rails.build.config.](https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client/webpack.client.rails.build.config.js) for a working example which is deployed to [www.reactrails.com](http://www.reactrails.com/).
 
 #### `preBootstrapCustomizations`
 
