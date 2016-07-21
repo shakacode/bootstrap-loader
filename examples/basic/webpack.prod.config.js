@@ -1,41 +1,14 @@
 // Very similar to webpack.dev.config.js. Common parts could be extracted to a base config.
 // See example at:
 // https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
-const fs = require('fs');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const bootstraprcCustomLocation = () => {
-  const matchedArgument = process.argv.find(val => val.includes('--bootstraprc-location'));
-  return matchedArgument && matchedArgument.split('=')[1];
-}();
+const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
 
-var defaultBootstraprcFileExists;
-
-try {
-  fs.statSync('./.bootstraprc');
-  defaultBootstraprcFileExists = true;
-} catch (e) {
-  defaultBootstraprcFileExists = false;
-}
-
-if (!bootstraprcCustomLocation && !defaultBootstraprcFileExists) {
-  // eslint-disable-next-line no-console
-  console.log('This script requires a \'bootstraprc-location\' arg or a ./.boostraprc file in the root.');
-  throw new Error('This script requires a \'bootstraprc-location\' arg or a ./.boostraprc file in the root.');
-}
-
-const bootstrapEntryPoint = [];
-if (bootstraprcCustomLocation) {
-  bootstrapEntryPoint.push(...[
-    'bootstrap-loader/lib/bootstrap.loader?extractStyles',
-    `&configFilePath=${__dirname}/${bootstraprcCustomLocation}`,
-    '!bootstrap-loader/no-op.js'
-  ]);
-} else {
-  bootstrapEntryPoint.push('bootstrap-loader');
-}
+// eslint-disable-next-line no-console
+console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.prod}`);
 
 module.exports = {
 
@@ -43,7 +16,7 @@ module.exports = {
   // Provide `extractStyles` param and `bootstrap-loader` will handle it
   entry: [
     'font-awesome-loader',
-    bootstrapEntryPoint.join(''),
+    bootstrapEntryPoints.prod,
     'tether',
     './app/scripts/app',
   ],
