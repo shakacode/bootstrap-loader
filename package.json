@@ -36,12 +36,12 @@
   ],
   "peerDependencies": {
     "css-loader": "*",
-    "extract-text-webpack-plugin": ">=2.0.0",
+    "extract-text-webpack-plugin": ">=2.0.0-beta.0",
     "node-sass": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
     "url-loader": "*",
-    "webpack": ">=2.0.0"
+    "webpack": "^2.1.0-beta"
   },
   "dependencies": {
     "chalk": "^1.1.1",

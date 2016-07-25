@@ -29,14 +29,14 @@ module.exports = {
   resolve: { extensions: [ '', '.js', '.jsx' ] },
 
   plugins: [
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
       },
     }),
     new webpack.ProvidePlugin({
-      "window.Tether": "tether"
+      'window.Tether': 'tether',
     }),
   ],
 
@@ -49,31 +49,31 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
-          '!postcss'
-        ),
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!postcss',
+        }),
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
-          '!postcss' +
-          '!sass'
-        ),
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+            '!postcss' +
+          '!sass',
+        }),
       },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
         // loader: "url?limit=10000"
-        loader: "url"
+        loader: 'url',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file'
+        loader: 'file',
       },
     ],
   },
