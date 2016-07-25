@@ -17,7 +17,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 That being said, Bootstrap 4 probably works just fine!
 
 ## NEWS
-
+2016-07-25: Released [to be filled] Updated to support Webpack 2 beta and Webpack ExtractTextPlugin 2 beta!
 2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
 
 
@@ -55,7 +55,7 @@ Simply require it:
 require('bootstrap-loader');
 ```
 
-Or add `bootstrap-loader` as [a module in an entry point](https://webpack.github.io/docs/configuration.html#entry) in your webpack config:
+Or add `bootstrap-loader` as [a module in an entry point](https://webpack.github.io/docs/configuration.html#entry) in your webpack config (you'll need Webpack 2 beta and higher):
 
 ```js
 entry: [ 'bootstrap-loader', './app' ]
@@ -154,7 +154,7 @@ styleLoaders:
 
 Default: `false`
 
-Extract styles to stand-alone css file using `extract-text-webpack-plugin` version `1.0.1` or lower. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
+Extract styles to stand-alone css file using `extract-text-webpack-plugin` version 2.0.0-beta or higher. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
 
 ```yaml
 extractStyles: false
