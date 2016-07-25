@@ -159,7 +159,7 @@ styleLoaders:
 
 Default: `false`
 
-Extract styles to stand-alone css file using `extract-text-webpack-plugin` lower than 2.0.0. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
+Extract styles to stand-alone css file using `extract-text-webpack-plugin` 2.0.0-beta or higher. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
 
 ```yaml
 extractStyles: false
