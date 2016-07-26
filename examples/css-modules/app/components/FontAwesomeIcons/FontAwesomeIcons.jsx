@@ -11,15 +11,15 @@ export default class FontAwesomeIcons extends React.Component {
         <h2>Font Awesome using the font-awesome-loader</h2>
         <div className={`row ${css.colItems}`}>
           <div className={`col-md-4 ${css.colItem}`}>
-            <span className="fa fa-headphones"/>
+            <span className="fa fa-headphones" />
             <span className={css.text}>It.</span>
           </div>
           <div className={`col-md-4 ${css.colItem}`}>
-            <span className="fa fa-glass"/>
+            <span className="fa fa-glass" />
             <span className={css.text}>Just.</span>
           </div>
           <div className={`col-md-4 ${css.colItem}`}>
-            <span className="fa fa-thumbs-up"/>
+            <span className="fa fa-thumbs-up" />
             <span className={css.text}>Works.</span>
           </div>
         </div>

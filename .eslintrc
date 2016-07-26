@@ -3,9 +3,14 @@ extends: eslint-config-shakacode/base
 
 globals:
   __DEBUG__: true
+  __BOOTSTRAP_CONFIG__: true
+
 
 ecmaFeatures:
   restParams: true
 
 rules:
   space-before-function-paren: [2, "never"]
+  import/no-unresolved: 0
+  no-underscore-dangle: [ "error", { "allow": [ "__BOOTSTRAP_CONFIG__", "__DEBUG__", "_babelPolyfill" ] } ]
+

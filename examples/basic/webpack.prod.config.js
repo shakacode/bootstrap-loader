@@ -23,7 +23,7 @@ module.exports = {
     filename: 'app.js',
   },
 
-  resolve: { extensions: [ '', '.js' ] },
+  resolve: { extensions: ['', '.js'] },
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
@@ -34,8 +34,12 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style', loader: 'css!postcss' }) },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style', loader: 'css!postcss!sass' }) },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style', loader: 'css!postcss',
+      }) },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style', loader: 'css!postcss!sass',
+      }) },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -58,6 +62,6 @@ module.exports = {
     ],
   },
 
-  postcss: [ autoprefixer ],
+  postcss: [autoprefixer],
 
 };

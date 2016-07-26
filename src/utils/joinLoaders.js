@@ -14,7 +14,7 @@ export default function(loaders) {
 
   return (
     loaders
-      .map(loader => loader + '!')
+      .map(loader => `${loader}!`)
       .join('')
   );
 }
