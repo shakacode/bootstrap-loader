@@ -26,13 +26,13 @@ module.exports = {
     filename: 'app.js',
   },
 
-  resolve: { extensions: [ '', '.js', '.jsx' ] },
+  resolve: { extensions: ['', '.js', '.jsx'] },
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
     new webpack.ProvidePlugin({
@@ -44,7 +44,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel'],
         exclude: /node_modules/,
       },
       {
@@ -78,6 +78,6 @@ module.exports = {
     ],
   },
 
-  postcss: [ autoprefixer ],
+  postcss: [autoprefixer],
 
 };

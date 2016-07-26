@@ -20,7 +20,7 @@ module.exports = function() {
 
   const scriptsOutput = (
     processedScripts
-      .map(script => script + '\n')
+      .map(script => `${script}\n`)
       .join('')
   );
 
