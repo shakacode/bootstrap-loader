@@ -1,2 +1,2 @@
 ---
-extends: eslint-config-airbnb/base
+extends: eslint-config-shakacode/base

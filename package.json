@@ -40,7 +40,7 @@
     "resolve-url-loader": "*",
     "sass-loader": "*",
     "url-loader": "*",
-    "webpack": "^2.1.0-beta"
+    "webpack": ">=2.1.0-beta"
   },
   "dependencies": {
     "chalk": "^1.1.1",
@@ -55,7 +55,8 @@
     "babel": "^6.0.15",
     "babel-cli": "^6.1.4",
     "babel-preset-es2015": "^6.1.4",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0"
+    "eslint": "^2.0.0",
+    "eslint-config-shakacode": "^5.0.0",
+    "eslint-plugin-import": "^1.12.0"
   }
 }
