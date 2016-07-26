@@ -35,6 +35,19 @@ npm install --save-dev ../path/to/local/bootstrap-loader
 
 Note that if you install `bootstrap-loader` locally, you have to re-install it on every change.
 
+#### Testing changes to the repo
+Make sure to write new tests for your changes. Currently the test suite is light, please help us flesh it out. Run the tests with `npm test`.
+
+You will also want to run the example implementations to ensure they work as expected with your changes. To test the examples,
+
+```
+cd examples/basic
+npm install --save-dev ../..
+npm run bs4:customlocation
+```
+
+Ensure your changes don't break any of the examples before you publish your PR.
+
 ### Build
 To create a build run:
 
@@ -51,7 +64,11 @@ To lint your code run:
 npm run lint
 ```
 
-Shame on us, but we don't have any tests here yet. We will be happy, if you can give us a hand with it.
+To test your code run:
+
+```
+npm run test
+```
 
 ## How loader works
 There are 2 entry points: `./loader.js` & `./extractStyles.js`. These are the dummy loaders, which apply real loader to dummy `no-op.js` file. The source of the real loader is located in `./src/bootstrap.loader.js`. Before exploring things in it, check out `./src/bootstrap.config.js` to figure out how we handle default / user config files & gather options for loader.

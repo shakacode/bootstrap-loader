@@ -1,10 +1,12 @@
 'use strict';
 const fs = require('fs');
 
-const bootstraprcCustomLocation = () => {
+function getBootstraprcCustomLocation() {
   const matchedArgument = process.argv.find(val => val.includes('--bootstraprc-location'));
   return matchedArgument && matchedArgument.split('=')[1];
-}();
+}
+
+const bootstraprcCustomLocation = getBootstraprcCustomLocation();
 
 let defaultBootstraprcFileExists;
 
