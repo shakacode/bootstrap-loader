@@ -62,7 +62,7 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
-    "font-awesome-loader": "^0.0.1",
+    "font-awesome-loader": "^1.0.0",
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
     "postcss-loader": "^0.8.1",
