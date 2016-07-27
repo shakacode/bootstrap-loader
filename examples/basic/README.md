@@ -18,4 +18,6 @@ npm run bs4:dev
 npm run bs3:prod
 # Bootstrap 4
 npm run bs4:prod
+
+### See .bootstraprc for configuration details
 ```
