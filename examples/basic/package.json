@@ -9,14 +9,19 @@
   "scripts": {
     "start": "nodemon --watch app/markup --ext html server.dev.js",
     "clean": "rm -rf public/",
+    "cleanrc": "rm .bootstraprc || echo 'no .bootstraprc file to delete'",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
-    "prod": "npm run build && nodemon --watch app/markup --ext html server.prod.js",
-    "bs3": "rm .bootstraprc && cp .bootstraprc-3-example .bootstraprc",
-    "bs4": "rm .bootstraprc && cp .bootstraprc-4-example .bootstraprc",
+    "prod": "nodemon --watch app/markup --ext html server.prod.js",
+    "bs3": "cp -f .bootstraprc-3-example .bootstraprc",
+    "bs4": "cp -f .bootstraprc-4-example .bootstraprc",
+    "bs3:customlocation": "npm run cleanrc && nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-3-example",
+    "bs4:customlocation": "npm run cleanrc && nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-4-example",
     "bs3:dev": "npm run bs3 && npm start",
     "bs4:dev": "npm run bs4 && npm start",
-    "bs3:prod": "npm run bs3 && npm run prod",
-    "bs4:prod": "npm run bs4 && npm run prod"
+    "bs3:prod": "npm run bs3 && npm run build && npm run prod",
+    "bs4:prod": "npm run bs4 && npm run build && npm run prod",
+    "bs3:customlocation:prod": "npm run cleanrc && npm run build -- --bootstraprc-location=.bootstraprc-3-example && npm run prod",
+    "bs4:customlocation:prod": "npm run cleanrc && npm run build -- --bootstraprc-location=.bootstraprc-4-example && npm run prod"
   },
   "repository": {
     "type": "git",
@@ -55,7 +60,7 @@
     "font-awesome-loader": "^1.0.0",
     "imports-loader": "^0.6.5",
     "node-sass": "^3.4.2",
-    "nodemon": "^1.8.1",
+    "nodemon": "^1.9.2",
     "postcss-loader": "^0.8.1",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^3.1.1",
