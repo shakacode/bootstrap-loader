@@ -6,6 +6,7 @@ import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
 import getEnvProp from './utils/getEnvProp';
+import logger from './utils/logger';
 
 /* ======= Fetching config */
 
@@ -18,12 +19,16 @@ let rawConfig;
 let defaultConfig;
 
 function userConfigFileExists(userConfigPath) {
-  return fileExists(userConfigPath);
+  return userConfigPath && fileExists(userConfigPath);
 }
 
 function setConfigVariables(configFilePath) {
   if (configFilePath) {
     rawConfig = parseConfig(configFilePath);
+
+    if (!rawConfig) {
+      throw new Error(`No config file at ${configFilePath}'`);
+    }
 
     const { bootstrapVersion } = rawConfig;
 
@@ -52,6 +57,10 @@ function setConfigVariables(configFilePath) {
       resolveDefaultConfigPath(CONFIG_FILE, DEFAULT_VERSION)
     );
     rawConfig = defaultConfig = parseConfig(defaultConfigPath);
+
+    if (!rawConfig) {
+      throw new Error(`No default config file at ${defaultConfigPath}'`);
+    }
   }
 }
 
@@ -66,6 +75,8 @@ export function createConfig({
   const configFile = path.resolve(__dirname, configFilePath);
 
   if (userConfigFileExists(configFile)) {
+    logger.log(`bootstrap-loader is using config file at ${configFile}`);
+
     setConfigVariables(configFile);
     const configDir = path.dirname(configFile);
     const preBootstrapCustomizations = (
@@ -96,6 +107,13 @@ export function createConfig({
     };
   }
 
+  if (configFile) {
+    logger.log(`bootstrap-loader config file ${configFile} was not found.
+  Using default bootstrap 3 configuration`);
+  }
+
+  // Or else we're using the default config file
+  setConfigVariables();
   return {
     bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
     loglevel: rawConfig.loglevel,

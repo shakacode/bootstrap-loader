@@ -5,6 +5,10 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
+
+// eslint-disable-next-line no-console
+console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.prod}`);
 
 module.exports = {
 
@@ -12,7 +16,7 @@ module.exports = {
   // Provide `extractStyles` param and `bootstrap-loader` will handle it
   entry: [
     'font-awesome-loader',
-    'bootstrap-loader/extractStyles',
+    bootstrapEntryPoints.prod,
     'tether',
     './app/startup/App',
   ],

@@ -26,6 +26,8 @@ We can use the `npm link` feature in our development process if we reference ful
   bootstrap.loader?extractStyles&...`) versions from your project's `node_modules` directory to your clone of this library.
 
 #### Installing locally
+More often than not, `npm link` will not work. Maybe you did not set the sibling directories of `bootstrap` and `extract-text-webpack plugin`? 
+
 If `npm link` doesn't work for you, just install `bootstrap-loader` locally:
 
 ```
@@ -33,17 +35,47 @@ cd my-test-project
 npm install --save-dev ../path/to/local/bootstrap-loader
 ```
 
-Note that if you install `bootstrap-loader` locally, you have to re-install it on every change.
+Note that if you install `bootstrap-loader` locally, you have to re-install it on every change. Yes. Very inconvenient!
+
+#### Debug Output
+When doing development or debugging, you probably want DEBUG output on.
+
+Either set an ENV value: `export DEBUG=TRUE` or set debug in the config file. To turn off debugging, etiher `unset DEBUG` or change the debug value in the config file.
 
 #### Testing changes to the repo
 Make sure to write new tests for your changes. Currently the test suite is light, please help us flesh it out. Run the tests with `npm test`.
 
-You will also want to run the example implementations to ensure they work as expected with your changes. To test the examples,
+You will also want to run the example implementations to ensure they work as expected with your changes. To test:
+
+Run the package.json scripts in both the `examples/basic` and `examples/css-modules` directories, like this. Be sure to check the browser and look for error messages.
+
 
 ```
 cd examples/basic
-npm install --save-dev ../..
-npm run bs4:customlocation
+npm run install-local
+
+npm run bs3
+# Try out in the browser at localhost:4000, and maybe make changes to the local config .bootstraprc-3-example
+
+npm run bs4
+# Try out in the browser at localhost:4000, and maybe make changes to the local config .bootstraprc-4-example
+
+npm run bs3:prod
+
+npm run bs4:prod
+
+cd examples/css-modules
+npm run install-local
+
+npm run bs3
+# Try out in the browser at localhost:4000, and maybe make changes to the local config .bootstraprc-3-example
+
+npm run bs4
+# Try out in the browser at localhost:4000, and maybe make changes to the local config .bootstraprc-4-example
+
+npm run bs3:prod
+
+npm run bs4:prod
 ```
 
 Ensure your changes don't break any of the examples before you publish your PR.

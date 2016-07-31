@@ -64,11 +64,16 @@ module.exports.pitch = function(source) {
 
   const loglevel = config.loglevel;
 
-  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG === '*';
+  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
 
-  logger.debug(`Hey, we're in DEBUG mode! Yabba dabba doo!`);
+  if (global.__DEBUG__) {
+    logger.debug(`Hey, we're in DEBUG mode because you have ` +
+      (process.env.DEBUG
+        ? 'DEBUG defined in your ENV.'
+        : 'your config log level set to \'debug\'.'));
 
-  logger.debug('Query from webpack config:', this.query || '*none*');
+    logger.debug('Query from webpack config:', this.query || '*none*');
+  }
 
   const bootstrapVersion = config.bootstrapVersion;
 
@@ -83,8 +88,9 @@ module.exports.pitch = function(source) {
   logger.debug(`Bootstrap module location (abs): ${config.bootstrapPath}`);
   if (!config.bootstrapPath) {
     throw new Error(`
-      Could not find bootstrap: '${bootstrapVersion}'
-    `);
+Could not find bootstrap version: '${bootstrapVersion}'. Did you install it?
+The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
+`);
   }
 
   config.bootstrapRelPath = path.relative(this.context, config.bootstrapPath);

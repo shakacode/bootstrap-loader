@@ -1,5 +1,5 @@
 import resolve from 'resolve';
-
+import logger from './logger';
 /**
  * Resolves location of npm module
  *
@@ -17,6 +17,7 @@ export default function(module) {
     });
     return resolvedPath;
   } catch (error) {
+    logger.debug('resolveModule error is ', error);
     return false;
   }
 }
