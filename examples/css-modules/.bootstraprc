@@ -3,16 +3,15 @@
 # loglevel: debug
 
 # Major version of Bootstrap: 3 or 4
-bootstrapVersion: 4
+bootstrapVersion: 3
 
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
+# If Bootstrap version 3 is used - turn on/off custom icon font path
+useCustomIconFontPath: false
 
 # Webpack loaders, order matters
 styleLoaders:
   - style
   - css
-  - postcss
   - sass
 
 # Extract styles to stand-alone css file
@@ -47,11 +46,11 @@ styles:
   # Reset and dependencies
   normalize: true
   print: true
+  glyphicons: true
 
   # Core CSS
-  reboot: true
+  scaffolding: true
   type: true
-  images: true
   code: true
   grid: true
   tables: true
@@ -59,36 +58,37 @@ styles:
   buttons: true
 
   # Components
-  animation: true
-  dropdown: true
-  button-group: true
-  input-group: true
-  custom-forms: true
-  nav: true
+  component-animations: true
+  dropdowns: true
+  button-groups: true
+  input-groups: true
+  navs: true
   navbar: true
-  card: true
-  breadcrumb: true
+  breadcrumbs: true
   pagination: true
   pager: true
   labels: true
+  badges: true
   jumbotron: true
-  alert: true
-  progress: true
+  thumbnails: true
+  alerts: true
+  progress-bars: true
   media: true
   list-group: true
+  panels: true
+  wells: true
   responsive-embed: true
   close: true
 
   # Components w/ JavaScript
-  modal: true
+  modals: true
   tooltip: true
-  popover: true
+  popovers: true
   carousel: true
 
   # Utility classes
   utilities: true
-  utilities-spacing: true
-  utilities-responsive: true
+  responsive-utilities: true
 
 ### Bootstrap scripts
 scripts: false
