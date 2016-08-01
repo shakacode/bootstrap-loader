@@ -4,6 +4,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
+
+// eslint-disable-next-line no-console
+console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.dev}`);
 
 module.exports = {
 
@@ -11,7 +15,7 @@ module.exports = {
     'webpack-hot-middleware/client',
     'tether',
     'font-awesome-loader',
-    'bootstrap-loader',
+    bootstrapEntryPoints.dev,
     './app/startup/App',
   ],
 

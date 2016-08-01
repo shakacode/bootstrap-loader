@@ -36,7 +36,7 @@ import joinLoaders from './utils/joinLoaders';
 import buildExtractStylesLoader from './utils/buildExtractStylesLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
-import { bootstrapVersion, loglevel, createConfig } from './bootstrap.config';
+import { createConfig, userConfigFileExists } from './bootstrap.config';
 
 module.exports = function() {};
 
@@ -50,35 +50,67 @@ module.exports = function() {};
 module.exports.pitch = function(source) {
   if (this.cacheable) this.cacheable();
 
-  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG === '*';
+  const { extractStyles, configFilePath } = loaderUtils.parseQuery(this.query);
 
-  logger.debug('Hey, we\'re in DEBUG mode! Yabba dabba doo!');
+  if (configFilePath) {
+    const fullPathToUserConfig = path.resolve(__dirname, configFilePath);
+    if (!userConfigFileExists(fullPathToUserConfig)) {
+      throw new Error(`
+        Cannot find config file ${fullPathToUserConfig}. You might want to pass the full path.
+      `);
+    }
+  }
 
-  logger.debug('Context:', this.context);
-  logger.debug('Using Bootstrap version:', bootstrapVersion);
+  const config = (
+    createConfig({ extractStyles, configFilePath })
+  );
+
+  const loglevel = config.loglevel;
+
+  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
+
+  if (global.__DEBUG__) {
+    logger.debug(`Hey, we're in DEBUG mode because you have ` +
+      (process.env.DEBUG
+        ? 'DEBUG defined in your ENV.'
+        : 'your config log level set to \'debug\'.'));
+
+    logger.debug('Query from webpack config:', this.query || '*none*');
+  }
+
+  const bootstrapVersion = config.bootstrapVersion;
 
   // Resolve `bootstrap` package
   const bootstrapNPMModule = (
     bootstrapVersion === 3 ? 'bootstrap-sass' : 'bootstrap'
   );
+
   logger.debug('Using Bootstrap module:', bootstrapNPMModule);
 
-  const bootstrapPath = resolveModule(bootstrapNPMModule);
+  config.bootstrapPath = resolveModule(bootstrapNPMModule);
+  logger.debug(`Bootstrap module location (abs): ${config.bootstrapPath}`);
+  if (!config.bootstrapPath) {
+    throw new Error(`
+Could not find bootstrap version: '${bootstrapVersion}'. Did you install it?
+The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
+`);
+  }
 
-  if (!bootstrapPath) {
+  config.bootstrapRelPath = path.relative(this.context, config.bootstrapPath);
+  logger.debug(`Bootstrap module location (rel): ${config.bootstrapRelPath}`);
+
+  logger.debug('Context:', this.context);
+  logger.debug('Using Bootstrap version:', bootstrapVersion);
+
+  if (!config.bootstrapPath) {
     throw new Error(`
       Could not find path to '${bootstrapNPMModule}' module.
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
 
-  const bootstrapRelPath = path.relative(this.context, bootstrapPath);
-
-  logger.debug('Bootstrap module location (abs):', bootstrapPath);
-  logger.debug('Bootstrap module location (rel):', bootstrapRelPath);
-
   const bootstrapNPMVersion = (
-    checkBootstrapVersion(bootstrapVersion, bootstrapPath)
+    checkBootstrapVersion(bootstrapVersion, config.bootstrapPath)
   );
 
   if (!bootstrapNPMVersion.allGood) {
@@ -88,14 +120,9 @@ module.exports.pitch = function(source) {
       Installed version: ${bootstrapNPMVersion.version}
     `);
   }
+
   logger.debug('Bootstrap NPM package version:', bootstrapNPMVersion.version);
 
-  const { extractStyles } = loaderUtils.parseQuery(this.query);
-  logger.debug('Query from webpack config:', this.query || '*none*');
-
-  const config = (
-    createConfig({ bootstrapPath, bootstrapRelPath, extractStyles })
-  );
   logger.debug('Normalized params:', '\n', config);
 
   global.__BOOTSTRAP_CONFIG__ = config;
