@@ -374,6 +374,49 @@ module: {
 },
 ```
 
+## FAQ
+
+### Using Bootstrap mixins and variables in your own code
+
+You should use `sass-resources-loader` in your `webpack` config.
+
+In your `webpack.config.js`:
+```javascript
+module.exports = {
+
+  // stuff removed for clarity ...
+
+  module: {
+    loaders: [
+      // stuff removed for clarity ...
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!sass' +
+          '!sass-resources'
+        ),
+      },
+      // stuff removed for clarity ...
+    ],
+  },
+
+  // stuff removed for clarity ...
+
+  sassResources: './config/sass-resources.scss',
+}
+```
+
+And in your `./config/sass-resources.scss`:
+```
+// Make variables and mixins available when using CSS modules.
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins";
+```
+
+You can then use mixins and variables from Bootstrap in your own code.
+
 ## Contributing
 See [Contributing](CONTRIBUTING.md) to get started.
 
