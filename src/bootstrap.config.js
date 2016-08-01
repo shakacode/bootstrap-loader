@@ -6,64 +6,79 @@ import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
 import getEnvProp from './utils/getEnvProp';
+import logger from './utils/logger';
 
 /* ======= Fetching config */
 
 const DEFAULT_VERSION = 3;
 const SUPPORTED_VERSIONS = [3, 4];
 const CONFIG_FILE = '.bootstraprc';
-
-const userConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
-const isUserConfig = fileExists(userConfigPath);
+const defaultUserConfigPath = `../../../${CONFIG_FILE}`;
 
 let rawConfig;
 let defaultConfig;
 
-if (isUserConfig) {
-  rawConfig = parseConfig(userConfigPath);
+function userConfigFileExists(userConfigPath) {
+  return userConfigPath && fileExists(userConfigPath);
+}
 
-  const { bootstrapVersion } = rawConfig;
+function setConfigVariables(configFilePath) {
+  if (configFilePath) {
+    rawConfig = parseConfig(configFilePath);
 
-  if (!bootstrapVersion) {
-    throw new Error(`
-      I can't find Bootstrap version in your '.bootstraprc'.
-      Make sure it's set to 3 or 4. Like this:
-        bootstrapVersion: 4
-    `);
+    if (!rawConfig) {
+      throw new Error(`No config file at ${configFilePath}'`);
+    }
+
+    const { bootstrapVersion } = rawConfig;
+
+    if (!bootstrapVersion) {
+      throw new Error(`
+        I can't find Bootstrap version in your '.bootstraprc'.
+        Make sure it's set to 3 or 4. Like this:
+          bootstrapVersion: 4
+      `);
+    }
+
+    if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
+      throw new Error(`
+        Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
+        Make sure it's set to 3 or 4. Like this:
+          bootstrapVersion: 4
+      `);
+    }
+
+    const defaultConfigPath = (
+      resolveDefaultConfigPath(CONFIG_FILE, bootstrapVersion)
+    );
+    defaultConfig = parseConfig(defaultConfigPath);
+  } else {
+    const defaultConfigPath = (
+      resolveDefaultConfigPath(CONFIG_FILE, DEFAULT_VERSION)
+    );
+    rawConfig = defaultConfig = parseConfig(defaultConfigPath);
+
+    if (!rawConfig) {
+      throw new Error(`No default config file at ${defaultConfigPath}'`);
+    }
   }
-
-  if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
-    throw new Error(`
-      Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
-      Make sure it's set to 3 or 4. Like this:
-        bootstrapVersion: 4
-    `);
-  }
-
-  const defaultConfigPath = (
-    resolveDefaultConfigPath(CONFIG_FILE, bootstrapVersion)
-  );
-  defaultConfig = parseConfig(defaultConfigPath);
-} else {
-  const defaultConfigPath = (
-    resolveDefaultConfigPath(CONFIG_FILE, DEFAULT_VERSION)
-  );
-  rawConfig = defaultConfig = parseConfig(defaultConfigPath);
 }
 
 
 /* ======= Exports */
-
-export const bootstrapVersion = parseInt(rawConfig.bootstrapVersion, 10);
-export const loglevel = rawConfig.loglevel;
+export { userConfigFileExists };
 
 export function createConfig({
-  bootstrapPath,
-  bootstrapRelPath,
   extractStyles,
+  configFilePath = defaultUserConfigPath,
 }) {
-  if (isUserConfig) {
-    const configDir = path.dirname(userConfigPath);
+  const configFile = path.resolve(__dirname, configFilePath);
+
+  if (userConfigFileExists(configFile)) {
+    logger.log(`bootstrap-loader is using config file at ${configFile}`);
+
+    setConfigVariables(configFile);
+    const configDir = path.dirname(configFile);
     const preBootstrapCustomizations = (
       rawConfig.preBootstrapCustomizations &&
       path.resolve(configDir, rawConfig.preBootstrapCustomizations)
@@ -78,10 +93,8 @@ export function createConfig({
     );
 
     return {
-      bootstrapPath,
-      bootstrapRelPath,
-      bootstrapVersion,
-      loglevel,
+      bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
+      loglevel: rawConfig.loglevel,
       preBootstrapCustomizations,
       bootstrapCustomizations,
       appStyles,
@@ -94,11 +107,16 @@ export function createConfig({
     };
   }
 
+  if (configFile) {
+    logger.log(`bootstrap-loader config file ${configFile} was not found.
+  Using default bootstrap 3 configuration`);
+  }
+
+  // Or else we're using the default config file
+  setConfigVariables();
   return {
-    bootstrapPath,
-    bootstrapRelPath,
-    bootstrapVersion,
-    loglevel,
+    bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
+    loglevel: rawConfig.loglevel,
     useFlexbox: defaultConfig.useFlexbox,
     useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
     extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),

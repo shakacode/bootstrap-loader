@@ -16,8 +16,8 @@ That being said, Bootstrap 4 probably works just fine!
 
 ## NEWS
 
+2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
 2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
-
 
 ## Installation
 Get it via npm:
@@ -34,6 +34,8 @@ npm install bootstrap-sass
 
 # or Bootstrap 4
 npm install bootstrap@v4.0.0-alpha.2
+
+# Note, alpha.3 is broken
 
 # Node SASS & other loaders needed to handle styles
 npm install css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
@@ -59,7 +61,11 @@ Or add `bootstrap-loader` as [a module in an entry point](https://webpack.github
 entry: [ 'bootstrap-loader', './app' ]
 ```
 
-Config is optional. It can be placed in root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default. Config options don't fall back on the defaults once a config file is present. Be sure not to delete config options. To start with a custom config, copy over a default config file as a starting point.
+Config is optional. If used, by default it should be placed in your project's root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default. Config options don't fall back on the defaults once a config file is present. Be sure not to delete config options. To start with a custom config, copy over a default config file as a starting point.
+
+If the default location doesn't work for you (e.g. you want to create multiple bootstrap configs for branding variations or you symlink your npm_modules directory), you may pass the **absolute path** of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
+
+Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) that Node sets for us. It is "the name of the directory that the currently executing script resides in."
 
 ```yaml
 ---
@@ -105,6 +111,7 @@ If no config provided, default one for Bootstrap 3 will be used.
 Check out example apps in [`examples/`](examples) folder:
 
 * Basic usage: [examples/basic](examples/basic)
+ * See the `npm run bs4:customlocation` tasks for examples on how to pass your .bootstraprc config.
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
 
 ## Common Options for Bootstrap 3 and 4
@@ -368,8 +375,6 @@ module: {
 ```
 
 ## Contributing
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](CODE_OF_CONDUCT.md).
-
 See [Contributing](CONTRIBUTING.md) to get started.
 
 ## License
