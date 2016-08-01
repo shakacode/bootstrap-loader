@@ -5,12 +5,15 @@ import semver from 'semver';
 // For Node <= v0.12.x Babel polyfill is required
 if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   try {
+    // eslint-disable-next-line global-require
     require('babel-polyfill');
   } catch (e) {
     try {
+      // eslint-disable-next-line global-require
       require('babel-core/polyfill');
     } catch (ee) {
       try {
+        // eslint-disable-next-line global-require
         require('babel/polyfill');
       } catch (eee) {
         throw new Error(`
@@ -67,10 +70,10 @@ module.exports.pitch = function(source) {
   global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
 
   if (global.__DEBUG__) {
-    logger.debug(`Hey, we're in DEBUG mode because you have ` +
-      (process.env.DEBUG
+    logger.debug(`Hey, we're in DEBUG mode because you have 
+      ${(process.env.DEBUG
         ? 'DEBUG defined in your ENV.'
-        : 'your config log level set to \'debug\'.'));
+        : 'your config log level set to \'debug\'.')}`);
 
     logger.debug('Query from webpack config:', this.query || '*none*');
   }
@@ -105,7 +108,6 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-
   const bootstrapNPMVersion = (
     checkBootstrapVersion(bootstrapVersion, config.bootstrapPath)
   );
@@ -150,14 +152,14 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
       joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
     );
     const bootstrapStylesLoader = (
-      loaderUtils.urlToRequest(
+      `${loaderUtils.urlToRequest(
         path.relative(
           this.context,
           require.resolve(
             loaderUtils.urlToRequest('bootstrap.styles.loader.js')
           )
         )
-      ) + '!'
+      )}!`
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
@@ -167,14 +169,14 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
   // Handle scripts
   if (config.scripts) {
     const bootstrapScriptsLoader = (
-      loaderUtils.urlToRequest(
+      `${loaderUtils.urlToRequest(
         path.relative(
           this.context,
           require.resolve(
             loaderUtils.urlToRequest('bootstrap.scripts.loader.js')
           )
         )
-      ) + '!'
+      )}!`
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
 
@@ -183,7 +185,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   const resultOutput = (
     result
-      .map(loader => loader + '\n')
+      .map(loader => `${loader}\n`)
       .join('')
   );
 

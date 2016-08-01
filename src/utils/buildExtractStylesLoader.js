@@ -15,6 +15,7 @@ export default function(loaders) {
 
   let ExtractTextPlugin;
   try {
+    // eslint-disable-next-line global-require
     ExtractTextPlugin = require('extract-text-webpack-plugin');
   } catch (error) {
     throw new Error(`
@@ -25,8 +26,8 @@ export default function(loaders) {
   const restLoaders = (
     loaders
       .slice(1)
-      .map(loader => loader + '!')
+      .map(loader => `${loader}!`)
       .join('')
   );
-  return ExtractTextPlugin.extract('style', restLoaders);
+  return ExtractTextPlugin.extract({ fallbackLoader: 'style', loader: restLoaders });
 }

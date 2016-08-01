@@ -27,27 +27,27 @@ module.exports = {
 
   devtool: '#cheap-module-eval-source-map',
 
-  resolve: { extensions: [ '', '.js' ] },
+  resolve: { extensions: ['', '.js'] },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-      "window.Tether": "tether"
+      'window.Tether': 'tether',
     }),
   ],
 
   module: {
     loaders: [
-      { test: /\.css$/, loaders: [ 'style', 'css', 'postcss' ] },
-      { test: /\.scss$/, loaders: [ 'style', 'css', 'postcss', 'sass' ] },
+      { test: /\.css$/, loaders: ['style', 'css', 'postcss'] },
+      { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url?limit=10000"
+        loader: 'url?limit=10000',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file'
+        loader: 'file',
       },
 
       // Use one of these to serve jQuery for Bootstrap scripts:
@@ -60,6 +60,6 @@ module.exports = {
     ],
   },
 
-  postcss: [ autoprefixer ],
+  postcss: [autoprefixer],
 
 };

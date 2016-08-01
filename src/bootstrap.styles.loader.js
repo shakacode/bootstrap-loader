@@ -70,7 +70,7 @@ module.exports = function() {
   const stylesOutput = (
     processedStyles
       .concat(bootstrapStyles, userStyles)
-      .map(style => style.replace(/\\/g, '/') + '\n')
+      .map(style => `${style.replace(/\\/g, '/')}\n`)
       .join('')
   );
 
