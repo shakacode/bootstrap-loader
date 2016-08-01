@@ -70,10 +70,10 @@ module.exports.pitch = function(source) {
   global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
 
   if (global.__DEBUG__) {
-    logger.debug(`Hey, we're in DEBUG mode because you have ` +
-      (process.env.DEBUG
+    logger.debug(`Hey, we\'re in DEBUG mode because you have \
+${process.env.DEBUG
         ? 'DEBUG defined in your ENV.'
-        : 'your config log level set to \'debug\'.'));
+        : 'your config log level set to \'debug\'.'}`);
 
     logger.debug('Query from webpack config:', this.query || '*none*');
   }
