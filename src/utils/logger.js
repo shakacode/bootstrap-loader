@@ -13,10 +13,22 @@ export default {
    * @param {...*} output
    */
   log(...output) {
-    const pettyOutput = (
+    const prettyOutput = (
       [chalk.yellow('[bootstrap-loader]: ')].concat(output, '\n')
     );
-    console.log(...pettyOutput);
+    console.log(...prettyOutput);
+  },
+
+  /**
+   * Logs output to stderr
+   *
+   * @param {...*} output
+   */
+  warn(...output) {
+    const prettyOutput = (
+      [chalk.yellow('[bootstrap-loader]: ')].concat(output, '\n')
+    );
+    console.warn(...prettyOutput);
   },
 
   /**

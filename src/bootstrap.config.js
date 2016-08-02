@@ -75,7 +75,7 @@ export function createConfig({
   const configFile = path.resolve(__dirname, configFilePath);
 
   if (userConfigFileExists(configFile)) {
-    logger.log(`bootstrap-loader is using config file at ${configFile}`);
+    logger.warn(`bootstrap-loader is using config file at ${configFile}`);
 
     setConfigVariables(configFile);
     const configDir = path.dirname(configFile);
@@ -108,7 +108,7 @@ export function createConfig({
   }
 
   if (configFile) {
-    logger.log(`bootstrap-loader config file ${configFile} was not found.
+    logger.warn(`bootstrap-loader config file ${configFile} was not found.
   Using default bootstrap 3 configuration`);
   }
 
