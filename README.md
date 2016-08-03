@@ -2,6 +2,9 @@
 
 Aloha from Justin Gordon and the [ShakaCode](http://www.shakacode.com) Team! We need your help. Venture capital funding has slowed and, for the first time, my ShakaCode team is actively looking for our next  project. If you like **React on Rails**, please consider contacting me if we could potentially help you in any way. I'm offering a free half hour project consultation, on anything from React on Rails to any aspect of web application development, including both consumer and enterprise products. You can read more about my background [here](http://www.railsonmaui.com/about). Whether you have a new project, or need help on an existing project, please email me directly at [justin@shakacode.com](mailto:justin@shakacode.com). And thanks in advance for any referrals! Your support keeps this project going.
 
+# Version 1.x Docs!
+If you want the version 2 docs, see them on the [master branch](https://github.com/shakacode/bootstrap-loader). We intend to make bug fixes to this branch. Feature development should go into "master". Then again, if you need to stay on v1 of Webpack and you want a feature, go ahead and make a PR off of this branch. 
+
 # bootstrap-loader
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
