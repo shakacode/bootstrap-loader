@@ -146,8 +146,8 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
     const styleLoaders = (
       config.extractStyles ?
-      buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
-      joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
+        buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
+        joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
     );
     const bootstrapStylesLoader = (
       loaderUtils.urlToRequest(
@@ -183,7 +183,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   const resultOutput = (
     Object.keys(result).map(key => {
-      return 'module.exports.' + key + ' = ' + result[key] + '\n';
+      return `module.exports.${key} = ${result[key]}\n`;
     }).join('')
   );
 
