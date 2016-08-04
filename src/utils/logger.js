@@ -20,18 +20,6 @@ export default {
   },
 
   /**
-   * Logs output to stderr
-   *
-   * @param {...*} output
-   */
-  warn(...output) {
-    const prettyOutput = (
-      [chalk.yellow('[bootstrap-loader]: ')].concat(output, '\n')
-    );
-    console.warn(...prettyOutput);
-  },
-
-  /**
    * Logs debug info
    *
    * @param {...*} output
