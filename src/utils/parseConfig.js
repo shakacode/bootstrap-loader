@@ -8,7 +8,12 @@ import stripComments from 'strip-json-comments';
  * @param {string} configPath
  * @returns {Object}
  */
-export default function(configPath) {
-  const configContent = stripComments(fs.readFileSync(configPath, 'utf8'));
+export default function(configPath) {  
+  try {
+    const configContent = JSON.stringify(require(configPath));
+  } catch (e) {
+    const configContent = stripComments(fs.readFileSync(configPath, 'utf8'));
+  }
+
   return yaml.safeLoad(configContent);
 }
