@@ -64,10 +64,14 @@ module.exports.pitch = function(source) {
   const config = (
     createConfig({ extractStyles, configFilePath })
   );
-
-  const loglevel = config.loglevel;
-
-  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG === true || process.env.DEBUG === "true" || process.env.DEBUG === "yes" || process.env.DEBUG === 1;
+  
+  function isDebugEnable(){
+    const loglevel = config.loglevel;
+    const globalDebugVar = process.env.DEBUG;
+    return loglevel === 'debug' || globalDebugVar && (globalDebugVar.toString().toLowerCase() === 'true' || globalDebugVar.toLowerCase() === 'yes' || globalDebugVar.toLowerCase() === '1');
+  }
+  
+  global.__DEBUG__ = isDebugEnable();
 
   if (global.__DEBUG__) {
     logger.debug(`Hey, we're in DEBUG mode because you have 
