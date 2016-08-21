@@ -67,7 +67,7 @@ module.exports.pitch = function(source) {
 
   const loglevel = config.loglevel;
 
-  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
+  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG === true || process.env.DEBUG === "true" || process.env.DEBUG === "yes" || process.env.DEBUG === 1;
 
   if (global.__DEBUG__) {
     logger.debug(`Hey, we're in DEBUG mode because you have 
