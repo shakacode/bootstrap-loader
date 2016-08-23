@@ -25,7 +25,7 @@ export default {
    * @param {...*} output
    */
   debug(...output) {
-    if (__DEBUG__) this.log(...output);
+    if (global.__DEBUG__) this.log(...output);
   },
 
 };
