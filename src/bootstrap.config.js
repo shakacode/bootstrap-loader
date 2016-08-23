@@ -6,7 +6,6 @@ import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
 import getEnvProp from './utils/getEnvProp';
-import logger from './utils/logger';
 
 /* ======= Fetching config */
 
@@ -76,8 +75,6 @@ export function createConfig({
   configFilePath,
 }) {
   if (!configFilePath) {
-    logger.debug('Using default bootstrap 3 configuration');
-
     setConfigVariables();
     return {
       bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
@@ -92,9 +89,6 @@ export function createConfig({
   }
 
   const configFile = path.resolve(__dirname, configFilePath);
-
-  logger.debug(`bootstrap-loader is using config file at ${configFile}`);
-
   setConfigVariables(configFile);
   const configDir = path.dirname(configFile);
   const preBootstrapCustomizations = (
