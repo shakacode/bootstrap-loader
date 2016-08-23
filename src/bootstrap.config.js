@@ -12,8 +12,6 @@ import logger from './utils/logger';
 
 const DEFAULT_VERSION = 3;
 const SUPPORTED_VERSIONS = [3, 4];
-const CONFIG_FILE = '.bootstraprc';
-const defaultUserConfigPath = `../../../${CONFIG_FILE}`;
 
 let rawConfig;
 let defaultConfig;
@@ -49,17 +47,22 @@ function setConfigVariables(configFilePath) {
     }
 
     const defaultConfigPath = (
-      resolveDefaultConfigPath(CONFIG_FILE, bootstrapVersion)
+      resolveDefaultConfigPath(bootstrapVersion)
     );
     defaultConfig = parseConfig(defaultConfigPath);
   } else {
     const defaultConfigPath = (
-      resolveDefaultConfigPath(CONFIG_FILE, DEFAULT_VERSION)
+      resolveDefaultConfigPath(DEFAULT_VERSION)
     );
+
+    if (!fileExists(defaultConfigPath)) {
+      throw new Error(`No default config file at ${defaultConfigPath}'`);
+    }
+
     rawConfig = defaultConfig = parseConfig(defaultConfigPath);
 
     if (!rawConfig) {
-      throw new Error(`No default config file at ${defaultConfigPath}'`);
+      throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
     }
   }
 }
@@ -70,58 +73,54 @@ export { userConfigFileExists };
 
 export function createConfig({
   extractStyles,
-  configFilePath = defaultUserConfigPath,
+  configFilePath,
 }) {
-  const configFile = path.resolve(__dirname, configFilePath);
+  if (!configFilePath) {
+    logger.debug('Using default bootstrap 3 configuration');
 
-  if (userConfigFileExists(configFile)) {
-    logger.log(`bootstrap-loader is using config file at ${configFile}`);
-
-    setConfigVariables(configFile);
-    const configDir = path.dirname(configFile);
-    const preBootstrapCustomizations = (
-      rawConfig.preBootstrapCustomizations &&
-      path.resolve(configDir, rawConfig.preBootstrapCustomizations)
-    );
-    const bootstrapCustomizations = (
-      rawConfig.bootstrapCustomizations &&
-      path.resolve(configDir, rawConfig.bootstrapCustomizations)
-    );
-    const appStyles = (
-      rawConfig.appStyles &&
-      path.resolve(configDir, rawConfig.appStyles)
-    );
-
+    setConfigVariables();
     return {
       bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
       loglevel: rawConfig.loglevel,
-      preBootstrapCustomizations,
-      bootstrapCustomizations,
-      appStyles,
-      useFlexbox: rawConfig.useFlexbox,
-      useCustomIconFontPath: rawConfig.useCustomIconFontPath,
-      extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
-      styleLoaders: rawConfig.styleLoaders,
-      styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
-      scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+      useFlexbox: defaultConfig.useFlexbox,
+      useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
+      extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
+      styleLoaders: defaultConfig.styleLoaders,
+      styles: selectModules(defaultConfig.styles),
+      scripts: selectModules(defaultConfig.scripts),
     };
   }
 
-  if (configFile) {
-    logger.log(`bootstrap-loader config file ${configFile} was not found.
-  Using default bootstrap 3 configuration`);
-  }
+  const configFile = path.resolve(__dirname, configFilePath);
 
-  // Or else we're using the default config file
-  setConfigVariables();
+  logger.debug(`bootstrap-loader is using config file at ${configFile}`);
+
+  setConfigVariables(configFile);
+  const configDir = path.dirname(configFile);
+  const preBootstrapCustomizations = (
+    rawConfig.preBootstrapCustomizations &&
+    path.resolve(configDir, rawConfig.preBootstrapCustomizations)
+  );
+  const bootstrapCustomizations = (
+    rawConfig.bootstrapCustomizations &&
+    path.resolve(configDir, rawConfig.bootstrapCustomizations)
+  );
+  const appStyles = (
+    rawConfig.appStyles &&
+    path.resolve(configDir, rawConfig.appStyles)
+  );
+
   return {
     bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
     loglevel: rawConfig.loglevel,
-    useFlexbox: defaultConfig.useFlexbox,
-    useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
-    extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
-    styleLoaders: defaultConfig.styleLoaders,
-    styles: selectModules(defaultConfig.styles),
-    scripts: selectModules(defaultConfig.scripts),
+    preBootstrapCustomizations,
+    bootstrapCustomizations,
+    appStyles,
+    useFlexbox: rawConfig.useFlexbox,
+    useCustomIconFontPath: rawConfig.useCustomIconFontPath,
+    extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
+    styleLoaders: rawConfig.styleLoaders,
+    styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
+    scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
   };
 }
