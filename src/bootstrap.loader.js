@@ -65,7 +65,7 @@ module.exports.pitch = function(source) {
     createConfig({ extractStyles, configFilePath })
   );
 
-  function isDebugEnable() {
+  function isDebugEnabled() {
     if (config.loglevel === 'debug') {
       return true;
     }
@@ -83,7 +83,7 @@ module.exports.pitch = function(source) {
     return false;
   }
 
-  global.__DEBUG__ = isDebugEnable();
+  global.__DEBUG__ = isDebugEnabled();
 
   if (global.__DEBUG__) {
     logger.debug(`Hey, we're in DEBUG mode because you have 
