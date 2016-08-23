@@ -65,9 +65,25 @@ module.exports.pitch = function(source) {
     createConfig({ extractStyles, configFilePath })
   );
 
-  const loglevel = config.loglevel;
+  function isDebugEnabled() {
+    if (config.loglevel === 'debug') {
+      return true;
+    }
+    if (process.env.DEBUG) {
+      const globalDebugVar = process.env.DEBUG.toString().toLowerCase();
+      switch (globalDebugVar) {
+        case 'true':
+        case 'yes':
+        case '1':
+          return true;
+        default:
+          return false;
+      }
+    }
+    return false;
+  }
 
-  global.__DEBUG__ = loglevel === 'debug' || process.env.DEBUG;
+  global.__DEBUG__ = isDebugEnabled();
 
   if (global.__DEBUG__) {
     logger.debug(`Hey, we're in DEBUG mode because you have 
