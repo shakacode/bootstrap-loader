@@ -1,5 +1,7 @@
 import path from 'path';
 
+const CONFIG_FILE = '.bootstraprc';
+
 /**
  * Resolves default config for default Bootstrap version
  *
@@ -7,6 +9,6 @@ import path from 'path';
  * @param {number} bootstrapPathotstrapVersion
  * @returns {string}
  */
-export default (configFile, bootstrapVersion) => (
-  path.resolve(__dirname, `../../${configFile}-${bootstrapVersion}-default`)
+export default (bootstrapVersion) => (
+  path.resolve(__dirname, `../../${CONFIG_FILE}-${bootstrapVersion}-default`)
 );
