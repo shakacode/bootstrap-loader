@@ -26,7 +26,7 @@ We can use the `npm link` feature in our development process if we reference ful
   bootstrap.loader?extractStyles&...`) versions from your project's `node_modules` directory to your clone of this library.
 
 #### Installing locally
-More often than not, `npm link` will not work. Maybe you did not set the sibling directories of `bootstrap` and `extract-text-webpack plugin`? 
+More often than not, `npm link` will not work. Maybe you did not set the sibling directories of `bootstrap` and `extract-text-webpack plugin`?
 
 If `npm link` doesn't work for you, just install `bootstrap-loader` locally:
 
@@ -100,6 +100,15 @@ To test your code run:
 
 ```
 npm run test
+```
+
+In order to run tests in a browser
+```
+npm i -g browserify babelify tape-run faucet
+
+browserify -t babelify node_package/tests/*.js | tape-run | faucet
+or
+browserify -t babelify node_package/tests/*.js | tape-run --browser chrome | faucet
 ```
 
 ## How loader works
