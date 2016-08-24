@@ -66,30 +66,36 @@ module.exports.pitch = function(source) {
     if (config.loglevel === 'debug') {
       return true;
     }
-    if (process.env.DEBUG) {
-      const globalDebugVar = process.env.DEBUG.toString().toLowerCase();
-      switch (globalDebugVar) {
-        case 'true':
-        case 'yes':
-        case '1':
-          return true;
-        default:
-          return false;
-      }
+    if (!process.env.DEBUG) {
+      return false;
     }
-    return false;
+
+    switch (process.env.DEBUG.toString().toLowerCase()) {
+      case 'true':
+      case 'yes':
+      case '1':
+        return true;
+      default:
+        return false;
+    }
   }
 
   global.__DEBUG__ = isDebugEnabled();
 
-  if (global.__DEBUG__) {
-    logger.debug(`Hey, we're in DEBUG mode because you have ` +
-      (process.env.DEBUG
-        ? 'DEBUG defined in your ENV.'
-        : 'your config log level set to \'debug\'.'));
+  const whichWayDebugEnabledMsg = process.env.DEBUG
+    ? 'DEBUG defined in your ENV.'
+    : "your config log level set to 'debug'.";
 
-    logger.debug('Query from webpack config:', this.query || '*none*');
+  logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
+
+  if (!configFilePath) {
+    logger.debug('Using default bootstrap 3 configuration');
+  } else {
+    const configFile = path.resolve(__dirname, configFilePath);
+    logger.debug(`bootstrap-loader is using config file at ${configFile}`);
   }
+
+  logger.debug('Query from webpack config:', this.query || '*none*');
 
   const bootstrapVersion = config.bootstrapVersion;
 
