@@ -85,10 +85,11 @@ module.exports.pitch = function(source) {
 
   global.__DEBUG__ = isDebugEnabled();
 
-  logger.debug(`Hey, we're in DEBUG mode because you have
-    ${(process.env.DEBUG
-      ? 'DEBUG defined in your ENV.'
-      : 'your config log level set to \'debug\'.')}`);
+  const whichWayDebugEnabledMsg = process.env.DEBUG
+    ? 'DEBUG defined in your ENV.'
+    : "your config log level set to 'debug'.";
+
+  logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
 
   if (!configFilePath) {
     logger.debug('Using default bootstrap 3 configuration');
