@@ -146,7 +146,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   global.__BOOTSTRAP_CONFIG__ = config;
 
-  const result = [];
+  const result = {};
 
   const dummySourceRel = (
     loaderUtils.urlToRequest(path.relative(this.context, source))
@@ -168,8 +168,8 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
     const styleLoaders = (
       config.extractStyles ?
-      buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
-      joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
+        buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
+        joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
     );
     const bootstrapStylesLoader = (
       loaderUtils.urlToRequest(
@@ -183,7 +183,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
-    result.push(createRequire(styles));
+    result.css = createRequire(styles);
   }
 
   // Handle scripts
@@ -200,13 +200,13 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
 
-    result.push(createRequire(scripts));
+    result.js = createRequire(scripts);
   }
 
   const resultOutput = (
-    result
-      .map(loader => loader + '\n')
-      .join('')
+    Object.keys(result).map(key => {
+      return `module.exports.${key} = ${result[key]}\n`;
+    }).join('')
   );
 
   logger.debug('Requiring:', '\n', resultOutput);
