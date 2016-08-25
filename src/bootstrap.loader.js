@@ -26,6 +26,7 @@ if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   }
 }
 
+/* eslint-disable import/imports-first */
 import path from 'path';
 import loaderUtils from 'loader-utils';
 
