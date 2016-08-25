@@ -13,10 +13,10 @@ export default {
    * @param {...*} output
    */
   log(...output) {
-    const pettyOutput = (
+    const prettyOutput = (
       [chalk.yellow('[bootstrap-loader]: ')].concat(output, '\n')
     );
-    console.log(...pettyOutput);
+    console.log(...prettyOutput);
   },
 
   /**
@@ -25,7 +25,7 @@ export default {
    * @param {...*} output
    */
   debug(...output) {
-    if (__DEBUG__) this.log(...output);
+    if (global.__DEBUG__) this.log(...output);
   },
 
 };
