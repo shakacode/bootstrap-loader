@@ -26,6 +26,9 @@ if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   }
 }
 
+// Read more about the next line
+// at https://github.com/shakacode/bootstrap-loader/pull/139
+/* eslint-disable import/imports-first */
 import path from 'path';
 import loaderUtils from 'loader-utils';
 
