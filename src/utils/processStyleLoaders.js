@@ -19,7 +19,7 @@ export default function(loaders) {
   // We need to match user loaders in different formats:
   // 'sass', 'sass-loader', 'sass?someParam' etc.
   const getLoaderRegExp = module => (
-    new RegExp('^' + escapeRegExp(module) + '(?:-loader)?(?:\\?.*)?$')
+    new RegExp(`^${escapeRegExp(module)}(?:-loader)?(?:\\?.*)?$`)
   );
   const sassLoaderRegExp = getLoaderRegExp('sass');
   const resolveUrlLoaderRegExp = getLoaderRegExp('resolve-url');

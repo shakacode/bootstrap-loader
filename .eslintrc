@@ -1,8 +1,10 @@
 ---
-extends: eslint-config-airbnb/base
+extends: eslint-config-shakacode/base
 
 globals:
   __DEBUG__: true
+  __BOOTSTRAP_CONFIG__: true
+
 
 ecmaFeatures:
   restParams: true

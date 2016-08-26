@@ -16,4 +16,5 @@ export default function(prop, config) {
   if (configEnvSection && (prop in configEnvSection)) {
     return configEnvSection[prop];
   }
+  return false;
 }

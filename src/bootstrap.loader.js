@@ -5,13 +5,13 @@ import semver from 'semver';
 // For Node <= v0.12.x Babel polyfill is required
 if (semver.lt(process.version, '4.0.0') && !global._babelPolyfill) {
   try {
-    require('babel-polyfill');
+    require('babel-polyfill'); // eslint-disable-line
   } catch (e) {
     try {
-      require('babel-core/polyfill');
+      require('babel-core/polyfill'); // eslint-disable-line
     } catch (ee) {
       try {
-        require('babel/polyfill');
+        require('babel/polyfill'); // eslint-disable-line
       } catch (eee) {
         throw new Error(`
           For Node <= v0.12.x Babel polyfill is required.
@@ -175,14 +175,14 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
       joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
     );
     const bootstrapStylesLoader = (
-      loaderUtils.urlToRequest(
+      `${loaderUtils.urlToRequest(
         path.relative(
           this.context,
           require.resolve(
             loaderUtils.urlToRequest('bootstrap.styles.loader.js')
           )
         )
-      ) + '!'
+      )}!`
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
@@ -192,14 +192,14 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
   // Handle scripts
   if (config.scripts) {
     const bootstrapScriptsLoader = (
-      loaderUtils.urlToRequest(
+      `${loaderUtils.urlToRequest(
         path.relative(
           this.context,
           require.resolve(
             loaderUtils.urlToRequest('bootstrap.scripts.loader.js')
           )
         )
-      ) + '!'
+      )}!`
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
 
@@ -208,7 +208,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   const resultOutput = (
     result
-      .map(loader => loader + '\n')
+      .map(loader => `${loader}\n`)
       .join('')
   );
 
