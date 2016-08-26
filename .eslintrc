@@ -9,3 +9,8 @@ ecmaFeatures:
 
 rules:
   space-before-function-paren: [2, "never"]
+  import/no-unresolved: 0
+  no-underscore-dangle: [ "error", { "allow": [ "__BOOTSTRAP_CONFIG__", "__DEBUG__", "_babelPolyfill" ] } ]
+
+  # https://github.com/benmosher/eslint-plugin-import/issues/340
+  import/no-extraneous-dependencies: 0
