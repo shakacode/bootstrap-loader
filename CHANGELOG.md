@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file. Items under `Unreleased` is upcoming features that will be out in next version.
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
-## [1.1.2]
+
+## [Unreleased]
+
+## [1.1.2] - 2016-08-29
 ##### Fixed
 - Fixes regression for supporting the default location of the .bootstraprc by [justin808](https://github.com/justin808) and [alexkval](https://github.com/alexkval).
 - Major cleanup of code in [#147](https://github.com/shakacode/bootstrap-loader/pull/147) by [alexkval](https://github.com/alexkval).
