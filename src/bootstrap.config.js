@@ -19,20 +19,20 @@ function resolveDefaultConfigPath(bootstrapVersion) {
 
 function setConfigVariables(customConfigFilePath) {
   let defaultConfig;
-  let defaultConfigPath;
+  let configFilePath;
 
   if (customConfigFilePath) {
-    defaultConfigPath = customConfigFilePath;
+    configFilePath = customConfigFilePath;
   } else if (fileExists(defaultUserConfigPath)) {
-    defaultConfigPath = defaultUserConfigPath;
+    configFilePath = defaultUserConfigPath;
   } else {
-    defaultConfigPath = resolveDefaultConfigPath(DEFAULT_VERSION);
+    configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
   }
 
-  const rawConfig = parseConfig(defaultConfigPath);
+  const rawConfig = parseConfig(configFilePath);
 
   if (!rawConfig) {
-    throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
+    throw new Error(`I cannot parse the config file at ${configFilePath}'`);
   }
 
   if (customConfigFilePath) {
@@ -54,8 +54,8 @@ function setConfigVariables(customConfigFilePath) {
       `);
     }
 
-    defaultConfigPath = resolveDefaultConfigPath(bootstrapVersion);
-    defaultConfig = parseConfig(defaultConfigPath);
+    configFilePath = resolveDefaultConfigPath(bootstrapVersion);
+    defaultConfig = parseConfig(configFilePath);
   } else {
     defaultConfig = rawConfig;
   }
@@ -63,7 +63,7 @@ function setConfigVariables(customConfigFilePath) {
   return {
     rawConfig,
     defaultConfig,
-    defaultConfigPath,
+    configFilePath,
   };
 }
 
@@ -74,7 +74,7 @@ export default function createConfig({
   customConfigFilePath,
 }) {
   if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
-    const { rawConfig, defaultConfig, defaultConfigPath } = setConfigVariables();
+    const { rawConfig, defaultConfig, configFilePath } = setConfigVariables();
     return {
       bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
       loglevel: rawConfig.loglevel,
@@ -84,7 +84,7 @@ export default function createConfig({
       styleLoaders: defaultConfig.styleLoaders,
       styles: selectModules(defaultConfig.styles),
       scripts: selectModules(defaultConfig.scripts),
-      configFile: defaultConfigPath,
+      configFile: configFilePath,
     };
   }
 
