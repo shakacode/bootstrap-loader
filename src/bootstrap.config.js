@@ -17,13 +17,10 @@ function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
 }
 
-function setConfigVariables(customConfigFilePath) {
-  let defaultConfig;
+function readDefaultConfig() {
   let configFilePath;
 
-  if (customConfigFilePath) {
-    configFilePath = customConfigFilePath;
-  } else if (fileExists(defaultUserConfigPath)) {
+  if (fileExists(defaultUserConfigPath)) {
     configFilePath = defaultUserConfigPath;
   } else {
     configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
@@ -35,30 +32,7 @@ function setConfigVariables(customConfigFilePath) {
     throw new Error(`I cannot parse the config file at ${configFilePath}'`);
   }
 
-  if (customConfigFilePath) {
-    const { bootstrapVersion } = userConfig;
-
-    if (!bootstrapVersion) {
-      throw new Error(`
-        I can't find Bootstrap version in your '.bootstraprc'.
-        Make sure it's set to 3 or 4. Like this:
-          bootstrapVersion: 4
-      `);
-    }
-
-    if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
-      throw new Error(`
-        Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
-        Make sure it's set to 3 or 4. Like this:
-          bootstrapVersion: 4
-      `);
-    }
-
-    configFilePath = resolveDefaultConfigPath(bootstrapVersion);
-    defaultConfig = parseConfig(configFilePath);
-  } else {
-    defaultConfig = userConfig;
-  }
+  const defaultConfig = userConfig;
 
   return {
     userConfig,
@@ -108,7 +82,7 @@ export default function createConfig({
   customConfigFilePath,
 }) {
   if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
-    const { userConfig, defaultConfig, configFilePath } = setConfigVariables();
+    const { userConfig, defaultConfig, configFilePath } = readDefaultConfig();
     return {
       bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
       loglevel: userConfig.loglevel,
