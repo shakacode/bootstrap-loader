@@ -67,6 +67,40 @@ function setConfigVariables(customConfigFilePath) {
   };
 }
 
+function readUserConfig(customConfigFilePath) {
+  const userConfig = parseConfig(customConfigFilePath);
+
+  if (!userConfig) {
+    throw new Error(`I cannot parse the config file at ${customConfigFilePath}'`);
+  }
+
+  const { bootstrapVersion } = userConfig;
+
+  if (!bootstrapVersion) {
+    throw new Error(`
+      I can't find Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
+    throw new Error(`
+      Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  const defaultConfigFilePath = resolveDefaultConfigPath(bootstrapVersion);
+  const defaultConfig = parseConfig(defaultConfigFilePath);
+
+  return {
+    userConfig,
+    defaultConfig,
+  };
+}
+
 
 /* ======= Exports */
 export default function createConfig({
@@ -90,7 +124,7 @@ export default function createConfig({
 
   // otherwise custom file
   const configFilePath = path.resolve(__dirname, customConfigFilePath);
-  const { userConfig, defaultConfig } = setConfigVariables(configFilePath);
+  const { userConfig, defaultConfig } = readUserConfig(configFilePath);
   const configDir = path.dirname(configFilePath);
   const preBootstrapCustomizations = (
     userConfig.preBootstrapCustomizations &&
