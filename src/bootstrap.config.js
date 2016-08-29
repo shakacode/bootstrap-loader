@@ -50,15 +50,27 @@ function setConfigVariables(configFilePath) {
     );
     defaultConfig = parseConfig(defaultConfigPath);
   } else {
-    const defaultConfigPath = (
-      resolveDefaultConfigPath(DEFAULT_VERSION)
-    );
+    let defaultConfigPath;
+    const userConfigPath = path.resolve(__dirname, '../../../.bootstraprc');
+    console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+    console.log('userConfigPath is ', userConfigPath);
+    console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+
+    if (fileExists(userConfigPath)) {
+      defaultConfigPath = userConfigPath;
+    } else {
+      defaultConfigPath = resolveDefaultConfigPath(DEFAULT_VERSION);
+    }
+    console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+    console.log('defaultConfigPath is ', defaultConfigPath);
+    console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
 
     if (!fileExists(defaultConfigPath)) {
       throw new Error(`No default config file at ${defaultConfigPath}'`);
     }
 
     rawConfig = defaultConfig = parseConfig(defaultConfigPath);
+
 
     if (!rawConfig) {
       throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
@@ -104,6 +116,13 @@ export function createConfig({
     path.resolve(configDir, rawConfig.appStyles)
   );
 
+  console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+  console.log(`configFile is ${configFile}`);
+  console.log(`configFilePath is ${configFilePath}`);
+
+  console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+
+
   return {
     bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
     loglevel: rawConfig.loglevel,
@@ -116,5 +135,6 @@ export function createConfig({
     styleLoaders: rawConfig.styleLoaders,
     styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
     scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+    configFile,
   };
 }
