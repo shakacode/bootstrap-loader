@@ -39,7 +39,8 @@ import joinLoaders from './utils/joinLoaders';
 import buildExtractStylesLoader from './utils/buildExtractStylesLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
-import { createConfig, userConfigFileExists } from './bootstrap.config';
+import fileExists from './utils/fileExists';
+import createConfig from './bootstrap.config';
 
 module.exports = function() {};
 
@@ -57,16 +58,14 @@ module.exports.pitch = function(source) {
 
   if (configFilePath) {
     const fullPathToUserConfig = path.resolve(__dirname, configFilePath);
-    if (!userConfigFileExists(fullPathToUserConfig)) {
+    if (!fileExists(fullPathToUserConfig)) {
       throw new Error(`
         Cannot find config file ${fullPathToUserConfig}. You might want to pass the full path.
       `);
     }
   }
 
-  const config = (
-    createConfig({ extractStyles, configFilePath })
-  );
+  const config = createConfig({ extractStyles, customConfigFilePath: configFilePath });
 
   function isDebugEnabled() {
     if (config.loglevel === 'debug') {
@@ -94,12 +93,7 @@ module.exports.pitch = function(source) {
 
   logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
 
-  if (!configFilePath) {
-    logger.debug('Using default bootstrap 3 configuration');
-  } else {
-    const configFile = path.resolve(__dirname, configFilePath);
-    logger.debug(`bootstrap-loader is using config file at ${configFile}`);
-  }
+  logger.debug(`Using config file ${config.configFilePath}`);
 
   logger.debug('Query from webpack config:', this.query || '*none*');
 
