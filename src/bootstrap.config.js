@@ -15,6 +15,7 @@ const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`)
 
 let rawConfig;
 let defaultConfig;
+let defaultConfigPath;
 
 function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
@@ -50,10 +51,9 @@ function setConfigVariables(configFilePath) {
       `);
     }
 
-    const defaultConfigPath = resolveDefaultConfigPath(bootstrapVersion);
+    defaultConfigPath = resolveDefaultConfigPath(bootstrapVersion);
     defaultConfig = parseConfig(defaultConfigPath);
   } else {
-    let defaultConfigPath;
     if (fileExists(defaultUserConfigPath)) {
       defaultConfigPath = defaultUserConfigPath;
     } else {
@@ -91,6 +91,7 @@ export function createConfig({
       styleLoaders: defaultConfig.styleLoaders,
       styles: selectModules(defaultConfig.styles),
       scripts: selectModules(defaultConfig.scripts),
+      configFile: defaultConfigPath,
     };
   }
 
