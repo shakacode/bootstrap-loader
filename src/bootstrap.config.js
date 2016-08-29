@@ -1,7 +1,6 @@
 import path from 'path';
 
 import fileExists from './utils/fileExists';
-import resolveDefaultConfigPath from './utils/resolveDefaultConfigPath';
 import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
@@ -11,9 +10,15 @@ import getEnvProp from './utils/getEnvProp';
 
 const DEFAULT_VERSION = 3;
 const SUPPORTED_VERSIONS = [3, 4];
+const CONFIG_FILE = '.bootstraprc';
+const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 
 let rawConfig;
 let defaultConfig;
+
+function resolveDefaultConfigPath(bootstrapVersion) {
+  return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
+}
 
 function userConfigFileExists(userConfigPath) {
   return userConfigPath && fileExists(userConfigPath);
@@ -45,14 +50,15 @@ function setConfigVariables(configFilePath) {
       `);
     }
 
-    const defaultConfigPath = (
-      resolveDefaultConfigPath(bootstrapVersion)
-    );
+    const defaultConfigPath = resolveDefaultConfigPath(bootstrapVersion);
     defaultConfig = parseConfig(defaultConfigPath);
   } else {
-    const defaultConfigPath = (
-      resolveDefaultConfigPath(DEFAULT_VERSION)
-    );
+    let defaultConfigPath;
+    if (fileExists(defaultUserConfigPath)) {
+      defaultConfigPath = defaultUserConfigPath;
+    } else {
+      defaultConfigPath = resolveDefaultConfigPath(DEFAULT_VERSION);
+    }
 
     if (!fileExists(defaultConfigPath)) {
       throw new Error(`No default config file at ${defaultConfigPath}'`);
@@ -74,7 +80,7 @@ export function createConfig({
   extractStyles,
   configFilePath,
 }) {
-  if (!configFilePath) {
+  if (!configFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
     setConfigVariables();
     return {
       bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
@@ -88,6 +94,7 @@ export function createConfig({
     };
   }
 
+  // otherwise custom file
   const configFile = path.resolve(__dirname, configFilePath);
   setConfigVariables(configFile);
   const configDir = path.dirname(configFile);
@@ -116,5 +123,6 @@ export function createConfig({
     styleLoaders: rawConfig.styleLoaders,
     styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
     scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+    configFile,
   };
 }
