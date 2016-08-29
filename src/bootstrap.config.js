@@ -13,7 +13,6 @@ import getEnvProp from './utils/getEnvProp';
 const DEFAULT_VERSION = 3;
 const SUPPORTED_VERSIONS = [3, 4];
 const CONFIG_FILE = '.bootstraprc';
-const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 
 function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
@@ -32,6 +31,8 @@ function parseConfigFile(configFilePath) {
 
 function readDefaultConfig() {
   let configFilePath;
+
+  const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 
   if (fileExists(defaultUserConfigPath)) {
     configFilePath = defaultUserConfigPath;
@@ -98,7 +99,7 @@ export default function createConfig({
     };
   }
 
-  // otherwise custom file
+  // otherwise read user provided config file
   const configFilePath = path.resolve(__dirname, customConfigFilePath);
   const { userConfig, defaultConfig } = readUserConfig(configFilePath);
   const configDir = path.dirname(configFilePath);
