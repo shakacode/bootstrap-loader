@@ -12,7 +12,6 @@
     "cleanrc": "rm .bootstraprc || echo 'no .bootstraprc file to delete'",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
     "prod": "NODE_ENV=production npm run build && nodemon --watch server.prod.js server.prod.js",
-    "bs:no-config": "npm run cleanrc && npm start",
     "bs3": "npm run cleanrc && nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-3-example",
     "bs4": "npm run cleanrc && nodemon --watch app/markup --ext html server.dev.js --bootstraprc-location=.bootstraprc-4-example",
     "bs3:prod": "npm run cleanrc && npm run build -- --bootstraprc-location=.bootstraprc-3-example && npm run prod",
