@@ -1,7 +1,9 @@
 import path from 'path';
+import fs from 'fs';
+import jsYaml from 'js-yaml';
+import stripComments from 'strip-json-comments';
 
 import fileExists from './utils/fileExists';
-import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
 import getEnvProp from './utils/getEnvProp';
@@ -18,7 +20,8 @@ function resolveDefaultConfigPath(bootstrapVersion) {
 }
 
 function parseConfigFile(configFilePath) {
-  const config = parseConfig(configFilePath);
+  const configContent = stripComments(fs.readFileSync(configFilePath, 'utf8'));
+  const config = jsYaml.safeLoad(configContent);
 
   if (!config) {
     throw new Error(`I cannot parse the config file at ${configFilePath}'`);
