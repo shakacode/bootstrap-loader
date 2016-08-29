@@ -17,10 +17,6 @@ function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
 }
 
-function userConfigFileExists(userConfigPath) {
-  return userConfigPath && fileExists(userConfigPath);
-}
-
 function setConfigVariables(configFilePath) {
   let rawConfig;
   let defaultConfig;
@@ -80,9 +76,7 @@ function setConfigVariables(configFilePath) {
 
 
 /* ======= Exports */
-export { userConfigFileExists };
-
-export function createConfig({
+export default function createConfig({
   extractStyles,
   configFilePath,
 }) {

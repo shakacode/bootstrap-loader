@@ -36,7 +36,8 @@ import joinLoaders from './utils/joinLoaders';
 import buildExtractStylesLoader from './utils/buildExtractStylesLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
-import { createConfig, userConfigFileExists } from './bootstrap.config';
+import fileExists from './utils/fileExists';
+import createConfig from './bootstrap.config';
 
 module.exports = function() {};
 
@@ -54,7 +55,7 @@ module.exports.pitch = function(source) {
 
   if (configFilePath) {
     const fullPathToUserConfig = path.resolve(__dirname, configFilePath);
-    if (!userConfigFileExists(fullPathToUserConfig)) {
+    if (!fileExists(fullPathToUserConfig)) {
       throw new Error(`
         Cannot find config file ${fullPathToUserConfig}. You might want to pass the full path.
       `);
