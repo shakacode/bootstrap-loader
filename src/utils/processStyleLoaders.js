@@ -11,8 +11,8 @@ import escapeRegExp from 'escape-regexp';
 export default function(loaders) {
   if (!Array.isArray(loaders)) {
     throw new Error(`
-      Specify your loaders as an array.
-      Default is ['style', 'css', 'sass']
+Specify your loaders as an array.
+Default is ['style', 'css', 'sass']
     `);
   }
 
