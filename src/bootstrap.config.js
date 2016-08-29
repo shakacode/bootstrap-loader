@@ -18,17 +18,24 @@ function resolveDefaultConfigPath(bootstrapVersion) {
 }
 
 function setConfigVariables(configFilePath) {
-  let rawConfig;
   let defaultConfig;
   let defaultConfigPath;
 
   if (configFilePath) {
-    rawConfig = parseConfig(configFilePath);
+    defaultConfigPath = configFilePath;
+  } else if (fileExists(defaultUserConfigPath)) {
+    defaultConfigPath = defaultUserConfigPath;
+  } else {
+    defaultConfigPath = resolveDefaultConfigPath(DEFAULT_VERSION);
+  }
 
-    if (!rawConfig) {
-      throw new Error(`No config file at ${configFilePath}'`);
-    }
+  const rawConfig = parseConfig(defaultConfigPath);
 
+  if (!rawConfig) {
+    throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
+  }
+
+  if (configFilePath) {
     const { bootstrapVersion } = rawConfig;
 
     if (!bootstrapVersion) {
@@ -50,21 +57,7 @@ function setConfigVariables(configFilePath) {
     defaultConfigPath = resolveDefaultConfigPath(bootstrapVersion);
     defaultConfig = parseConfig(defaultConfigPath);
   } else {
-    if (fileExists(defaultUserConfigPath)) {
-      defaultConfigPath = defaultUserConfigPath;
-    } else {
-      defaultConfigPath = resolveDefaultConfigPath(DEFAULT_VERSION);
-    }
-
-    if (!fileExists(defaultConfigPath)) {
-      throw new Error(`No default config file at ${defaultConfigPath}'`);
-    }
-
-    rawConfig = defaultConfig = parseConfig(defaultConfigPath);
-
-    if (!rawConfig) {
-      throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
-    }
+    defaultConfig = rawConfig;
   }
 
   return {
