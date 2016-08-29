@@ -91,12 +91,7 @@ module.exports.pitch = function(source) {
 
   logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
 
-  if (!configFilePath) {
-    logger.debug('Using default bootstrap 3 configuration');
-  } else {
-    const configFile = path.resolve(__dirname, configFilePath);
-    logger.debug(`bootstrap-loader is using config file at ${configFile}`);
-  }
+  logger.debug(`Using config file ${config.configFile}`);
 
   logger.debug('Query from webpack config:', this.query || '*none*');
 
