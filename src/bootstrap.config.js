@@ -29,14 +29,14 @@ function setConfigVariables(customConfigFilePath) {
     configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
   }
 
-  const rawConfig = parseConfig(configFilePath);
+  const userConfig = parseConfig(configFilePath);
 
-  if (!rawConfig) {
+  if (!userConfig) {
     throw new Error(`I cannot parse the config file at ${configFilePath}'`);
   }
 
   if (customConfigFilePath) {
-    const { bootstrapVersion } = rawConfig;
+    const { bootstrapVersion } = userConfig;
 
     if (!bootstrapVersion) {
       throw new Error(`
@@ -57,11 +57,11 @@ function setConfigVariables(customConfigFilePath) {
     configFilePath = resolveDefaultConfigPath(bootstrapVersion);
     defaultConfig = parseConfig(configFilePath);
   } else {
-    defaultConfig = rawConfig;
+    defaultConfig = userConfig;
   }
 
   return {
-    rawConfig,
+    userConfig,
     defaultConfig,
     configFilePath,
   };
@@ -74,10 +74,10 @@ export default function createConfig({
   customConfigFilePath,
 }) {
   if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
-    const { rawConfig, defaultConfig, configFilePath } = setConfigVariables();
+    const { userConfig, defaultConfig, configFilePath } = setConfigVariables();
     return {
-      bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
-      loglevel: rawConfig.loglevel,
+      bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
+      loglevel: userConfig.loglevel,
       useFlexbox: defaultConfig.useFlexbox,
       useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
       extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
@@ -90,33 +90,33 @@ export default function createConfig({
 
   // otherwise custom file
   const configFilePath = path.resolve(__dirname, customConfigFilePath);
-  const { rawConfig, defaultConfig } = setConfigVariables(configFilePath);
+  const { userConfig, defaultConfig } = setConfigVariables(configFilePath);
   const configDir = path.dirname(configFilePath);
   const preBootstrapCustomizations = (
-    rawConfig.preBootstrapCustomizations &&
-    path.resolve(configDir, rawConfig.preBootstrapCustomizations)
+    userConfig.preBootstrapCustomizations &&
+    path.resolve(configDir, userConfig.preBootstrapCustomizations)
   );
   const bootstrapCustomizations = (
-    rawConfig.bootstrapCustomizations &&
-    path.resolve(configDir, rawConfig.bootstrapCustomizations)
+    userConfig.bootstrapCustomizations &&
+    path.resolve(configDir, userConfig.bootstrapCustomizations)
   );
   const appStyles = (
-    rawConfig.appStyles &&
-    path.resolve(configDir, rawConfig.appStyles)
+    userConfig.appStyles &&
+    path.resolve(configDir, userConfig.appStyles)
   );
 
   return {
-    bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
-    loglevel: rawConfig.loglevel,
+    bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
+    loglevel: userConfig.loglevel,
     preBootstrapCustomizations,
     bootstrapCustomizations,
     appStyles,
-    useFlexbox: rawConfig.useFlexbox,
-    useCustomIconFontPath: rawConfig.useCustomIconFontPath,
-    extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
-    styleLoaders: rawConfig.styleLoaders,
-    styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
-    scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+    useFlexbox: userConfig.useFlexbox,
+    useCustomIconFontPath: userConfig.useCustomIconFontPath,
+    extractStyles: extractStyles || getEnvProp('extractStyles', userConfig),
+    styleLoaders: userConfig.styleLoaders,
+    styles: selectUserModules(userConfig.styles, defaultConfig.styles),
+    scripts: selectUserModules(userConfig.scripts, defaultConfig.scripts),
     configFilePath,
   };
 }
