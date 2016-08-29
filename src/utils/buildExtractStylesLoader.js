@@ -8,8 +8,8 @@
 export default function(loaders) {
   if (!loaders[0].startsWith('style')) {
     throw new Error(`
-      If you want to use 'extract-text-webpack-plugin' make sure
-      your 'styleLoaders' array have 'style-loader' at index 0.
+If you want to use 'extract-text-webpack-plugin' make sure
+your 'styleLoaders' array have 'style-loader' at index 0.
     `);
   }
 
@@ -19,8 +19,8 @@ export default function(loaders) {
     ExtractTextPlugin = require('extract-text-webpack-plugin');
   } catch (error) {
     throw new Error(`
-      Could not find 'extract-text-webpack-plugin' module.
-      Make sure it's installed in your 'node_modules/' directory.
+Could not find 'extract-text-webpack-plugin' module.
+Make sure it's installed in your 'node_modules/' directory.
     `);
   }
   const restLoaders = (
