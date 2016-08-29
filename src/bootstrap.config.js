@@ -13,10 +13,6 @@ const SUPPORTED_VERSIONS = [3, 4];
 const CONFIG_FILE = '.bootstraprc';
 const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 
-let rawConfig;
-let defaultConfig;
-let defaultConfigPath;
-
 function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
 }
@@ -26,6 +22,10 @@ function userConfigFileExists(userConfigPath) {
 }
 
 function setConfigVariables(configFilePath) {
+  let rawConfig;
+  let defaultConfig;
+  let defaultConfigPath;
+
   if (configFilePath) {
     rawConfig = parseConfig(configFilePath);
 
@@ -70,6 +70,12 @@ function setConfigVariables(configFilePath) {
       throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
     }
   }
+
+  return {
+    rawConfig,
+    defaultConfig,
+    defaultConfigPath,
+  };
 }
 
 
@@ -81,7 +87,7 @@ export function createConfig({
   configFilePath,
 }) {
   if (!configFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
-    setConfigVariables();
+    const { rawConfig, defaultConfig, defaultConfigPath } = setConfigVariables();
     return {
       bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
       loglevel: rawConfig.loglevel,
@@ -97,7 +103,7 @@ export function createConfig({
 
   // otherwise custom file
   const configFile = path.resolve(__dirname, configFilePath);
-  setConfigVariables(configFile);
+  const { rawConfig, defaultConfig } = setConfigVariables(configFile);
   const configDir = path.dirname(configFile);
   const preBootstrapCustomizations = (
     rawConfig.preBootstrapCustomizations &&
