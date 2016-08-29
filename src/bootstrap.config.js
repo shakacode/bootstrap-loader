@@ -17,6 +17,16 @@ function resolveDefaultConfigPath(bootstrapVersion) {
   return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
 }
 
+function parseConfigFile(configFilePath) {
+  const config = parseConfig(configFilePath);
+
+  if (!config) {
+    throw new Error(`I cannot parse the config file at ${configFilePath}'`);
+  }
+
+  return config;
+}
+
 function readDefaultConfig() {
   let configFilePath;
 
@@ -26,11 +36,7 @@ function readDefaultConfig() {
     configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
   }
 
-  const defaultConfig = parseConfig(configFilePath);
-
-  if (!defaultConfig) {
-    throw new Error(`I cannot parse the config file at ${configFilePath}'`);
-  }
+  const defaultConfig = parseConfigFile(configFilePath);
 
   return {
     defaultConfig,
@@ -39,11 +45,7 @@ function readDefaultConfig() {
 }
 
 function readUserConfig(customConfigFilePath) {
-  const userConfig = parseConfig(customConfigFilePath);
-
-  if (!userConfig) {
-    throw new Error(`I cannot parse the config file at ${customConfigFilePath}'`);
-  }
+  const userConfig = parseConfigFile(customConfigFilePath);
 
   const { bootstrapVersion } = userConfig;
 
@@ -64,7 +66,7 @@ function readUserConfig(customConfigFilePath) {
   }
 
   const defaultConfigFilePath = resolveDefaultConfigPath(bootstrapVersion);
-  const defaultConfig = parseConfig(defaultConfigFilePath);
+  const defaultConfig = parseConfigFile(defaultConfigFilePath);
 
   return {
     userConfig,
