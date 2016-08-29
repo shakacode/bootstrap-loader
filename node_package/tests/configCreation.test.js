@@ -1,8 +1,8 @@
 import test from 'tape';
-import { userConfigFileExists } from '../../src/bootstrap.config.js';
+import fileExists from '../../src/utils/fileExists';
 
 test('userConfigFileExists returns true for files that exist', (assert) => {
-  const result = userConfigFileExists(`${__dirname}/configCreation.test.js`);
+  const result = fileExists(`${__dirname}/configCreation.test.js`);
 
   assert.plan(1);
   assert.equal(result, true);

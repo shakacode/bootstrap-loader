@@ -23,7 +23,7 @@ function parseConfigFile(configFilePath) {
   const config = jsYaml.safeLoad(configContent);
 
   if (!config) {
-    throw new Error(`I cannot parse the config file at ${configFilePath}'`);
+    throw new Error(`Config file cannot be parsed: ${configFilePath}'`);
   }
 
   return config;
@@ -55,17 +55,17 @@ function readUserConfig(customConfigFilePath) {
 
   if (!bootstrapVersion) {
     throw new Error(`
-      I can't find Bootstrap version in your '.bootstraprc'.
-      Make sure it's set to 3 or 4. Like this:
-        bootstrapVersion: 4
+Bootstrap version not found in your '.bootstraprc'.
+Make sure it's set to 3 or 4. Like this:
+  bootstrapVersion: 4
     `);
   }
 
   if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
     throw new Error(`
-      Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
-      Make sure it's set to 3 or 4. Like this:
-        bootstrapVersion: 4
+Unsupported Bootstrap version in your '.bootstraprc'.
+Make sure it's set to 3 or 4. Like this:
+  bootstrapVersion: 4
     `);
   }
 

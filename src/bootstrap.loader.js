@@ -91,7 +91,7 @@ module.exports.pitch = function(source) {
     ? 'DEBUG defined in your ENV.'
     : "your config log level set to 'debug'.";
 
-  logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
+  logger.debug(`bootstrap-loader is in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
 
   logger.debug(`Using config file ${config.configFilePath}`);
 
@@ -155,9 +155,9 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
   if (config.styles) {
     if (!config.styleLoaders) {
       throw new Error(`
-        Could not find 'styleLoaders' in your config.
-        You can use default ones:
-          styleLoaders: ['style', 'css', 'sass']
+Could not find 'styleLoaders' in your config.
+You can use default ones:
+  styleLoaders: ['style', 'css', 'sass']
       `);
     }
 
