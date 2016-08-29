@@ -1,8 +1,9 @@
 import path from 'path';
+import fs from 'fs';
+import jsYaml from 'js-yaml';
+import stripComments from 'strip-json-comments';
 
 import fileExists from './utils/fileExists';
-import resolveDefaultConfigPath from './utils/resolveDefaultConfigPath';
-import parseConfig from './utils/parseConfig';
 import selectModules from './utils/selectModules';
 import selectUserModules from './utils/selectUserModules';
 import getEnvProp from './utils/getEnvProp';
@@ -11,110 +12,122 @@ import getEnvProp from './utils/getEnvProp';
 
 const DEFAULT_VERSION = 3;
 const SUPPORTED_VERSIONS = [3, 4];
+const CONFIG_FILE = '.bootstraprc';
 
-let rawConfig;
-let defaultConfig;
-
-function userConfigFileExists(userConfigPath) {
-  return userConfigPath && fileExists(userConfigPath);
+function resolveDefaultConfigPath(bootstrapVersion) {
+  return path.resolve(__dirname, `../${CONFIG_FILE}-${bootstrapVersion}-default`);
 }
 
-function setConfigVariables(configFilePath) {
-  if (configFilePath) {
-    rawConfig = parseConfig(configFilePath);
+function parseConfigFile(configFilePath) {
+  const configContent = stripComments(fs.readFileSync(configFilePath, 'utf8'));
+  const config = jsYaml.safeLoad(configContent);
 
-    if (!rawConfig) {
-      throw new Error(`No config file at ${configFilePath}'`);
-    }
-
-    const { bootstrapVersion } = rawConfig;
-
-    if (!bootstrapVersion) {
-      throw new Error(`
-        I can't find Bootstrap version in your '.bootstraprc'.
-        Make sure it's set to 3 or 4. Like this:
-          bootstrapVersion: 4
-      `);
-    }
-
-    if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
-      throw new Error(`
-        Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
-        Make sure it's set to 3 or 4. Like this:
-          bootstrapVersion: 4
-      `);
-    }
-
-    const defaultConfigPath = (
-      resolveDefaultConfigPath(bootstrapVersion)
-    );
-    defaultConfig = parseConfig(defaultConfigPath);
-  } else {
-    const defaultConfigPath = (
-      resolveDefaultConfigPath(DEFAULT_VERSION)
-    );
-
-    if (!fileExists(defaultConfigPath)) {
-      throw new Error(`No default config file at ${defaultConfigPath}'`);
-    }
-
-    rawConfig = defaultConfig = parseConfig(defaultConfigPath);
-
-    if (!rawConfig) {
-      throw new Error(`I cannot parse the config file at ${defaultConfigPath}'`);
-    }
+  if (!config) {
+    throw new Error(`I cannot parse the config file at ${configFilePath}'`);
   }
+
+  return config;
+}
+
+function readDefaultConfig() {
+  let configFilePath;
+
+  const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
+
+  if (fileExists(defaultUserConfigPath)) {
+    configFilePath = defaultUserConfigPath;
+  } else {
+    configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
+  }
+
+  const defaultConfig = parseConfigFile(configFilePath);
+
+  return {
+    defaultConfig,
+    configFilePath,
+  };
+}
+
+function readUserConfig(customConfigFilePath) {
+  const userConfig = parseConfigFile(customConfigFilePath);
+
+  const { bootstrapVersion } = userConfig;
+
+  if (!bootstrapVersion) {
+    throw new Error(`
+      I can't find Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  if (SUPPORTED_VERSIONS.indexOf(parseInt(bootstrapVersion, 10)) === -1) {
+    throw new Error(`
+      Looks like you have unsupported Bootstrap version in your '.bootstraprc'.
+      Make sure it's set to 3 or 4. Like this:
+        bootstrapVersion: 4
+    `);
+  }
+
+  const defaultConfigFilePath = resolveDefaultConfigPath(bootstrapVersion);
+  const defaultConfig = parseConfigFile(defaultConfigFilePath);
+
+  return {
+    userConfig,
+    defaultConfig,
+  };
 }
 
 
 /* ======= Exports */
-export { userConfigFileExists };
-
-export function createConfig({
+export default function createConfig({
   extractStyles,
-  configFilePath,
+  customConfigFilePath,
 }) {
-  if (!configFilePath) {
-    setConfigVariables();
+  if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
+    const { defaultConfig, configFilePath } = readDefaultConfig();
     return {
-      bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
-      loglevel: rawConfig.loglevel,
+      bootstrapVersion: parseInt(defaultConfig.bootstrapVersion, 10),
+      loglevel: defaultConfig.loglevel,
       useFlexbox: defaultConfig.useFlexbox,
       useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
       extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
       styleLoaders: defaultConfig.styleLoaders,
       styles: selectModules(defaultConfig.styles),
       scripts: selectModules(defaultConfig.scripts),
+      configFilePath,
     };
   }
 
-  const configFile = path.resolve(__dirname, configFilePath);
-  setConfigVariables(configFile);
-  const configDir = path.dirname(configFile);
+  // otherwise read user provided config file
+  const configFilePath = path.resolve(__dirname, customConfigFilePath);
+  const { userConfig, defaultConfig } = readUserConfig(configFilePath);
+  const configDir = path.dirname(configFilePath);
   const preBootstrapCustomizations = (
-    rawConfig.preBootstrapCustomizations &&
-    path.resolve(configDir, rawConfig.preBootstrapCustomizations)
+    userConfig.preBootstrapCustomizations &&
+    path.resolve(configDir, userConfig.preBootstrapCustomizations)
   );
   const bootstrapCustomizations = (
-    rawConfig.bootstrapCustomizations &&
-    path.resolve(configDir, rawConfig.bootstrapCustomizations)
+    userConfig.bootstrapCustomizations &&
+    path.resolve(configDir, userConfig.bootstrapCustomizations)
   );
   const appStyles = (
-    rawConfig.appStyles &&
-    path.resolve(configDir, rawConfig.appStyles)
+    userConfig.appStyles &&
+    path.resolve(configDir, userConfig.appStyles)
   );
 
   return {
-    bootstrapVersion: parseInt(rawConfig.bootstrapVersion, 10),
-    loglevel: rawConfig.loglevel,
+    bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
+    loglevel: userConfig.loglevel,
     preBootstrapCustomizations,
     bootstrapCustomizations,
     appStyles,
-    useFlexbox: rawConfig.useFlexbox,
-    useCustomIconFontPath: rawConfig.useCustomIconFontPath,
-    extractStyles: extractStyles || getEnvProp('extractStyles', rawConfig),
-    styleLoaders: rawConfig.styleLoaders,
-    styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
-    scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
+    useFlexbox: userConfig.useFlexbox,
+    useCustomIconFontPath: userConfig.useCustomIconFontPath,
+    extractStyles: extractStyles || getEnvProp('extractStyles', userConfig),
+    styleLoaders: userConfig.styleLoaders,
+    styles: selectUserModules(userConfig.styles, defaultConfig.styles),
+    scripts: selectUserModules(userConfig.scripts, defaultConfig.scripts),
+    configFilePath,
   };
 }

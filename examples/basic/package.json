@@ -41,7 +41,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.3",
-    "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap": "4.0.0-alpha.2",
     "bootstrap-sass": "^3.3.5",
     "font-awesome": "^4.5.0",
     "jquery": "^2.1.4",
