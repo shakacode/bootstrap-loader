@@ -84,14 +84,14 @@ export default function createConfig({
       styleLoaders: defaultConfig.styleLoaders,
       styles: selectModules(defaultConfig.styles),
       scripts: selectModules(defaultConfig.scripts),
-      configFile: configFilePath,
+      configFilePath,
     };
   }
 
   // otherwise custom file
-  const configFile = path.resolve(__dirname, customConfigFilePath);
-  const { rawConfig, defaultConfig } = setConfigVariables(configFile);
-  const configDir = path.dirname(configFile);
+  const configFilePath = path.resolve(__dirname, customConfigFilePath);
+  const { rawConfig, defaultConfig } = setConfigVariables(configFilePath);
+  const configDir = path.dirname(configFilePath);
   const preBootstrapCustomizations = (
     rawConfig.preBootstrapCustomizations &&
     path.resolve(configDir, rawConfig.preBootstrapCustomizations)
@@ -117,6 +117,6 @@ export default function createConfig({
     styleLoaders: rawConfig.styleLoaders,
     styles: selectUserModules(rawConfig.styles, defaultConfig.styles),
     scripts: selectUserModules(rawConfig.scripts, defaultConfig.scripts),
-    configFile,
+    configFilePath,
   };
 }

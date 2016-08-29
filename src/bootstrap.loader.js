@@ -90,7 +90,7 @@ module.exports.pitch = function(source) {
 
   logger.debug(`Hey, we're in DEBUG mode because you have ${whichWayDebugEnabledMsg}`);
 
-  logger.debug(`Using config file ${config.configFile}`);
+  logger.debug(`Using config file ${config.configFilePath}`);
 
   logger.debug('Query from webpack config:', this.query || '*none*');
 
