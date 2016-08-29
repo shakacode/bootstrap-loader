@@ -26,16 +26,13 @@ function readDefaultConfig() {
     configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
   }
 
-  const userConfig = parseConfig(configFilePath);
+  const defaultConfig = parseConfig(configFilePath);
 
-  if (!userConfig) {
+  if (!defaultConfig) {
     throw new Error(`I cannot parse the config file at ${configFilePath}'`);
   }
 
-  const defaultConfig = userConfig;
-
   return {
-    userConfig,
     defaultConfig,
     configFilePath,
   };
@@ -82,10 +79,10 @@ export default function createConfig({
   customConfigFilePath,
 }) {
   if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
-    const { userConfig, defaultConfig, configFilePath } = readDefaultConfig();
+    const { defaultConfig, configFilePath } = readDefaultConfig();
     return {
-      bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
-      loglevel: userConfig.loglevel,
+      bootstrapVersion: parseInt(defaultConfig.bootstrapVersion, 10),
+      loglevel: defaultConfig.loglevel,
       useFlexbox: defaultConfig.useFlexbox,
       useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
       extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
