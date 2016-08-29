@@ -62,7 +62,7 @@ module.exports.pitch = function(source) {
     }
   }
 
-  const config = createConfig({ extractStyles, configFilePath });
+  const config = createConfig({ extractStyles, customConfigFilePath: configFilePath });
 
   function isDebugEnabled() {
     if (config.loglevel === 'debug') {
