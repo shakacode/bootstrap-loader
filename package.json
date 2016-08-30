@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-loader",
-  "version": "2.0.0-beta.5",
+  "version": "2.0.0-beta.6",
   "description": "Boostrap for Webpack",
   "main": "loader.js",
   "scripts": {
