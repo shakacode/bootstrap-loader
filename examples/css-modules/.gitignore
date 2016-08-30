@@ -216,3 +216,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# the npm run ... commands can create this file but we don't want it checked in
+/.bootstraprc
