@@ -48,7 +48,7 @@ npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style
 If you're using Bootstrap 4, you probably need:
 
 ```bash
-npm install postcss-loader
+npm install --save-dev postcss-loader
 ```
 
 
