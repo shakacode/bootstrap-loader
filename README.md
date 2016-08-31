@@ -34,15 +34,15 @@ Don't forget to install these dependencies (use `--save or --saveDev` option per
 
 ```bash
 # Bootstrap 3
-npm install bootstrap-sass
+npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install bootstrap@v4.0.0-alpha.2
+npm install --save-dev bootstrap@v4.0.0-alpha.2
 
 # Note, alpha.3 is broken
 
 # Node SASS & other loaders needed to handle styles
-npm install css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
+npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
 ```
 
 If you're using Bootstrap 4, you probably need:
