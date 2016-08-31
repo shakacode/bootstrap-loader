@@ -30,22 +30,18 @@ function parseConfigFile(configFilePath) {
 }
 
 function readDefaultConfig() {
-  let configFilePath;
-
-  const defaultUserConfigPath = path.resolve(__dirname, `../../../${CONFIG_FILE}`);
-
-  if (fileExists(defaultUserConfigPath)) {
-    configFilePath = defaultUserConfigPath;
-  } else {
-    configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
-  }
-
+  const configFilePath = resolveDefaultConfigPath(DEFAULT_VERSION);
   const defaultConfig = parseConfigFile(configFilePath);
 
   return {
     defaultConfig,
     configFilePath,
   };
+}
+
+// default location .bootstraprc
+function defaultUserConfigPath() {
+  return path.resolve(__dirname, `../../../${CONFIG_FILE}`);
 }
 
 function readUserConfig(customConfigFilePath) {
@@ -84,7 +80,19 @@ export default function createConfig({
   extractStyles,
   customConfigFilePath,
 }) {
-  if (!customConfigFilePath) { // .bootstraprc or .bootstraprc-{3,4}-default
+  // .bootstraprc-{3,4}-default, per the DEFAULT_VERSION
+  // otherwise read user provided config file
+  let userConfigFilePath = null;
+  if (customConfigFilePath) {
+    userConfigFilePath = path.resolve(__dirname, customConfigFilePath);
+  } else {
+    const defaultLocationUserConfigPath = defaultUserConfigPath();
+    if (fileExists(defaultLocationUserConfigPath)) {
+      userConfigFilePath = defaultLocationUserConfigPath;
+    }
+  }
+
+  if (!userConfigFilePath) {
     const { defaultConfig, configFilePath } = readDefaultConfig();
     return {
       bootstrapVersion: parseInt(defaultConfig.bootstrapVersion, 10),
@@ -102,8 +110,7 @@ export default function createConfig({
     };
   }
 
-  // otherwise read user provided config file
-  const configFilePath = path.resolve(__dirname, customConfigFilePath);
+  const configFilePath = userConfigFilePath;
   const { userConfig, defaultConfig } = readUserConfig(configFilePath);
   const configDir = path.dirname(configFilePath);
   const preBootstrapCustomizations = (

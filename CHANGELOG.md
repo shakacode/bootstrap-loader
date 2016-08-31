@@ -8,6 +8,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta]
 Includes all bug fixes for v1
 
+## [1.1.4] - 2016-08-31
+##### Fixed
+- Fix for [improper handling of defaults](https://github.com/shakacode/bootstrap-loader/issues/152) when the default .bootstraprc location is used [#154](https://github.com/shakacode/bootstrap-loader/issues/154) by [justin808](https://github.com/justin808).
+
 ##### Added
 - Support for Webpack v2.
 
@@ -39,8 +43,9 @@ Includes all bug fixes for v1
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.7...master
-[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...2.0.0-beta.7
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.8...master
+[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...2.0.0-beta.8
+[1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/shakacode/bootstrap-loader/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/shakacode/bootstrap-loader/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/shakacode/bootstrap-loader/compare/1.1.0...1.1.1
