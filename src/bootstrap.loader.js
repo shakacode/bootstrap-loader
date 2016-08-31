@@ -145,7 +145,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   global.__BOOTSTRAP_CONFIG__ = config;
 
-  const result = [];
+  const result = {};
 
   const dummySourceRel = (
     loaderUtils.urlToRequest(path.relative(this.context, source))
@@ -182,7 +182,7 @@ You can use default ones:
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
-    result.push(createRequire(styles));
+    result.css = createRequire(styles);
   }
 
   // Handle scripts
@@ -198,15 +198,12 @@ You can use default ones:
       )}!`
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
-
-    result.push(createRequire(scripts));
+    result.js = createRequire(scripts);
   }
 
-  const resultOutput = (
-    result
-      .map(loader => `${loader}\n`)
-      .join('')
-  );
+  const resultOutput = Object.keys(result)
+    .map(key => `module.exports.${key} = ${result[key]}\n`)
+    .join('');
 
   logger.debug('Requiring:', '\n', resultOutput);
 
