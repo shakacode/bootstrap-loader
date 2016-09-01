@@ -8,7 +8,7 @@ import selectModules from './selectModules';
  * @returns {string[]}
  */
 export default function(userModules, defaultModules) {
-  if (!userModules) return false;
+  if (!userModules || userModules.toString().toLowerCase() === 'false') return false;
 
   if (typeof userModules === 'boolean') {
     return selectModules(defaultModules);
