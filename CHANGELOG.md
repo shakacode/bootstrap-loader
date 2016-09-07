@@ -6,7 +6,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 ## [1.1.5] - 2016-09-07
 ##### Fixed
-- Fix for [false could be interpretted as true](https://github.com/shakacode/bootstrap-loader/issues/159) by [justin808](https://github.com/justin808).
+- Fix for false could be interpretted as true for config file, scripts option [#159](https://github.com/shakacode/bootstrap-loader/pulls/159) by [justin808](https://github.com/justin808).
 
 ## [1.1.4] - 2016-08-31
 ##### Fixed
