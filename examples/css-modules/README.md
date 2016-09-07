@@ -21,8 +21,8 @@ npm run bs3:prod
 # Bootstrap 4
 npm run bs4:prod
 
-# Run no config
-npm run bs:no-config
+# Note, there is no `no config` option as these examples do not use jQuery and the default config requires it.
+# npm run bs:no-config
 
 # Run default configs
 
