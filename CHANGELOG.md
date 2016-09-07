@@ -51,8 +51,8 @@ Includes all bug fixes for v1
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.9...master
-[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...2.0.0-beta.9
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.10...master
+[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...2.0.0-beta.10
 [1.1.6]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
