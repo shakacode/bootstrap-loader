@@ -8,6 +8,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta]
 Includes all bug fixes for v1
 
+## [1.1.6] - 2016-09-08
+##### Fixed
+- Allows chaining with some style loaders such as the isomorphic-style-loader. [#98](https://github.com/shakacode/bootstrap-loader/pulls/98) by [horyd](https://github.com/horyd).
+
 ## [1.1.5] - 2016-09-07
 ##### Fixed
 - Fix for false could be interpretted as true for config file, scripts option [#159](https://github.com/shakacode/bootstrap-loader/pulls/159) by [justin808](https://github.com/justin808).
@@ -47,8 +51,9 @@ Includes all bug fixes for v1
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.8...master
-[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...2.0.0-beta.8
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.9...master
+[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...2.0.0-beta.9
+[1.1.6]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/shakacode/bootstrap-loader/compare/1.1.2...1.1.3
