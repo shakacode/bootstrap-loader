@@ -8,6 +8,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta]
 Includes all bug fixes for v1
 
+## [1.1.5] - 2016-09-07
+##### Fixed
+- Fix for false could be interpretted as true for config file, scripts option [#159](https://github.com/shakacode/bootstrap-loader/pulls/159) by [justin808](https://github.com/justin808).
+
 ## [1.1.4] - 2016-08-31
 ##### Fixed
 - Fix for [improper handling of defaults](https://github.com/shakacode/bootstrap-loader/issues/152) when the default .bootstraprc location is used [#154](https://github.com/shakacode/bootstrap-loader/issues/154) by [justin808](https://github.com/justin808).
@@ -44,7 +48,8 @@ Includes all bug fixes for v1
 ## [1.0.8]
 
 [Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.8...master
-[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...2.0.0-beta.8
+[2.0.0.beta]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...2.0.0-beta.8
+[1.1.5]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/shakacode/bootstrap-loader/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/shakacode/bootstrap-loader/compare/1.1.1...1.1.2
