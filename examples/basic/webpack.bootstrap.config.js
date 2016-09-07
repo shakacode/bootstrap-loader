@@ -2,8 +2,7 @@
 const fs = require('fs');
 
 function getBootstraprcCustomLocation() {
-  const matchedArgument = process.argv.find(val => val.includes('--bootstraprc-location'));
-  return matchedArgument && matchedArgument.split('=')[1];
+  return process.env.BOOTSTRAPRC_LOCATION;
 }
 
 const bootstraprcCustomLocation = getBootstraprcCustomLocation();
