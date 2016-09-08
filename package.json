@@ -4,7 +4,7 @@
   "description": "Boostrap for Webpack",
   "main": "loader.js",
   "scripts": {
-    "test": "babel-tape-runner node_package/tests/*.js | tap-spec",
+    "test": "babel-tape-runner node_package/tests/**/*.test.js | tap-spec",
     "start": "npm run lint && npm run clean && npm run dev",
     "dev": "babel --watch --out-dir lib src",
     "build": "babel --out-dir lib src",
