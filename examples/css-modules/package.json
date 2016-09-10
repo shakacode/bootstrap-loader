@@ -43,8 +43,8 @@
   ],
   "dependencies": {
     "body-parser": "^1.15.0",
-    "bootstrap": "4.0.0-alpha.2",
-    "bootstrap-sass": "^3.3.5",
+    "bootstrap": "4.0.0-alpha.4",
+    "bootstrap-sass": "^3.3.6",
     "express": "^4.13.4",
     "font-awesome": "^4.5.0",
     "react": "^0.14.2",
