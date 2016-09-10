@@ -16,7 +16,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
 3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
  
-That being said, Bootstrap 4 probably works just fine!
+That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.4` or greater.
 
 ## NEWS
 
