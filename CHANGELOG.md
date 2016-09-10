@@ -5,7 +5,11 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
-## [2.0.0.beta]
+## [2.0.0.beta.11]
+##### Changed
+Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstrap-loader/pull/167/files) by [rmobis](https://github.com/rmobis).
+
+## [2.0.0.beta.10]
 Includes all bug fixes for v1
 
 ## [1.1.6] - 2016-09-08
