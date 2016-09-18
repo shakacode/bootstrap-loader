@@ -28,6 +28,7 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 
 + [Installation](#installation)
 + [Usage](#usage)
+  - [Bootstrap 4 internal dependency solution](#bootstrap-4-internal-dependency-solution)
 + [Examples](#examples)
 + [Common configuration options](#common-configuration-options)
   - [Bootstrap 3 & 4](#bootstrap-3-4)
@@ -134,6 +135,33 @@ scripts:
 ```
 
 If no config provided, default one for Bootstrap 3 will be used.
+
+### Bootstrap 4 internal dependency solution
+
+Because of Bootstrap 4's removal of UMD, internal dependencies, such as Popover's dependencies on Tooltip and Dropdown's dependency on Utils, are no longer naively resolved by Webpack (See Issue [#172](https://github.com/shakacode/bootstrap-loader/issues/172). In order to solve this issue, add the following code to your webpack configuration:
+```
+plugins: [
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery",
+    "window.jQuery": "jquery",
+    Tether: "tether",
+    "window.Tether": "tether",
+    Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
+    Alert: "exports?Alert!bootstrap/js/dist/alert",
+    Button: "exports?Button!bootstrap/js/dist/button",
+    Carousel: "exports?Carousel!bootstrap/js/dist/carousel",
+    Collapse: "exports?Collapse!bootstrap/js/dist/collapse",
+    Dropdown: "exports?Dropdown!bootstrap/js/dist/dropdown",
+    Modal: "exports?Modal!bootstrap/js/dist/modal",
+    Popover: "exports?Popover!bootstrap/js/dist/popover",
+    Scrollspy: "exports?Scrollspy!bootstrap/js/dist/scrollspy",
+    Tab: "exports?Tab!bootstrap/js/dist/tab",
+    Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
+    Util: "exports?Util!bootstrap/js/dist/util",
+  })
+]
+```
 
 ## Examples
 Check out example apps in [`examples/`](examples) folder:
