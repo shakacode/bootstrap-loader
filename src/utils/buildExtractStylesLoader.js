@@ -6,10 +6,15 @@
  */
 
 export default function(loaders) {
-  if (!loaders[0].startsWith('style')) {
+  let fallbackLoader;
+  if (loaders[0].startsWith('style')) {
+    fallbackLoader = 'style';
+  } else if (loaders[0].startsWith('isomorphic-style')) {
+    fallbackLoader = 'isomorphic-style';
+  } else {
     throw new Error(`
-If you want to use 'extract-text-webpack-plugin' make sure
-your 'styleLoaders' array have 'style-loader' at index 0.
+If you want to use 'extract-text-webpack-plugin', make sure
+your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
     `);
   }
 
@@ -29,5 +34,5 @@ Make sure it's installed in your 'node_modules/' directory.
       .map(loader => `${loader}!`)
       .join('')
   );
-  return ExtractTextPlugin.extract({ fallbackLoader: 'style', loader: restLoaders });
+  return ExtractTextPlugin.extract({ fallbackLoader, loader: restLoaders });
 }
