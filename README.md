@@ -24,6 +24,29 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
 2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
 
+## Table of Contents
+
++ [Installation](#installation)
++ [Usage](#usage)
++ [Examples](#examples)
++ [Common configuration options](#common-configuration-options)
+  - [Bootstrap 3 & 4](#bootstrap-3-4)
+  - [Bootstrap 4 only](#bootstrap-4-only)
+    * [Tether](#tether)
+    * [PostCSS](#postcss)
+    * [Glyphicon alternatives](#glyphicon-alternatives)
++ [Additional configurations](#additional-configurations)
+  - [Paths to custom assets](#paths-to-custom-assets)
+  - [Incorporating Bootswatch themes](#incorporating-bootswatch-themes)
+  - [jQuery](#jquery)
+  - [Icon fonts](#icon-fonts)
++ [FAQ](#faq)
+  - [Using Bootstrap mixins and variables](#using-bootstrap-mixins-and-variables)
++ [Contributing](#contributing)
++ [License](#license)
++ [Examples and related libraries](#examples-and-related-libraries)
++ [Useful Q&A](#useful-qa)
+
 ## Installation
 Get it via npm:
 
@@ -119,10 +142,10 @@ Check out example apps in [`examples/`](examples) folder:
  * See the `npm run bs4:customlocation` tasks for examples on how to pass your .bootstraprc config.
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
 
-## Common Options for Bootstrap 3 and 4
+## Common configuration options
 Here are common options for Bootstrap 3 & 4.
 
-### Bootstrap 3
+### Bootstrap 3 & 4
 
 #### `loglevel`
 
@@ -268,7 +291,7 @@ $icon-font-name: 'glyphicons' // you'll typically want to change this too.
 ```
 
 
-### Bootstrap 4
+### Bootstrap 4 only
 There is only one additional option for Bootstrap 4:
 
 #### `useFlexbox`
@@ -303,7 +326,7 @@ Bootstrap 4 seems to require postcss:
 1. Add postcss and the the postcss-loader: `npm i --save postcss postcss-loader`
 2. Put `postcss` before `sass` in the order of loaders in your `.bootstraprc` file.
 
-#### Glyphicons
+#### Glyphicon alternatives
 Glyphicons have been removed from Bootstrap 4. The examples demonstrate how to use the font-awesome-loader
 
 ## Additional configurations
@@ -381,7 +404,7 @@ module: {
 
 ## FAQ
 
-### Using Bootstrap mixins and variables in your own code
+### Using Bootstrap mixins and variables
 
 You should use `sass-resources-loader` in your `webpack` config.
 
@@ -428,7 +451,7 @@ See [Contributing](CONTRIBUTING.md) to get started.
 ## License
 MIT.
 
-## Example and Related Libraries
+## Examples and related libraries
 * [react-webpack-rails-tutorial](https://github.com/shakacode/react-webpack-rails-tutorial/), live example at [www.reactrails.com](http://www.reactrails.com/).
 * [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
 * [Simple integration example](./examples/basic)
