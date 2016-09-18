@@ -132,6 +132,8 @@ export default function createConfig({
     preBootstrapCustomizations,
     bootstrapCustomizations,
     appStyles,
+    disableSassSourceMap: userConfig.disableSassSourceMap,
+    disableResolveUrlLoader: userConfig.disableResolveUrlLoader,
     useFlexbox: userConfig.useFlexbox,
     useCustomIconFontPath: userConfig.useCustomIconFontPath,
     extractStyles: extractStyles || getEnvProp('extractStyles', userConfig),

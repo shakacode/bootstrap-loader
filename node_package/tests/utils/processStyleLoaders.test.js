@@ -13,19 +13,46 @@ test('processStyleLoaders throws an error if given array does not include "sass"
 
 test('processStyleLoaders works as expected', (assert) => {
   assert.deepEquals(
-    processStyleLoaders(['sass?sourceMap', 'resolve-url']),
+    processStyleLoaders(['sass?sourceMap', 'resolve-url'], undefined, undefined),
     ['sass?sourceMap', 'resolve-url']
   );
+
   assert.deepEquals(
-    processStyleLoaders(['other', 'sass']),
+    processStyleLoaders(['other', 'sass'], undefined, undefined),
     ['other', 'resolve-url', 'sass?sourceMap']
   );
   assert.deepEquals(
-    processStyleLoaders(['other', 'sass?other']),
+    processStyleLoaders(['other', 'sass'], true, undefined),
+    ['other', 'resolve-url', 'sass']
+  );
+  assert.deepEquals(
+    processStyleLoaders(['other', 'sass'], undefined, true),
+    ['other', 'sass?sourceMap']
+  );
+  assert.deepEquals(
+    processStyleLoaders(['other', 'sass'], true, true),
+    ['other', 'sass']
+  );
+
+  assert.deepEquals(
+    processStyleLoaders(['other', 'sass?other'], undefined, undefined),
     ['other', 'resolve-url', 'sass?other&sourceMap']
   );
   assert.deepEquals(
-    processStyleLoaders(['sass?sourceMap']),
+    processStyleLoaders(['other', 'sass?other'], true, undefined),
+    ['other', 'resolve-url', 'sass?other']
+  );
+  assert.deepEquals(
+    processStyleLoaders(['other', 'sass?other'], undefined, true),
+    ['other', 'sass?other&sourceMap']
+  );
+  assert.deepEquals(
+    processStyleLoaders(['other', 'sass?other'], true, true),
+    ['other', 'sass?other']
+  );
+
+  assert.deepEquals(
+    processStyleLoaders(['sass?sourceMap'], undefined, undefined),
     ['resolve-url', 'sass?sourceMap']
   );
   assert.end();
