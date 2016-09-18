@@ -1,6 +1,19 @@
 import test from 'tape';
 import path from 'path';
+import YAMLException from 'js-yaml';
+
 import createConfig from '../../src/bootstrap.config';
+
+test('createConfig throws error if config file can not be parsed', (assert) => {
+  assert.throws(() => {
+    createConfig(
+      {
+        extractStyles: false,
+        customConfigFilePath: '../node_package/tests/test_configs/test_unparsable_bootstraprc',
+      });
+  }, YAMLException);
+  assert.end();
+});
 
 test('createConfig throws error if bootstrapVersion is not found', (assert) => {
   assert.throws(() => {

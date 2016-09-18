@@ -5,6 +5,9 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
+## [2.0.0.beta.12]
+Support for disabling injection of SASS sourceMap or resolve-url-loader. [#176](https://github.com/shakacode/bootstrap-loader/pull/176/files) by [judahmeek](https://github.com/judahmeek).
+
 ## [2.0.0.beta.11]
 ##### Changed
 Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstrap-loader/pull/167/files) by [rmobis](https://github.com/rmobis).
