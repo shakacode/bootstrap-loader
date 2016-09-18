@@ -6,7 +6,7 @@
  */
 
 export default function(loaders) {
-  if (!loaders[0].startsWith('style')) {
+  if (!loaders[0].includes('style')) {
     throw new Error(`
 If you want to use 'extract-text-webpack-plugin' make sure
 your 'styleLoaders' array have 'style-loader' at index 0.
