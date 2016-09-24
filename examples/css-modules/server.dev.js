@@ -9,7 +9,8 @@ const path = require('path');
 
 const devBuildConfig = require('./webpack.dev.config');
 
-const PORT = 4000;
+const IP = process.env.IP || 'localhost';
+const PORT = process.env.PORT || 4000;
 
 const server = express();
 const compiler = webpack(devBuildConfig);
@@ -36,7 +37,7 @@ server.use('/', (req, res) => (
   res.sendFile(path.join(__dirname, 'app', 'markup', 'bootstrap-dev.html'))
 ));
 
-server.listen(PORT, 'localhost', err => {
+server.listen(PORT, IP, err => {
   if (err) console.log(`=> OMG!!! 🙀 ${err}`);
   console.log(`=> 🔥  Webpack dev server is running on port ${PORT}`);
 });
