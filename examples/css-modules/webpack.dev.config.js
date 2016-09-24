@@ -27,13 +27,16 @@ module.exports = {
 
   devtool: '#cheap-module-eval-source-map',
 
-  resolve: { extensions: ['', '.js', '.jsx'] },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
+    }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: [autoprefixer],
     }),
   ],
 
@@ -71,7 +74,5 @@ module.exports = {
       },
     ],
   },
-
-  postcss: [autoprefixer],
 
 };

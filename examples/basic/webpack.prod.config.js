@@ -27,12 +27,15 @@ module.exports = {
     filename: 'app.js',
   },
 
-  resolve: { extensions: ['', '.js'] },
+  resolve: { extensions: ['*', '.js'] },
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
+    }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: [autoprefixer],
     }),
   ],
 
@@ -65,7 +68,5 @@ module.exports = {
       { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery' },
     ],
   },
-
-  postcss: [autoprefixer],
 
 };
