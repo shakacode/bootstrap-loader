@@ -20,6 +20,7 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 
 ## NEWS
 
+2016-09-10: Released 2.0.0-beta.11 with support for Bootstrap 4, alpha 4!
 2016-08-02: Released 2.0.0-beta Updated to support Webpack 2.1 beta and Webpack ExtractTextPlugin 2.0 beta!
 2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
 2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
@@ -62,9 +63,9 @@ Don't forget to install these dependencies (use `--save or --saveDev` option per
 npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install --save-dev bootstrap@v4.0.0-alpha.2
+npm install --save-dev bootstrap@v4.0.0-alpha.4
 
-# Note, alpha.3 is broken
+# Note, alpha.3 is broken, and alpha.2 is no longer supported
 
 # Node SASS & other loaders needed to handle styles
 npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
