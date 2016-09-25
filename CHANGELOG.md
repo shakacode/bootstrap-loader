@@ -5,6 +5,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
+## [1.1.7] - 2016-09-09
+##### Changed
+Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstrap-loader/pull/167/files) by [rmobis](https://github.com/rmobis) and [#170](https://github.com/shakacode/bootstrap-loader/pull/170/files) by [justin808](https://github.com/justin808)..
+
 ## [1.1.6] - 2016-09-08
 ##### Fixed
 - Allows chaining with some style loaders such as the isomorphic-style-loader. [#98](https://github.com/shakacode/bootstrap-loader/pulls/98) by [horyd](https://github.com/horyd).
@@ -45,7 +49,8 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.1.7...master
+[1.1.7]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
