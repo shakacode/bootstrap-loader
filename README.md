@@ -350,7 +350,7 @@ module: {
     { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
 
     // Bootstrap 4
-    { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
+    { test: /bootstrap[\/\\]js[\/\\]dist[\/\\]/, loader: 'imports?jQuery=jquery' },
   ],
 },
 ```
