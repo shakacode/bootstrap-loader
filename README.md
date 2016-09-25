@@ -37,9 +37,9 @@ Don't forget to install these dependencies (use `--save or --saveDev` option per
 npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install --save-dev bootstrap@v4.0.0-alpha.2
+npm install --save-dev bootstrap@v4.0.0-alpha.4
 
-# Note, alpha.3 is broken
+# Note, alpha.3 is broken and alpha.2 is not supported by the current version.
 
 # Node SASS & other loaders needed to handle styles
 npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
