@@ -5,7 +5,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
-## [1.1.7] - 2016-09-09
+## [1.2.0] - 2016-09-24
 ##### Changed
 Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstrap-loader/pull/167/files) by [rmobis](https://github.com/rmobis) and [#170](https://github.com/shakacode/bootstrap-loader/pull/170/files) by [justin808](https://github.com/justin808)..
 
@@ -49,8 +49,8 @@ Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstr
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.1.7...master
-[1.1.7]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...1.1.7
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.2.0...v1
+[1.2.0]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...1.2.0
 [1.1.6]: https://github.com/shakacode/bootstrap-loader/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/shakacode/bootstrap-loader/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/shakacode/bootstrap-loader/compare/1.1.3...1.1.4
