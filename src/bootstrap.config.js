@@ -20,13 +20,11 @@ function resolveDefaultConfigPath(bootstrapVersion) {
 
 function parseConfigFile(configFilePath) {
   const configContent = stripComments(fs.readFileSync(configFilePath, 'utf8'));
-  const config = jsYaml.safeLoad(configContent);
-
-  if (!config) {
+  try {
+    return jsYaml.safeLoad(configContent);
+  } catch (YAMLException) {
     throw new Error(`Config file cannot be parsed: ${configFilePath}'`);
   }
-
-  return config;
 }
 
 function readDefaultConfig() {
