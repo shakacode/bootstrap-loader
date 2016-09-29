@@ -26,7 +26,7 @@ module.exports = {
     filename: 'app.js',
   },
 
-  resolve: { extensions: ['', '.js', '.jsx'] },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
@@ -37,6 +37,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
+    }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: [autoprefixer],
     }),
   ],
 
@@ -77,7 +80,5 @@ module.exports = {
       },
     ],
   },
-
-  postcss: [autoprefixer],
 
 };

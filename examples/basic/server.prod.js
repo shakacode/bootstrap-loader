@@ -4,7 +4,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const PORT = 4000;
+const IP = process.env.IP || 'localhost';
+const PORT = process.env.PORT || 4000;
 
 const server = express();
 
@@ -17,7 +18,7 @@ server.use('/', (req, res) => (
   res.sendFile(path.join(__dirname, 'app', 'markup', 'bootstrap-prod.html'))
 ));
 
-server.listen(PORT, 'localhost', err => {
+server.listen(PORT, IP, err => {
   if (err) console.log(`=> OMG!!! 🙀 ${err}`);
   console.log(`=> 🚀  Production server is running on port ${PORT}`);
 });
