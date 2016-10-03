@@ -160,7 +160,11 @@ You can use default ones:
     }
 
     const styleLoadersWithSourceMapsAndResolveUrlLoader = (
-      processStyleLoaders(config.styleLoaders)
+      processStyleLoaders({
+        loaders: config.styleLoaders,
+        disableSassSourceMap: config.disableSassSourceMap,
+        disableResolveUrlLoader: config.disableResolveUrlLoader,
+      })
     );
 
     const styleLoaders = (
