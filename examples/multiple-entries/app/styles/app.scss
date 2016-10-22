@@ -1,0 +1,23 @@
+// Example of referring to bootstrap variables in your Sass code.
+$icons-color: adjust-hue($brand-success, -20deg);
+
+#app {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  .col-items {
+    margin: 70px 0;
+    .col-item {
+      font-size: 50px;
+      color: $icons-color;
+      text-align: center;
+
+      .text {
+        display: block;
+        font-size: 30px;
+        color: #FFF;
+      }
+    }
+  }
+}
