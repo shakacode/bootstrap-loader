@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-loader-example",
   "version": "1.0.0",
-  "description": "Example usage of bootstrap-loader with multiple entries wit",
+  "description": "Example usage of bootstrap-loader with multiple entries with their own config",
   "main": "server.prod.js",
   "engines": {
     "node": "5"
