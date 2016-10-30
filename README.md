@@ -19,6 +19,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.4` or greater.
 
 ## NEWS
+2016-10-30: Released 1.3.0. Supports multiple config files in one build.
 
 2016-10-02: Released 2.0.0-beta.12. Supports isomorphic-style-loader and disabling SASS source map and/or resolve-url-loader injection!
 
@@ -27,8 +28,6 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 2016-08-02: Released 2.0.0-beta Updated to support Webpack 2.1 beta and Webpack ExtractTextPlugin 2.0 beta!
 
 2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
-
-2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
 
 ## Table of Contents
 

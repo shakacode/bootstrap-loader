@@ -5,8 +5,13 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
-## [2.0.0.beta.12]
-Support for disabling injection of SASS sourceMap or resolve-url-loader. [#176](https://github.com/shakacode/bootstrap-loader/pull/176/files) by [judahmeek](https://github.com/judahmeek).
+## [2.0.0.beta.13] - 2016-10-30
+##### Added
+Support for multiple config files allowing both BS3 and BS4 in the same build. [#194](https://github.com/shakacode/bootstrap-loader/pull/184) by [navarroaxel](https://github.com/navarroaxel).
+
+## [2.0.0.beta.12] - 2016-10-03
+##### Added
+Support for disabling injection of SASS sourceMap or resolve-url-loader. [#176](https://github.com/shakacode/bootstrap-loader/pull/184) by [judahmeek](https://github.com/judahmeek).
 
 ## [2.0.0.beta.11]
 ##### Changed
@@ -61,7 +66,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.12...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.13...master
+[2.0.0.beta.13]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.12...2.0.0-beta.13
 [2.0.0.beta.12]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.11...2.0.0-beta.12
 [2.0.0.beta.11]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.10...2.0.0-beta.11
 [2.0.0.beta.10]: https://github.com/shakacode/bootstrap-loader/compare/v2.0.0-beta.2...2.0.0-beta.10
