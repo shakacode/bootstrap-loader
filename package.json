@@ -41,7 +41,7 @@
     "resolve-url-loader": "*",
     "sass-loader": "*",
     "url-loader": "*",
-    "webpack": ">=2.1.0-beta"
+    "webpack": "2.1.0-beta.1 - 2.1.0-beta.24"
   },
   "dependencies": {
     "chalk": "^1.1.3",
