@@ -53,6 +53,14 @@ For both the basic and css-modules examples
 3. Examine the DEBUG output, as well as the results.
 4. The custom `.bootstraprc` files have extra colors so you'll know they are running if you see non-standard bootstrap colors.
 
+For the multiple-entries example
+
+1. This example do a simple use of the configFilePath and the DEBUG=TRUE is ignored.
+2. See the README.md inside the examples directories for all available commands, or else run
+   `npm run` to show the commands.
+3. Compare the CSS files to see the different results.
+4. The file `.bootstraprc` is ignored here.
+
 ### Debug Output
 When doing development or debugging, you probably want DEBUG output on.
 

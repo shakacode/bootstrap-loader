@@ -143,14 +143,13 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
 
   logger.debug('Normalized params:', '\n', config);
 
-  global.__BOOTSTRAP_CONFIG__ = config;
-
   const result = {};
 
   const dummySourceRel = (
     loaderUtils.urlToRequest(path.relative(this.context, source))
   );
 
+  const bootstrapConfig = JSON.stringify(config);
   // Handle styles
   if (config.styles) {
     if (!config.styleLoaders) {
@@ -182,7 +181,7 @@ You can use default ones:
             loaderUtils.urlToRequest('bootstrap.styles.loader.js')
           )
         )
-      )}!`
+      )}?${bootstrapConfig}!`
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
@@ -199,7 +198,7 @@ You can use default ones:
             loaderUtils.urlToRequest('bootstrap.scripts.loader.js')
           )
         )
-      )}!`
+      )}?${bootstrapConfig}!`
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
     result.js = createRequire(scripts);

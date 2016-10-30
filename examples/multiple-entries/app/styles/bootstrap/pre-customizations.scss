@@ -1,0 +1,26 @@
+// Customize Bootstrap variables that get imported before the original Bootstrap variables.
+// Thus original Bootstrap variables can depend on values from here.
+
+$font-family-sans-serif: 'OpenSans-Light', Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// This path is relative to this file!
+$fonts-url-path: '../fonts';
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('#{$fonts-url-path}/OpenSans-Light.ttf') format('truetype');
+}
+
+// Other font size variables are based on this on, so this absolutely should go into the
+// pre-customizations.scss file.
+// $font-size-base: 16px;
+
+// Here is what is in the _variables.scss file of Bootstrap 3
+// $font-size-base:          14px !default;
+// $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+// $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+// If you're using a custom icon font path, specify it as follows
+// $icon-font-path: ../fonts // This path is relative to this file
+// $icon-font-name: 'glyphicons' // The name of the font you want to use
+// And be sure to set useCustomIconFontPath to true in .bootstraprc.
