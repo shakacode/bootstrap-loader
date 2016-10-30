@@ -19,14 +19,13 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.4` or greater.
 
 ## NEWS
+2016-10-30: Released 1.3.0. Supports multiple config files in one build.
 
 2016-10-02: Released 1.2.1. Supports isomorphic-style-loader and disabling SASS source map and/or resolve-url-loader injection!
 
 2016-09-24: Released 1.2.0. Supports Bootstrap 4, alpha 4!
 
 2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
-
-2016-02-28: Released 1.0.9. Updated to support Bootstrap 4, alpha 2!
 
 ## Table of Contents
 
