@@ -1,0 +1,11 @@
+// Customize variables
+
+// This gets loaded after bootstrap/variables is loaded, so you can refer to
+// bootstrap variables configured by bootstrap. For example, the _variables.scss contains:
+// $btn-primary-bg: $brand-primary !default;
+
+// Here we're adjusting the hue of that default:
+$btn-primary-bg: adjust-hue($btn-primary-bg, +20deg);
+
+// NOTE: $gray-dark is defined in _variables.scss
+$body-bg: $gray-light;

@@ -1,5 +1,5 @@
 /* eslint func-names: 0 */
-
+import loaderUtils from 'loader-utils';
 import processModules from './utils/processModules';
 import logger from './utils/logger';
 
@@ -11,7 +11,9 @@ import logger from './utils/logger';
 module.exports = function() {
   if (this.cacheable) this.cacheable();
 
-  const config = global.__BOOTSTRAP_CONFIG__;
+  logger.debug('Scripts input config:', '\n', this.query);
+
+  const config = loaderUtils.parseQuery(this.query);
   const { scripts, bootstrapVersion, bootstrapRelPath } = config;
 
   const processedScripts = (

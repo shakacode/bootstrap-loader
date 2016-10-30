@@ -175,6 +175,7 @@ Check out example apps in [`examples/`](examples) folder:
 * Basic usage: [examples/basic](examples/basic)
  * See the `npm run bs4:customlocation` tasks for examples on how to pass your .bootstraprc config.
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
+* With multiple entries [examples/multiple-entries](examples/multiple-entries) with their own config.
 
 ## Common configuration options
 Here are common options for Bootstrap 3 & 4.

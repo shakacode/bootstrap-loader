@@ -1,5 +1,5 @@
 /* eslint func-names: 0 */
-
+import loaderUtils from 'loader-utils';
 import processModules from './utils/processModules';
 import getFontsPath from './utils/getFontsPath';
 import createUserImport from './utils/createUserImport';
@@ -14,7 +14,9 @@ import logger from './utils/logger';
 module.exports = function() {
   if (this.cacheable) this.cacheable();
 
-  const config = global.__BOOTSTRAP_CONFIG__;
+  logger.debug('Styles input config:', '\n', this.query);
+
+  const config = loaderUtils.parseQuery(this.query);
   const bootstrapVersion = parseInt(config.bootstrapVersion, 10);
   const {
     styles,
