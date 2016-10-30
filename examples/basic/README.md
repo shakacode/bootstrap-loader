@@ -5,8 +5,8 @@ bootstrap-loader-example
 ### Install deps
 npm i
 
-### If doing hacking on the loader
-# npm run install-local
+### IMPORTANT: If you want the local git clone files used rather than the latest from npm
+npm run install-local
 
 ### Run dev server with hot reloading
 
