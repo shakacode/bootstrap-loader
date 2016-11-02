@@ -30,7 +30,7 @@ module.exports = {
     filename: '[name].js',
   },
 
-  resolve: {extensions: ['', '.js']},
+  resolve: {extensions: ['*', '.js']},
 
   plugins: [
     new ExtractTextPlugin('[name].css', {allChunks: true}),
