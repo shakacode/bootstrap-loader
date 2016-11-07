@@ -33,16 +33,34 @@ module.exports = {
   resolve: {extensions: ['*', '.js']},
 
   plugins: [
-    new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
+    }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: [autoprefixer],
     }),
   ],
 
   module: {
     loaders: [
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!postcss')},
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')},
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!postcss',
+        }),
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+            '!postcss' +
+          '!sass',
+        }),
+      },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -64,5 +82,4 @@ module.exports = {
       {test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery'},
     ],
   },
-  postcss: [autoprefixer],
 };
