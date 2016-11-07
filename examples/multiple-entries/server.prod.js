@@ -4,7 +4,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const PORT = 4000;
+const IP = process.env.IP || 'localhost';
+const PORT = process.env.PORT || 4000;
 
 const server = express();
 
@@ -25,7 +26,7 @@ server.get('/bs4',
   (req, res) => res.sendFile(path.join(__dirname, 'app', 'markup', 'bs4-prod.html'))
 );
 
-server.listen(PORT, 'localhost', err => {
+server.listen(PORT, IP, err => {
   if (err) console.log(`=> OMG!!! 🙀 ${err}`);
   console.log(`=> 🚀  Production server is running on port ${PORT}`);
 });
