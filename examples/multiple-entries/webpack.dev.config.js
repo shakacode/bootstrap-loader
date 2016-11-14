@@ -25,10 +25,7 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/assets/'
   },
-  resolve: {
-    modulesDirectories: ['node_modules', 'src'],
-    extension: ['', '.js']
-  },
+  resolve: {  extensions: ['*', '.js']  },
   module: {
     loaders: [
       { test: /\.css$/, loaders: [ 'style', 'css', 'postcss' ] },
@@ -54,7 +51,9 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
+    }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: [autoprefixer],
     })
-  ],
-  postcss: [ autoprefixer ]
+  ]
 };
