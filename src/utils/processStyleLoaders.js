@@ -57,6 +57,7 @@ Default is ['style', 'css', 'sass']
     }
 
 
+    // eslint-disable-next-line no-param-reassign
     loaders[sassLoaderIndex] = sassLoaderWithSourceMap;
   }
 
