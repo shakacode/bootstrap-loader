@@ -1,3 +1,5 @@
+/* eslint global-require:0, import/no-dynamic-require:0 */
+
 import path from 'path';
 import semver from 'semver';
 
@@ -9,7 +11,6 @@ import semver from 'semver';
  * @returns {Object}
  */
 export default function(bootstrapVersion, bootstrapPath) {
-  // eslint-disable-next-line global-require
   const npmVersion = require(path.join(bootstrapPath, 'package.json')).version;
 
   return {
