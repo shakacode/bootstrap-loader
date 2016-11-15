@@ -68,7 +68,7 @@ Default is ['style', 'css', 'sass']
     );
 
     if (!resolveUrlLoader) {
-      loaders.splice(sassLoaderIndex, 0, 'resolve-url');
+      loaders.splice(sassLoaderIndex, 0, 'resolve-url-loader');
     }
   }
 
