@@ -16,8 +16,18 @@ Default is ['style', 'css', 'sass']
     `);
   }
 
+  // Enforce -loader suffix for loaders in config for webpack compatibility
+  const loaderSuffixRegExp = new RegExp('^style-loader.*|^css-loader.*|^sass-loader.*$');
+  const suffixReplaceRegExp = new RegExp('^(style)|^(css)|^(sass)');
+  const loadersWithSuffix = loaders.map(loader => {
+    if (!loaderSuffixRegExp.test(loader)) {
+      return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
+    }
+    return loader;
+  });
+
   if (disableSassSourceMap && disableResolveUrlLoader) {
-    return loaders;
+    return loadersWithSuffix;
   }
 
   // We need to match user loaders in different formats:
@@ -28,10 +38,10 @@ Default is ['style', 'css', 'sass']
 
 
   const sassLoaderRegExp = getLoaderRegExp('sass');
-  let sassLoader = (
-    loaders.find(loader => sassLoaderRegExp.test(loader))
+  const sassLoader = (
+    loadersWithSuffix.find(loader => sassLoaderRegExp.test(loader))
   );
-  const sassLoaderIndex = loaders.indexOf(sassLoader);
+  const sassLoaderIndex = loadersWithSuffix.indexOf(sassLoader);
 
   if (!disableSassSourceMap) {
     if (!sassLoader) {
@@ -42,11 +52,6 @@ Default is ['style', 'css', 'sass']
     }
 
     const sassLoaderQuery = sassLoader.split('?')[1];
-
-    // Enforce '-loader' suffix to support older webpack versions
-    if (!sassLoader.startsWith('sass-loader')) {
-      sassLoader = `sass-loader${sassLoaderQuery}`;
-    }
 
     // We need to check if user's loader already contains sourceMap param
     // And if it's not there - inject it
@@ -63,19 +68,19 @@ Default is ['style', 'css', 'sass']
 
 
     // eslint-disable-next-line no-param-reassign
-    loaders[sassLoaderIndex] = sassLoaderWithSourceMap;
+    loadersWithSuffix[sassLoaderIndex] = sassLoaderWithSourceMap;
   }
 
   if (!disableResolveUrlLoader) {
     const resolveUrlLoaderRegExp = getLoaderRegExp('resolve-url');
     const resolveUrlLoader = (
-      loaders.find(loader => resolveUrlLoaderRegExp.test(loader))
+      loadersWithSuffix.find(loader => resolveUrlLoaderRegExp.test(loader))
     );
 
     if (!resolveUrlLoader) {
-      loaders.splice(sassLoaderIndex, 0, 'resolve-url-loader');
+      loadersWithSuffix.splice(sassLoaderIndex, 0, 'resolve-url-loader');
     }
   }
 
-  return loaders;
+  return loadersWithSuffix;
 }
