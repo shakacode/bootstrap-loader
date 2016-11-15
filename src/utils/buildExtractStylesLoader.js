@@ -18,6 +18,11 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
     `);
   }
 
+  // Enforcement of loader suffix for Webpack v2.1.0+
+  if (loaders[0].endsWith('-loader')) {
+    fallbackLoader += '-loader';
+  }
+
   let ExtractTextPlugin;
   try {
     // eslint-disable-next-line global-require
