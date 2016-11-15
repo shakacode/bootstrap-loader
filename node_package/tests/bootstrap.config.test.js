@@ -66,13 +66,13 @@ test('createConfig uses user config as expected', (assert) => {
   const expectedResult = {
     appStyles: undefined,
     bootstrapCustomizations: '/home/ubuntu/workspace/node_package/tests' +
-                             'test_configs/path/to/bootstrap/customizations.scss',
+    'test_configs/path/to/bootstrap/customizations.scss',
     bootstrapVersion: 4,
     configFilePath: path.resolve(__dirname, './test_configs/test_bootstraprc'),
     extractStyles: true,
     loglevel: undefined,
     preBootstrapCustomizations: '/home/ubuntu/workspace/node_package/tests' +
-                                 'test_configs/path/to/bootstrap/pre-customizations.scss',
+    'test_configs/path/to/bootstrap/pre-customizations.scss',
     scripts: ['alert', 'button', 'carousel', 'collapse', 'dropdown', 'modal', 'popover',
       'scrollspy', 'tab', 'tooltip', 'util'],
     styleLoaders: ['style', 'css', 'postcss', 'sass'],
@@ -83,14 +83,15 @@ test('createConfig uses user config as expected', (assert) => {
       'close', 'modal', 'tooltip', 'popover', 'carousel', 'utilities', 'utilities-background',
       'utilities-spacing', 'utilities-responsive'],
     useCustomIconFontPath: undefined,
-    useFlexbox: true };
+    useFlexbox: true,
+  };
 
   assert.deepEquals(
-      createConfig({
-        extractStyles: true,
-        customConfigFilePath: '../node_package/tests/test_configs/test_bootstraprc',
-      }),
-      expectedResult
-    );
+    createConfig({
+      extractStyles: true,
+      customConfigFilePath: '../node_package/tests/test_configs/test_bootstraprc',
+    }),
+    expectedResult
+  );
   assert.end();
 });

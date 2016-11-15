@@ -1,15 +1,14 @@
 language: node_js
 
 node_js:
-  - stable
+  - "6"
 
 install:
   - npm install
   - npm install css-loader node-sass resolve-url-loader sass-loader style-loader url-loader file-loader
   - npm install extract-text-webpack-plugin@">=2.0.0-beta"
-  - npm install webpack@">=2.1.0-beta"
-  - npm install eslint-plugin-jsx-a11y@^2.1.0
-  - npm install eslint-plugin-react@^6.0.0
+  - npm install webpack@"2.1.0-beta.1 - 2.1.0-beta.25"
+  - npm install eslint-plugin-jsx-a11y@^2.1.0 eslint-plugin-react@^6.0.0 eslint-plugin-import@^1.16.0
 
 script:
   - npm run lint

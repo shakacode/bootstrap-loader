@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-loader-example",
-  "version": "2.0.0-beta.8",
-  "description": "Example usage of bootstrap-loader",
+  "version": "1.0.0",
+  "description": "Example usage of bootstrap-loader with multiple entries with their own config",
   "main": "server.prod.js",
   "engines": {
     "node": "5"
@@ -9,21 +9,10 @@
   "scripts": {
     "start": "nodemon --watch app/markup --ext html server.dev.js",
     "clean": "rm -rf public/",
-    "cleanrc": "rm .bootstraprc || echo 'no .bootstraprc file to delete'",
-    "lint": "eslint --ext .js .",
+    "lint": "eslint --ext .js,.jsx .",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
     "prod": "nodemon --watch app/markup --ext html server.prod.js",
-    "bs:no-config": "npm run cleanrc && npm start",
-    "bs3": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-3-example nodemon --watch app/markup --ext html server.dev.js",
-    "bs4": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-4-example nodemon --watch app/markup --ext html server.dev.js",
-    "bs3:prod": "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-3-example && npm run build && npm run prod",
-    "bs4:prod": "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-4-example && npm run build && npm run prod",
-    "bs3:default:setup": "cp -f .bootstraprc-3-example .bootstraprc",
-    "bs4:default:setup": "cp -f .bootstraprc-4-example .bootstraprc",
-    "bs3:default:dev": "npm run bs3:default:setup && npm start",
-    "bs4:default:dev": "npm run bs4:default:setup && npm start",
-    "bs3:default:prod": "npm run bs3:default:setup && npm run build && npm run prod",
-    "bs4:default:prod": "npm run bs4:default:setup && npm run build && npm run prod",
+    "bs:prod": "npm run build && npm run prod",
     "install-local": "npm install --save-dev ../.."
   },
   "repository": {
@@ -35,8 +24,7 @@
     "webpack"
   ],
   "authors": [
-    "Justin Gordon <justin.gordon@gmail.com> (https://github.com/justin808)",
-    "Alex Fedoseev <alex.fedoseev@gmail.com> (https://github.com/alexfedoseev)"
+    "Axel Navarro <navarroaxel@gmail.com> (https://github.com/navarroaxel)"
   ],
   "license": "MIT",
   "dependencies": {
@@ -45,6 +33,7 @@
     "bootstrap-sass": "^3.3.6",
     "font-awesome": "^4.6.3",
     "jquery": "^2.1.4",
+    "nodemon": "^1.11.0",
     "tether": "^1.2.0"
   },
   "devDependencies": {

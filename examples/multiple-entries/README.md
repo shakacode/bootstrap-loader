@@ -9,26 +9,16 @@ npm i
 npm run install-local
 
 ### Run dev server with hot reloading
-
+npm start
 # Bootstrap 3
-npm run bs3
+http://localhost:4000/bs3
 # Bootstrap 4
-npm run bs4
+http://localhost:4000/bs4
 
 ### Run production server
-
+npm run bs:prod
 # Bootstrap 3
-npm run bs3:prod
+http://localhost:4000/bs3
 # Bootstrap 4
-npm run bs4:prod
-
-# Run no config
-npm run bs:no-config
-
-# Run default configs
-
-npm run bs3:default:dev
-npm run bs4:default:dev
-npm run bs3:default:prod
-npm run bs4:default:prod
+http://localhost:4000/bs4
 ```
