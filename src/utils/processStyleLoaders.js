@@ -28,7 +28,7 @@ Default is ['style', 'css', 'sass']
 
 
   const sassLoaderRegExp = getLoaderRegExp('sass');
-  const sassLoader = (
+  let sassLoader = (
     loaders.find(loader => sassLoaderRegExp.test(loader))
   );
   const sassLoaderIndex = loaders.indexOf(sassLoader);
@@ -42,6 +42,11 @@ Default is ['style', 'css', 'sass']
     }
 
     const sassLoaderQuery = sassLoader.split('?')[1];
+
+    // Enforce '-loader' suffix to support older webpack versions
+    if (!sassLoader.startsWith('sass-loader')) {
+      sassLoader = `sass-loader${sassLoaderQuery}`;
+    }
 
     // We need to check if user's loader already contains sourceMap param
     // And if it's not there - inject it
