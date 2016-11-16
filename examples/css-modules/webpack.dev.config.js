@@ -44,33 +44,33 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         loaders: [
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss',
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
+          'postcss-loader',
         ],
       },
       {
         test: /\.scss$/,
         loaders: [
-          'style',
-          'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss',
-          'sass',
+          'style-loader',
+          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000',
+        loader: 'url-loader?limit=10000',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file',
+        loader: 'file-loader',
       },
     ],
   },
