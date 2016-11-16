@@ -17,14 +17,18 @@ Default is ['style', 'css', 'sass']
   }
 
   // Enforce -loader suffix for loaders in config for webpack compatibility
-  const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
-  const suffixReplaceRegExp = new RegExp('^style|^css|^sass|^resolve-url');
-  const loadersWithSuffix = loaders.map(loader => {
-    if (!loaderSuffixRegExp.test(loader)) {
-      return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
-    }
-    return loader;
-  });
+  const ensureLoadersSuffix = loadersArray => {
+    const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
+    const suffixReplaceRegExp = new RegExp('^style|^css|^sass|^resolve-url');
+    return loadersArray.map(loader => {
+      if (!loaderSuffixRegExp.test(loader)) {
+        return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
+      }
+      return loader;
+    });
+  };
+
+  const loadersWithSuffix = ensureLoadersSuffix(loaders);
 
   if (disableSassSourceMap && disableResolveUrlLoader) {
     return loadersWithSuffix;
