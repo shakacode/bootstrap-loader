@@ -2,6 +2,18 @@
 
 import escapeRegExp from 'escape-regexp';
 
+// Ensures '-loader' suffix for loaders in config for webpack compatibility
+const ensureLoadersSuffix = loadersArray => {
+  const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
+  const suffixReplaceRegExp = new RegExp('^style|^css|^sass|^resolve-url');
+  return loadersArray.map(loader => {
+    if (!loaderSuffixRegExp.test(loader)) {
+      return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
+    }
+    return loader;
+  });
+};
+
 /**
  * Injects 'resolve-url-loader' and 'sourceMap' param for 'sass-loader'
  *
@@ -15,18 +27,6 @@ Specify your loaders as an array.
 Default is ['style', 'css', 'sass']
     `);
   }
-
-  // Enforce -loader suffix for loaders in config for webpack compatibility
-  const ensureLoadersSuffix = loadersArray => {
-    const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
-    const suffixReplaceRegExp = new RegExp('^style|^css|^sass|^resolve-url');
-    return loadersArray.map(loader => {
-      if (!loaderSuffixRegExp.test(loader)) {
-        return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
-      }
-      return loader;
-    });
-  };
 
   const loadersWithSuffix = ensureLoadersSuffix(loaders);
 
