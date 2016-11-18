@@ -107,9 +107,9 @@ Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api
 useFlexbox: true
 
 styleLoaders:
-  - style
-  - css
-  - sass
+  - style-loader
+  - css-loader
+  - sass-loader
 
 styles:
   normalize: true
@@ -125,7 +125,7 @@ scripts:
   // And JSON comments also!
   "useFlexbox": true,
 
-  "styleLoaders": ["style", "css", "sass"],
+  "styleLoaders": ["style-loader", "css-loader", "sass-loader"],
 
   "styles": {
     "normalize": true,
@@ -203,18 +203,22 @@ bootstrapVersion: 3
 
 #### `styleLoaders`
 
-Default: `[ 'style', 'css', 'sass' ]`
+Default: `[ 'style-loader', 'css-loader', 'sass-loader' ]`
 
 Array of webpack loaders. `sass-loader` is required, order matters. In most cases the style loader should definitely go first and the sass loader should be last.
 
+Note: Beginning with Webpack v2.1.0-beta.26, the '-loader' suffix is required for all loaders.
+To maintain compatibility with older versions, all accepted style loaders (style, css, sass, resolve-url) are automatically appended with '-loader'.
+It is recommended that you explicitly state the '-loader' suffix for every webpack loader in `styleLoaders` to ensure compatibility in the long term.
+
 ```yaml
 styleLoaders:
-  - style
-  - css
-  - sass
+  - style-loader
+  - css-loader
+  - sass-loader
 
 # You can apply loader params here:
-  - sass?outputStyle=expanded
+  - sass-loader?outputStyle=expanded
 ```
 
 #### `extractStyles`
@@ -372,10 +376,10 @@ This was made possible thanks to [resolve-url-loader](https://github.com/bhollow
 
 ```yaml
 styleLoaders:
-  - style
-  - css?sourceMap
-  - resolve-url?sourceMap
-  - sass?sourceMap
+  - style-loader
+  - css-loader?sourceMap
+  - resolve-url-loader?sourceMap
+  - sass-loader?sourceMap
 ```
 
 #### Incorporating Bootswatch themes
@@ -405,10 +409,10 @@ module: {
     // Use one of these to serve jQuery for Bootstrap scripts:
 
     // Bootstrap 3
-    { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
+    { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports-loader?jQuery=jquery' },
 
     // Bootstrap 4
-    { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
+    { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports-loader?jQuery=jquery' },
   ],
 },
 ```
@@ -417,10 +421,10 @@ Note: if you're not concerned about Windows, the lines look like this (simpler r
 
 ```js
 // Boostrap 3
-{ test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery' },
+{ test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
 
 // Bootstrap 4
-{ test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' },
+{ test: /bootstrap\/dist\/js\/umd\//, loader: 'imports-loader?jQuery=jquery' },
 ```
 
 
@@ -430,8 +434,8 @@ Bootstrap uses **icon fonts**. If you want to load them, don't forget to setup `
 ```js
 module: {
   loaders: [
-    { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
-    { test: /\.(ttf|eot)$/, loader: 'file' },
+    { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+    { test: /\.(ttf|eot)$/, loader: 'file-loader' },
   ],
 },
 ```
@@ -454,10 +458,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
-          'style',
-          'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
-          '!sass' +
-          '!sass-resources'
+          'style-loader',
+          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!sass-loader' +
+          '!sass-resources-loader'
         ),
       },
       // stuff removed for clarity ...

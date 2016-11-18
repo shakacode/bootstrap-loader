@@ -8,9 +8,9 @@
 export default function(loaders) {
   let fallbackLoader;
   if (loaders[0].startsWith('style')) {
-    fallbackLoader = 'style';
+    fallbackLoader = 'style-loader';
   } else if (loaders[0].startsWith('isomorphic-style')) {
-    fallbackLoader = 'isomorphic-style';
+    fallbackLoader = 'isomorphic-style-loader';
   } else {
     throw new Error(`
 If you want to use 'extract-text-webpack-plugin', make sure

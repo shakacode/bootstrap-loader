@@ -16,28 +16,28 @@ test('processStyleLoaders works as expected', (assert) => {
     processStyleLoaders({
       loaders: ['sass?sourceMap', 'resolve-url'],
     }),
-    ['sass?sourceMap', 'resolve-url']
+    ['sass-loader?sourceMap', 'resolve-url-loader']
   );
 
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['other', 'sass'],
     }),
-    ['other', 'resolve-url', 'sass?sourceMap']
+    ['other', 'resolve-url-loader', 'sass-loader?sourceMap']
   );
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['other', 'sass'],
       disableSassSourceMap: true,
     }),
-    ['other', 'resolve-url', 'sass']
+    ['other', 'resolve-url-loader', 'sass-loader']
   );
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['other', 'sass'],
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass?sourceMap']
+    ['other', 'sass-loader?sourceMap']
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -45,28 +45,28 @@ test('processStyleLoaders works as expected', (assert) => {
       disableSassSourceMap: true,
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass']
+    ['other', 'sass-loader']
   );
 
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['other', 'sass?other'],
     }),
-    ['other', 'resolve-url', 'sass?other&sourceMap']
+    ['other', 'resolve-url-loader', 'sass-loader?other&sourceMap']
   );
   assert.deepEquals(
     processStyleLoaders({
-      loaders: ['other', 'sass?other'],
+      loaders: ['other', 'sass-loader?other'],
       disableSassSourceMap: true,
     }),
-    ['other', 'resolve-url', 'sass?other']
+    ['other', 'resolve-url-loader', 'sass-loader?other']
   );
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['other', 'sass?other'],
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass?other&sourceMap']
+    ['other', 'sass-loader?other&sourceMap']
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -74,14 +74,14 @@ test('processStyleLoaders works as expected', (assert) => {
       disableSassSourceMap: true,
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass?other']
+    ['other', 'sass-loader?other']
   );
 
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['sass?sourceMap'],
     }),
-    ['resolve-url', 'sass?sourceMap']
+    ['resolve-url-loader', 'sass-loader?sourceMap']
   );
   assert.end();
 });
