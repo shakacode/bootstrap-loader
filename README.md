@@ -60,7 +60,7 @@ Get it via npm:
 npm install bootstrap-loader
 ```
 
-Don't forget to install these dependencies (use `--save or --saveDev` option per your needs to update your `package.json`):
+Don't forget to install these dependencies (use `--save or --save-dev` option per your needs to update your `package.json`):
 
 ```bash
 # Bootstrap 3
