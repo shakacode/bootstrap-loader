@@ -208,7 +208,7 @@ Default: `[ 'style-loader', 'css-loader', 'sass-loader' ]`
 Array of webpack loaders. `sass-loader` is required, order matters. In most cases the style loader should definitely go first and the sass loader should be last.
 
 Note: Beginning with Webpack v2.1.0-beta.26, the '-loader' suffix is required for all loaders.
-To maintain compatibility with older versions, all accepted style loaders (style, css, sass, resolve-url) are automatically appended with '-loader'.
+To maintain compatibility with older versions, all accepted style loaders (style, css, postcss, sass, resolve-url) are automatically appended with '-loader'.
 It is recommended that you explicitly state the '-loader' suffix for every webpack loader in `styleLoaders` to ensure compatibility in the long term.
 
 ```yaml
