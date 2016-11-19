@@ -2,18 +2,6 @@
 
 import escapeRegExp from 'escape-regexp';
 
-// Ensures '-loader' suffix for loaders in config for webpack compatibility
-const ensureLoadersSuffix = loadersArray => {
-  const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^postcss-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
-  const suffixReplaceRegExp = new RegExp('^style|^css|^postcss|^sass|^resolve-url');
-  return loadersArray.map(loader => {
-    if (!loaderSuffixRegExp.test(loader)) {
-      return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
-    }
-    return loader;
-  });
-};
-
 /**
  * Injects 'resolve-url-loader' and 'sourceMap' param for 'sass-loader'
  *
@@ -28,10 +16,8 @@ Default is ['style', 'css', 'sass']
     `);
   }
 
-  const loadersWithSuffix = ensureLoadersSuffix(loaders);
-
   if (disableSassSourceMap && disableResolveUrlLoader) {
-    return loadersWithSuffix;
+    return loaders;
   }
 
   // We need to match user loaders in different formats:
@@ -43,9 +29,9 @@ Default is ['style', 'css', 'sass']
 
   const sassLoaderRegExp = getLoaderRegExp('sass');
   const sassLoader = (
-    loadersWithSuffix.find(loader => sassLoaderRegExp.test(loader))
+    loaders.find(loader => sassLoaderRegExp.test(loader))
   );
-  const sassLoaderIndex = loadersWithSuffix.indexOf(sassLoader);
+  const sassLoaderIndex = loaders.indexOf(sassLoader);
 
   if (!disableSassSourceMap) {
     if (!sassLoader) {
@@ -72,19 +58,19 @@ Default is ['style', 'css', 'sass']
 
 
     // eslint-disable-next-line no-param-reassign
-    loadersWithSuffix[sassLoaderIndex] = sassLoaderWithSourceMap;
+    loaders[sassLoaderIndex] = sassLoaderWithSourceMap;
   }
 
   if (!disableResolveUrlLoader) {
     const resolveUrlLoaderRegExp = getLoaderRegExp('resolve-url');
     const resolveUrlLoader = (
-      loadersWithSuffix.find(loader => resolveUrlLoaderRegExp.test(loader))
+      loaders.find(loader => resolveUrlLoaderRegExp.test(loader))
     );
 
     if (!resolveUrlLoader) {
-      loadersWithSuffix.splice(sassLoaderIndex, 0, 'resolve-url-loader');
+      loaders.splice(sassLoaderIndex, 0, 'resolve-url');
     }
   }
 
-  return loadersWithSuffix;
+  return loaders;
 }
