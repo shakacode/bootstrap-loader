@@ -28,6 +28,7 @@ module.exports = {
   devtool: '#cheap-module-eval-source-map',
 
   resolve: { extensions: ['*', '.js'] },
+  resolveLoader: {moduleExtensions : ['-loader']},
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

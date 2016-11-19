@@ -26,6 +26,7 @@ module.exports = {
     publicPath: '/assets/'
   },
   resolve: {  extensions: ['*', '.js']  },
+  resolveLoader: {moduleExtensions : ['-loader']},
   module: {
     loaders: [
       { test: /\.css$/, loaders: [ 'style', 'css', 'postcss' ] },

@@ -27,6 +27,7 @@ module.exports = {
   },
 
   resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolveLoader: {moduleExtensions : ['-loader']},
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
