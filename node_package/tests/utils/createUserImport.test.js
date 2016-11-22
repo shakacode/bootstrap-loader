@@ -11,6 +11,6 @@ test('createUserImport runs as expected', (assert) => {
   };
 
   assert.equals(createUserImport('/module', webpack), '@import "../../module";');
-  assert.deepEquals(webpack.dependencies, ['../../module']);
+  assert.deepEquals(webpack.dependencies, ['/module']);
   assert.end();
 });
