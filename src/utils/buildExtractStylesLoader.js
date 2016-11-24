@@ -26,7 +26,8 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
     throw new Error(`
 Could not find 'extract-text-webpack-plugin' module.
 Make sure it's installed in your 'node_modules/' directory.
-    `);
+Error: ${error}
+`);
   }
   const restLoaders = (
     loaders
