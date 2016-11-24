@@ -5,6 +5,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 
+## [1.3.1] - 2016-11-23
+##### Fixed
+- Improved webpack performance. createUserImport should pass an absolute path to webpack.addDependency. [#212](https://github.com/shakacode/bootstrap-loader/pull/212) by [stephanwilliams](https://github.com/stephanwilliams).
+
 ## [1.3.0] - 2016-10-30
 ##### Added
 Support for multiple config files allowing both BS3 and BS4 in the same build. [#194](https://github.com/shakacode/bootstrap-loader/pull/184) by [navarroaxel](https://github.com/navarroaxel).
@@ -57,7 +61,8 @@ Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstr
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.3.0...v1
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.3.1...v1
+[1.3.1]: https://github.com/shakacode/bootstrap-loader/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/shakacode/bootstrap-loader/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/shakacode/bootstrap-loader/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/shakacode/bootstrap-loader/compare/1.1.6...1.2.0
