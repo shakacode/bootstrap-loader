@@ -74,7 +74,7 @@ npm install --save-dev bootstrap@v4.0.0-alpha.4
 # Note, alpha.3 is broken, and alpha.2 is no longer supported
 
 # Node SASS & other loaders needed to handle styles
-npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
+npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader imports-loader exports-loader
 ```
 
 If you're using Bootstrap 4, you probably need:
@@ -154,18 +154,17 @@ plugins: [
     "window.jQuery": "jquery",
     Tether: "tether",
     "window.Tether": "tether",
-    Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
-    Alert: "exports?Alert!bootstrap/js/dist/alert",
-    Button: "exports?Button!bootstrap/js/dist/button",
-    Carousel: "exports?Carousel!bootstrap/js/dist/carousel",
-    Collapse: "exports?Collapse!bootstrap/js/dist/collapse",
-    Dropdown: "exports?Dropdown!bootstrap/js/dist/dropdown",
-    Modal: "exports?Modal!bootstrap/js/dist/modal",
-    Popover: "exports?Popover!bootstrap/js/dist/popover",
-    Scrollspy: "exports?Scrollspy!bootstrap/js/dist/scrollspy",
-    Tab: "exports?Tab!bootstrap/js/dist/tab",
-    Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
-    Util: "exports?Util!bootstrap/js/dist/util",
+    Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+    Button: "exports-loader?Button!bootstrap/js/dist/button",
+    Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+    Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+    Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+    Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+    Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+    Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+    Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+    Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+    Util: "exports-loader?Util!bootstrap/js/dist/util",
   })
 ]
 ```
