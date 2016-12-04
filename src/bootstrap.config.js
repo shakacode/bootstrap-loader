@@ -101,7 +101,7 @@ export default function createConfig({
       appStyles: defaultConfig.appStyles,
       useCustomIconFontPath: defaultConfig.useCustomIconFontPath,
       extractStyles: extractStyles || getEnvProp('extractStyles', defaultConfig),
-      styleLoaders: defaultConfig.styleLoaders,
+      styleLoaders: getEnvProp('styleLoaders', defaultConfig) || defaultConfig.styleLoaders,
       styles: selectModules(defaultConfig.styles),
       scripts: selectModules(defaultConfig.scripts),
       configFilePath,
