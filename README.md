@@ -223,6 +223,21 @@ styleLoaders:
 
 # You can apply loader params here:
   - sass-loader?outputStyle=expanded
+
+# Different settings for different environments can be used,
+# It depends on value of NODE_ENV environment variable
+env:
+  development:
+    styleLoaders:
+      - style-loader
+      - css-loader
+      - resolve-url-loader
+      - sass-loader
+  production:
+    styleLoaders:
+      - style-loader
+      - css-loader
+      - sass-loader
 ```
 
 #### `extractStyles`
