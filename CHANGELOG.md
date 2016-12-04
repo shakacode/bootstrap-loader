@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
+## [2.0.0.beta.17] - 2016-12-04
+##### Added
+- Allow `styleLoaders` to depend on the environment variable 'NODE_PATH' [#222](https://github.com/shakacode/bootstrap-loader/pull/222) by [bertho-zero](https://github.com/bertho-zero).
+
 ## [2.0.0.beta.16] - 2016-11-23
 ##### Fixed
 - Improved webpack performance. createUserImport should pass an absolute path to webpack.addDependency. [#212](https://github.com/shakacode/bootstrap-loader/pull/212) by [stephanwilliams](https://github.com/stephanwilliams).
