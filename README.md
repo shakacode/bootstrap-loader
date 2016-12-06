@@ -223,8 +223,10 @@ styleLoaders:
 
 # You can apply loader params here:
   - sass-loader?outputStyle=expanded
+```
 
-# Different settings for different environments can be used,
+Different settings for different environments can be used.
+```yaml
 # It depends on value of NODE_ENV environment variable
 env:
   development:
