@@ -225,6 +225,23 @@ styleLoaders:
   - sass-loader?outputStyle=expanded
 ```
 
+Different settings for different environments can be used.
+```yaml
+# It depends on value of NODE_ENV environment variable
+env:
+  development:
+    styleLoaders:
+      - style-loader
+      - css-loader
+      - resolve-url-loader
+      - sass-loader
+  production:
+    styleLoaders:
+      - style-loader
+      - css-loader
+      - sass-loader
+```
+
 #### `extractStyles`
 
 Default: `false`
