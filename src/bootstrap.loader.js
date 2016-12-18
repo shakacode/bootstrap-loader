@@ -37,6 +37,7 @@ import buildExtractStylesLoader from './utils/buildExtractStylesLoader';
 import createRequire from './utils/createRequire';
 import logger from './utils/logger';
 import fileExists from './utils/fileExists';
+import getEnvProp from './utils/getEnvProp';
 import createConfig from './bootstrap.config';
 
 module.exports = function() {};
@@ -150,7 +151,7 @@ The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
   const bootstrapConfig = JSON.stringify(config);
   // Handle styles
   if (config.styles) {
-    if (!config.styleLoaders) {
+    if (!getEnvProp('styleLoaders', config)) {
       throw new Error(`
 Could not find 'styleLoaders' in your config.
 You can use default ones:

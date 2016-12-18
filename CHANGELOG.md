@@ -3,7 +3,9 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
-## [Unreleased]
+## [1.3.3] - 2016-12-17
+##### Fixed
+- Allow `styleLoaders` config with only `env` config. [#227](https://github.com/shakacode/bootstrap-loader/pull/227) by [bertho-zero](https://github.com/bertho-zero).
 
 ## [1.3.2] - 2016-12-09
 ##### Added
@@ -65,7 +67,8 @@ Support for Bootstrap 4.0.0-alpha.4. [#167](https://github.com/shakacode/bootstr
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.3.2...v1
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/1.3.3...v1
+[1.3.3]: https://github.com/shakacode/bootstrap-loader/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/shakacode/bootstrap-loader/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/shakacode/bootstrap-loader/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/shakacode/bootstrap-loader/compare/1.2.1...1.3.0
