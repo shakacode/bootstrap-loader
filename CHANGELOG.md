@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
+## [2.0.0.beta.19] - 2017-01-10
+##### Fixed
+- Allow RC builds of webpack
+
 ## [2.0.0.beta.18] - 2016-12-15
 ##### Fixed
 - Allow `styleLoaders` config with only `env` config. [#227](https://github.com/shakacode/bootstrap-loader/pull/227) by [bertho-zero](https://github.com/bertho-zero).
@@ -84,7 +88,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.18...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.19...master
+[2.0.0.beta.19]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.18...2.0.0-beta.19
 [2.0.0.beta.18]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.17...2.0.0-beta.18
 [2.0.0.beta.17]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.16...2.0.0-beta.17
 [2.0.0.beta.16]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.15...2.0.0-beta.16
