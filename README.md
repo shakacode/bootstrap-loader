@@ -1,12 +1,38 @@
 [![Build Status](https://travis-ci.org/shakacode/react_on_rails.svg?branch=master)](https://travis-ci.org/shakacode/react_on_rails)
 [![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
 
-Aloha from Justin Gordon and the [ShakaCode](http://www.shakacode.com) Team! We need your help. Venture capital funding has slowed and, for the first time, my ShakaCode team is actively looking for our next  project. If you like **bootstrap-loader** or **React on Rails**, please consider contacting me if we could potentially help you in any way. I'm offering a free half hour project consultation, on anything from React on Rails to any aspect of web application development, including both consumer and enterprise products. You can read more about my background [here](http://www.railsonmaui.com/about). Whether you have a new project, or need help on an existing project, please email me directly at [justin@shakacode.com](mailto:justin@shakacode.com). And thanks in advance for any referrals! Your support keeps this project going. See our blog post [Can ShakaCode Help You?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9) for more information on what we offer.
+Aloha from Justin Gordon ([bio](http://www.railsonmaui.com/about)) and the [ShakaCode](http://www.shakacode.com) Team! We're actively looking for new projects involving React, React-Native, and Rails. Please [contact me](mailto:justin@shakacode.com) if we could potentially help you in any way. Besides consulting on bigger projects, [ShakaCode](http://www.shakacode.com) is doing ScreenHero plus Slack/Github based coaching for React on Rails. See our blog post [Can ShakaCode Help You?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9) for more information. 
 
-Follow [@ShakaCode](https://twitter.com/shakacode) for notications of new releases. And thanks for staring the project! We appreciate it!
+I'm offering a free half-hour project consultation, on anything from React on Rails to any aspect of web application development for both consumer and enterprise products. In addition to React.js and Rails, we're doing React-Native iOS and Android apps!
+
+Whether you have a new project or need help on an existing project, feel free to contact me directly at [justin@shakacode.com](mailto:justin@shakacode.com) and thanks in advance for any referrals!
+
+Your support keeps this project going!
+
+(Want to become a contributor? [Contact us](mailto:contact@shakacode.com) for a Slack room invite and let us know that you want to contribute.)
+
+# ShakaCode Community
+Please [Subscribe](https://app.mailerlite.com/webforms/landing/l1d9x5) to keep in touch with Justin Gordon and [ShakaCode](http://www.shakacode.com/). I intend to send a monthly summary including announcements of new releases of bootstrap-loader and React on Rails and of our latest [blog articles](https://blog.shakacode.com) and tutorials. Subscribers will also have access to **exclusive content**, including tips and examples.
+
+[![2017-01-31_14-16-56](https://cloud.githubusercontent.com/assets/1118459/22490211/f7a70418-e7bf-11e6-9bef-b3ccd715dbf8.png)](https://app.mailerlite.com/webforms/landing/l1d9x5)
+
+* **Slack Room**: [Contact us](mailto:contact@shakacode.com) for an invite to the ShakaCode Slack room!
+* **[forum.shakacode.com](https://forum.shakacode.com)**: Post your questions
+* **[@ShakaCode on Twitter](https://twitter.com/shakacode)**
+
+## React on Rails Info
+**[React on Rails](https://github.com/shakacode/react_on_rails)** is ShakaCode's flagship product. We want to make sure you're aware of it!
+
+### Testimonials
+From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), January 30, 2017: 
+![2017-01-30_11-33-59](https://cloud.githubusercontent.com/assets/1118459/22443635/b3549fb4-e6e3-11e6-8ea2-6f589dc93ed3.png)
+
+For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
 
 # boostrap-loader v2 Docs!
 If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1).
+
+**Now that Webpack v2.2.0 has officially shipped we're going to soon update bootstrap-loader for this.**
 
 # bootstrap-loader
 
@@ -522,3 +548,13 @@ MIT.
 * [How would you use bootstrap styles to build css module styles](https://github.com/shakacode/bootstrap-loader/issues/12)
 
 We'll identify issues that are [questions](https://github.com/shakacode/bootstrap-loader/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aquestion).
+
+---
+
+Aloha from Justin Gordon ([bio](http://www.railsonmaui.com/about)) and the [ShakaCode](http://www.shakacode.com) Team! We're actively looking for new projects involving React, React-Native, and Rails. Please contact me at [justin@shakacode.com](mailto:justin@shakacode.com) if we could potentially help you in any way. Besides consulting on bigger projects, [ShakaCode](http://www.shakacode.com) is doing Skype plus Slack/Github based coaching for React on Rails. See our blog post [Can ShakaCode Help You?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9) for more information.
+
+We're offering a free half-hour project consultation, on anything from React on Rails to any aspect of web application development for both consumer and enterprise products. In addition to React.js and Rails, we're doing React-Native iOS and Android apps!
+
+Whether you have a new project or need help on an existing project, feel free to contact me directly at [justin@shakacode.com](mailto:justin@shakacode.com) and thanks in advance for any referrals!
+
+Your support keeps this project going.
