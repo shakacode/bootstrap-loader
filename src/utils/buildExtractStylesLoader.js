@@ -35,10 +35,9 @@ Error: ${error}
       .map(loader => `${loader}!`)
       .join('')
   );
-  
   return [
-    ExtractTextPlugin.loader().loader + '?omit&remove',
+    `${ExtractTextPlugin.loader().loader}?omit&remove`,
     fallbackLoader,
-    restLoaders
+    restLoaders,
   ].join('!');
 }
