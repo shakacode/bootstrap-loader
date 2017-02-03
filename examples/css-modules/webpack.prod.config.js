@@ -27,6 +27,7 @@ module.exports = {
   },
 
   resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolveLoader: {moduleExtensions : ['-loader']},
 
   plugins: [
     new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
@@ -47,24 +48,24 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        loaders: ['babel'],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
-          '!postcss-loader',
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!postcss',
         }),
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
-            '!postcss-loader' +
-          '!sass-loader',
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+            '!postcss' +
+          '!sass',
         }),
       },
 
@@ -72,11 +73,11 @@ module.exports = {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
         // loader: "url?limit=10000"
-        loader: 'url-loader',
+        loader: 'url',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader',
+        loader: 'file',
       },
     ],
   },
