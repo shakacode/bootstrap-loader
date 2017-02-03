@@ -35,5 +35,10 @@ Error: ${error}
       .map(loader => `${loader}!`)
       .join('')
   );
-  return ExtractTextPlugin.extract({ fallbackLoader, loader: restLoaders });
+  
+  return [
+    ExtractTextPlugin.loader().loader + '?omit&remove',
+    fallbackLoader,
+    restLoaders
+  ].join('!');
 }
