@@ -55,7 +55,7 @@ module.exports = function() {};
 module.exports.pitch = function(source) {
   if (this.cacheable) this.cacheable();
 
-  const { extractStyles, configFilePath } = loaderUtils.parseQuery(this.query);
+  const { extractStyles, configFilePath, bootstrapPath } = loaderUtils.parseQuery(this.query);
 
   if (configFilePath) {
     const fullPathToUserConfig = path.resolve(__dirname, configFilePath);
@@ -107,7 +107,7 @@ module.exports.pitch = function(source) {
 
   logger.debug('Using Bootstrap module:', bootstrapNPMModule);
 
-  config.bootstrapPath = resolveModule(bootstrapNPMModule);
+  config.bootstrapPath = bootstrapPath || resolveModule(bootstrapNPMModule);
   logger.debug(`Bootstrap module location (abs): ${config.bootstrapPath}`);
   if (!config.bootstrapPath) {
     throw new Error(`
