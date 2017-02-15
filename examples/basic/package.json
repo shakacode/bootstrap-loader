@@ -67,7 +67,7 @@
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.1.1",
-    "resolve-url-loader": "^1.6.0",
+    "resolve-url-loader": "^1.6.2",
     "sass-loader": "^6.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

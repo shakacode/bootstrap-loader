@@ -43,20 +43,20 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
           '!postcss-loader',
         }),
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
             '!postcss-loader' +
           '!sass-loader',
         }),
@@ -65,21 +65,21 @@ module.exports = {
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
-        // loader: "url?limit=10000"
-        loader: "url-loader"
+        // use: "url?limit=10000"
+        use: "url-loader"
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       },
 
       // Use one of these to serve jQuery for Bootstrap scripts:
 
       // Bootstrap 4
-      {test: /bootstrap\/dist\/js\/umd\//, loader: 'imports-loader?jQuery=jquery'},
+      {test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'},
 
       // Bootstrap 3
-      {test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery'},
+      {test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery'},
     ],
   },
 };

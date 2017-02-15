@@ -31,7 +31,7 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
     }),
@@ -41,15 +41,15 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
@@ -66,11 +66,11 @@ module.exports = {
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000',
+        use: 'url-loader?limit=10000',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader',
+        use: 'file-loader',
       },
     ],
   },

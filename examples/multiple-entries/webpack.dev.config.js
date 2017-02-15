@@ -27,28 +27,28 @@ module.exports = {
   },
   resolve: {  extensions: ['*', '.js']  },
   module: {
-    loaders: [
-      { test: /\.css$/, loaders: [ 'style-loader', 'css-loader', 'postcss-loader' ] },
-      { test: /\.scss$/, loaders: [ 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader' ] },
+    rules: [
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader', 'postcss-loader' ] },
+      { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader' ] },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader?limit=10000"
+        use: "url-loader?limit=10000"
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       },
       // Use one of these to serve jQuery for Bootstrap scripts:
 
       // Bootstrap 4
-      {test: /bootstrap\/dist\/js\/umd\//, loader: 'imports-loader?jQuery=jquery'},
+      {test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'},
 
       // Bootstrap 3
-      {test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery'}]
+      {test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery'}]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       "window.Tether": "tether"
     }),
