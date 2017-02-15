@@ -91,7 +91,7 @@ test('createConfig uses user config as expected', (assert) => {
       extractStyles: true,
       customConfigFilePath: '../node_package/tests/test_configs/test_bootstraprc',
     }),
-    expectedResult
+    expectedResult,
   );
   assert.end();
 });
