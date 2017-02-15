@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // Very similar to webpack.prod.config.js. Common parts could be extracted to a base config.
 // See example at:
 // https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
@@ -31,7 +32,7 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
     }),
@@ -41,15 +42,15 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
@@ -57,7 +58,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
@@ -66,11 +67,11 @@ module.exports = {
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000',
+        use: 'url-loader?limit=10000',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader',
+        use: 'file-loader',
       },
     ],
   },

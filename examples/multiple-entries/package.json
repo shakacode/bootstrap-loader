@@ -12,8 +12,9 @@
     "lint": "eslint --ext .js,.jsx .",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
     "prod": "nodemon --watch app/markup --ext html server.prod.js",
+    "post-install": "echo 'module.exports = {}' >> node_modules/bootstrap-loader/postcss.config.js",
     "bs:prod": "npm run build && npm run prod",
-    "install-local": "npm install --save-dev ../.."
+    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0",
     "bootstrap": "4.0.0-alpha.4",
     "bootstrap-sass": "^3.3.7",
+    "express": "^4.14.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "nodemon": "^1.11.0",
@@ -49,18 +50,22 @@
     "eslint-config-shakacode": "^13.1.0",
     "eslint-plugin-import": "^2.2.0",
     "extract-text-webpack-plugin": "^2.0.0-beta",
-    "file-loader": "^0.9.0",
+    "file-loader": "^0.10.0",
     "font-awesome-loader": "^1.0.1",
-    "imports-loader": "^0.6.5",
-    "node-sass": "^3.13.0",
+    "imports-loader": "^0.7.0",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.1.1",
-    "resolve-url-loader": "^1.6.0",
-    "sass-loader": "^4.0.2",
+    "resolve-url-loader": "^2.0.0",
+    "sass-loader": "^6.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta",
+    "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
+  },
+  "peerDependencies": {
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0"
   }
 }

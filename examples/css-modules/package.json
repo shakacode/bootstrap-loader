@@ -12,6 +12,7 @@
     "cleanrc": "rm .bootstraprc || echo 'no .bootstraprc file to delete'",
     "build": "npm run clean && webpack --config webpack.prod.config.js",
     "prod": "NODE_ENV=production npm run build && nodemon --watch server.prod.js server.prod.js",
+    "post-install": "echo 'module.exports = {}' >> node_modules/bootstrap-loader/postcss.config.js",
     "bs3": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-3-example nodemon --watch app/markup --ext html server.dev.js",
     "bs4": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-4-example nodemon --watch app/markup --ext html server.dev.js",
     "bs3:prod": "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-3-example && npm run build && npm run prod",
@@ -22,7 +23,7 @@
     "bs4:default:dev": "npm run bs4:default:setup && npm start",
     "bs3:default:prod": "npm run bs3:default:setup && npm run prod",
     "bs4:default:prod": "npm run bs4:default:setup && npm run prod",
-    "install-local": "npm install --save-dev ../.."
+    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
   },
   "authors": [
     "Justin Gordon <justin.gordon@gmail.com> (https://github.com/justin808)",
@@ -45,7 +46,6 @@
     "body-parser": "^1.15.2",
     "bootstrap": "4.0.0-alpha.4",
     "bootstrap-sass": "^3.3.7",
-    "express": "^4.13.4",
     "font-awesome": "^4.7.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -65,24 +65,28 @@
     "eslint": "^3.10.2",
     "eslint-config-shakacode": "^13.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-beta",
-    "file-loader": "^0.9.0",
+    "file-loader": "^0.10.0",
     "font-awesome-loader": "^1.0.1",
-    "node-sass": "^3.13.0",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.1.1",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.3.3",
-    "resolve-url-loader": "^1.6.0",
-    "sass-loader": "^4.0.2",
+    "resolve-url-loader": "^2.0.0",
+    "sass-loader": "^6.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
+  },
+  "peerDependencies": {
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0"
   }
 }
