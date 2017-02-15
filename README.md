@@ -532,6 +532,18 @@ And in your `./config/sass-resources.scss`:
 
 You can then use mixins and variables from Bootstrap in your own code.
 
+### Using a custom location for bootstrap module
+
+By default, `bootstrap-loader` will try to resolve `bootstrap` from where `bootstrap-loader` has been installed. In [certain situations](https://github.com/shakacode/bootstrap-loader/issues/254) (e.g. npm linking, using a custom package installer) it may not be resolvable. In this case, you can pass in the location manually.
+
+```js
+require('bootstrap-loader?bootstrapPath=/path/to/bootstrap');
+
+// or
+
+entry: [ 'bootstrap-loader?bootstrapPath=/path/to/bootstrap', './app' ]
+```
+
 ## Contributing
 See [Contributing](CONTRIBUTING.md) to get started.
 
