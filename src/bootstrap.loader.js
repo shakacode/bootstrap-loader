@@ -98,7 +98,7 @@ module.exports.pitch = function(source) {
 
   logger.debug('Query from webpack config:', this.query || '*none*');
 
-  const bootstrapVersion = config.bootstrapVersion;
+  const bootstrapVersion = config.bootstrapVersion || 4;
 
   // Resolve `bootstrap` package
   const bootstrapNPMModule = (
@@ -110,10 +110,11 @@ module.exports.pitch = function(source) {
   config.bootstrapPath = bootstrapPath || resolveModule(bootstrapNPMModule);
   logger.debug(`Bootstrap module location (abs): ${config.bootstrapPath}`);
   if (!config.bootstrapPath) {
-    throw new Error(`
-Could not find bootstrap version: '${bootstrapVersion}'. Did you install it?
-The package is 'bootstrap' for bootstrap v4 and 'bootstrap-sass' for v3.
-`);
+    let msg = `Could not resolve module '${bootstrapNPMModule}' which must be installed when bootstrap version is configured to v${bootstrapVersion}. `;
+    msg += `You must install 'bootstrap' for bootstrap v4 or 'bootstrap-sass' for bootstrap v3. `;
+    msg += `You can also specify the location manually by specifying 'bootstrapPath' in bootstrap-loader's query string. `;
+    msg += `See https://github.com/shakacode/bootstrap-loader/blob/master/README.md#usage.`;
+    throw new Error(msg);
   }
 
   config.bootstrapRelPath = path.relative(this.context, config.bootstrapPath);
