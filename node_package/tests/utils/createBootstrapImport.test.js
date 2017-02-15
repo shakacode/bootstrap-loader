@@ -9,7 +9,7 @@ test('createBootstrapImport creates valid import address for Bootstrap 2', (asse
 test('createBootstrapImport creates valid import address for Bootstrap 3', (assert) => {
   assert.equals(
     createBootstrapImport('module', 3, '/'),
-    '@import "/assets/stylesheets/bootstrap/_module";'
+    '@import "/assets/stylesheets/bootstrap/_module";',
   );
   assert.end();
 });

@@ -9,7 +9,7 @@ test('createBootstrapRequire creates valid require statement for Bootstrap 2', (
 test('createBootstrapRequire creates valid require statement for Bootstrap 3', (assert => {
   assert.equals(
     createBootstrapRequire('module', 3, '/'),
-    'require ("/assets/javascripts/bootstrap/module");'
+    'require ("/assets/javascripts/bootstrap/module");',
   );
   assert.end();
 }));
