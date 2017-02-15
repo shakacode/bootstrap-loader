@@ -11,19 +11,22 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
 });
 
 test('buildExtractStylesLoader runs as expected', (assert) => {
-  assert.equals(buildExtractStylesLoader(['style-loader', 'url-loader', 'css-loader']),
-    path.join(
-      `${__dirname}`,
-      '../../../node_modules/extract-text-webpack-plugin' +
-      '/loader.js?{"omit":1,"remove":true}!style-loader!url-loader!css-loader!'
-    )
+  const rootPath = path.join(__dirname, '../../..');
+  assert.deepEqual(buildExtractStylesLoader(['style-loader', 'url-loader', 'css-loader']),
+    [{ loader: `${rootPath}/node_modules/extract-text-webpack-plugin/loader.js`,
+      options: { omit: 1, remove: true } },
+     { loader: 'style-loader' },
+     { loader: 'url-loader' },
+     { loader: 'css-loader' },
+     { loader: '' }],
   );
-  assert.equals(buildExtractStylesLoader(['isomorphic-style-loader', 'url-loader', 'css-loader']),
-    path.join(
-      `${__dirname}`,
-      '../../../node_modules/extract-text-webpack-plugin' +
-      '/loader.js?{"omit":1,"remove":true}!isomorphic-style-loader!url-loader!css-loader!'
-    )
+  assert.deepEqual(buildExtractStylesLoader(['isomorphic-style-loader', 'url-loader', 'css-loader']),
+    [{ loader: `${rootPath}/node_modules/extract-text-webpack-plugin/loader.js`,
+      options: { omit: 1, remove: true } },
+     { loader: 'isomorphic-style-loader' },
+     { loader: 'url-loader' },
+     { loader: 'css-loader' },
+     { loader: '' }],
   );
   assert.end();
 });

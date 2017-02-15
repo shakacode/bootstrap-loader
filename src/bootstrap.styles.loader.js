@@ -36,29 +36,29 @@ module.exports = function() {
 
   if (styles.indexOf('mixins') > -1) {
     processedStyles.push(
-      createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath)
+      createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath),
     );
   }
 
   if (preBootstrapCustomizations) {
     processedStyles.push(
-      createUserImport(preBootstrapCustomizations, this)
+      createUserImport(preBootstrapCustomizations, this),
     );
   }
 
   processedStyles.push(
-    createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath)
+    createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath),
   );
 
   if (bootstrapVersion === 3 && !useCustomIconFontPath) {
     processedStyles.push(
-      `$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`
+      `$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`,
     );
   }
 
   if (bootstrapCustomizations) {
     processedStyles.push(
-      createUserImport(bootstrapCustomizations, this)
+      createUserImport(bootstrapCustomizations, this),
     );
   }
 

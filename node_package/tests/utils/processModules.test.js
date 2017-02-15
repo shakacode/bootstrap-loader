@@ -9,7 +9,7 @@ test('processModules filters out mixins', (assert) => {
 test('processModules processes scripts correctly', (assert) => {
   assert.deepEquals(
     processModules(['module'], 2, '/', true),
-    ['require ("/js/dist/module");']
+    ['require ("/js/dist/module");'],
   );
   assert.end();
 });
