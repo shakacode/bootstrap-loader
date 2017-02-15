@@ -1,4 +1,4 @@
-/* eslint func-names: 0 */
+/* eslint-disable func-names, import/first */
 
 import semver from 'semver';
 
@@ -180,9 +180,9 @@ You can use default ones:
         path.relative(
           this.context,
           require.resolve(
-            loaderUtils.urlToRequest('bootstrap.styles.loader.js')
-          )
-        )
+            loaderUtils.urlToRequest('bootstrap.styles.loader.js'),
+          ),
+        ),
       )}?${bootstrapConfig}!`
     );
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
@@ -197,9 +197,9 @@ You can use default ones:
         path.relative(
           this.context,
           require.resolve(
-            loaderUtils.urlToRequest('bootstrap.scripts.loader.js')
-          )
-        )
+            loaderUtils.urlToRequest('bootstrap.scripts.loader.js'),
+          ),
+        ),
       )}?${bootstrapConfig}!`
     );
     const scripts = bootstrapScriptsLoader + dummySourceRel;
