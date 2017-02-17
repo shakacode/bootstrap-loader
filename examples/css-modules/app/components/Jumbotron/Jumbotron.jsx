@@ -24,7 +24,7 @@ export default class Jumbotron extends React.Component {
             within the larger container.
           </p>
           <p className="lead">
-            <a className="btn btn-primary btn-lg" href="#">
+            <a className="btn btn-primary btn-lg" href="#deadlink">
               Learn more
             </a>
           </p>

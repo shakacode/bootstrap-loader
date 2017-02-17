@@ -1,4 +1,4 @@
-/* eslint no-console: 0 */
+/* eslint-disable no-console, import/no-extraneous-dependencies */
 
 const path = require('path');
 const express = require('express');
@@ -14,7 +14,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use(express.static(path.join(__dirname, 'public')));
 
-server.use('/', (req, res) => (
+server.use('/', (req, res) => ( // eslint-disable-line no-unused-vars
   res.sendFile(path.join(__dirname, 'app', 'markup', 'bootstrap-prod.html'))
 ));
 
