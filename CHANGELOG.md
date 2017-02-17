@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
+## [2.0.0.beta.21] - 2017-02-16
+##### Updates
+- Update Example Dependencies [#261](https://github.com/shakacode/bootstrap-loader/pull/261) and [#259](https://github.com/shakacode/bootstrap-loader/pull/259)  by [judahmeek](https://github.com/judahmeek)
+
 ## [2.0.0.beta.19] - 2017-01-10
 ##### Fixed
 - Allow RC builds of webpack
