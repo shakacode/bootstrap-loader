@@ -34,7 +34,7 @@ For more testimonials, see [Live Projects](https://github.com/shakacode/react_on
 # boostrap-loader v2 Docs!
 If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1).
 
-**Now that Webpack v2.2.0 has officially shipped we're going to soon update bootstrap-loader for this.**
+**Now that Webpack v2.2.0 has officially shipped we're going to soon update bootstrap-loader to a final V2.0.0 for this! Stay tuned, and check the [issues](https://github.com/shakacode/bootstrap-loader/issues) for ongoing discussions! And please contribute!**
 
 # bootstrap-loader
 

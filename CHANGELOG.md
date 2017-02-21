@@ -7,6 +7,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ##### Added
 - Make bootstrapPath configurable. [#255](https://github.com/shakacode/bootstrap-loader/pull/255).
 
+## [2.0.0.beta.21] - 2017-02-16
+##### Updates
+- Update Example Dependencies [#261](https://github.com/shakacode/bootstrap-loader/pull/261) and [#259](https://github.com/shakacode/bootstrap-loader/pull/259)  by [judahmeek](https://github.com/judahmeek)
+
 ## [2.0.0.beta.19] - 2017-01-10
 ##### Fixed
 - Allow RC builds of webpack
@@ -14,6 +18,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta.18] - 2016-12-15
 ##### Fixed
 - Allow `styleLoaders` config with only `env` config. [#227](https://github.com/shakacode/bootstrap-loader/pull/227) by [bertho-zero](https://github.com/bertho-zero).
+
 
 ## [2.0.0.beta.17] - 2016-12-04
 ##### Added

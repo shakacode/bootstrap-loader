@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies, object-property-newline */
 // Very similar to webpack.dev.config.js. Common parts could be extracted to a base config.
 // See example at:
 // https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
@@ -40,32 +41,32 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader',
+    rules: [
+      { test: /\.css$/, use: ExtractTextPlugin.extract({
+        fallback: 'style-loader', use: 'css-loader!postcss-loader',
       }) },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader', loader: 'css-loader!postcss-loader!sass-loader',
+      { test: /\.scss$/, use: ExtractTextPlugin.extract({
+        fallback: 'style-loader', use: 'css-loader!postcss-loader!sass-loader',
       }) },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
-        // loader: "url?limit=10000"
-        loader: 'url-loader',
+        // use: "url?limit=10000"
+        use: 'url-loader',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader',
+        use: 'file-loader',
       },
 
       // Use one of these to serve jQuery for Bootstrap scripts:
 
       // Bootstrap 4
-      { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports-loader?jQuery=jquery' },
+      { test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery' },
 
       // Bootstrap 3
-      { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
+      { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' },
     ],
   },
 
