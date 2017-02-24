@@ -5,7 +5,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## Unreleased
 ##### Added
-- Make bootstrapPath configurable. [#255](https://github.com/shakacode/bootstrap-loader/pull/255).
+- Make `bootstrap`/`bootstrap-sass` path configurable so that it can be found when `bootstrap-loader` is symlinked in development. [#255](https://github.com/shakacode/bootstrap-loader/pull/255) by [vjpr](https://github.com/vjpr).
 
 ## [2.0.0.beta.21] - 2017-02-16
 ##### Updates
@@ -18,7 +18,6 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta.18] - 2016-12-15
 ##### Fixed
 - Allow `styleLoaders` config with only `env` config. [#227](https://github.com/shakacode/bootstrap-loader/pull/227) by [bertho-zero](https://github.com/bertho-zero).
-
 
 ## [2.0.0.beta.17] - 2016-12-04
 ##### Added
