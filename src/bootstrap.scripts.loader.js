@@ -13,7 +13,7 @@ module.exports = function() {
 
   logger.debug('Scripts input config:', '\n', this.query);
 
-  const config = loaderUtils.parseQuery(this.query);
+  const config = loaderUtils.getOptions(this) || {};
   const { scripts, bootstrapVersion, bootstrapRelPath } = config;
 
   const processedScripts = (
