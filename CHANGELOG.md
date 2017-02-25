@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
+## Unreleased
+##### Added
+- Make `bootstrap`/`bootstrap-sass` path configurable so that it can be found when `bootstrap-loader` is symlinked in development. [#255](https://github.com/shakacode/bootstrap-loader/pull/255) by [vjpr](https://github.com/vjpr).
+
 ## [2.0.0.beta.21] - 2017-02-16
 ##### Updates
 - Update Example Dependencies [#261](https://github.com/shakacode/bootstrap-loader/pull/261) and [#259](https://github.com/shakacode/bootstrap-loader/pull/259)  by [judahmeek](https://github.com/judahmeek)
@@ -14,7 +18,6 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [2.0.0.beta.18] - 2016-12-15
 ##### Fixed
 - Allow `styleLoaders` config with only `env` config. [#227](https://github.com/shakacode/bootstrap-loader/pull/227) by [bertho-zero](https://github.com/bertho-zero).
-
 
 ## [2.0.0.beta.17] - 2016-12-04
 ##### Added
