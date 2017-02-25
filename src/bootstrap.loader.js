@@ -55,7 +55,7 @@ module.exports = function() {};
 module.exports.pitch = function(source) {
   if (this.cacheable) this.cacheable();
 
-  const { extractStyles, configFilePath, bootstrapPath } = loaderUtils.parseQuery(this.query);
+  const { extractStyles, configFilePath, bootstrapPath } = loaderUtils.getOptions(this) || {};
 
   if (configFilePath) {
     const fullPathToUserConfig = path.resolve(__dirname, configFilePath);

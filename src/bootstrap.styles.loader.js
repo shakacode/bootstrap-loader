@@ -16,7 +16,7 @@ module.exports = function() {
 
   logger.debug('Styles input config:', '\n', this.query);
 
-  const config = loaderUtils.parseQuery(this.query);
+  const config = loaderUtils.getOptions(this) || {};
   const bootstrapVersion = parseInt(config.bootstrapVersion, 10);
   const {
     styles,
