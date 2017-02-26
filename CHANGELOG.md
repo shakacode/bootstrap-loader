@@ -4,12 +4,22 @@ All notable changes to this project will be documented in this file. Items under
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
 ## Unreleased
+
+## [2.0.0.beta.22] - 2017-02-26
+
+##### Fixed
+- Fix deprecated warning with loader-utils [#269](https://github.com/shakacode/bootstrap-loader/pull/269) by [ryani33](https://github.com/ryani33).
+- Move lint dependencies to dev dependencies. [#270](https://github.com/shakacode/bootstrap-loader/pull/270) by [ruiaraujo](https://github.com/ruiaraujo).
+
 ##### Added
 - Make `bootstrap`/`bootstrap-sass` path configurable so that it can be found when `bootstrap-loader` is symlinked in development. [#255](https://github.com/shakacode/bootstrap-loader/pull/255) by [vjpr](https://github.com/vjpr).
 
 ## [2.0.0.beta.21] - 2017-02-16
 ##### Updates
 - Update Example Dependencies [#261](https://github.com/shakacode/bootstrap-loader/pull/261) and [#259](https://github.com/shakacode/bootstrap-loader/pull/259)  by [judahmeek](https://github.com/judahmeek)
+
+## [2.0.0.beta.20] - 2017-02-16
+No changes
 
 ## [2.0.0.beta.19] - 2017-01-10
 ##### Fixed
@@ -95,7 +105,10 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.19...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...master
+[2.0.0.beta.22]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.21...2.0.0-beta.22
+[2.0.0.beta.21]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.20...2.0.0-beta.21
+[2.0.0.beta.20]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.19...2.0.0-beta.20
 [2.0.0.beta.19]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.18...2.0.0-beta.19
 [2.0.0.beta.18]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.17...2.0.0-beta.18
 [2.0.0.beta.17]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.16...2.0.0-beta.17
