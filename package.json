@@ -37,8 +37,6 @@
   "peerDependencies": {
     "css-loader": "*",
     "extract-text-webpack-plugin": ">=2.0.0-beta",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.6.0",
     "node-sass": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
@@ -63,6 +61,8 @@
     "eslint": "^3.10.2",
     "eslint-config-shakacode": "13.2.1",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": ">=2.0.0-beta",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3",
