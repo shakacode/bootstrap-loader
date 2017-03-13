@@ -718,7 +718,7 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-"bootstrap-loader@file:///Users/jayerdis/Documents/repos/bootstrap-loader":
+"bootstrap-loader@file:../..":
   version "2.0.0-beta.22"
   dependencies:
     chalk "^1.1.3"
