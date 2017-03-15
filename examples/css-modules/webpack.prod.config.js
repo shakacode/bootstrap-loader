@@ -38,6 +38,8 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
+      $: "jquery",
+      jQuery: "jquery"
     }),
     new webpack.LoaderOptionsPlugin({
       postcss: [autoprefixer],
