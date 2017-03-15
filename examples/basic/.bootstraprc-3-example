@@ -40,7 +40,7 @@ preBootstrapCustomizations: ./app/styles/bootstrap/pre-customizations.scss
 # This gets loaded after bootstrap/variables is loaded and before bootstrap is loaded.
 # A good example of this is when you want to override a bootstrap variable to be based
 # on the default value of bootstrap. This is pretty specialized case. Thus, you normally
-# just override bootrap variables in preBootstrapCustomizations so that derived
+# just override bootstrap variables in preBootstrapCustomizations so that derived
 # variables will use your definition.
 #
 # For example, in _variables.scss:
