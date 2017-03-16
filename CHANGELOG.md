@@ -5,6 +5,15 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## Unreleased
 
+## [2.0.0] - 2017-03-15
+No changes to the package. Examples are updated. We're **ONLY** supporting:
+```json
+    "extract-text-webpack-plugin": ">=2.1.0",
+    "webpack": ">=2.2.0"
+```
+
+You might need to update these peer dependencies!
+
 ## [2.0.0.beta.22] - 2017-02-26
 
 ##### Fixed
@@ -105,7 +114,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...master
+[2.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...2.0.0
 [2.0.0.beta.22]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.21...2.0.0-beta.22
 [2.0.0.beta.21]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.20...2.0.0-beta.21
 [2.0.0.beta.20]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.19...2.0.0-beta.20
