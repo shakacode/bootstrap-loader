@@ -32,9 +32,7 @@ From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), Ja
 For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
 
 # boostrap-loader v2 Docs!
-If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1).
-
-**Now that Webpack v2.2.0 has officially shipped we're going to soon update bootstrap-loader to a final V2.0.0 for this! Stay tuned, and check the [issues](https://github.com/shakacode/bootstrap-loader/issues) for ongoing discussions! And please contribute!**
+If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1). If you're using v2, be sure to check the peer dependencies of `webpack` and the `extract-text-webpack-plugin` in the [package.json](./package.json).
 
 # bootstrap-loader
 
@@ -49,7 +47,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.4` or greater.
 
 ## NEWS
-2017-03-15: All examples in /examples are updated for Webpack v2 and yarn. We're not supporting beta versions of Webpack. Some older releases did support it. So if you upgrade, you have to update for the new 2.2.x+ version of Webpack.
+2017-03-15: Bootstrap v2.0.0 released! All examples in /examples are updated for Webpack v2 and yarn. We're not supporting beta versions of Webpack. Some older releases did support it. So if you upgrade, you have to update for the new 2.2.x+ version of Webpack.
 
 2016-10-30: Released 1.3.0. Supports multiple config files in one build.
 
@@ -57,9 +55,6 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 
 2016-09-10: Released 2.0.0-beta.11 with support for Bootstrap 4, alpha 4!
 
-2016-08-02: Released 2.0.0-beta Updated to support Webpack 2.1 beta and Webpack ExtractTextPlugin 2.0 beta!
-
-2016-08-01: Released 1.1.0. Supports custom bootstraprc location.
 
 ## Table of Contents
 
