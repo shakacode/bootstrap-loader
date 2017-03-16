@@ -65,6 +65,7 @@
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "webpack": "^2.2.0"
   }
 }
