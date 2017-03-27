@@ -69,7 +69,7 @@ styles:
   buttons: true
 
   # Components
-  animation: true
+  transitions: true
   dropdown: true
   button-group: true
   input-group: true
@@ -86,7 +86,7 @@ styles:
   list-group: true
   responsive-embed: true
   close: true
-  tags: true
+  badge: true
 
   # Components w/ JavaScript
   modal: true
