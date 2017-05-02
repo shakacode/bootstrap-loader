@@ -44,10 +44,12 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
 3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
  
-That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.4` or greater.
+That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.6` or greater.
 
 ## NEWS
-2017-03-15: Bootstrap v2.0.0 released! All examples in /examples are updated for Webpack v2 and yarn. We're not supporting beta versions of Webpack. Some older releases did support it. So if you upgrade, you have to update for the new 2.2.x+ version of Webpack.
+???: Released 2.1.0. This release supports Bootstrap 4.0.0-alpha.6 instead of 4.0.0-alpha.4.
+
+2017-03-15: Released 2.0.0. All examples in /examples are updated for Webpack v2 and yarn. We're not supporting beta versions of Webpack. Some older releases did support it. So if you upgrade, you have to update for the new 2.2.x+ version of Webpack.
 
 2016-10-30: Released 1.3.0. Supports multiple config files in one build.
 
@@ -94,7 +96,7 @@ Don't forget to install these dependencies (use `--save or --save-dev` option pe
 npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install --save-dev bootstrap@v4.0.0-alpha.4
+npm install --save-dev bootstrap@v4.0.0-alpha.6
 
 # Note, alpha.3 is broken, and alpha.2 is no longer supported
 

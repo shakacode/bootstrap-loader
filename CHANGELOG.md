@@ -3,7 +3,9 @@ All notable changes to this project will be documented in this file. Items under
 
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
-## Unreleased
+## [2.1.0] - ???
+##### Updates
+- Replaced support for Bootstrap 4.0.0-alpha.4 with 4.0.0-alpha.6
 
 ## [2.0.0] - 2017-03-15
 No changes to the package. Examples are updated. We're **ONLY** supporting:

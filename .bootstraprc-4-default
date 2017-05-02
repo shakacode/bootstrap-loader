@@ -59,40 +59,40 @@ styles:
   print: true
 
   # Core CSS
-  reboot: true
-  type: true
-  images: true
-  code: true
-  grid: true
-  tables: true
-  forms: true
   buttons: true
+  code: true
+  forms: true
+  grid: true
+  images: true
+  reboot: true
+  tables: true
+  type: true
 
   # Components
-  animation: true
-  dropdown: true
+  alert: true
+  badge: true
+  breadcrumb: true
   button-group: true
-  input-group: true
+  card: true
+  close: true
   custom-forms: true
+  dropdown: true
+  input-group: true
+  jumbotron: true
+  list-group: true
+  media: true
   nav: true
   navbar: true
-  card: true
-  breadcrumb: true
   pagination: true
-  jumbotron: true
-  alert: true
   progress: true
-  media: true
-  list-group: true
   responsive-embed: true
-  close: true
-  tags: true
+  transitions: true
 
   # Components w/ JavaScript
-  modal: true
-  tooltip: true
-  popover: true
   carousel: true
+  modal: true
+  popover: true
+  tooltip: true
 
   # Utility classes
   utilities: true
