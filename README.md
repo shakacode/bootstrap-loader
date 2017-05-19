@@ -38,7 +38,7 @@ If you want the v1 docs which are compatible with Webpack v1, please see the [v1
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
-**NOTE:** [Bootstrap 4](http://v4-alpha.getbootstrap.com/), (twbs/bootstrap)[https://github.com/twbs/bootstrap] is currently in alpha right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing too fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
+**NOTE:** [Bootstrap 4](http://v4-alpha.getbootstrap.com/), [twbs/bootstrap](https://github.com/twbs/bootstrap) is currently in alpha right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing too fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
 
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
