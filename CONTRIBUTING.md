@@ -10,6 +10,10 @@ Fork, then clone the repo:
 ```
 git clone https://github.com/your-username/bootstrap-loader.git
 ```
+Install pacakges (with npm<5 this will also clean and build everything):
+```
+npm i
+```
 
 To start development simply run:
 

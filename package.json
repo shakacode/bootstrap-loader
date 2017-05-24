@@ -9,7 +9,7 @@
     "dev": "babel --watch --out-dir lib src",
     "build": "babel --out-dir lib src",
     "lint": "eslint --ext .js .",
-    "clean": "rm -rf lib",
+    "clean": "rimraf lib",
     "prerelease": "npm run lint && npm run clean && npm run build",
     "preversion": "npm run prerelease",
     "prepublish": "npm run prerelease",
@@ -64,6 +64,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "rimraf": "^2.6.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3",
     "webpack": "^2.2.0"
