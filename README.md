@@ -85,6 +85,7 @@ That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha
 + [Additional configurations](#additional-configurations)
   - [Paths to custom assets](#paths-to-custom-assets)
   - [Incorporating Bootswatch themes](#incorporating-bootswatch-themes)
+  - [Multiple CSS themes](#multiple-css-themes)
   - [jQuery](#jquery)
   - [Icon fonts](#icon-fonts)
 + [FAQ](#faq)
@@ -141,7 +142,7 @@ entry: [ 'bootstrap-loader', './app' ]
 
 Config is optional. If used, by default it should be placed in your project's root dir with name `.bootstraprc`. You can write it in `YAML` or `JSON` formats. Take a look at the default config files for [Bootstrap 3](.bootstraprc-3-default) and [Bootstrap 4](.bootstraprc-4-default). Note, we recommend using a configuration or else you might pick up unwanted upgrades, such as when we make Bootstrap 4 the default. Config options don't fall back on the defaults once a config file is present. Be sure not to delete config options. To start with a custom config, copy over a default config file as a starting point.
 
-If the default location doesn't work for you (e.g. you want to create multiple bootstrap configs for branding variations or you symlink your npm_modules directory), you may pass the **absolute path** of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
+If the default location doesn't work for you (e.g. you want to [create multiple bootstrap configs](#multiple-css-themes) for branding variations or you symlink your npm_modules directory), you may pass the **absolute path** of the `.bootstraprc` file to the loader in your webpack config, e.g. `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`.
 
 Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) that Node sets for us. It is "the name of the directory that the currently executing script resides in."
 
@@ -459,6 +460,11 @@ The following steps are needed to successfully incorporate a theme from Bootswat
   ```
 The theme should now be applied as expected.
 Note that this section might be valid for other theme packs as well.
+
+#### Multiple CSS themes
+See [examples/multiple-entries/webpack.prod.config.js](examples/multiple-entries/webpack.prod.config.js) for an example configuration of the following:
+1. In `entry`, set up one bundle per theme. In each bundle include `bootstrap-loader` with [`extractStyles`](https://github.com/shakacode/bootstrap-loader#extractstyles) and the respective config file.
+2. In `plugins,` set up the `extract-text-webpack-plugin` to output each CSS file as `[name].css`. This will output a CSS file named after each bundle.
 
 #### jQuery
 If you want to use Bootstrap's JS scripts — you have to provide `jQuery` to Bootstrap JS modules using `imports-loader`. To avoid having to include `jQuery` in your project you can disable all scripts (see [scripts](#scripts)).
