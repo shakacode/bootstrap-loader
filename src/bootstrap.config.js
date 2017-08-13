@@ -127,7 +127,7 @@ export default function createConfig({
 
   return {
     bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
-    isBeta: defaultConfig.isBeta || false,
+    isBeta: userConfig.isBeta || false,
     loglevel: userConfig.loglevel,
     preBootstrapCustomizations,
     bootstrapCustomizations,
