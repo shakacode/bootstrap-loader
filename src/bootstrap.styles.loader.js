@@ -22,6 +22,7 @@ module.exports = function() {
     styles,
     bootstrapRelPath,
     useFlexbox,
+    isBeta,
     useCustomIconFontPath,
     preBootstrapCustomizations,
     bootstrapCustomizations,
@@ -43,6 +44,12 @@ module.exports = function() {
   if (preBootstrapCustomizations) {
     processedStyles.push(
       createUserImport(preBootstrapCustomizations, this),
+    );
+  }
+
+  if (bootstrapVersion === 4 && isBeta === true) {
+    processedStyles.push(
+      createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath),
     );
   }
 

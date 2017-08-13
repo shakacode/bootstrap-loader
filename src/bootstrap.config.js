@@ -94,6 +94,7 @@ export default function createConfig({
     const { defaultConfig, configFilePath } = readDefaultConfig();
     return {
       bootstrapVersion: parseInt(defaultConfig.bootstrapVersion, 10),
+      isBeta: defaultConfig.isBeta || false,
       loglevel: defaultConfig.loglevel,
       useFlexbox: defaultConfig.useFlexbox,
       preBootstrapCustomizations: defaultConfig.preBootstrapCustomizations,
@@ -126,6 +127,7 @@ export default function createConfig({
 
   return {
     bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),
+    isBeta: defaultConfig.isBeta || false,
     loglevel: userConfig.loglevel,
     preBootstrapCustomizations,
     bootstrapCustomizations,
