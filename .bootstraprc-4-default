@@ -5,13 +5,6 @@
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 4
 
-# If Bootstrap version 4-alphaX use `false`
-# If Bootstrap version 4-betaX use `true`
-isBeta: true
-
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
-
 # Webpack loaders, order matters
 styleLoaders:
   - style
@@ -60,8 +53,6 @@ styles:
 
   # Reset and dependencies
   # Bootstrap dropped normalize in beta
-  # Uncomment `normalize` if you still use alpha
-  #normalize: true
   print: true
 
   # Core CSS
@@ -91,7 +82,6 @@ styles:
   navbar: true
   pagination: true
   progress: true
-  responsive-embed: true
   transitions: true
 
   # Components w/ JavaScript

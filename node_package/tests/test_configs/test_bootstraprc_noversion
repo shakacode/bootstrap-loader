@@ -2,9 +2,6 @@
 # Output debugging info
 # loglevel: debug
 
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
-
 # Webpack loaders, order matters
 styleLoaders:
   - style

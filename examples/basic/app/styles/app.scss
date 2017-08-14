@@ -1,5 +1,5 @@
 // Example of referring to bootstrap variables in your Sass code.
-$icons-color: adjust-hue($brand-success, -20deg);
+$icons-color: adjust-hue(theme-color("success"), -20deg);
 
 #app {
   display: block;
