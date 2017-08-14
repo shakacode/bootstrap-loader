@@ -52,7 +52,6 @@ styles:
   mixins: true
 
   # Reset and dependencies
-  # Bootstrap dropped normalize in beta
   print: true
 
   # Core CSS
