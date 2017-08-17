@@ -51,7 +51,7 @@ module.exports = function() {
       createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath),
     );
   }
-  
+
   processedStyles.push(
     createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath),
   );
