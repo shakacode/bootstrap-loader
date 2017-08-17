@@ -46,6 +46,12 @@ module.exports = function() {
     );
   }
 
+  if (bootstrapVersion === 4) {
+    processedStyles.push(
+      createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath),
+    )
+  }
+  
   processedStyles.push(
     createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath),
   );
