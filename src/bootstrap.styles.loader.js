@@ -21,7 +21,6 @@ module.exports = function() {
   const {
     styles,
     bootstrapRelPath,
-    useFlexbox,
     useCustomIconFontPath,
     preBootstrapCustomizations,
     bootstrapCustomizations,
@@ -29,10 +28,6 @@ module.exports = function() {
   } = config;
 
   const processedStyles = [];
-
-  if (bootstrapVersion === 4 && useFlexbox) {
-    processedStyles.push('$enable-flex: true;');
-  }
 
   if (styles.indexOf('mixins') > -1) {
     processedStyles.push(
@@ -43,6 +38,12 @@ module.exports = function() {
   if (preBootstrapCustomizations) {
     processedStyles.push(
       createUserImport(preBootstrapCustomizations, this),
+    );
+  }
+
+  if (bootstrapVersion === 4) {
+    processedStyles.push(
+      createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath),
     );
   }
 

@@ -44,7 +44,7 @@
   ],
   "dependencies": {
     "body-parser": "^1.15.2",
-    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap": "4.0.0-beta",
     "bootstrap-sass": "^3.3.7",
     "extract-text-webpack-plugin": "^2.1.0",
     "font-awesome": "^4.7.0",

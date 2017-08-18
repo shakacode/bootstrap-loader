@@ -5,14 +5,10 @@
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 4
 
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
-
 # Webpack loaders, order matters
 styleLoaders:
   - style-loader
   - css-loader
-  - postcss-loader
   - sass-loader
 
 # Extract styles to stand-alone css file
@@ -33,7 +29,7 @@ preBootstrapCustomizations: ./app/assets/styles/bootstrap/pre-customizations.scs
 
 # This gets loaded after bootstrap/variables is loaded
 # So you can refer to bootstrap variables
-bootstrapCustomizations: ./app/assets/styles/bootstrap/customizations.scss
+bootstrapCustomizations: ./app/assets/styles/bootstrap/customizations-bs4.scss
 
 # With CSS Modules we load all application styles directly in React components
 # appStyles: ./app/styles/app.scss
@@ -45,7 +41,6 @@ styles:
   mixins: true
 
   # Reset and dependencies
-  normalize: true
   print: true
 
   # Core CSS
@@ -75,7 +70,6 @@ styles:
   navbar: true
   pagination: true
   progress: true
-  responsive-embed: true
   transitions: true
 
   # Components w/ JavaScript

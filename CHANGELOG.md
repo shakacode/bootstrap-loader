@@ -6,9 +6,16 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [2.2.0] - 2017-08-14
+##### Updated
+- Replaced support for Bootstrap 4.0.0-alpha.6 with 4.0.0-beta. [#299](https://github.com/shakacode/bootstrap-loader/pull/316) by [Ivan Kalinin](https://github.com/IvanKalinin).
+- Removed `useFlexbox` option since BS4 uses flexboxes by default
+- Removed `normalize` option from your bootstrap v4 config. It was dropped in beta.
+- Updated dependencies in examples
+
 ## [2.1.0] - 2017-05-01
 ##### Updated
-- Replaced support for Bootstrap 4.0.0-alpha.4 with 4.0.0-alpha.6. [#299](https://github.com/shakacode/bootstrap-loader/pull/299) by [tc-imba](https://github.com/tc-imba).  
+- Replaced support for Bootstrap 4.0.0-alpha.4 with 4.0.0-alpha.6. [#299](https://github.com/shakacode/bootstrap-loader/pull/299) by [tc-imba](https://github.com/tc-imba).
 
 ## [2.0.0] - 2017-03-15
 No changes to the package. Examples are updated. We're **ONLY** supporting:

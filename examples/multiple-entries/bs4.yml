@@ -5,15 +5,12 @@
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 4
 
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
-
 # Webpack loaders, order matters
 styleLoaders:
   - style-loader
   - css-loader
-  - postcss-loader
   - sass-loader
+  - postcss-loader
 
 # Extract styles to stand-alone css file
 # Different settings for different environments can be used,
@@ -64,7 +61,6 @@ styles:
   mixins: true
 
   # Reset and dependencies
-  normalize: true
   print: true
 
   # Core CSS
@@ -94,7 +90,6 @@ styles:
   navbar: true
   pagination: true
   progress: true
-  responsive-embed: true
   transitions: true
 
   # Components w/ JavaScript

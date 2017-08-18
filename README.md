@@ -38,7 +38,7 @@ Please [Subscribe](https://app.mailerlite.com/webforms/landing/l1d9x5) to keep i
 **[React on Rails](https://github.com/shakacode/react_on_rails)** is ShakaCode's flagship product. We want to make sure you're aware of it!
 
 ### Testimonials
-From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), January 30, 2017: 
+From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), January 30, 2017:
 ![2017-01-30_11-33-59](https://cloud.githubusercontent.com/assets/1118459/22443635/b3549fb4-e6e3-11e6-8ea2-6f589dc93ed3.png)
 
 For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
@@ -55,7 +55,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
 3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
- 
+
 That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.6` or greater.
 
 ## NEWS
@@ -149,8 +149,6 @@ Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api
 ```yaml
 ---
 # You can use comments here
-useFlexbox: true
-
 styleLoaders:
   - style-loader
   - css-loader
@@ -168,8 +166,6 @@ scripts:
 ```js
 {
   // And JSON comments also!
-  "useFlexbox": true,
-
   "styleLoaders": ["style-loader", "css-loader", "sass-loader"],
 
   "styles": {
@@ -392,16 +388,6 @@ $icon-font-name: 'glyphicons' // you'll typically want to change this too.
 
 ### Bootstrap 4 only
 There is only one additional option for Bootstrap 4:
-
-#### `useFlexbox`
-
-Default: `true`
-
-Enable / disable flexbox model.
-
-```yaml
-useFlexbox: true
-```
 
 #### Tether
 Additionally, Bootstrap 4 requires Tether. You can add Tether per the examples in the `/examples` directory.

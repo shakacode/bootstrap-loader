@@ -95,7 +95,6 @@ export default function createConfig({
     return {
       bootstrapVersion: parseInt(defaultConfig.bootstrapVersion, 10),
       loglevel: defaultConfig.loglevel,
-      useFlexbox: defaultConfig.useFlexbox,
       preBootstrapCustomizations: defaultConfig.preBootstrapCustomizations,
       bootstrapCustomizations: defaultConfig.bootstrapCustomizations,
       appStyles: defaultConfig.appStyles,
@@ -132,7 +131,6 @@ export default function createConfig({
     appStyles,
     disableSassSourceMap: userConfig.disableSassSourceMap,
     disableResolveUrlLoader: userConfig.disableResolveUrlLoader,
-    useFlexbox: userConfig.useFlexbox,
     useCustomIconFontPath: userConfig.useCustomIconFontPath,
     extractStyles: extractStyles || getEnvProp('extractStyles', userConfig),
     styleLoaders: getEnvProp('styleLoaders', userConfig),

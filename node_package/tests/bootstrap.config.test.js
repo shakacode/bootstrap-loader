@@ -39,7 +39,6 @@ test('createConfig uses default config if user config is not provided', (assert)
   const expectedResult = {
     bootstrapVersion: 3,
     loglevel: undefined,
-    useFlexbox: undefined,
     preBootstrapCustomizations: undefined,
     bootstrapCustomizations: undefined,
     appStyles: undefined,
@@ -76,14 +75,13 @@ test('createConfig uses user config as expected', (assert) => {
     scripts: ['alert', 'button', 'carousel', 'collapse', 'dropdown', 'modal', 'popover',
       'scrollspy', 'tab', 'tooltip', 'util'],
     styleLoaders: ['style', 'css', 'postcss', 'sass'],
-    styles: ['mixins', 'normalize', 'print', 'reboot', 'type', 'images', 'code', 'grid',
+    styles: ['mixins', 'print', 'reboot', 'type', 'images', 'code', 'grid',
       'tables', 'forms', 'buttons', 'animation', 'dropdown', 'button-group', 'input-group',
       'custom-forms', 'nav', 'navbar', 'card', 'breadcrumb', 'pagination', 'pager',
-      'labels', 'jumbotron', 'alert', 'progress', 'media', 'list-group', 'responsive-embed',
+      'labels', 'jumbotron', 'alert', 'progress', 'media', 'list-group',
       'close', 'modal', 'tooltip', 'popover', 'carousel', 'utilities', 'utilities-background',
       'utilities-spacing', 'utilities-responsive'],
     useCustomIconFontPath: undefined,
-    useFlexbox: true,
   };
 
   assert.deepEquals(

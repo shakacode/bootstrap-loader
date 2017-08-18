@@ -5,16 +5,12 @@
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 4
 
-# If Bootstrap version 4 is used - turn on/off flexbox model
-useFlexbox: true
-
-
 # Webpack loaders, order matters
 styleLoaders:
   - style-loader
   - css-loader
-  - postcss-loader
   - sass-loader
+  - postcss-loader
 
 # Extract styles to stand-alone css file
 # Different settings for different environments can be used,
@@ -51,7 +47,7 @@ preBootstrapCustomizations: ./app/styles/bootstrap/pre-customizations.scss
 # this in bootstrapCustomizations to make the input height 10% bigger than the default calculation.
 # Thus you can leverage the default calculations.
 # $input-height: $input-height * 1.10;
-bootstrapCustomizations: ./app/styles/bootstrap/customizations.scss
+bootstrapCustomizations: ./app/styles/bootstrap/customizations-bs4.scss
 
 # Import your custom styles here. You have access to all the bootstrap variables. If you require
 # your sass files separately, you will not have access to the bootstrap variables, mixins, clases, etc.
@@ -65,7 +61,6 @@ styles:
   mixins: true
 
   # Reset and dependencies
-  normalize: true
   print: true
 
   # Core CSS
@@ -95,7 +90,6 @@ styles:
   navbar: true
   pagination: true
   progress: true
-  responsive-embed: true
   transitions: true
 
   # Components w/ JavaScript
