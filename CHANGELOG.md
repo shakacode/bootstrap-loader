@@ -126,7 +126,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.2.0...master
+[2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...2.0.0
 [2.0.0.beta.22]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.21...2.0.0-beta.22
