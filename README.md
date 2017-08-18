@@ -50,25 +50,16 @@ If you want the v1 docs which are compatible with Webpack v1, please see the [v1
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
 
-**NOTE:** [Bootstrap 4](http://v4-alpha.getbootstrap.com/), [twbs/bootstrap](https://github.com/twbs/bootstrap) is currently in alpha right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing too fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
+**NOTE:** [Bootstrap 4](https://getbootstrap.com/), [twbs/bootstrap](https://github.com/twbs/bootstrap) is currently in beta right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing too fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
 
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
-3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 4.
+3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 
 
-That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-alpha.6` or greater.
+That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-beta` or greater.
 
 ## NEWS
-???: Released 2.1.0. This release supports Bootstrap 4.0.0-alpha.6 instead of 4.0.0-alpha.4.
-
-2017-03-15: Released 2.0.0. All examples in /examples are updated for Webpack v2 and yarn. We're not supporting beta versions of Webpack. Some older releases did support it. So if you upgrade, you have to update for the new 2.2.x+ version of Webpack.
-
-2016-10-30: Released 1.3.0. Supports multiple config files in one build.
-
-2016-10-02: Released 2.0.0-beta.12. Supports isomorphic-style-loader and disabling SASS source map and/or resolve-url-loader injection!
-
-2016-09-10: Released 2.0.0-beta.11 with support for Bootstrap 4, alpha 4!
-
+2017-08-17: Released 2.2.0. This release supports Bootstrap 4.0.0-beta instead of 4.0.0-alpha.6.
 
 ## Table of Contents
 
