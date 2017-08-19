@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/shakacode/react_on_rails.svg?branch=master)](https://travis-ci.org/shakacode/react_on_rails)
 [![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
 
+**Bootstrap v4 beta supported!**
+
 If you're using this project and you like it, please give us a star! Thanks!
 
 ## Thank you from Justin Gordon and [ShakaCode](http://www.shakacode.com)
