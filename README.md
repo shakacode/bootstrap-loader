@@ -45,7 +45,7 @@ From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), Ja
 
 For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
 
-# boostrap-loader v2 Docs!
+# bootstrap-loader v2 Docs!
 If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1). If you're using v2, be sure to check the peer dependencies of `webpack` and the `extract-text-webpack-plugin` in the [package.json](./package.json).
 
 # bootstrap-loader
@@ -465,7 +465,7 @@ module: {
 Note: if you're not concerned about Windows, the lines look like this (simpler regexp pattern):
 
 ```js
-// Boostrap 3
+// Bootstrap 3
 { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
 
 // Bootstrap 4
