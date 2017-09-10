@@ -18,7 +18,7 @@ try {
 if (!bootstraprcCustomLocation && !defaultBootstraprcFileExists) {
   /* eslint no-console: 0 */
   console.log('You did not specify a \'bootstraprc-location\' ' +
-    'arg or a ./.boostraprc file in the root.');
+    'arg or a ./.bootstraprc file in the root.');
   console.log('Using the bootstrap-loader default configuration.');
 }
 
