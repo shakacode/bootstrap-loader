@@ -102,7 +102,7 @@ Don't forget to install these dependencies (use `--save or --save-dev` option pe
 npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install --save-dev bootstrap@v4.0.0-alpha.6
+npm install --save-dev bootstrap@4.0.0-beta
 
 # Note, alpha.3 is broken, and alpha.2 is no longer supported
 
