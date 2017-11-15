@@ -38,7 +38,7 @@
     "css-loader": "*",
     "extract-text-webpack-plugin": ">=2.1.0",
     "node-sass": "*",
-    "node-style-loader": "^0.0.1-alpha",
+    "node-style-loader": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
     "url-loader": "*",
