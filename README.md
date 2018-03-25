@@ -186,6 +186,7 @@ plugins: [
     "window.jQuery": "jquery",
     Tether: "tether",
     "window.Tether": "tether",
+    Popper: ['popper.js', 'default'],
     Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
     Button: "exports-loader?Button!bootstrap/js/dist/button",
     Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
