@@ -133,7 +133,7 @@ export default function createConfig({
     disableResolveUrlLoader: userConfig.disableResolveUrlLoader,
     useCustomIconFontPath: userConfig.useCustomIconFontPath,
     extractStyles: extractStyles || getEnvProp('extractStyles', userConfig),
-    extractStylesOptions: getEnvProp('extractStylesOptions', defaultConfig),
+    extractStylesOptions: getEnvProp('extractStylesOptions', userConfig),
     styleLoaders: getEnvProp('styleLoaders', userConfig),
     styles: selectUserModules(userConfig.styles, defaultConfig.styles),
     scripts: selectUserModules(userConfig.scripts, defaultConfig.scripts),
