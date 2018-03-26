@@ -23,6 +23,8 @@ extractStyles: false
 #     extractStyles: false
 #   production:
 #     extractStyles: true
+#     extractStylesOptions:
+#       plugin: mini-css-extract-plugin
 
 
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.

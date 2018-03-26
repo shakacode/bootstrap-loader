@@ -2,10 +2,12 @@
  * Builds loader string to extract styles with 'extract-text-webpack-plugin'
  *
  * @param   {string[]} loaders
+ * @param   {object} bootstrap rc config
  * @returns {string}
  */
 
-export default function(loaders) {
+export default function (loaders, config) {
+  const pluginName = config.extractStylesOptions && config.extractStylesOptions.plugin || 'extract-text-webpack-plugin';
   let fallbackLoader;
   if (loaders[0].startsWith('style')) {
     fallbackLoader = 'style-loader';
@@ -13,7 +15,7 @@ export default function(loaders) {
     fallbackLoader = 'isomorphic-style-loader';
   } else {
     throw new Error(`
-If you want to use 'extract-text-webpack-plugin', make sure
+If you want to use ${pluginName}, make sure
 your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
     `);
   }
@@ -21,10 +23,10 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
   let ExtractTextPlugin;
   try {
     // eslint-disable-next-line global-require
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    ExtractTextPlugin = require(pluginName);
   } catch (error) {
     throw new Error(`
-Could not find 'extract-text-webpack-plugin' module.
+Could not find ${pluginName} module.
 Make sure it's installed in your 'node_modules/' directory.
 Error: ${error}
 `);
@@ -35,6 +37,9 @@ Error: ${error}
       .map(loader => `${loader}!`)
       .join('')
   );
+  if (config.extractStylesOptions && config.extractStylesOptions.plugin !== 'extract-text-webpack-plugin') {
+    return [ExtractTextPlugin.loader, restLoaders].join('!');
+  }
   return [
     `${ExtractTextPlugin.loader().loader}?{"omit":1,"remove":true}`,
     fallbackLoader,
