@@ -6,7 +6,7 @@
  * @returns {string}
  */
 
-export default function(loaders, config) {
+export default function(loaders, config = {}) {
   const pluginName = (config.extractStylesOptions && config.extractStylesOptions.plugin) || 'extract-text-webpack-plugin';
   let fallbackLoader;
   if (loaders[0].startsWith('style')) {
