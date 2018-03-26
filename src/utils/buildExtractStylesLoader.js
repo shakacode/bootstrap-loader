@@ -6,7 +6,7 @@
  * @returns {string}
  */
 
-export default function (loaders, config) {
+export default function(loaders, config) {
   const pluginName = (config.extractStylesOptions && config.extractStylesOptions.plugin) || 'extract-text-webpack-plugin';
   let fallbackLoader;
   if (loaders[0].startsWith('style')) {
@@ -22,7 +22,7 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
 
   let ExtractTextPlugin;
   try {
-    // eslint-disable-next-line global-require no-dynamic-require
+    // eslint-disable-next-line
     ExtractTextPlugin = require(pluginName);
   } catch (error) {
     throw new Error(`
