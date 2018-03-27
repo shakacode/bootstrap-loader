@@ -11,10 +11,12 @@ export default function(loaders) {
     fallbackLoader = 'style-loader';
   } else if (loaders[0].startsWith('isomorphic-style')) {
     fallbackLoader = 'isomorphic-style-loader';
+  } else if (loaders[0].startsWith('node-style')) {
+    fallbackLoader = 'node-style-loader';
   } else {
     throw new Error(`
 If you want to use 'extract-text-webpack-plugin', make sure
-your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
+your 'styleLoaders' array starts with 'style', 'isomorphic-style' 'node-style' or  at index 0.
     `);
   }
 
