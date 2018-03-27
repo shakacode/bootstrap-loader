@@ -5,7 +5,9 @@
 
 If you're using this project and you like it, please give us a star! Thanks!
 
-[The ShakaCode team has availability to help your project](http://www.shakacode.com/work). If your team might need my help, please [email me](mailto:justin@shakacode.com) for a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
+# [The ShakaCode team has availability to help your project as of 2018-03-27](http://www.shakacode.com/services).
+
+If your team might need my help, please [email me](mailto:justin@shakacode.com) for a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
 
 ## Thank you from Justin Gordon and [ShakaCode](http://www.shakacode.com)
 
