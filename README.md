@@ -279,6 +279,7 @@ env:
 Default: `false`
 
 Extract styles to stand-alone css file using `extract-text-webpack-plugin` version 2.0.0-beta or higher. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
+Or use `mini-css-extract-plugin` by providing additional `extractStylesOptions` with `plugin: mini-css-extract-plugin`. (**NOTE: mini-css-extract-plugin should be installed separately as dev dependency**)
 
 ```yaml
 extractStyles: false
@@ -290,6 +291,8 @@ env:
     extractStyles: false
   production:
     extractStyles: true
+    extractStylesOptions:
+        plugin: mini-css-extract-plugin
 ```
 
 This param can also be set to `true` in webpack config:
@@ -553,6 +556,7 @@ MIT.
 * [react-webpack-rails-tutorial](https://github.com/shakacode/react-webpack-rails-tutorial/), live example at [www.reactrails.com](http://www.reactrails.com/).
 * [sass-resources-loader](https://github.com/shakacode/sass-resources-loader/)
 * [Simple integration example](./examples/basic)
+* [Simple integration example with mini-css-extract-plugin](./examples/basic-with-mini-css-plugin)
 * [React + hot reloading example: bootstrap-loader-css-modules-example](./examples/css-modules)
 * [react_on_rails gem](https://github.com/shakacode/react_on_rails)
 
