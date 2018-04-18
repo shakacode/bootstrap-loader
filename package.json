@@ -36,7 +36,6 @@
   ],
   "peerDependencies": {
     "css-loader": "*",
-    "extract-text-webpack-plugin": ">=2.1.0",
     "node-sass": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
