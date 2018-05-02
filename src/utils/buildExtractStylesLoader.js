@@ -7,7 +7,7 @@
  */
 
 export default function(loaders, config = {}) {
-  const pluginName = (config.extractStylesOptions && config.extractStylesOptions.plugin) || 'extract-text-webpack-plugin';
+  const pluginName = (config.extractStylesOptions && config.extractStylesOptions.plugin) || 'mini-css-extract-plugin';
   let fallbackLoader;
   if (loaders[0].startsWith('style')) {
     fallbackLoader = 'style-loader';
@@ -20,10 +20,10 @@ your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
     `);
   }
 
-  let ExtractTextPlugin;
+  let extractPlugin;
   try {
     // eslint-disable-next-line
-    ExtractTextPlugin = require(pluginName);
+    extractPlugin = require(pluginName);
   } catch (error) {
     throw new Error(`
 Could not find ${pluginName} module.
@@ -37,12 +37,14 @@ Error: ${error}
       .map(loader => `${loader}!`)
       .join('')
   );
-  if (config.extractStylesOptions && config.extractStylesOptions.plugin !== 'extract-text-webpack-plugin') {
-    return [ExtractTextPlugin.loader, restLoaders].join('!');
+
+  // keep options for legacy plugin
+  if (config.extractStylesOptions && config.extractStylesOptions.plugin === 'extract-text-webpack-plugin') {
+    return [
+      `${extractPlugin.loader().loader}?{"omit":1,"remove":true}`,
+      fallbackLoader,
+      restLoaders,
+    ].join('!');
   }
-  return [
-    `${ExtractTextPlugin.loader().loader}?{"omit":1,"remove":true}`,
-    fallbackLoader,
-    restLoaders,
-  ].join('!');
+  return [extractPlugin.loader, restLoaders].join('!');
 }

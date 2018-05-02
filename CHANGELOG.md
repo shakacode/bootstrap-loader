@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. Items under
 Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
 ## [Unreleased]
- - Added an option in .bootstraprc to switch to mini-css-extract-plugin [#340](https://github.com/shakacode/bootstrap-loader/pull/340) 
+ - Switched to mini-css-extract-plugin (and option to use an old extract-text-webpack-plugin) [#340](https://github.com/shakacode/bootstrap-loader/pull/340) 
 
 ## [2.2.0] - 2017-08-14
 ##### Updated

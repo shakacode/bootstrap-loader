@@ -278,8 +278,8 @@ env:
 
 Default: `false`
 
-Extract styles to stand-alone css file using `extract-text-webpack-plugin` version 2.0.0-beta or higher. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
-Or use `mini-css-extract-plugin` by providing additional `extractStylesOptions` with `plugin: mini-css-extract-plugin`. (**NOTE: mini-css-extract-plugin should be installed separately as dev dependency**)
+Extract styles to stand-alone css file using `mini-css-extract-plugin`. See [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) for more details.
+Or use optional plugin by providing additional `extractStylesOptions` with `plugin: extract-text-webpack-plugin`. (**NOTE: extract-text-webpack-plugin should be installed separately as dev dependency**)
 
 ```yaml
 extractStyles: false
@@ -292,7 +292,7 @@ env:
   production:
     extractStyles: true
     extractStylesOptions:
-        plugin: mini-css-extract-plugin
+        plugin: extract-text-webpack-plugin
 ```
 
 This param can also be set to `true` in webpack config:

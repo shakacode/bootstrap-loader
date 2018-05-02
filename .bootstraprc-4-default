@@ -23,9 +23,9 @@ extractStyles: false
 #     extractStyles: false
 #   production:
 #     extractStyles: true
-# option to switch from extract-text-webpack-plugin to mini-css-extract-plugin (in case you're using Webpack 4)
+# option to switch from mini-css-extract-plugin to extract-text-webpack-plugin
 #     extractStylesOptions:
-#       plugin: mini-css-extract-plugin
+#       plugin: extract-text-webpack-plugin
 
 
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.
