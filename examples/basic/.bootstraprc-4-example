@@ -6,18 +6,27 @@
 bootstrapVersion: 4
 
 # Webpack loaders, order matters
-styleLoaders:
-  - style-loader
-  - css-loader
-  - sass-loader
-  - postcss-loader
+env:
+  development:
+    extractStyles: false
+    styleLoaders:
+      - style-loader
+      - css-loader
+      - sass-loader
+      - postcss-loader
+  production:
+    extractStyles: true
+    styleLoaders:
+      - css-loader
+      - sass-loader
+      - postcss-loader
 
 # Extract styles to stand-alone css file
 # Different settings for different environments can be used,
 # It depends on value of NODE_ENV environment variable
 # This param can also be set in webpack config:
 #   entry: 'bootstrap-loader/extractStyles'
-extractStyles: false
+# extractStyles: false
 # env:
 #   development:
 #     extractStyles: false
@@ -52,7 +61,7 @@ bootstrapCustomizations: ./app/styles/bootstrap/customizations-bs4.scss
 # Import your custom styles here. You have access to all the bootstrap variables. If you require
 # your sass files separately, you will not have access to the bootstrap variables, mixins, clases, etc.
 # Usually this endpoint-file contains list of @imports of your application styles.
-appStyles: ./app/styles/app.scss
+appStyles: ./app/styles/app-bs4.scss
 
 ### Bootstrap styles
 styles:

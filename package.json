@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js .",
     "clean": "rm -rf lib",
     "format": "prettier \"{examples,node_package,src}/**/*.@(js|jsx|json|css|scss)\" --write",
-    "prerelease": "npm run lint && npm run clean && npm run build",
+    "prerelease": "npm run lint && npm run test && npm run clean && npm run build",
     "preversion": "npm run prerelease",
     "prepublish": "npm run prerelease",
     "release:patch": "scripts/release patch",
@@ -31,18 +31,15 @@
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
   "homepage": "https://github.com/shakacode/bootstrap-loader#readme",
-  "keywords": [
-    "bootstrap",
-    "twitter"
-  ],
+  "keywords": ["bootstrap", "twitter"],
   "peerDependencies": {
     "css-loader": "*",
-    "extract-text-webpack-plugin": ">=2.1.0",
+    "mini-css-extract-plugin": ">=0.4.0",
     "node-sass": "*",
     "resolve-url-loader": "*",
     "sass-loader": "*",
     "url-loader": "*",
-    "webpack": ">=2.2.0"
+    "webpack": ">=4.0.0"
   },
   "dependencies": {
     "chalk": "2.4.1",
@@ -66,10 +63,10 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "7.7.0",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "mini-css-extract-plugin": "0.4.0",
     "prettier": "1.12.1",
     "tap-spec": "^4.1.1",
     "tape": "4.9.0",
-    "webpack": "^2.2.0"
+    "webpack": "4.8.1"
   }
 }

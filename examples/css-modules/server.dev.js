@@ -36,7 +36,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use('/', (
-  req,
+  _req,
   res, // eslint-disable-line no-unused-vars
 ) => res.sendFile(path.join(__dirname, 'app', 'markup', 'bootstrap-dev.html')));
 

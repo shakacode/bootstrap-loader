@@ -1,6 +1,6 @@
 ---
 extends:
-  - eslint-config-shakacode/base
+  - eslint-config-shakacode
   - prettier
 
 plugins:
