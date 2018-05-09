@@ -12,9 +12,5 @@ export default function(loaders) {
     `);
   }
 
-  return (
-    loaders
-      .map(loader => `${loader}!`)
-      .join('')
-  );
+  return loaders.map(loader => `${loader}!`).join('');
 }

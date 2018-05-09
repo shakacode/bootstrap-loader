@@ -13,17 +13,22 @@
     "build": "npm run clean && webpack --config webpack.prod.config.js",
     "prod": "NODE_ENV=production npm run build && nodemon --watch server.prod.js server.prod.js",
     "post-install": "echo 'module.exports = {}' >> node_modules/bootstrap-loader/postcss.config.js",
-    "bs3": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-3-example nodemon --watch app/markup --ext html server.dev.js",
-    "bs4": "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-4-example nodemon --watch app/markup --ext html server.dev.js",
-    "bs3:prod": "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-3-example && npm run build && npm run prod",
-    "bs4:prod": "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-4-example && npm run build && npm run prod",
+    "bs3":
+      "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-3-example nodemon --watch app/markup --ext html server.dev.js",
+    "bs4":
+      "npm run cleanrc && BOOTSTRAPRC_LOCATION=.bootstraprc-4-example nodemon --watch app/markup --ext html server.dev.js",
+    "bs3:prod":
+      "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-3-example && npm run build && npm run prod",
+    "bs4:prod":
+      "npm run cleanrc && export BOOTSTRAPRC_LOCATION=.bootstraprc-4-example && npm run build && npm run prod",
     "bs3:default:setup": "cp -f .bootstraprc-3-example .bootstraprc",
     "bs4:default:setup": "cp -f .bootstraprc-4-example .bootstraprc",
     "bs3:default:dev": "npm run bs3:default:setup && npm start",
     "bs4:default:dev": "npm run bs4:default:setup && npm start",
     "bs3:default:prod": "npm run bs3:default:setup && npm run prod",
     "bs4:default:prod": "npm run bs4:default:setup && npm run prod",
-    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
+    "install-local":
+      "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
   },
   "authors": [
     "Justin Gordon <justin.gordon@gmail.com> (https://github.com/justin808)",
@@ -37,11 +42,7 @@
   "bugs": {
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
-  "keywords": [
-    "bootstrap",
-    "css modules",
-    "webpack"
-  ],
+  "keywords": ["bootstrap", "css modules", "webpack"],
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "4.0.0-beta",

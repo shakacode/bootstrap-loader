@@ -16,15 +16,9 @@ module.exports = function() {
   const config = loaderUtils.getOptions(this) || {};
   const { scripts, bootstrapVersion, bootstrapRelPath } = config;
 
-  const processedScripts = (
-    processModules(scripts, bootstrapVersion, bootstrapRelPath, true)
-  );
+  const processedScripts = processModules(scripts, bootstrapVersion, bootstrapRelPath, true);
 
-  const scriptsOutput = (
-    processedScripts
-      .map(script => `${script}\n`)
-      .join('')
-  );
+  const scriptsOutput = processedScripts.map(script => `${script}\n`).join('');
 
   logger.debug('Scripts output:', '\n', scriptsOutput);
 

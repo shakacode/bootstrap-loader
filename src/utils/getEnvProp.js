@@ -10,10 +10,10 @@ export default function(prop, config) {
     return config[prop];
   }
 
-  const NODE_ENV = process.env.NODE_ENV;
+  const { NODE_ENV } = process.env;
   const configEnvSection = config.env && config.env[NODE_ENV];
 
-  if (configEnvSection && (prop in configEnvSection)) {
+  if (configEnvSection && prop in configEnvSection) {
     return configEnvSection[prop];
   }
   return false;

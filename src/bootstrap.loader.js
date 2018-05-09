@@ -98,12 +98,10 @@ module.exports.pitch = function(source) {
 
   logger.debug('Query from webpack config:', this.query || '*none*');
 
-  const bootstrapVersion = config.bootstrapVersion;
+  const { bootstrapVersion } = config;
 
   // Resolve `bootstrap` package
-  const bootstrapNPMModule = (
-    bootstrapVersion === 3 ? 'bootstrap-sass' : 'bootstrap'
-  );
+  const bootstrapNPMModule = bootstrapVersion === 3 ? 'bootstrap-sass' : 'bootstrap';
 
   logger.debug('Using Bootstrap module:', bootstrapNPMModule);
 
@@ -129,9 +127,7 @@ See https://github.com/shakacode/bootstrap-loader/blob/master/README.md#usage.`;
       Make sure it's installed in your 'node_modules/' directory.
     `);
   }
-  const bootstrapNPMVersion = (
-    checkBootstrapVersion(bootstrapVersion, config.bootstrapPath)
-  );
+  const bootstrapNPMVersion = checkBootstrapVersion(bootstrapVersion, config.bootstrapPath);
 
   if (!bootstrapNPMVersion.allGood) {
     throw new Error(`
@@ -147,9 +143,7 @@ See https://github.com/shakacode/bootstrap-loader/blob/master/README.md#usage.`;
 
   const result = {};
 
-  const dummySourceRel = (
-    loaderUtils.urlToRequest(path.relative(this.context, source))
-  );
+  const dummySourceRel = loaderUtils.urlToRequest(path.relative(this.context, source));
 
   const bootstrapConfig = JSON.stringify(config);
   // Handle styles
@@ -162,29 +156,21 @@ You can use default ones:
       `);
     }
 
-    const styleLoadersWithSourceMapsAndResolveUrlLoader = (
-      processStyleLoaders({
-        loaders: config.styleLoaders,
-        disableSassSourceMap: config.disableSassSourceMap,
-        disableResolveUrlLoader: config.disableResolveUrlLoader,
-      })
-    );
+    const styleLoadersWithSourceMapsAndResolveUrlLoader = processStyleLoaders({
+      loaders: config.styleLoaders,
+      disableSassSourceMap: config.disableSassSourceMap,
+      disableResolveUrlLoader: config.disableResolveUrlLoader,
+    });
 
-    const styleLoaders = (
-      config.extractStyles ?
-      buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader) :
-      joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader)
-    );
-    const bootstrapStylesLoader = (
-      `${loaderUtils.urlToRequest(
-        path.relative(
-          this.context,
-          require.resolve(
-            loaderUtils.urlToRequest('bootstrap.styles.loader.js'),
-          ),
-        ),
-      )}?${bootstrapConfig}!`
-    );
+    const styleLoaders = config.extractStyles
+      ? buildExtractStylesLoader(styleLoadersWithSourceMapsAndResolveUrlLoader)
+      : joinLoaders(styleLoadersWithSourceMapsAndResolveUrlLoader);
+    const bootstrapStylesLoader = `${loaderUtils.urlToRequest(
+      path.relative(
+        this.context,
+        require.resolve(loaderUtils.urlToRequest('bootstrap.styles.loader.js')),
+      ),
+    )}?${bootstrapConfig}!`;
     const styles = styleLoaders + bootstrapStylesLoader + dummySourceRel;
 
     result.css = createRequire(styles);
@@ -192,16 +178,12 @@ You can use default ones:
 
   // Handle scripts
   if (config.scripts) {
-    const bootstrapScriptsLoader = (
-      `${loaderUtils.urlToRequest(
-        path.relative(
-          this.context,
-          require.resolve(
-            loaderUtils.urlToRequest('bootstrap.scripts.loader.js'),
-          ),
-        ),
-      )}?${bootstrapConfig}!`
-    );
+    const bootstrapScriptsLoader = `${loaderUtils.urlToRequest(
+      path.relative(
+        this.context,
+        require.resolve(loaderUtils.urlToRequest('bootstrap.scripts.loader.js')),
+      ),
+    )}?${bootstrapConfig}!`;
     const scripts = bootstrapScriptsLoader + dummySourceRel;
     result.js = createRequire(scripts);
   }

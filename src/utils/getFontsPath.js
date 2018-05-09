@@ -6,6 +6,4 @@ import path from 'path';
  * @param {string} bootstrapRelPath
  * @returns {string}
  */
-export default bootstrapRelPath => (
-  path.join(bootstrapRelPath, 'assets', 'fonts', 'bootstrap/')
-);
+export default bootstrapRelPath => path.join(bootstrapRelPath, 'assets', 'fonts', 'bootstrap/');

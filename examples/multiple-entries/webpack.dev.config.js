@@ -45,7 +45,8 @@ module.exports = {
       { test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery' },
 
       // Bootstrap 3
-      { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' }],
+      { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

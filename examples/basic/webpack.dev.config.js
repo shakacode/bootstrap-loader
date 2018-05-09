@@ -11,7 +11,6 @@ const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
 console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.dev}`);
 
 module.exports = {
-
   entry: [
     'webpack-hot-middleware/client',
     'tether',
@@ -63,5 +62,4 @@ module.exports = {
       { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' },
     ],
   },
-
 };

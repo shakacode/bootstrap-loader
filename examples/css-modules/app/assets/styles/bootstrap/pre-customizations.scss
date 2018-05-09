@@ -2,15 +2,14 @@
 // Thus original Bootstrap variables can depend on values from here.
 $brand-primary: #5cb85c;
 
-$font-family-sans-serif: 'OpenSans-Light', Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: "OpenSans-Light", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // This path is relative to this file!
-$fonts-url-path: '../../fonts';
+$fonts-url-path: "../../fonts";
 
 @font-face {
-  font-family: 'OpenSans-Light';
-  src: url('#{$fonts-url-path}/OpenSans-Light.ttf') format('truetype');
-
+  font-family: "OpenSans-Light";
+  src: url("#{$fonts-url-path}/OpenSans-Light.ttf") format("truetype");
 }
 
 // If you're using a custom icon font path, specify it as follows

@@ -14,19 +14,15 @@
     "prod": "nodemon --watch app/markup --ext html server.prod.js",
     "post-install": "echo 'module.exports = {}' >> node_modules/bootstrap-loader/postcss.config.js",
     "bs:prod": "npm run build && npm run prod",
-    "install-local": "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
+    "install-local":
+      "rm -rf node_modules/bootstrap-loader && npm install --save-dev ../.. && npm run post-install"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/shakacode/bootstrap-loader"
   },
-  "keywords": [
-    "bootstrap",
-    "webpack"
-  ],
-  "authors": [
-    "Axel Navarro <navarroaxel@gmail.com> (https://github.com/navarroaxel)"
-  ],
+  "keywords": ["bootstrap", "webpack"],
+  "authors": ["Axel Navarro <navarroaxel@gmail.com> (https://github.com/navarroaxel)"],
   "license": "MIT",
   "dependencies": {
     "bootstrap": "4.0.0-beta",

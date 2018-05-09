@@ -13,15 +13,9 @@ const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
 console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.prod}`);
 
 module.exports = {
-
   // For production build we want to extract CSS to stand-alone file
   // Provide `extractStyles` param and `bootstrap-loader` will handle it
-  entry: [
-    'font-awesome-loader',
-    bootstrapEntryPoints.prod,
-    'tether',
-    './app/scripts/app',
-  ],
+  entry: ['font-awesome-loader', bootstrapEntryPoints.prod, 'tether', './app/scripts/app'],
 
   output: {
     path: path.join(__dirname, 'public', 'assets'),
@@ -42,12 +36,20 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.css$/, use: ExtractTextPlugin.extract({
-        fallback: 'style-loader', use: 'css-loader!postcss-loader',
-      }) },
-      { test: /\.scss$/, use: ExtractTextPlugin.extract({
-        fallback: 'style-loader', use: 'css-loader!postcss-loader!sass-loader',
-      }) },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!postcss-loader',
+        }),
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!postcss-loader!sass-loader',
+        }),
+      },
 
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -69,5 +71,4 @@ module.exports = {
       { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' },
     ],
   },
-
 };

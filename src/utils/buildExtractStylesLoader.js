@@ -29,12 +29,10 @@ Make sure it's installed in your 'node_modules/' directory.
 Error: ${error}
 `);
   }
-  const restLoaders = (
-    loaders
-      .slice(1)
-      .map(loader => `${loader}!`)
-      .join('')
-  );
+  const restLoaders = loaders
+    .slice(1)
+    .map(loader => `${loader}!`)
+    .join('');
   return [
     `${ExtractTextPlugin.loader().loader}?{"omit":1,"remove":true}`,
     fallbackLoader,

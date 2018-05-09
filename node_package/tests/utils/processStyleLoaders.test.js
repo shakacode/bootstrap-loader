@@ -1,17 +1,21 @@
 import test from 'tape';
 import processStyleLoaders from '../../../src/utils/processStyleLoaders';
 
-test('processStyleLoaders throws an error if given parameter is not an array', (assert) => {
-  assert.throws(() => { processStyleLoaders({ loaders: 3 }); }, /Specify your loaders as an array/);
+test('processStyleLoaders throws an error if given parameter is not an array', assert => {
+  assert.throws(() => {
+    processStyleLoaders({ loaders: 3 });
+  }, /Specify your loaders as an array/);
   assert.end();
 });
 
-test('processStyleLoaders throws an error if given array does not include "sass"', (assert) => {
-  assert.throws(() => { processStyleLoaders({ loaders: ['url'] }); }, /can't find 'sass-loader'./);
+test('processStyleLoaders throws an error if given array does not include "sass"', assert => {
+  assert.throws(() => {
+    processStyleLoaders({ loaders: ['url'] });
+  }, /can't find 'sass-loader'./);
   assert.end();
 });
 
-test('processStyleLoaders works as expected', (assert) => {
+test('processStyleLoaders works as expected', assert => {
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['sass?sourceMap', 'resolve-url'],

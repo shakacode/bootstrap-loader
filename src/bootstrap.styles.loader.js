@@ -30,52 +30,34 @@ module.exports = function() {
   const processedStyles = [];
 
   if (styles.indexOf('mixins') > -1) {
-    processedStyles.push(
-      createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath),
-    );
+    processedStyles.push(createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath));
   }
 
   if (preBootstrapCustomizations) {
-    processedStyles.push(
-      createUserImport(preBootstrapCustomizations, this),
-    );
+    processedStyles.push(createUserImport(preBootstrapCustomizations, this));
   }
 
   if (bootstrapVersion === 4) {
-    processedStyles.push(
-      createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath),
-    );
+    processedStyles.push(createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath));
   }
 
-  processedStyles.push(
-    createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath),
-  );
+  processedStyles.push(createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath));
 
   if (bootstrapVersion === 3 && !useCustomIconFontPath) {
-    processedStyles.push(
-      `$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`,
-    );
+    processedStyles.push(`$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`);
   }
 
   if (bootstrapCustomizations) {
-    processedStyles.push(
-      createUserImport(bootstrapCustomizations, this),
-    );
+    processedStyles.push(createUserImport(bootstrapCustomizations, this));
   }
 
-  const bootstrapStyles = (
-    processModules(styles, bootstrapVersion, bootstrapRelPath)
-  );
-  const userStyles = (
-    appStyles ? createUserImport(appStyles, this) : ''
-  );
+  const bootstrapStyles = processModules(styles, bootstrapVersion, bootstrapRelPath);
+  const userStyles = appStyles ? createUserImport(appStyles, this) : '';
 
-  const stylesOutput = (
-    processedStyles
-      .concat(bootstrapStyles, userStyles)
-      .map(style => `${style.replace(/\\/g, '/')}\n`)
-      .join('')
-  );
+  const stylesOutput = processedStyles
+    .concat(bootstrapStyles, userStyles)
+    .map(style => `${style.replace(/\\/g, '/')}\n`)
+    .join('');
 
   logger.debug('Styles output:', '\n', stylesOutput);
 

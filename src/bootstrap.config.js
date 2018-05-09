@@ -72,12 +72,8 @@ Make sure it's set to 3 or 4. Like this:
   };
 }
 
-
 /* ======= Exports */
-export default function createConfig({
-  extractStyles,
-  customConfigFilePath,
-}) {
+export default function createConfig({ extractStyles, customConfigFilePath }) {
   // .bootstraprc-{3,4}-default, per the DEFAULT_VERSION
   // otherwise read user provided config file
   let userConfigFilePath = null;
@@ -110,18 +106,13 @@ export default function createConfig({
   const configFilePath = userConfigFilePath;
   const { userConfig, defaultConfig } = readUserConfig(configFilePath);
   const configDir = path.dirname(configFilePath);
-  const preBootstrapCustomizations = (
+  const preBootstrapCustomizations =
     userConfig.preBootstrapCustomizations &&
-    path.resolve(configDir, userConfig.preBootstrapCustomizations)
-  );
-  const bootstrapCustomizations = (
+    path.resolve(configDir, userConfig.preBootstrapCustomizations);
+  const bootstrapCustomizations =
     userConfig.bootstrapCustomizations &&
-    path.resolve(configDir, userConfig.bootstrapCustomizations)
-  );
-  const appStyles = (
-    userConfig.appStyles &&
-    path.resolve(configDir, userConfig.appStyles)
-  );
+    path.resolve(configDir, userConfig.bootstrapCustomizations);
+  const appStyles = userConfig.appStyles && path.resolve(configDir, userConfig.appStyles);
 
   return {
     bootstrapVersion: parseInt(userConfig.bootstrapVersion, 10),

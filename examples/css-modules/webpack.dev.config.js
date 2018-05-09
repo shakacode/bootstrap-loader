@@ -11,7 +11,6 @@ const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
 console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.dev}`);
 
 module.exports = {
-
   entry: [
     'webpack-hot-middleware/client',
     'tether',
@@ -35,8 +34,8 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether',
-      $: "jquery",
-      jQuery: "jquery"
+      $: 'jquery',
+      jQuery: 'jquery',
     }),
     new webpack.LoaderOptionsPlugin({
       postcss: [autoprefixer],
@@ -77,5 +76,4 @@ module.exports = {
       },
     ],
   },
-
 };

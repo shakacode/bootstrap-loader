@@ -4,7 +4,9 @@ import escapeRegExp from 'escape-regexp';
 
 // Ensures '-loader' suffix for loaders in config for webpack compatibility
 const ensureLoadersSuffix = loadersArray => {
-  const loaderSuffixRegExp = new RegExp('^style-loader.*$|^css-loader.*$|^postcss-loader.*$|^sass-loader.*$|^resolve-url-loader.*$');
+  const loaderSuffixRegExp = new RegExp(
+    '^style-loader.*$|^css-loader.*$|^postcss-loader.*$|^sass-loader.*$|^resolve-url-loader.*$',
+  );
   const suffixReplaceRegExp = new RegExp('^style|^css|^postcss|^sass|^resolve-url');
   return loadersArray.map(loader => {
     if (!loaderSuffixRegExp.test(loader)) {
@@ -36,15 +38,10 @@ Default is ['style', 'css', 'sass']
 
   // We need to match user loaders in different formats:
   // 'sass', 'sass-loader', 'sass?someParam' etc.
-  const getLoaderRegExp = module => (
-    new RegExp(`^${escapeRegExp(module)}(?:-loader)?(?:\\?.*)?$`)
-  );
-
+  const getLoaderRegExp = module => new RegExp(`^${escapeRegExp(module)}(?:-loader)?(?:\\?.*)?$`);
 
   const sassLoaderRegExp = getLoaderRegExp('sass');
-  const sassLoader = (
-    loadersWithSuffix.find(loader => sassLoaderRegExp.test(loader))
-  );
+  const sassLoader = loadersWithSuffix.find(loader => sassLoaderRegExp.test(loader));
   const sassLoaderIndex = loadersWithSuffix.indexOf(sassLoader);
 
   if (!disableSassSourceMap) {
@@ -61,15 +58,12 @@ Default is ['style', 'css', 'sass']
     // And if it's not there - inject it
     let sassLoaderWithSourceMap;
     if (sassLoaderQuery) {
-      sassLoaderWithSourceMap = (
-        sassLoaderQuery.includes('sourceMap') ?
-        sassLoader :
-        `${sassLoader}&sourceMap`
-      );
+      sassLoaderWithSourceMap = sassLoaderQuery.includes('sourceMap')
+        ? sassLoader
+        : `${sassLoader}&sourceMap`;
     } else {
       sassLoaderWithSourceMap = `${sassLoader}?sourceMap`;
     }
-
 
     // eslint-disable-next-line no-param-reassign
     loadersWithSuffix[sassLoaderIndex] = sassLoaderWithSourceMap;
@@ -77,9 +71,7 @@ Default is ['style', 'css', 'sass']
 
   if (!disableResolveUrlLoader) {
     const resolveUrlLoaderRegExp = getLoaderRegExp('resolve-url');
-    const resolveUrlLoader = (
-      loadersWithSuffix.find(loader => resolveUrlLoaderRegExp.test(loader))
-    );
+    const resolveUrlLoader = loadersWithSuffix.find(loader => resolveUrlLoaderRegExp.test(loader));
 
     if (!resolveUrlLoader) {
       loadersWithSuffix.splice(sassLoaderIndex, 0, 'resolve-url-loader');
