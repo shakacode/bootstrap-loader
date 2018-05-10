@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-loader",
-  "version": "2.2.0",
+  "version": "3.0.0-beta.1",
   "description": "Boostrap for Webpack",
   "main": "loader.js",
   "scripts": {
@@ -31,7 +31,10 @@
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
   "homepage": "https://github.com/shakacode/bootstrap-loader#readme",
-  "keywords": ["bootstrap", "twitter"],
+  "keywords": [
+    "bootstrap",
+    "twitter"
+  ],
   "peerDependencies": {
     "css-loader": "*",
     "mini-css-extract-plugin": ">=0.4.0",
