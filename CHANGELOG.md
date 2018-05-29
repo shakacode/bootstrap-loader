@@ -6,7 +6,7 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
-## [3.0.0] - 2017-05-11
+## [v3.0.0] - 2017-05-11
 ##### Updated
 - Update to Webpack 4: `extract-text-webpack-plugin` is replaced with `mini-css-extract-plugin`.
 — Update `basic` & `css-modules` examples.
@@ -131,7 +131,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/2.2.0...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...master
+[2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.3.0...v3.0.0
 [2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...2.0.0
