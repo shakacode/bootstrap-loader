@@ -6,6 +6,11 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [3.0.0] - 2017-05-11
+##### Updated
+- Update to Webpack 4: `extract-text-webpack-plugin` is replaced with `mini-css-extract-plugin`.
+— Update `basic` & `css-modules` examples.
+
 ## [2.2.0] - 2017-08-14
 ##### Updated
 - Replaced support for Bootstrap 4.0.0-alpha.6 with 4.0.0-beta. [#299](https://github.com/shakacode/bootstrap-loader/pull/316) by [Ivan Kalinin](https://github.com/IvanKalinin).

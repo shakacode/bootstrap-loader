@@ -60,7 +60,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
 
 1. Community support to help us with Bootstrap 4 issues and pull requests.
 2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
-3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap 
+3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap
 
 That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-beta` or greater.
 
@@ -106,14 +106,12 @@ Don't forget to install these dependencies (use `--save or --save-dev` option pe
 npm install --save-dev bootstrap-sass
 
 # or Bootstrap 4
-npm install --save-dev bootstrap@4.0.0-beta
-
-# Note, alpha.3 is broken, and alpha.2 is no longer supported
+npm install --save-dev bootstrap
 
 # Node SASS & other loaders needed to handle styles
 npm install --save-dev css-loader node-sass resolve-url-loader sass-loader style-loader url-loader
 
-# Additional loaders required for Bootstrap 4 & Webpack 2
+# Additional loaders required for Bootstrap 3 & 4
 npm install --save-dev imports-loader exports-loader
 ```
 
@@ -210,9 +208,8 @@ plugins: [
 Check out example apps in [`examples/`](examples) folder:
 
 * Basic usage: [examples/basic](examples/basic)
- * See the `npm run bs4:customlocation` tasks for examples on how to pass your .bootstraprc config.
 * With CSS Modules: [examples/css-modules](examples/css-modules) (This example shows off hot reloading with Babel 6 as well!)
-* With multiple entries [examples/multiple-entries](examples/multiple-entries) with their own config.
+* With multiple entries [examples/multiple-entries](examples/multiple-entries) with their own config _[currently out of date]_.
 
 ## Common configuration options
 Here are common options for Bootstrap 3 & 4.

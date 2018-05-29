@@ -3,7 +3,6 @@ import React from 'react';
 import css from './GlyphIcons.scss';
 
 export default class GlyphIcons extends React.Component {
-
   render() {
     return (
       <div className="container">
@@ -25,5 +24,4 @@ export default class GlyphIcons extends React.Component {
       </div>
     );
   }
-
 }

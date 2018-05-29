@@ -11,15 +11,9 @@ import createBootstrapRequire from './createBootstrapRequire';
  * @returns {string[]}
  */
 export default function(modules, bootstrapVersion, bootstrapPath, isScripts) {
-  const processModule = (
-    isScripts ? createBootstrapRequire : createBootstrapImport
-  );
+  const processModule = isScripts ? createBootstrapRequire : createBootstrapImport;
 
-  return (
-    modules
-      .filter(module => module !== 'mixins')
-      .map(module => (
-        processModule(module, bootstrapVersion, bootstrapPath)
-      ))
-  );
+  return modules
+    .filter(module => module !== 'mixins')
+    .map(module => processModule(module, bootstrapVersion, bootstrapPath));
 }

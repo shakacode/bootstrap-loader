@@ -4,8 +4,4 @@
  * @param {Object} modules
  * @returns {string[]}
  */
-export default modules => (
-  Object
-    .keys(modules)
-    .filter(module => modules[module])
-);
+export default modules => Object.keys(modules).filter(module => modules[module]);

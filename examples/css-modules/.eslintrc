@@ -1,4 +1,0 @@
----
-extends: eslint-config-shakacode
-rules:
-  react/prefer-stateless-function: 0

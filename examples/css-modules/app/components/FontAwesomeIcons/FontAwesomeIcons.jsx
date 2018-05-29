@@ -3,7 +3,6 @@ import React from 'react';
 import css from './FontAwesomeIcons.scss';
 
 export default class FontAwesomeIcons extends React.Component {
-
   render() {
     return (
       <div className="container">

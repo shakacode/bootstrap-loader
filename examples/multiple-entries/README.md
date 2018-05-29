@@ -1,6 +1,8 @@
 bootstrap-loader-example
 =========================
 
+** ⚠️ THIS EXAMPLE IS NOT UPDATED ⚠️ **
+
 ```bash
 ### Install deps
 npm i

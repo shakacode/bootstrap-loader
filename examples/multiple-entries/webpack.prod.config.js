@@ -8,7 +8,6 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-
   // For production build we want to extract CSS to stand-alone file
   // Provide `extractStyles` param and `bootstrap-loader` will handle it
   entry: {
@@ -49,17 +48,19 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
-          '!postcss-loader',
+          use:
+            'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+            '!postcss-loader',
         }),
       },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+          use:
+            'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
             '!postcss-loader' +
-          '!sass-loader',
+            '!sass-loader',
         }),
       },
 

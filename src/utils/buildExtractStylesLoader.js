@@ -6,38 +6,16 @@
  */
 
 export default function(loaders) {
-  let fallbackLoader;
-  if (loaders[0].startsWith('style')) {
-    fallbackLoader = 'style-loader';
-  } else if (loaders[0].startsWith('isomorphic-style')) {
-    fallbackLoader = 'isomorphic-style-loader';
-  } else {
-    throw new Error(`
-If you want to use 'extract-text-webpack-plugin', make sure
-your 'styleLoaders' array starts with 'style' or 'isomorphic-style' at index 0.
-    `);
-  }
-
-  let ExtractTextPlugin;
+  let MiniCssExtractPlugin;
   try {
     // eslint-disable-next-line global-require
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    MiniCssExtractPlugin = require('mini-css-extract-plugin');
   } catch (error) {
     throw new Error(`
-Could not find 'extract-text-webpack-plugin' module.
+Could not find 'mini-css-extract-plugin' module.
 Make sure it's installed in your 'node_modules/' directory.
 Error: ${error}
 `);
   }
-  const restLoaders = (
-    loaders
-      .slice(1)
-      .map(loader => `${loader}!`)
-      .join('')
-  );
-  return [
-    `${ExtractTextPlugin.loader().loader}?{"omit":1,"remove":true}`,
-    fallbackLoader,
-    restLoaders,
-  ].join('!');
+  return [MiniCssExtractPlugin.loader, loaders.map(loader => `${loader}!`).join('')].join('!');
 }

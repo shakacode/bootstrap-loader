@@ -2,33 +2,25 @@
 
 ```bash
 ### Install deps
-npm i
+yarn install
 
-### IMPORTANT: If you want the local git clone files used rather than the latest from npm
-npm run install-local
+### Install local copy of bootstrap-loader
+yarn run preinstall
 
 ### Run dev server with hot reloading
 
 # Bootstrap 3
-npm run bs3
+yarn run bs3:dev
 # Bootstrap 4
-npm run bs4
+yarn run bs4:dev
 
 ### Run production server
 
 # Bootstrap 3
-npm run bs3:prod
+yarn run bs3:prod
 # Bootstrap 4
-npm run bs4:prod
+yarn run bs4:prod
 
-# Note, there is no `no config` option as these examples do not use jQuery and the default config requires it.
-# npm run bs:no-config
-
-# Run default configs
-
-npm run bs3:default:dev
-npm run bs4:default:dev
-npm run bs3:default:prod
-npm run bs4:default:prod
-
+# Run no config
+yarn run bs:no-config
 ```

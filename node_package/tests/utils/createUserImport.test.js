@@ -1,7 +1,7 @@
 import test from 'tape';
 import createUserImport from '../../../src/utils/createUserImport';
 
-test('createUserImport runs as expected', (assert) => {
+test('createUserImport runs as expected', assert => {
   const webpack = {
     context: '/object/context',
     dependencies: [],

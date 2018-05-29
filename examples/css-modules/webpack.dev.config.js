@@ -4,45 +4,22 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/blob/master/client%2Fwebpack.client.base.config.js
 const webpack = require('webpack');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
-
-// eslint-disable-next-line no-console
-console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.dev}`);
 
 module.exports = {
-
+  mode: 'development',
   entry: [
     'webpack-hot-middleware/client',
-    'tether',
     'font-awesome-loader',
-    bootstrapEntryPoints.dev,
+    'bootstrap-loader',
     './app/startup/App',
   ],
-
   output: {
     path: path.join(__dirname, 'public', 'assets'),
     filename: 'app.js',
     publicPath: '/assets/',
   },
-
-  devtool: '#cheap-module-eval-source-map',
-
-  resolve: { extensions: ['*', '.js', '.jsx'] },
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.ProvidePlugin({
-      'window.Tether': 'tether',
-      $: "jquery",
-      jQuery: "jquery"
-    }),
-    new webpack.LoaderOptionsPlugin({
-      postcss: [autoprefixer],
-    }),
-  ],
-
+  resolve: { extensions: ['.js', '.jsx'] },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
     rules: [
       {
@@ -77,5 +54,4 @@ module.exports = {
       },
     ],
   },
-
 };

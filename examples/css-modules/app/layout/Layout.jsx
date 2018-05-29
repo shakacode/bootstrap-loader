@@ -8,7 +8,6 @@ import CardColumns from '../components/CardColumns/CardColumns';
 import css from './Layout.scss';
 
 export default class Layout extends React.Component {
-
   render() {
     return (
       <section className={css.layout}>
@@ -19,5 +18,4 @@ export default class Layout extends React.Component {
       </section>
     );
   }
-
 }
