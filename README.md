@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.org/shakacode/react_on_rails.svg?branch=master)](https://travis-ci.org/shakacode/react_on_rails)
 [![npm version](https://badge.fury.io/js/bootstrap-loader.svg)](https://badge.fury.io/js/bootstrap-loader)
 
-**Bootstrap v4 beta supported!**
+**Webpack v4 and Bootstrap v4 supported!**
 
 If you're using this project and you like it, please give us a star! Thanks!
 
-# [The ShakaCode team has availability to help your project as of 2018-03-27](http://www.shakacode.com/services).
+# [The ShakaCode team has availability to help your project as of 2018-05-29](http://www.shakacode.com/services).
 
 If your team might need my help, please [email me](mailto:justin@shakacode.com) for a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
 
@@ -49,8 +49,8 @@ From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), Ja
 
 For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
 
-# bootstrap-loader v2 Docs!
-If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1). If you're using v2, be sure to check the peer dependencies of `webpack` and the `extract-text-webpack-plugin` in the [package.json](./package.json).
+# bootstrap-loader v3 Docs!
+If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1). If you're using v2, be sure to check the peer dependencies of `webpack` and the `extract-text-webpack-plugin`. See the [v2 docs](https://github.com/shakacode/bootstrap-loader/tree/2.2.0).
 
 # bootstrap-loader
 
@@ -277,7 +277,7 @@ env:
 
 Default: `false`
 
-Extract styles to stand-alone css file using `extract-text-webpack-plugin` version 2.0.0-beta or higher. See [extract-text-plugin](https://github.com/webpack/extract-text-webpack-plugin) for more details.
+Extract styles to stand-alone css file using `mini-css-extract-plugin` version 2.0.0-beta or higher. See [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) for more details.
 
 ```yaml
 extractStyles: false
