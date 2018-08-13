@@ -2,23 +2,39 @@
 extends:
   - eslint-config-shakacode
   - prettier
+# Not sure if below is better Alex
+#  - plugin:prettier/recommended
+#  - prettier/flowtype
+#  - prettier/react
+#  - prettier/standard
 
 plugins:
-  - prettier
+- prettier
 
 globals:
   __DEBUG__: true
   __BOOTSTRAP_CONFIG__: true
 
-ecmaFeatures:
-  restParams: true
-
 rules:
   prettier/prettier: "error"
 
-  space-before-function-paren: [2, "never"]
   import/no-unresolved: 0
   no-underscore-dangle: [ "error", { "allow": [ "__BOOTSTRAP_CONFIG__", "__DEBUG__", "_babelPolyfill" ] } ]
 
   # https://github.com/benmosher/eslint-plugin-import/issues/340
   import/no-extraneous-dependencies: 0
+
+  # http://eslint.org/docs/rules/max-len
+  # https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js#L128
+  # Almost identical to airbnb's version, but adds ignore of `import` statements and sets ignoreStrings: false
+  max-len:
+  - 2
+  -
+    code: 100
+    tabWidth: 2
+    ignoreUrls: true
+    ignoreComments: false
+    ignoreRegExpLiterals: true
+    ignoreStrings: false
+    ignoreTemplateLiterals: false
+    ignorePattern: ^import\\s+

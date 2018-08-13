@@ -108,9 +108,11 @@ module.exports.pitch = function(source) {
   config.bootstrapPath = bootstrapPath || resolveModule(bootstrapNPMModule);
   logger.debug(`Bootstrap module location (abs): ${config.bootstrapPath}`);
   if (!config.bootstrapPath) {
-    const msg = `Could not resolve module '${bootstrapNPMModule}' which must be installed when bootstrap version is configured to v${bootstrapVersion}.
+    const msg = `Could not resolve module '${bootstrapNPMModule}' which must be
+installed when bootstrap version is configured to v${bootstrapVersion}.
 You must install 'bootstrap' for bootstrap v4 or 'bootstrap-sass' for bootstrap v3.
-You can also specify the location manually by specifying 'bootstrapPath' in bootstrap-loader's query string.
+You can also specify the location manually by specifying 'bootstrapPath' in
+bootstrap-loader's query string.
 See https://github.com/shakacode/bootstrap-loader/blob/master/README.md#usage.`;
     throw new Error(msg);
   }

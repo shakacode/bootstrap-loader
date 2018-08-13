@@ -13,13 +13,15 @@ module.exports = {
   entry: {
     bs3: [
       'font-awesome-loader',
-      `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/bs3.yml!bootstrap-loader/no-op.js`,
+      `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=` +
+        `${__dirname}/bs3.yml!bootstrap-loader/no-op.js`,
       'tether',
       './app/scripts/app',
     ],
     bs4: [
       'font-awesome-loader',
-      `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/bs4.yml!bootstrap-loader/no-op.js`,
+      `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=` +
+        `${__dirname}/bs4.yml!bootstrap-loader/no-op.js`,
       'tether',
       './app/scripts/app',
     ],
