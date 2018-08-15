@@ -6,6 +6,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [3.0.1] - 2017-08-14
+##### Improved
+- Env specific settings will override default settings. [PR 356](https://github.com/shakacode/bootstrap-loader/pull/356) by [justin808](https://github.com/justin808).
+
 ## [v3.0.0] - 2017-05-11
 ##### Updated
 - Update to Webpack 4: `extract-text-webpack-plugin` is replaced with `mini-css-extract-plugin`.
@@ -131,7 +135,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/3.0.1...master
+[3.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...3.0.1
 [v3.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.3.0...v3.0.0
 [2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...2.1.0
