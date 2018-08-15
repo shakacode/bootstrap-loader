@@ -9,10 +9,9 @@ If you're using this project and you like it, please give us a star! Thanks!
 
 If your team might need my help, please [email me](mailto:justin@shakacode.com) for a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
 
-## Thank you from Justin Gordon and [ShakaCode](http://www.shakacode.com)
+Intersted in optimizing your webpack setup for [React on Rails](https://github.com/shakacode/react_on_rails) including code splitting with react-router v4, webpack v4, and react-loadable? [Contact me](mailto:justin@shakacode.com).
 
-* **Video:** [Front-End Sadness to Happiness: The React on Rails Story](https://www.youtube.com/watch?v=SGkTvKRPYrk): History, motivations, philosophy, and overview.
-* *[Click here for talk slides](http://www.shakacode.com/talks).*
+ShakaCode is **[currently looking to hire](http://www.shakacode.com/about/#work-with-us)** like-minded developers that wish to work on our projects, including [Hawaii Chee](https://www.hawaiichee.com). We're getting into [Reason](https://reasonml.github.io/)!
 
 We at [ShakaCode](http://www.shakacode.com) are a small, boutique, remote-first application development company. We fund this project by:
 
@@ -20,34 +19,21 @@ We at [ShakaCode](http://www.shakacode.com) are a small, boutique, remote-first 
 * Building custom web and mobile (React Native) applications. We typically work with a technical founder or CTO and instantly provide a full development team including designers.
 * Migrating **Angular** + Rails to React + Rails. You can see an example of React on Rails and our work converting Angular to React on Rails at [egghead.io](https://egghead.io/browse/frameworks).
 * Augmenting your team to get your product completed more efficiently and quickly.
-
-My article "[Why Hire ShakaCode?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9)" provides additional details about our projects.
-
-If any of this resonates with you, please email me, [justin@shakacode.com](mailto:justin@shakacode.com). I offer a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
-
-We are [looking to hire](http://www.shakacode.com/about/#work-with-us) like-minded developers that wish to work on our projects, including [Hawaii Chee](https://www.hawaiichee.com).
-
-I appreciate your attention and sharing of these offerings with anybody that we can help. Your support allows me to bring you and your team [front-end happiness in the Rails world](https://www.youtube.com/watch?v=SGkTvKRPYrk).
+* **[React on Rails](https://github.com/shakacode/react_on_rails)** is ShakaCode's flagship product. We want to make sure you're aware of it!
 
 Aloha and best wishes from the ShakaCode team!
 
 # ShakaCode Community
-Please [Subscribe](https://app.mailerlite.com/webforms/landing/l1d9x5) to keep in touch with Justin Gordon and [ShakaCode](http://www.shakacode.com/). I intend to send a monthly summary including announcements of new releases of bootstrap-loader and React on Rails and of our latest [blog articles](https://blog.shakacode.com) and tutorials. Subscribers will also have access to **exclusive content**, including tips and examples.
-
 [![2017-01-31_14-16-56](https://cloud.githubusercontent.com/assets/1118459/22490211/f7a70418-e7bf-11e6-9bef-b3ccd715dbf8.png)](https://app.mailerlite.com/webforms/landing/l1d9x5)
 
 * **Slack Room**: [Contact us](mailto:contact@shakacode.com) for an invite to the ShakaCode Slack room!
 * **[forum.shakacode.com](https://forum.shakacode.com)**: Post your questions
 * **[@ShakaCode on Twitter](https://twitter.com/shakacode)**
 
-## React on Rails Info
-**[React on Rails](https://github.com/shakacode/react_on_rails)** is ShakaCode's flagship product. We want to make sure you're aware of it!
 
 ### Testimonials
 From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), January 30, 2017:
 ![2017-01-30_11-33-59](https://cloud.githubusercontent.com/assets/1118459/22443635/b3549fb4-e6e3-11e6-8ea2-6f589dc93ed3.png)
-
-For more testimonials, see [Live Projects](https://github.com/shakacode/react_on_rails/blob/master/PROJECTS.md) and [Kudos](https://github.com/shakacode/react_on_rails/blob/master/KUDOS.md).
 
 # bootstrap-loader v3 Docs!
 If you want the v1 docs which are compatible with Webpack v1, please see the [v1 branch](https://github.com/shakacode/bootstrap-loader/tree/v1). If you're using v2, be sure to check the peer dependencies of `webpack` and the `extract-text-webpack-plugin`. See the [v2 docs](https://github.com/shakacode/bootstrap-loader/tree/2.2.0).
@@ -55,17 +41,6 @@ If you want the v1 docs which are compatible with Webpack v1, please see the [v1
 # bootstrap-loader
 
 Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader). Load Bootstrap styles and scripts in your Webpack bundle. This loader uses SASS to process CSS styles. Bootstrap 3 & 4 are supported.
-
-**NOTE:** [Bootstrap 4](https://getbootstrap.com/), [twbs/bootstrap](https://github.com/twbs/bootstrap) is currently in beta right now. Bootstrap 4 definitely worked when we first released this package. The parent company of this product, [ShakaCode](http://www.shakacode.com) had originally planned to use it for our upcoming commercial product, but we decided that Bootstrap 4 was changing too fast for a production product. Thus, we're still using Bootstrap 3, and we're not actively developing with Bootstrap 4. Consequently, for Bootstrap 4 issues, we need one of:
-
-1. Community support to help us with Bootstrap 4 issues and pull requests.
-2. We'd be thrilled to have another maintainer join us to help with Bootstrap 4 issues.
-3. We'd also be thrilled if any companies are open to sponsoring the development of features and issues regarding Bootstrap
-
-That being said, Bootstrap 4 probably works just fine! You must use `4.0.0-beta` or greater.
-
-## NEWS
-2017-08-17: Released 2.2.0. This release supports Bootstrap 4.0.0-beta instead of 4.0.0-alpha.6.
 
 ## Table of Contents
 
@@ -141,6 +116,7 @@ If the default location doesn't work for you (e.g. you want to [create multiple 
 
 Note that :`__dirname` is a [global variable](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) that Node sets for us. It is "the name of the directory that the currently executing script resides in."
 
+### YAML Format
 ```yaml
 ---
 # You can use comments here
@@ -158,7 +134,8 @@ scripts:
   button: true
 ```
 
-```js
+### JSON Format
+```json
 {
   // And JSON comments also!
   "styleLoaders": ["style-loader", "css-loader", "sass-loader"],
@@ -176,6 +153,32 @@ scripts:
 ```
 
 If no config provided, default one for Bootstrap 3 will be used.
+
+### ENV Specific Values
+The following settings can be set differently 
+
+Different settings for different environments can be used.
+
+Example of setting production to extract styles and other envs don't and use the style-loader:
+ 
+```yaml
+# It depends on value of NODE_ENV environment variable
+env:
+  production:
+    extractStyles: true
+    styleLoaders:
+      - css-loader
+      - postcss-loader
+      - sass-loader
+
+# If NODE_ENV specific value not found
+extractStyles: false
+styleLoaders:
+  - style-loader
+  - css-loader
+  - postcss-loader
+  - sass-loader
+```
 
 ### Bootstrap 4 internal dependency solution
 
@@ -239,6 +242,7 @@ bootstrapVersion: 3
 #### `styleLoaders`
 
 Default: `[ 'style-loader', 'css-loader', 'sass-loader' ]`
+Env Specific: true
 
 Array of webpack loaders. `sass-loader` is required, order matters. In most cases the style loader should definitely go first and the sass loader should be last.
 
@@ -256,40 +260,20 @@ styleLoaders:
   - sass-loader?outputStyle=expanded
 ```
 
-Different settings for different environments can be used.
-```yaml
-# It depends on value of NODE_ENV environment variable
-env:
-  development:
-    styleLoaders:
-      - style-loader
-      - css-loader
-      - resolve-url-loader
-      - sass-loader
-  production:
-    styleLoaders:
-      - style-loader
-      - css-loader
-      - sass-loader
-```
+Different settings for different environments can be used. See above example.
 
 #### `extractStyles`
 
 Default: `false`
+Env Specific: true
 
 Extract styles to stand-alone css file using `mini-css-extract-plugin` version 2.0.0-beta or higher. See [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) for more details.
 
 ```yaml
 extractStyles: false
-
-# Different settings for different environments can be used,
-# It depends on value of NODE_ENV environment variable
-env:
-  development:
-    extractStyles: false
-  production:
-    extractStyles: true
 ```
+
+Different settings for different environments can be used. See above example.
 
 This param can also be set to `true` in webpack config:
 
@@ -562,7 +546,6 @@ MIT.
 We'll identify issues that are [questions](https://github.com/shakacode/bootstrap-loader/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aquestion).
 
 ---
-*Identical to top of page*
 
 ## Thank you from Justin Gordon and [ShakaCode](http://www.shakacode.com)
 
@@ -576,12 +559,6 @@ We at [ShakaCode](http://www.shakacode.com) are a small, boutique, remote-first 
 * Building custom web and mobile (React Native) applications. We typically work with a technical founder or CTO and instantly provide a full development team including designers.
 * Migrating **Angular** + Rails to React + Rails. You can see an example of React on Rails and our work converting Angular to React on Rails at [egghead.io](https://egghead.io/browse/frameworks).
 * Augmenting your team to get your product completed more efficiently and quickly.
-
-My article "[Why Hire ShakaCode?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9)" provides additional details about our projects.
-
-If any of this resonates with you, please email me, [justin@shakacode.com](mailto:justin@shakacode.com). I offer a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
-
-We are [looking to hire](http://www.shakacode.com/about/#work-with-us) like-minded developers that wish to work on our projects, including [Hawaii Chee](https://www.hawaiichee.com).
 
 I appreciate your attention and sharing of these offerings with anybody that we can help. Your support allows me to bring you and your team [front-end happiness in the Rails world](https://www.youtube.com/watch?v=SGkTvKRPYrk).
 
