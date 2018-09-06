@@ -4,13 +4,10 @@ import escapeRegExp from 'escape-regexp';
 
 // Ensures '-loader' suffix for loaders in config for webpack compatibility
 const ensureLoadersSuffix = loadersArray => {
-  const loaderSuffixRegExp = new RegExp(
-    '^style-loader.*$|^css-loader.*$|^postcss-loader.*$|^sass-loader.*$|^resolve-url-loader.*$',
-  );
-  const suffixReplaceRegExp = new RegExp('^style|^css|^postcss|^sass|^resolve-url');
+  const knownLoaderRegExp = new RegExp('^(style|css|postcss|sass|resolve-url)(?!-loader)(?=\\?|$)');
   return loadersArray.map(loader => {
-    if (!loaderSuffixRegExp.test(loader)) {
-      return loader.replace(suffixReplaceRegExp, match => `${match}-loader`);
+    if (knownLoaderRegExp.test(loader)) {
+      return loader.replace(knownLoaderRegExp, match => `${match}-loader`);
     }
     return loader;
   });
