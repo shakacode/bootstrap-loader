@@ -10,14 +10,16 @@ module.exports = {
       'webpack-hot-middleware/client',
       'tether',
       'font-awesome-loader',
-      `bootstrap-loader/lib/bootstrap.loader?configFilePath=${__dirname}/bs3.yml!bootstrap-loader/no-op.js`,
+      `bootstrap-loader/lib/bootstrap.loader?configFilePath=` +
+        `${__dirname}/bs3.yml!bootstrap-loader/no-op.js`,
       './app/scripts/app',
     ],
     bs4: [
       'webpack-hot-middleware/client',
       'tether',
       'font-awesome-loader',
-      `bootstrap-loader/lib/bootstrap.loader?configFilePath=${__dirname}/bs4.yml!bootstrap-loader/no-op.js`,
+      `bootstrap-loader/lib/bootstrap.loader?configFilePath=` +
+        `${__dirname}/bs4.yml!bootstrap-loader/no-op.js`,
       './app/scripts/app',
     ],
   },
