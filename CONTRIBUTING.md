@@ -14,13 +14,13 @@ git clone https://github.com/your-username/bootstrap-loader.git
 To start development simply run:
 
 ```
-npm start
+yarn start
 ```
 
 It will run linters, clear directory with previous build, create new build and run watchers to re-build on every change.
 
 ## Testing changes to the repo
-Make sure to write new tests for your changes. Currently the test suite is light. Please help us flesh it out. Run the tests with `npm test`.
+Make sure to write new tests for your changes. Currently the test suite is light. Please help us flesh it out. Run the tests with `yarn test`.
 
 If you don't make a new test, then be sure to modify the `/examples` with behavior that demonstrates your change.
 
@@ -31,17 +31,17 @@ Ensure your changes don't break any of the examples before you publish your PR!
 ## Testing before your PR is ready for merge
 
 * Be sure to check the browser console and look for error messages!
-* If you install `bootstrap-loader` locally, you have to re-install it on every change. Yes. Very inconvenient! `npm run install-local`
+* If you install `bootstrap-loader` locally, you have to re-install it on every change. Yes. Very inconvenient! `yarn run install-local`
 
 ### Testing Setup
 ```sh
-rm -rf node_modules && npm i
+rm -rf node_modules && yarn i
 cd examples/basic or examples/css-modules
 rm -rf node_modules
-npm run install-local
-npm i
+yarn run install-local
+yarn i
 ```
-* Note, we recommend against using `npm link` for these examples.
+* Note, we recommend against using `yarn link` for these examples.
 
 ### Testing each example directory
  
@@ -49,7 +49,7 @@ For both the basic and css-modules examples
 
 1. Either set an ENV variable of DEBUG=TRUE or run the commands like this:
 2. See the README.md inside the examples directories for all available commands, or else run
-   `npm run` to show the commands.
+   `yarn run` to show the commands.
 3. Examine the DEBUG output, as well as the results.
 4. The custom `.bootstraprc` files have extra colors so you'll know they are running if you see non-standard bootstrap colors.
 
@@ -57,7 +57,7 @@ For the multiple-entries example
 
 1. This example do a simple use of the configFilePath and the DEBUG=TRUE is ignored.
 2. See the README.md inside the examples directories for all available commands, or else run
-   `npm run` to show the commands.
+   `yarn run` to show the commands.
 3. Compare the CSS files to see the different results.
 4. The file `.bootstraprc` is ignored here.
 
@@ -71,22 +71,22 @@ Either set an ENV value: `export DEBUG=TRUE` or set debug in the config file. To
 To create a build run:
 
 ```
-npm run prerelease
+yarn run prerelease
 ```
 
-It will do the same things as `npm start`, but without activating watchers.
+It will do the same things as `yarn start`, but without activating watchers.
 
 ## Linting and Testing
 To lint your code run:
 
 ```
-npm run lint
+yarn run lint
 ```
 
 To test your code run:
 
 ```
-npm run test
+yarn run test
 ```
 
 In order to run tests in a browser
@@ -99,20 +99,20 @@ browserify -t babelify node_package/tests/*.js | tape-run --browser chrome | fau
 ```
 
 ## Using the Local Library for Development
-The examples directories have a npm script: `npm run install-local`. Please use that for testing the example directories.
+The examples directories have a yarn script: `yarn run install-local`. Please use that for testing the example directories.
 
-#### npm link
-We can use the `npm link` feature in our development process if we reference full paths to our loader in webpack's config: `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`. In order for this library to find the expected `bootstrap` version, you must also `npm link` the expected `bootstrap` and `extract-text-webpack-plugin` (assuming you are passing `extractStyles` to `boostrap.loader` e.g. `...
+#### yarn link
+We can use the `yarn link` feature in our development process if we reference full paths to our loader in webpack's config: `bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/.bootstraprc!bootstrap-loader/no-op.js`. In order for this library to find the expected `bootstrap` version, you must also `yarn link` the expected `bootstrap` and `extract-text-webpack-plugin` (assuming you are passing `extractStyles` to `boostrap.loader` e.g. `...
   bootstrap.loader?extractStyles&...`) versions from your project's `node_modules` directory to your clone of this library.   
 
 #### Installing locally
-More often than not, `npm link` will not work. Maybe you did not set the sibling directories of `bootstrap` and `extract-text-webpack plugin`?
+More often than not, `yarn link` will not work. Maybe you did not set the sibling directories of `bootstrap` and `extract-text-webpack plugin`?
 
-If `npm link` doesn't work for you, just install `bootstrap-loader` locally:
+If `yarn link` doesn't work for you, just install `bootstrap-loader` locally:
 
 ```
 cd my-test-project
-npm install --save-dev ../path/to/local/bootstrap-loader
+yarn add --save-dev ../path/to/local/bootstrap-loader
 ```
 
 Note that if you install `bootstrap-loader` locally, you have to re-install it on every change. Yes. Very inconvenient! 
