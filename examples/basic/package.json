@@ -7,7 +7,7 @@
     "node": "10"
   },
   "scripts": {
-    "preinstall":
+    "postinstall":
       "rm -rf node_modules/bootstrap-loader && mkdir node_modules/bootstrap-loader && cd ../../ && yarn run build && cd - && cp -r ../../{package.json,loader.js,no-op.js,extractStyles.js,.bootstraprc-3-default,.bootstraprc-4-default,lib} node_modules/bootstrap-loader/ && cd node_modules/bootstrap-loader && yarn install --production",
     "start": "NODE_ENV=development nodemon --watch app/markup --ext html server.dev.js",
     "clean": "rm -rf public/",

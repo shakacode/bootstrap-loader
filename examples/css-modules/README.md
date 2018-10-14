@@ -1,11 +1,8 @@
 # bootstrap-loader-css-modules-example
 
 ```bash
-### Install deps
+### Install deps, this will run the postinstall script installing dev version
 yarn install
-
-### Install local copy of bootstrap-loader
-yarn run preinstall
 
 ### Run dev server with hot reloading
 
