@@ -42,6 +42,7 @@ module.exports = {
           'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
           'postcss-loader',
           'sass-loader',
+          'sass-resources-loader?resources=app/assets/styles/resources.scss',
         ],
       },
       {

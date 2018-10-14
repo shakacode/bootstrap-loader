@@ -13,7 +13,7 @@ export default class Jumbotron extends React.Component {
             attention to featured content or information.
           </p>
           <hr className="m-y-md" />
-          <p className={css.grayText}>
+          <p className={css.darkRedText}>
             It uses utility classes for typography and spacing to space content out within the
             larger container.
           </p>

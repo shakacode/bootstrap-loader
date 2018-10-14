@@ -6,8 +6,7 @@
     "node": "10"
   },
   "scripts": {
-    "postinstall":
-      "rm -rf node_modules/bootstrap-loader && mkdir node_modules/bootstrap-loader && cd ../../ && yarn run build && cd - && cp -r ../../{package.json,loader.js,no-op.js,extractStyles.js,.bootstraprc-3-default,.bootstraprc-4-default,lib} node_modules/bootstrap-loader/ && cd node_modules/bootstrap-loader && yarn install --production",
+    "postinstall": "rm -rf node_modules/bootstrap-loader && mkdir node_modules/bootstrap-loader && cd ../../ && yarn run build && cd - && cp -r ../../{package.json,loader.js,no-op.js,extractStyles.js,.bootstraprc-3-default,.bootstraprc-4-default,lib} node_modules/bootstrap-loader/ && cd node_modules/bootstrap-loader && yarn install --production",
     "start": "NODE_ENV=development nodemon --watch server.dev.js server.dev.js",
     "clean": "rm -rf public/",
     "cleanrc": "rm .bootstraprc || echo 'no .bootstraprc file to delete'",
@@ -32,7 +31,11 @@
   "bugs": {
     "url": "https://github.com/shakacode/bootstrap-loader/issues"
   },
-  "keywords": ["bootstrap", "css modules", "webpack"],
+  "keywords": [
+    "bootstrap",
+    "css modules",
+    "webpack"
+  ],
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "4.1.1",
@@ -40,6 +43,7 @@
     "font-awesome": "^4.7.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",
+    "sass-resources-loader": "^1.3.4",
     "tether": "^1.3.7"
   },
   "devDependencies": {

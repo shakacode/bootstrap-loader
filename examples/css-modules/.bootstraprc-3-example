@@ -20,12 +20,14 @@ env:
       - css-loader
       - sass-loader
       - postcss-loader
+      - sass-resources-loader?resources=app/assets/styles/resources.scss
   production:
     extractStyles: true
     styleLoaders:
       - css-loader
       - sass-loader
       - postcss-loader
+      - sass-resources-loader?resources=app/assets/styles/resources.scss
 
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.
 # Thus original Bootstrap variables can depend on values from here.

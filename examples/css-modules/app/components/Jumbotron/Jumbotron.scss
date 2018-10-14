@@ -1,3 +1,5 @@
-.grayText {
-  color: #999;
+.darkRedText {
+  // Use the color from sass variable using sass-resources-loader.
+  // See /app/assets/styles/resources.scss
+  color: $dark-red-text-color;
 }
