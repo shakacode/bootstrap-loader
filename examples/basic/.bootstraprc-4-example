@@ -14,12 +14,14 @@ env:
       - css-loader
       - sass-loader
       - postcss-loader
+      - sass-resources-loader?resources=app/styles/resources.scss
   production:
     extractStyles: true
     styleLoaders:
       - css-loader
       - sass-loader
       - postcss-loader
+      - sass-resources-loader?resources=app/styles/resources.scss
 
 # Extract styles to stand-alone css file
 # Different settings for different environments can be used,
