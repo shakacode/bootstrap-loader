@@ -87,5 +87,18 @@ test('processStyleLoaders works as expected', assert => {
     }),
     ['resolve-url-loader', 'sass-loader?sourceMap'],
   );
+
+  assert.deepEquals(
+    processStyleLoaders({
+      loaders: ['sass', 'sass-resources'],
+    }),
+    ['resolve-url-loader', 'sass-loader?sourceMap', 'sass-resources'],
+  );
+  assert.deepEquals(
+    processStyleLoaders({
+      loaders: ['sass-loader', 'sass-resources-loader'],
+    }),
+    ['resolve-url-loader', 'sass-loader?sourceMap', 'sass-resources-loader'],
+  );
   assert.end();
 });

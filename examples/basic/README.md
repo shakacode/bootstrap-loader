@@ -24,3 +24,17 @@ yarn run bs4:prod
 # Run no config
 yarn run bs:no-config
 ```
+
+### Notes
+
+`sass-resources-loader` imports specified SASS files into every SASS file it processes. In this particular case, `styleLoaders` are (Bootstrap 3, development):
+
+```yaml
+- style-loader
+- css-loader
+- sass-loader
+- postcss-loader
+- sass-resources-loader?resources=app/styles/resources.scss
+```
+
+So, `app/styles/resources.scss` is implicitly imported into `app/styles/bootstrap/pre-customizations.scss` among other things. There `$custom-border-radius` value is assigned to `$alert-border-radius`. You can see the alert affected at the bottom of the page.

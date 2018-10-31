@@ -17,7 +17,4 @@ yarn run bs4:dev
 yarn run bs3:prod
 # Bootstrap 4
 yarn run bs4:prod
-
-# Run no config
-yarn run bs:no-config
 ```
