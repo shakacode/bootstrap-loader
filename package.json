@@ -45,12 +45,12 @@
     "webpack": ">=4.0.0"
   },
   "dependencies": {
-    "chalk": "2.4.1",
+    "chalk": "2.4.2",
     "escape-regexp": "0.0.1",
     "exports-loader": "0.7.0",
-    "js-yaml": "3.11.0",
-    "loader-utils": "1.1.0",
-    "resolve": "1.7.1",
+    "js-yaml": "3.13.0",
+    "loader-utils": "1.2.3",
+    "resolve": "1.10.0",
     "semver": "5.5.0",
     "strip-json-comments": "^2.0.1"
   },
@@ -68,7 +68,7 @@
     "eslint-plugin-react": "7.7.0",
     "mini-css-extract-plugin": "0.4.0",
     "prettier": "1.12.1",
-    "tap-spec": "^4.1.1",
+    "tap-spec": "^4.1.2",
     "tape": "4.9.0",
     "webpack": "4.8.1"
   }
