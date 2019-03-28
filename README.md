@@ -5,9 +5,7 @@
 
 If you're using this project and you like it, please give us a star! Thanks!
 
-# [The ShakaCode team has availability to help your project as of 2018-05-29](http://www.shakacode.com/services).
-
-If your team might need my help, please [email me](mailto:justin@shakacode.com) for a free half-hour project consultation, on anything from React on Rails to any aspect of web or mobile application development for both consumer and enterprise products.
+If you're building an e-commerce site, like [printivity.com](https://www.printivity.com/) or a marketplace site like [datacenters.com](https://www.datacenters.com) and [Hawaii Chee](https://www.hawaiichee.com), and you want to use Rails and React, please [get in touch](mailto:justin@shakacode.com), as that is ShakaCode's speciality. We built those sites!
 
 Intersted in optimizing your webpack setup for [React on Rails](https://github.com/shakacode/react_on_rails) including code splitting with react-router v4, webpack v4, and react-loadable? [Contact me](mailto:justin@shakacode.com).
 
@@ -18,7 +16,6 @@ We at [ShakaCode](http://www.shakacode.com) are a small, boutique, remote-first 
 * Providing priority support and training for anything related to React + Webpack + Rails in our [Coaching Program](http://www.shakacode.com/work/shakacode-pro-support.pdf).
 * Building custom web and mobile (React Native) applications. We typically work with a technical founder or CTO and instantly provide a full development team including designers.
 * Migrating **Angular** + Rails to React + Rails. You can see an example of React on Rails and our work converting Angular to React on Rails at [egghead.io](https://egghead.io/browse/frameworks).
-* Augmenting your team to get your product completed more efficiently and quickly.
 * **[React on Rails](https://github.com/shakacode/react_on_rails)** is ShakaCode's flagship product. We want to make sure you're aware of it!
 
 Aloha and best wishes from the ShakaCode team!
@@ -29,7 +26,6 @@ Aloha and best wishes from the ShakaCode team!
 * **Slack Room**: [Contact us](mailto:contact@shakacode.com) for an invite to the ShakaCode Slack room!
 * **[forum.shakacode.com](https://forum.shakacode.com)**: Post your questions
 * **[@ShakaCode on Twitter](https://twitter.com/shakacode)**
-
 
 ### Testimonials
 From Joel Hooks, Co-Founder, Chief Nerd at [egghead.io](https://egghead.io/), January 30, 2017:
