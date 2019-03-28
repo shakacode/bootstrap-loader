@@ -6,6 +6,10 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [3.0.3] - 2019-03-27
+#### Fixed
+- Upgraded dependencies for security advisories. [PR 365](https://github.com/shakacode/bootstrap-loader/pull/365) by [alecf](https://github.com/alecf).
+
 ## [3.0.2] - 2018-10-31
 #### Fixed
 - Make work with sass-resources-loader. sass-resources-loader imports specified SASS files load into every SASS file bootstrap-loader processes. [PR 357](https://github.com/shakacode/bootstrap-loader/pull/357) by [x-yuri](https://github.com/x-yuri).
@@ -139,8 +143,9 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/3.0.2...master
-[3.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.2...3.0.2
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/3.0.3...master
+[3.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.2...3.0.3
+[3.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.1...3.0.2
 [3.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...3.0.1
 [v3.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.3.0...v3.0.0
 [2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
