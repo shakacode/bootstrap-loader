@@ -48,7 +48,7 @@
     "chalk": "2.4.2",
     "escape-regexp": "0.0.1",
     "exports-loader": "0.7.0",
-    "js-yaml": "3.13.0",
+    "js-yaml": "3.13.1",
     "loader-utils": "1.2.3",
     "resolve": "1.10.0",
     "semver": "5.5.0",
