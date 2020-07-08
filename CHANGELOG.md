@@ -147,7 +147,7 @@ Changes from v1.1.1 to 2.0.0.beta.2
 [3.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.2...3.0.3
 [3.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.1...3.0.2
 [3.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...3.0.1
-[v3.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.3.0...v3.0.0
+[v3.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.2.0...v3.0.0
 [2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0-beta.22...2.0.0
