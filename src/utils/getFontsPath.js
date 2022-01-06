@@ -3,7 +3,7 @@ import path from 'path';
 /**
  * Builds path to Bootstrap fonts
  *
- * @param {string} bootstrapRelPath
+ * @param {string} bootstrapPath
  * @returns {string}
  */
-export default bootstrapRelPath => path.join(bootstrapRelPath, 'assets', 'fonts', 'bootstrap/');
+export default bootstrapPath => path.join(bootstrapPath, 'assets', 'fonts', 'bootstrap/');

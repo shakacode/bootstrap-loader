@@ -20,7 +20,7 @@ module.exports = function() {
   const bootstrapVersion = parseInt(config.bootstrapVersion, 10);
   const {
     styles,
-    bootstrapRelPath,
+    bootstrapPath,
     useCustomIconFontPath,
     preBootstrapCustomizations,
     bootstrapCustomizations,
@@ -30,7 +30,7 @@ module.exports = function() {
   const processedStyles = [];
 
   if (styles.indexOf('mixins') > -1) {
-    processedStyles.push(createBootstrapImport('mixins', bootstrapVersion, bootstrapRelPath));
+    processedStyles.push(createBootstrapImport('mixins', bootstrapVersion, bootstrapPath));
   }
 
   if (preBootstrapCustomizations) {
@@ -38,20 +38,20 @@ module.exports = function() {
   }
 
   if (bootstrapVersion === 4) {
-    processedStyles.push(createBootstrapImport('functions', bootstrapVersion, bootstrapRelPath));
+    processedStyles.push(createBootstrapImport('functions', bootstrapVersion, bootstrapPath));
   }
 
-  processedStyles.push(createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath));
+  processedStyles.push(createBootstrapImport('variables', bootstrapVersion, bootstrapPath));
 
   if (bootstrapVersion === 3 && !useCustomIconFontPath) {
-    processedStyles.push(`$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`);
+    processedStyles.push(`$icon-font-path: "${getFontsPath(bootstrapPath, this)}";`);
   }
 
   if (bootstrapCustomizations) {
     processedStyles.push(createUserImport(bootstrapCustomizations, this));
   }
 
-  const bootstrapStyles = processModules(styles, bootstrapVersion, bootstrapRelPath);
+  const bootstrapStyles = processModules(styles, bootstrapVersion, bootstrapPath);
   const userStyles = appStyles ? createUserImport(appStyles, this) : '';
 
   const stylesOutput = processedStyles
