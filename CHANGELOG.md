@@ -5,6 +5,8 @@ Contributors: please follow the recommendations outlined at [keepachangelog.com]
 
 ## [Unreleased]
 *Please add entries here for your pull requests.*
+#### Fixed
+- Now compatible with Webpack 5. Removed relative bootstraprc paths & addition of `sourceMap` to `sass-loader` querystring [PR 401](https://github.com/shakacode/bootstrap-loader/pull/401) by [judahmeek](https://github.com/judahmeek).
 
 ## [3.0.3] - 2019-03-27
 #### Fixed

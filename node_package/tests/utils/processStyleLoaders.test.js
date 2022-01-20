@@ -8,13 +8,6 @@ test('processStyleLoaders throws an error if given parameter is not an array', a
   assert.end();
 });
 
-test('processStyleLoaders throws an error if given array does not include "sass"', assert => {
-  assert.throws(() => {
-    processStyleLoaders({ loaders: ['url'] });
-  }, /can't find 'sass-loader'./);
-  assert.end();
-});
-
 test('processStyleLoaders works as expected', assert => {
   assert.deepEquals(
     processStyleLoaders({
@@ -27,7 +20,7 @@ test('processStyleLoaders works as expected', assert => {
     processStyleLoaders({
       loaders: ['other', 'sass'],
     }),
-    ['other', 'resolve-url-loader', 'sass-loader?sourceMap'],
+    ['other', 'resolve-url-loader', 'sass-loader'],
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -41,7 +34,7 @@ test('processStyleLoaders works as expected', assert => {
       loaders: ['other', 'sass'],
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass-loader?sourceMap'],
+    ['other', 'sass-loader'],
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -56,7 +49,7 @@ test('processStyleLoaders works as expected', assert => {
     processStyleLoaders({
       loaders: ['other', 'sass?other'],
     }),
-    ['other', 'resolve-url-loader', 'sass-loader?other&sourceMap'],
+    ['other', 'resolve-url-loader', 'sass-loader?other'],
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -70,7 +63,7 @@ test('processStyleLoaders works as expected', assert => {
       loaders: ['other', 'sass?other'],
       disableResolveUrlLoader: true,
     }),
-    ['other', 'sass-loader?other&sourceMap'],
+    ['other', 'sass-loader?other'],
   );
   assert.deepEquals(
     processStyleLoaders({
@@ -92,13 +85,13 @@ test('processStyleLoaders works as expected', assert => {
     processStyleLoaders({
       loaders: ['sass', 'sass-resources'],
     }),
-    ['resolve-url-loader', 'sass-loader?sourceMap', 'sass-resources'],
+    ['resolve-url-loader', 'sass-loader', 'sass-resources'],
   );
   assert.deepEquals(
     processStyleLoaders({
       loaders: ['sass-loader', 'sass-resources-loader'],
     }),
-    ['resolve-url-loader', 'sass-loader?sourceMap', 'sass-resources-loader'],
+    ['resolve-url-loader', 'sass-loader', 'sass-resources-loader'],
   );
   assert.end();
 });

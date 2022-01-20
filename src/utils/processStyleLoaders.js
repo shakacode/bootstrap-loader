@@ -41,31 +41,6 @@ Default is ['style', 'css', 'sass']
   const sassLoader = loadersWithSuffix.find(loader => sassLoaderRegExp.test(loader));
   const sassLoaderIndex = loadersWithSuffix.indexOf(sassLoader);
 
-  if (!disableSassSourceMap) {
-    if (!sassLoader) {
-      throw new Error(`
-        I can't find 'sass-loader'.
-        Add it to array of loaders in .bootstraprc.
-      `);
-    }
-
-    const sassLoaderQuery = sassLoader.split('?')[1];
-
-    // We need to check if user's loader already contains sourceMap param
-    // And if it's not there - inject it
-    let sassLoaderWithSourceMap;
-    if (sassLoaderQuery) {
-      sassLoaderWithSourceMap = sassLoaderQuery.includes('sourceMap')
-        ? sassLoader
-        : `${sassLoader}&sourceMap`;
-    } else {
-      sassLoaderWithSourceMap = `${sassLoader}?sourceMap`;
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    loadersWithSuffix[sassLoaderIndex] = sassLoaderWithSourceMap;
-  }
-
   if (!disableResolveUrlLoader) {
     const resolveUrlLoaderRegExp = getLoaderRegExp('resolve-url');
     const resolveUrlLoader = loadersWithSuffix.find(loader => resolveUrlLoaderRegExp.test(loader));
