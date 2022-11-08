@@ -50,7 +50,7 @@
     "escape-regexp": "0.0.1",
     "exports-loader": "0.7.0",
     "js-yaml": "3.13.1",
-    "loader-utils": "1.2.3",
+    "loader-utils": "1.4.1",
     "resolve": "1.10.0",
     "semver": "5.5.0",
     "strip-json-comments": "^2.0.1"
