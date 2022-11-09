@@ -1,10 +1,17 @@
 # Change Log
-All notable changes to this project will be documented in this file. Items under `Unreleased` is upcoming features that will be out in next version.
 
-Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
+* [ShakaCode](https://www.shakacode.com) offers support for upgrading dependencies. If interested, contact Justin Gordon, [justin@shakacode.com](mailto:justin@shakacode.com).
+* All notable changes to this project will be documented in this file. Items under `Unreleased` is upcoming features that will be out in next version.
+* Contributors: please follow the recommendations outlined at [keepachangelog.com](http://keepachangelog.com/). Please use the existing headings and styling as a guide, and add a link for the version diff at the bottom of the file. Also, please update the `Unreleased` link to compare to the latest release version.
 
 ## [Unreleased]
 *Please add entries here for your pull requests.*
+
+## [4.0.1] - 2022-11-08
+#### Improved
+- update loader-utils to v1.4.1 to fix GHSA-76p3-8jx3-jpfq with CVSS 9.8 / 10. [PR 410](https://github.com/shakacode/bootstrap-loader/pull/410) by [dargmuesli](https://github.com/dargmuesli)
+
+## [4.0.0] - 2022-09-03
 #### Fixed
 - Now compatible with Webpack 5. Removed relative bootstraprc paths & addition of `sourceMap` to `sass-loader` querystring [PR 401](https://github.com/shakacode/bootstrap-loader/pull/401) by [judahmeek](https://github.com/judahmeek).
 
@@ -145,10 +152,12 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/3.0.3...master
-[3.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.2...3.0.3
-[3.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.1...3.0.2
-[3.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...3.0.1
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.1...master
+[4.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.3...v4.0.0
+[3.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.2...v3.0.3
+[3.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.1...v3.0.2
+[3.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/shakacode/bootstrap-loader/compare/2.2.0...v3.0.0
 [2.2.0]: https://github.com/shakacode/bootstrap-loader/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/shakacode/bootstrap-loader/compare/2.0.0...2.1.0
