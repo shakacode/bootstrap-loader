@@ -10,8 +10,9 @@ globals:
   __DEBUG__: true
   __BOOTSTRAP_CONFIG__: true
 
-ecmaFeatures:
-  restParams: true
+parserOptions:
+  ecmaFeatures:
+    restParams: true
 
 rules:
   prettier/prettier: "error"
