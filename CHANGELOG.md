@@ -7,6 +7,9 @@
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+#### Fixed
+- Upgraded dependencies to fix vulnerabilities, included loader-utils [PR418](https://github.com/shakacode/bootstrap-loader/pull/418) by [ahangarha](https://github.com/ahangarha)
+
 ## [4.0.2] - 2023-01-04
 #### Dependabot
 - Bump is-my-json-valid from 2.15.0 to 2.20.6 (#406) 
