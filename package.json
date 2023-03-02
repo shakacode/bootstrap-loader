@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "Boostrap for Webpack",
   "main": "loader.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "babel-tape-runner node_package/tests/**/*.test.js | tap-spec",
     "start": "npm run lint && npm run clean && npm run dev",
@@ -40,8 +40,8 @@
     "css-loader": "*",
     "mini-css-extract-plugin": ">=0.4.0",
     "node-sass": "*",
-    "sass": "*",
     "resolve-url-loader": "*",
+    "sass": "*",
     "sass-loader": "*",
     "url-loader": "*",
     "webpack": ">=5.0.0"
