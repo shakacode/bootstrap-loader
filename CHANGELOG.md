@@ -7,17 +7,18 @@
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [4.0.3] - 2023-03-03
 #### Fixed
-- Upgraded dependencies to fix vulnerabilities, included loader-utils [PR418](https://github.com/shakacode/bootstrap-loader/pull/418) by [ahangarha](https://github.com/ahangarha)
+- Upgraded dependencies to fix vulnerabilities, included loader-utils [PR418](https://github.com/shakacode/bootstrap-loader/pull/418) by [ahangarha](https://github.com/ahangarha).
 
 ## [4.0.2] - 2023-01-04
 #### Dependabot
-- Bump is-my-json-valid from 2.15.0 to 2.20.6 (#406) 
-- Bump ini from 1.3.4 to 1.3.8 (#405) 
+- Bump is-my-json-valid from 2.15.0 to 2.20.6 (#406).
+- Bump ini from 1.3.4 to 1.3.8 (#405). 
 
 ## [4.0.1] - 2022-11-08
 #### Improved
-- update loader-utils to v1.4.1 to fix GHSA-76p3-8jx3-jpfq with CVSS 9.8 / 10. [PR 410](https://github.com/shakacode/bootstrap-loader/pull/410) by [dargmuesli](https://github.com/dargmuesli)
+- update loader-utils to v1.4.1 to fix GHSA-76p3-8jx3-jpfq with CVSS 9.8 / 10. [PR 410](https://github.com/shakacode/bootstrap-loader/pull/410) by [dargmuesli](https://github.com/dargmuesli).
 
 ## [4.0.0] - 2022-09-03
 #### Fixed
@@ -160,7 +161,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.2...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.3...master
+[4.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/shakacode/bootstrap-loader/compare/v3.0.3...v4.0.0
