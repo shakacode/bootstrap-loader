@@ -7,6 +7,9 @@
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+#### Fixed
+- Remove `type` entry from `package.json` introduced in 4.0.3 [PR419](https://github.com/shakacode/bootstrap-loader/pull/419) by [ahangarha](https://github.com/ahangarha).
+
 ## [4.0.3] - 2023-03-03
 #### Fixed
 - Upgraded dependencies to fix vulnerabilities, included loader-utils [PR418](https://github.com/shakacode/bootstrap-loader/pull/418) by [ahangarha](https://github.com/ahangarha).
