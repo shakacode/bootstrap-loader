@@ -7,6 +7,7 @@
 ## [Unreleased]
 *Please add entries here for your pull requests.*
 
+## [4.0.4] - 2023-03-07
 #### Fixed
 - Remove `type` entry from `package.json` introduced in 4.0.3 [PR419](https://github.com/shakacode/bootstrap-loader/pull/419) by [ahangarha](https://github.com/ahangarha).
 
@@ -164,7 +165,8 @@ Changes from v1.1.1 to 2.0.0.beta.2
 
 ## [1.0.8]
 
-[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.3...master
+[Unreleased]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.4...master
+[4.0.4]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.3...v4.0.4
 [4.0.3]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/shakacode/bootstrap-loader/compare/v4.0.0...v4.0.1
