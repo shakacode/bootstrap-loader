@@ -45,7 +45,7 @@ Successor to [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass
   - [Bootstrap 4 internal dependency solution](#bootstrap-4-internal-dependency-solution)
 + [Examples](#examples)
 + [Common configuration options](#common-configuration-options)
-  - [Bootstrap 3 & 4](#bootstrap-3-4)
+  - [Bootstrap 3 & 4](#bootstrap-3--4)
   - [Bootstrap 4 only](#bootstrap-4-only)
     * [Tether](#tether)
     * [PostCSS](#postcss)
