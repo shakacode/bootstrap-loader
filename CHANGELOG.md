@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 *Please add entries here for your pull requests.*
+#### Chore
+- Specify package manager [PR426](https://github.com/shakacode/bootstrap-loader/pull/426) by [dargmuesli](https://github.com/dargmuesli).
 
 ## [4.0.4] - 2023-03-07
 #### Fixed
@@ -18,7 +20,7 @@
 ## [4.0.2] - 2023-01-04
 #### Dependabot
 - Bump is-my-json-valid from 2.15.0 to 2.20.6 (#406).
-- Bump ini from 1.3.4 to 1.3.8 (#405). 
+- Bump ini from 1.3.4 to 1.3.8 (#405).
 
 ## [4.0.1] - 2022-11-08
 #### Improved
