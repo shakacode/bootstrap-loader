@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 *Please add entries here for your pull requests.*
+#### Fixed
+- Update `semver` to `v5.7.2` [PR425](https://github.com/shakacode/bootstrap-loader/pull/425) by [dargmuesli](https://github.com/dargmuesli).
 #### Chore
 - Specify package manager [PR426](https://github.com/shakacode/bootstrap-loader/pull/426) by [dargmuesli](https://github.com/dargmuesli).
 

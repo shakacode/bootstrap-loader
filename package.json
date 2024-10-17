@@ -52,7 +52,7 @@
     "js-yaml": "3.13.1",
     "loader-utils": "1.4.2",
     "resolve": "1.10.0",
-    "semver": "5.5.0",
+    "semver": "5.7.2",
     "strip-json-comments": "^2.0.1"
   },
   "devDependencies": {
