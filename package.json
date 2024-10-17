@@ -72,5 +72,6 @@
     "tap-spec": "^5.0.0",
     "tape": "4.9.0",
     "webpack": "^5"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
