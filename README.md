@@ -562,8 +562,8 @@ Aloha and best wishes from the ShakaCode team!
 
 ## Supporters
 
-<a href="https://www.jetbrains.com">
-  <img src="https://user-images.githubusercontent.com/4244251/184881139-42e4076b-024b-4b30-8c60-c3cd0e758c0a.png" alt="JetBrains" height="120px">
+<a href="https://jb.gg/OpenSource" style="margin-right: 20px;">
+  <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains" height="120px">
 </a>
 <a href="https://scoutapp.com">
   <picture>
