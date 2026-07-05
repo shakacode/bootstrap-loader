@@ -43,7 +43,7 @@ test('createConfig uses default config if user config is not provided', assert =
     appStyles: undefined,
     useCustomIconFontPath: false,
     extractStyles: false,
-    styleLoaders: ['style', 'css', 'sass'],
+    styleLoaders: ['style-loader', 'css-loader', 'sass-loader'],
     styles: [
       'mixins',
       'normalize',
@@ -106,18 +106,23 @@ test('createConfig uses default config if user config is not provided', assert =
 });
 
 test('createConfig uses user config as expected', assert => {
+  const testConfigsDir = path.resolve(__dirname, './test_configs');
   const expectedResult = {
     appStyles: undefined,
-    bootstrapCustomizations:
-      '/home/ubuntu/workspace/node_package/tests' +
-      'test_configs/path/to/bootstrap/customizations.scss',
+    bootstrapCustomizations: path.resolve(
+      testConfigsDir,
+      './path/to/bootstrap/customizations.scss'
+    ),
     bootstrapVersion: 4,
-    configFilePath: path.resolve(__dirname, './test_configs/test_bootstraprc'),
+    configFilePath: path.resolve(testConfigsDir, './test_bootstraprc'),
     extractStyles: true,
     loglevel: undefined,
-    preBootstrapCustomizations:
-      '/home/ubuntu/workspace/node_package/tests' +
-      'test_configs/path/to/bootstrap/pre-customizations.scss',
+    preBootstrapCustomizations: path.resolve(
+      testConfigsDir,
+      './path/to/bootstrap/pre-customizations.scss'
+    ),
+    disableSassSourceMap: undefined,
+    disableResolveUrlLoader: undefined,
     scripts: [
       'alert',
       'button',
